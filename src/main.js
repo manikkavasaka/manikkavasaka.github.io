@@ -4,7 +4,7 @@ import './style.css'
 console.log('MK ShopZone App Initialized');
 
 // Preloader Configuration
-const PRELOADER_DURATION = 1000; // Total time the preloader is shown (ms)
+const PRELOADER_DURATION = 500; // Total time the preloader is shown (ms)
 const FADE_OUT_DELAY = 300; // Delay before removing element after fade starts
 
 // Preloader Logic
@@ -75,7 +75,7 @@ const fadeElements = document.querySelectorAll('.fade-in');
 fadeElements.forEach(el => observer.observe(el));
 
 // Form Submission Handling
-import * as XLSX from 'xlsx';
+
 
 // Form Submission Handling
 const leadForm = document.getElementById('leadForm');
