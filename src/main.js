@@ -1,6 +1,3 @@
-import './style.css'
-
-
 console.log('MK ShopZone App Initialized');
 
 

@@ -13,7 +13,7 @@
     content="MK ShopZone, Digital Marketing Agency, SEO Services, Web Development, Google Ads, Meta Ads, Online Branding, Business Growth, Lead Generation, Social Media Marketing" />
   <meta name="author" content="MK ShopZone" />
   <meta name="robots" content="index, follow" />
-  <link rel="icon" type="image/png" href="/logo-premium.png" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <style>
     :root {
       --bg-body: #050508;
@@ -51,6 +51,8 @@
       font-weight: 900;
       border-radius: 12px;
       font-family: 'Outfit', sans-serif;
+      position: relative;
+      overflow: hidden;
     }
 
     .logo-text {
@@ -64,15 +66,20 @@
       opacity: 1 !important;
       visibility: visible !important;
       min-height: 80vh;
-      background: #050508;
+      background: linear-gradient(rgba(5, 5, 8, 0.8), rgba(5, 5, 8, 0.8)), url('hero-bg.png');
+      background-size: cover;
+      background-position: center;
       display: flex;
       align-items: center;
+      position: relative;
     }
 
     .hero-content {
       color: white;
       width: 100%;
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
     .fade-in {
@@ -92,14 +99,14 @@
       }
     }
   </style>
-  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="src/style.css">
   <noscript>
-    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="src/style.css">
   </noscript>
 
 
   <!-- Open Graph / Facebook / Instagram -->
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#5D5CDE">
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mkshopzone.com/" />
@@ -181,7 +188,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
       <div class="hero-bg">
-        <img src="/hero-bg.png"
+        <img src="hero-bg.png"
           alt="Top digital marketing agency in Chennai offering SEO services and Google Ads management"
           fetchpriority="high">
         <div class="glow-circle"></div>
@@ -225,7 +232,7 @@
           <!-- Service 1 -->
           <a href="seo.html" class="service-card fade-in">
             <div class="icon-box">
-              <img src="/seo-icon.png" alt="SEO Services" class="service-icon" loading="lazy">
+              <img src="seo-icon.png" alt="SEO Services" class="service-icon" loading="lazy">
             </div>
             <h3>🔍 SEO Services</h3>
             <p>
@@ -236,7 +243,7 @@
           <!-- Service 2 -->
           <a href="google-meta-ads.html" class="service-card fade-in">
             <div class="icon-box">
-              <img src="/ads-icon.png" alt="Google & Meta Ads Services" class="service-icon" loading="lazy">
+              <img src="ads-icon.png" alt="Google & Meta Ads Services" class="service-icon" loading="lazy">
             </div>
             <h3>🚀 Google & Meta Ads Services</h3>
             <p>
@@ -247,7 +254,7 @@
           <!-- Service 3 -->
           <a href="web-development.html" class="service-card fade-in">
             <div class="icon-box">
-              <img src="/web-dev-icon.png" alt="Website Development Company" class="service-icon" loading="lazy">
+              <img src="web-dev-icon.png" alt="Website Development Company" class="service-icon" loading="lazy">
             </div>
             <h3>💻 Website Development Company</h3>
             <p>
@@ -293,7 +300,7 @@
       <div class="container about-wrapper">
         <div class="about-visual fade-in">
           <div class="visual-box">
-            <img src="/ads 2.webp"
+            <img src="ads 2.webp"
               alt="Strategic SEO and digital marketing excellence – MK ShopZone's data-driven growth strategy for businesses"
               class="about-img">
             <div class="stat-card stat-1">
@@ -716,7 +723,7 @@
     </svg>
   </a>
 
-  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="src/main.js"></script>
 </body>
 
 
