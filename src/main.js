@@ -68,7 +68,7 @@ if (leadForm) {
         // Use a real domain if available, otherwise just show the concept
         const imageUrl = "https://mkshopzone.me/promo-share.jpg";
         const websiteUrl = "https://mkshopzone.me/";
-        const waMessage = `*New Lead Inquiry* %0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A%0A*Website:* ${websiteUrl}%0A*Image:* ${imageUrl}`;
+        const waMessage = `*New Lead Inquiry* %0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A%0A*Website:* ${websiteUrl}`;
         const waURL = `https://wa.me/${waNumber}?text=${waMessage}`;
 
         // Direct to WhatsApp (no backend dependency)
