@@ -7,12 +7,16 @@
   --bg-glass: rgba(255, 255, 255, 0.05);
   --bg-glass-heavy: rgba(5, 5, 8, 0.85);
 
-  --primary: #5D5CDE;
-  --primary-dark: #4338ca;
-  --primary-glow: rgba(93, 92, 222, 0.4);
-  --accent: #06b6d4;
-  /* Cyan */
-  --accent-glow: rgba(6, 182, 212, 0.4);
+  --primary: #6366f1;
+  /* Indigo */
+  --primary-dark: #4f46e5;
+  --primary-glow: rgba(99, 102, 241, 0.5);
+  --accent: #f43f5e;
+  /* Rose/Pink accent for more color */
+  --accent-glow: rgba(244, 63, 94, 0.4);
+  --secondary: #0ea5e9;
+  /* Sky Blue */
+  --secondary-glow: rgba(14, 165, 233, 0.4);
 
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
@@ -46,6 +50,31 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -10%;
+  right: -10%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+  z-index: -2;
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.05) 0%, transparent 70%);
+  z-index: -2;
+  pointer-events: none;
 }
 
 a {
@@ -66,10 +95,11 @@ ul {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 50%, var(--secondary) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.2));
 }
 
 .btn {
@@ -340,7 +370,7 @@ ul {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(to bottom, rgba(5, 5, 8, 0.85), rgba(5, 5, 8, 0.7)), url('/digital-marketing-agency-chennai-seo-google-ads.jpg');
+  background: linear-gradient(to bottom, rgba(5, 5, 8, 0.85), rgba(5, 5, 8, 0.7)), url('/hero-bg.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
