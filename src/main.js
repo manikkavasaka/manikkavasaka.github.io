@@ -3,31 +3,7 @@ import './style.css'
 
 console.log('MK ShopZone App Initialized');
 
-// Preloader Configuration
-const PRELOADER_DURATION = 500; // Total time the preloader is shown (ms)
-const FADE_OUT_DELAY = 300; // Delay before removing element after fade starts
 
-// Preloader Logic - Set to 1 second as requested
-const hidePreloader = () => {
-    const preloader = document.getElementById('preloader');
-    if (preloader && !preloader.classList.contains('preloader-hidden')) {
-        preloader.classList.add('preloader-hidden');
-        document.body.style.overflow = '';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, FADE_OUT_DELAY);
-    }
-};
-
-// Show splash/preloader for exactly 1 second
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(hidePreloader, 1000);
-});
-window.addEventListener('load', () => {
-    // Ensuring it hides if DOMContentLoaded didn't trigger correctly, 
-    // but we still want it to last around 1s.
-    setTimeout(hidePreloader, 1000);
-});
 
 
 
