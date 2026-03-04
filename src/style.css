@@ -374,7 +374,10 @@ ul {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  /* Parallax effect */
+}
+
+.hero-bg img {
+  display: none;
 }
 
 .hero-content {
@@ -442,6 +445,8 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
 .service-card:hover {
@@ -555,7 +560,7 @@ ul {
   background: rgba(255, 0, 150, 0.05);
   /* Matches branding theme */
   border-radius: 30px;
-  overflow: visible;
+  overflow: hidden;
   position: relative;
 }
 
@@ -617,26 +622,26 @@ ul {
 }
 
 .node-1 {
-  top: 5px;
-  left: 5px;
+  top: 15px;
+  left: 15px;
   animation-delay: 0s;
 }
 
 .node-2 {
-  top: 5px;
-  right: 5px;
+  top: 15px;
+  right: 15px;
   animation-delay: 1s;
 }
 
 .node-3 {
-  bottom: 5px;
-  left: 5px;
+  bottom: 15px;
+  left: 15px;
   animation-delay: 2s;
 }
 
 .node-4 {
-  bottom: 5px;
-  right: 5px;
+  bottom: 15px;
+  right: 15px;
   animation-delay: 3s;
 }
 
@@ -1218,7 +1223,13 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  max-width: 90%;
 }
 
 .preloader-text {
@@ -1243,7 +1254,8 @@ ul {
 }
 
 .loading-bar {
-  width: 200px;
+  width: 100%;
+  max-width: 250px;
   height: 4px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
