@@ -71,41 +71,18 @@ if (leadForm) {
         const waMessage = `*New Lead Inquiry* %0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A%0A*Website:* ${websiteUrl}%0A*Image:* ${imageUrl}`;
         const waURL = `https://wa.me/${waNumber}?text=${waMessage}`;
 
-        // 2. Secure Backend Storage (Server-side)
-        const leadData = { name, email, phone, service };
+        // Direct to WhatsApp (no backend dependency)
+        window.open(waURL, '_blank');
 
-        // Send data to secure backend
-        fetch('http://localhost:3000/api/submit-lead', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(leadData)
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Success Flow
-                    window.open(waURL, '_blank');
-                    alert('Thank you! Your details have been securely saved. Redirecting to WhatsApp...');
-                    leadForm.reset();
-                    btn.innerText = 'Message Sent';
-                } else {
-                    throw new Error('Backend failed');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // Fallback for demo if server is not running
-                window.open(waURL, '_blank');
-                alert('Connected to WhatsApp. (Note: Backend server might be offline, but your chat is ready!)');
-            })
-            .finally(() => {
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.disabled = false;
-                }, 2000);
-            });
+        // Reset and notify
+        setTimeout(() => {
+            leadForm.reset();
+            btn.innerText = 'Message Sent';
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }, 2000);
+        }, 500);
     });
 }
 
