@@ -8,18 +8,15 @@
   --bg-glass-heavy: rgba(5, 5, 8, 0.85);
 
   --primary: #6366f1;
-  /* Indigo */
   --primary-dark: #4f46e5;
   --primary-glow: rgba(99, 102, 241, 0.5);
   --accent: #f43f5e;
-  /* Rose/Pink accent for more color */
   --accent-glow: rgba(244, 63, 94, 0.4);
   --secondary: #0ea5e9;
-  /* Sky Blue */
   --secondary-glow: rgba(14, 165, 233, 0.4);
 
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
+  --text-main: #ffffff;
+  --text-muted: #cbd5e1;
 
   --border-light: rgba(255, 255, 255, 0.08);
 
@@ -224,19 +221,40 @@ ul {
 
 /* Animations */
 .fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
   opacity: 1;
-  transform: translateY(0);
+  animation: fadeInSlide 1.2s ease-out forwards;
 }
 
-/* Staggered Animation Delays */
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .delay-100 {
+  animation-delay: 0.1s;
   transition-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+  transition-delay: 0.4s;
 }
 
 .delay-200 {
@@ -420,8 +438,8 @@ ul {
 /* Hero */
 .hero {
   position: relative;
-  padding: 180px 0 100px;
-  min-height: 90vh;
+  padding: 120px 0 80px;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   overflow: hidden;
