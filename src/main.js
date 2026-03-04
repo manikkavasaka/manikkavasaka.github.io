@@ -66,8 +66,9 @@ if (leadForm) {
         // 1. WhatsApp Integration (Client-side convenience)
         const waNumber = "917200059453";
         // Use a real domain if available, otherwise just show the concept
-        const imageUrl = "https://mkshopzone.com/promo-image.jpg";
-        const waMessage = `*New Lead Inquiry* %0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A%0A*Company Info:* ${imageUrl}`;
+        const imageUrl = "https://mkshopzone.me/promo-share.jpg";
+        const websiteUrl = "https://mkshopzone.me/";
+        const waMessage = `*New Lead Inquiry* %0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A%0A*Website:* ${websiteUrl}%0A*Image:* ${imageUrl}`;
         const waURL = `https://wa.me/${waNumber}?text=${waMessage}`;
 
         // 2. Secure Backend Storage (Server-side)
