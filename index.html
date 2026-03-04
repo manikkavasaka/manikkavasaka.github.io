@@ -14,7 +14,35 @@
   <meta name="author" content="MK ShopZone" />
   <meta name="robots" content="index, follow" />
   <link rel="icon" type="image/png" href="/logo-premium.png" />
-  <link rel="stylesheet" href="/src/style.css">
+  <style>
+    :root {
+      --bg-body: #050508;
+      --primary: #6366f1;
+      --text-main: #f8fafc;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      margin: 0;
+      font-family: var(--font-body);
+    }
+
+    #preloader {
+      position: fixed;
+      inset: 0;
+      background: #050508;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+  <link rel="stylesheet" href="/src/style.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="/src/style.css">
+  </noscript>
 
 
   <!-- Open Graph / Facebook / Instagram -->

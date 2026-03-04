@@ -7,31 +7,23 @@ console.log('MK ShopZone App Initialized');
 const PRELOADER_DURATION = 500; // Total time the preloader is shown (ms)
 const FADE_OUT_DELAY = 300; // Delay before removing element after fade starts
 
-// Preloader Logic
-window.addEventListener('load', () => {
+// Preloader Logic - Aggressive for 2s Target
+const hidePreloader = () => {
     const preloader = document.getElementById('preloader');
-
-    // 1. Lock scroll initially
-    document.body.style.overflow = 'hidden';
-
-    if (preloader) {
-        // Wait for the animation/loading duration
-        setTimeout(() => {
-            preloader.classList.add('preloader-hidden');
-
-            // 2. Unlock scroll when fade out starts
-            document.body.style.overflow = '';
-
-            // Optional: Completely remove from DOM after transition
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, FADE_OUT_DELAY);
-
-        }, PRELOADER_DURATION);
-    } else {
+    if (preloader && !preloader.classList.contains('preloader-hidden')) {
+        preloader.classList.add('preloader-hidden');
         document.body.style.overflow = '';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, FADE_OUT_DELAY);
     }
+};
+
+// Trigger as soon as DOM is ready, fallback to load
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(hidePreloader, 300); // Super fast exit
 });
+window.addEventListener('load', hidePreloader);
 
 
 

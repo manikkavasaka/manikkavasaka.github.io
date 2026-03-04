@@ -15,7 +15,25 @@
     <link rel="icon" type="image/png" href="/logo-premium.png" />
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#5D5CDE">
-    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        :root {
+            --bg-body: #050508;
+            --primary: #6366f1;
+            --text-main: #f8fafc;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            margin: 0;
+            font-family: var(--font-body);
+        }
+    </style>
+    <link rel="stylesheet" href="/src/style.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/src/style.css">
+    </noscript>
     <!-- Reuse main CSS -->
 
     <script type="application/ld+json">
