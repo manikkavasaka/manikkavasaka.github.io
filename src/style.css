@@ -2534,3 +2534,43 @@ section { width: 100%; overflow: hidden; }
 
 
 .contact-section-header { text-align: center; margin-bottom: 3rem; } .contact-section-header h2 { font-size: 2.2rem; color: white; margin-bottom: 0.5rem; font-weight: 800; } .contact-section-header .device-tag { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1rem; } .contact-section-header h3 { font-size: 1.6rem; color: var(--primary); font-weight: 700; margin-top: 0.5rem; } @media (max-width: 600px) { .contact-section-header h2 { font-size: 1.8rem; } .contact-section-header h3 { font-size: 1.4rem; } }
+
+.form-group textarea {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: white;
+  font-family: var(--font-body);
+  transition: var(--trans-smooth);
+  resize: vertical;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.whatsapp-message-btn {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25D366 !important;
+  color: white !important;
+  border: none !important;
+  margin-top: 1rem;
+  width: 100%;
+  padding: 1rem !important;
+  font-weight: 700 !important;
+}
+
+@media (min-width: 901px) {
+  .whatsapp-message-btn {
+    display: none !important;
+  }
+}
+
