@@ -2488,3 +2488,33 @@ section { width: 100%; overflow: hidden; }
 
 @media (max-width: 600px) { .hero-top-label { margin-bottom: 1.5rem !important; } .badge-glow { font-size: 0.75rem !important; padding: 0.3rem 0.8rem !important; } }
 @media (max-width: 768px) { .contact-info h2 { font-size: 1.8rem !important; margin-bottom: 1.5rem !important; display: block !important; visibility: visible !important; } .contact-form h3 { font-size: 1.5rem !important; margin-bottom: 1.5rem !important; display: block !important; visibility: visible !important; } }
+
+/* Contact Responsiveness Overrides */
+.mobile-contact-header {
+  display: none;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.mobile-contact-header h2 {
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+
+.mobile-contact-header h3 {
+  font-size: 1.25rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .mobile-contact-header {
+    display: block !important;
+  }
+  .desktop-only-heading {
+    display: none !important;
+  }
+}
+
