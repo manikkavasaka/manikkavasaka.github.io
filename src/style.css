@@ -2518,3 +2518,17 @@ section { width: 100%; overflow: hidden; }
   }
 }
 
+
+
+.device-tag {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+.mobile-contact-header .device-tag {
+  display: block;
+}
+
