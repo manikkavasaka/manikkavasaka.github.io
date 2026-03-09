@@ -4,4 +4,4 @@ Disallow: /secure_data/
 Disallow: /node_modules/
 Disallow: /dist/
 
-Sitemap: https://mkshopzone.com/sitemap.xml
+Sitemap: https://mkshopzone.me/sitemap.xml
