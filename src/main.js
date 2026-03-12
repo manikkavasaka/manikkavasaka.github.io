@@ -117,3 +117,53 @@ faqItems.forEach(item => {
         item.classList.toggle('active');
     });
 });
+
+// Animated Number Counter for Stats Section
+const animateValue = (obj, start, end, duration, suffix = '') => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        // easeOutQuart for smooth deceleration
+        const easeProgress = 1 - Math.pow(1 - progress, 4);
+        obj.innerHTML = Math.floor(easeProgress * (end - start) + start) + suffix;
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        } else {
+            obj.innerHTML = end + suffix; // Ensure exact final value
+        }
+    };
+    window.requestAnimationFrame(step);
+};
+
+const statsObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            const text = el.innerText;
+            let endVal = 0;
+            let suffix = '';
+            
+            // Parse the number and the suffix (+ or %)
+            if (text.includes('+')) {
+                endVal = parseInt(text.replace(/\D/g, ''));
+                suffix = '+';
+            } else if (text.includes('%')) {
+                endVal = parseInt(text.replace(/\D/g, ''));
+                suffix = '%';
+            } else {
+                endVal = parseInt(text.replace(/\D/g, ''));
+            }
+            
+            if (!isNaN(endVal) && endVal > 0) {
+                // Initial state
+                el.innerText = '0' + suffix;
+                // Start animation
+                animateValue(el, 0, endVal, 2500, suffix);
+            }
+            observer.unobserve(el); // Only animate once
+        }
+    });
+}, { threshold: 0.5 }); // Trigger when 50% visible
+
+document.querySelectorAll('.stat-number').forEach(stat => statsObserver.observe(stat));
