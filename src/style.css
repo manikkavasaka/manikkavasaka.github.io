@@ -403,58 +403,91 @@ ul {
 }
 
 
+
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.8rem 2rem;
+  padding: 1rem 2.2rem;
   border-radius: 50px;
-  font-weight: 600;
+  font-weight: 700;
   font-family: var(--font-brand);
   cursor: pointer;
-  transition: var(--trans-fast);
-  font-size: 1rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-size: 1.05rem;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  z-index: 1;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+/* --- Get Website Quote (Premium Gradient) --- */
+.btn-quote {
+  background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
   color: white;
-  border: 1px solid transparent;
-  box-shadow: 0 0 20px rgba(93, 92, 222, 0.3);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
 }
 
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 30px rgba(93, 92, 222, 0.5);
+.btn-quote:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.5);
+  background: linear-gradient(135deg, #4f46e5 0%, #2563eb 100%);
+}
+
+.btn-quote svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.4s ease;
+}
+
+.btn-quote:hover svg {
+  transform: rotate(15deg) scale(1.2);
+}
+
+/* --- Call Web Expert (Sleek Dark Outline) --- */
+.btn-expert {
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.btn-expert:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #6366f1;
+  color: #fff;
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
+}
+
+.btn-expert svg {
+  width: 18px;
+  height: 18px;
+  transition: all 0.4s ease;
+  fill: currentColor;
+}
+
+.btn-expert:hover svg {
+  transform: translateX(3px) rotate(-10deg);
+  filter: drop-shadow(0 0 8px #6366f1);
+}
+
+/* Base button fallbacks */
+.btn-primary {
+  background: var(--primary);
+  color: white;
 }
 
 .btn-outline {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #fff;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.btn-outline:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  background: transparent;
+  border: 1px solid var(--border-light);
 }
 
 .btn-whatsapp {
   background: #25D366;
   color: white;
-  border: none;
-  font-weight: 700;
-  margin-top: 1rem;
-}
-
-.btn-whatsapp:hover {
-  background: #22c55e;
-  transform: scale(1.05);
 }
 
 /* Floating WhatsApp Button */
