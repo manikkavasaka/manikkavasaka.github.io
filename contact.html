@@ -8,34 +8,45 @@
     <meta name="keywords" content="contact agency, digital marketing consultation, growth audit, MK Shopzone contact">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://mkshopzone.com/contact.html">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff8c00'/><text x='50%' y='55%' font-family='Outfit' font-weight='bold' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'>MK</text></svg>">
     <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
 
-
-    <header class="navbar scrolled" id="navbar">
+    <header class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="/" class="logo">MK<span>SHOPZONE</span></a>
             <nav class="nav-links" id="navLinks">
                 <a href="/">Home</a>
                 <div class="nav-dropdown">
-                    <a href="/#services" class="dropdown-trigger">Services</a>
+                    <a href="#services" class="dropdown-trigger">Services</a>
                     <div class="dropdown-content">
                         <a href="seo.html">Advanced SEO</a>
                         <a href="paid-ads.html">Paid Ads & PPC</a>
                         <a href="website-design.html">Elite Web Design</a>
-                        <a href="social-media.html">Social Media</a>
+                        <a href="android-app.html">App Development</a>
+                        <a href="social-media.html">Social Media Marketing</a>
                         <a href="email-marketing.html">Email Marketing</a>
                         <a href="video-marketing.html">Video Production</a>
                     </div>
                 </div>
+                <div class="nav-dropdown">
+                    <a href="#why-us" class="dropdown-trigger">Industries</a>
+                    <div class="dropdown-content">
+                        <a href="ecommerce.html">E-commerce</a>
+                        <a href="healthcare.html">Healthcare</a>
+                        <a href="real-estate.html">Real Estate</a>
+                        <a href="education.html">Education</a>
+                    </div>
+                </div>
                 <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html" class="active">Contact</a>
             </nav>
             <div class="nav-actions">
-                <a href="#contact" class="btn btn-secondary btn-magnetic" style="padding: 12px 28px; font-size: 0.85rem;">Free Audit</a>
+                <a href="/#contact" class="btn btn-secondary btn-magnetic" style="padding: 10px 24px; font-size: 0.82rem;">Free Audit</a>
             </div>
-            <div class="hamburger" id="hamburger"><span>span><span>span><span>span></div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
     </header>
 
@@ -56,40 +67,64 @@
             </div>
         </section>
 
-        <section class="section" id="contact">
+        <section class="section" id="contact" style="background: var(--bg-deep);">
             <div class="container contact-container">
-                <div class="glass-card" data-reveal>
-                    <div class="text-center" style="margin-bottom: 50px;">
-                        <h4>Direct Access</h4>
-                        <h2>Request Your Strategy Audit</h2>
+                <div class="split-grid">
+                    <div data-reveal>
+                        <span class="contact-badge">Direct Agency Access</span>
+                        <h2 style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 30px;">Let's Ignite <br><span class="gradient-text">Your Growth.</span></h2>
+                        <p style="font-size: 1.25rem; line-height: 1.8; color: var(--text-muted); max-width: 550px;">Our Precision Audits reveal exactly where your digital engine is leaking revenue. Get a clear roadmap to 10x organic and paid growth.</p>
+                        
+                        <div style="margin-top: 50px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; flex-wrap: wrap; gap: 40px;">
+                            <div style="display: flex; gap: 15px; align-items: center;">
+                                <div style="background: rgba(255,140,0,0.1); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem;">📧</div>
+                                <div>
+                                    <h5 style="color: #fff; margin: 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Strategy Desk</h5>
+                                    <p style="margin: 0; font-size: 1rem; color: var(--text-dim);">strategy@mkshopzone.com</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 15px; align-items: center;">
+                                <div style="background: rgba(255,140,0,0.1); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem;">📍</div>
+                                <div>
+                                    <h5 style="color: #fff; margin: 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Agency HQ</h5>
+                                    <p style="margin: 0; font-size: 1rem; color: var(--text-dim);">Tech Park, Coimbatore, India</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <form id="contactForm">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-                            <div class="form-group">
-                                <input type="text" class="form-input" id="name" placeholder=" " required>
-                                <label for="name" class="form-label">Full Name</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-input" id="email" placeholder=" " required>
-                                <label for="email" class="form-label">Email Address</label>
-                            </div>
+                    <div class="contact-form-wrap" data-reveal>
+                        <div class="glass-card">
+                            <h3 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; margin-bottom: 10px; color: #fff;">Request Audit</h3>
+                            <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 40px;">Speak with an Elite Growth Strategist Today.</p>
+                            
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <input type="text" class="form-input" id="name" placeholder=" " required>
+                                    <label for="name" class="form-label">Full Name</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-input" id="email" placeholder=" " required>
+                                    <label for="email" class="form-label">Email Address</label>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-input" id="service-select" required>
+                                        <option value="" disabled selected hidden>Select Specialist Service</option>
+                                        <option value="seo">Advanced SEO Optimization</option>
+                                        <option value="web">Elite Web Development</option>
+                                        <option value="ads">Performance Paid Ads</option>
+                                        <option value="social">Social Media Authority</option>
+                                        <option value="all">Full Digital Strategy Audit</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-input" id="message" rows="3" placeholder=" " required></textarea>
+                                    <label for="message" class="form-label">Tell us about your brand goals...</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-magnetic" style="width: 100%; padding: 20px; font-weight: 900; letter-spacing: 1px;">LAUNCH SUCCESS AUDIT →</button>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <select class="form-input" id="service" required style="background: transparent; color: #fff;">
-                                <option value="" disabled selected hidden>Select Objective</option>
-                                <option value="seo">Revenue Scale (SEO)</option>
-                                <option value="ads">Immediate ROAS (Ads)</option>
-                                <option value="web">Platform Modernization</option>
-                                <option value="all">Full Digital Transformation</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-input" id="message" rows="5" placeholder=" " required></textarea>
-                            <label for="message" class="form-label">Tell us about your brand goals...</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-magnetic" style="width: 100%; padding: 25px;">Start Your Growth Journey</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -100,10 +135,10 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="/" class="logo" style="font-size: 1.5rem;">MK<span>SHOPZONE</span></a>
-                    <p style="margin-top: 20px; font-size: 0.9rem;">The premier global agency for data-driven revenue growth and category dominance.</p>
+                    <p style="margin-top: 20px; font-size: 0.9rem;">Building digital legacies for ambitious brands through data-driven performance and elite creative execution.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Ecosystem</h4>
+                    <h4>Solutions</h4>
                     <ul>
                         <li><a href="seo.html">Advanced SEO</a></li>
                         <li><a href="paid-ads.html">Paid Advertisements</a></li>
@@ -112,16 +147,27 @@
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Company</h4>
+                    <h4>About</h4>
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="about.html">Our Story</a></li>
-                        <li><a href="privacy-policy.html">Privacy Control</a></li>
+                        <li><a href="/#why-us">Our Story</a></li>
+                        <li><a href="/#process">Our Process</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter/X</a></li>
+                        <li><a href="#">YouTube</a></li>
                     </ul>
                 </div>
             </div>
             <div class="text-center" style="padding-top: 40px; border-top: 1px solid var(--border-light);">
-                <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2026 MK SHOPZONE. All Rights Reserved.</p>
+                <p style="font-size: 0.8rem; letter-spacing: 1px;">&copy; 2026 MK SHOPZONE. Precision Engineered Growth.</p>
             </div>
         </div>
     </footer>
