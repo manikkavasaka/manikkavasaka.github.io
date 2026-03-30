@@ -1,0 +1,186 @@
+/* ===== SUB-PAGE DESIGN SYSTEM: TECH-CORPORATE LIGHT ===== */
+:root {
+  --sp-primary: #ff8c00;
+  --sp-primary-dark: #cc7000;
+  --sp-bg: #ffffff;
+  --sp-bg-alt: #fcfcfc;
+  --sp-text: #111111;
+  --sp-text-muted: #555555;
+  --sp-border: #eeeeee;
+  --sp-accent: #f8f9fa;
+  --sp-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+body.sp-body {
+  background-color: var(--sp-bg);
+  color: var(--sp-text);
+  font-family: 'Inter', sans-serif;
+  opacity: 1;
+  animation: none; /* Override main site animation */
+}
+
+/* Sub-page Navbar */
+.sp-nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--sp-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.sp-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #000;
+}
+
+.sp-logo span { color: var(--sp-primary); }
+
+.sp-nav-links {
+  display: flex;
+  gap: 30px;
+  margin-left: auto;
+}
+
+.sp-nav-links a {
+  font-weight: 600;
+  color: var(--sp-text);
+  font-size: 0.95rem;
+}
+
+.sp-nav-links a:hover { color: var(--sp-primary); }
+
+/* Service Hero */
+.sp-hero {
+  padding: 100px 0;
+  background: var(--sp-bg);
+  border-bottom: 1px solid var(--sp-border);
+}
+
+.sp-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: var(--sp-text);
+  margin-bottom: 25px;
+  line-height: 1.1;
+}
+
+.sp-hero .lead {
+  font-size: 1.4rem;
+  color: var(--sp-text-muted);
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+/* Content Sections */
+.sp-section {
+  padding: 100px 0;
+}
+
+.sp-section-alt {
+  background-color: var(--sp-bg-alt);
+}
+
+.sp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.sp-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  color: var(--sp-text);
+}
+
+.sp-content p {
+  font-size: 1.15rem;
+  color: var(--sp-text-muted);
+  margin-bottom: 30px;
+}
+
+/* Cards / Features */
+.sp-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.sp-feature-card {
+  padding: 40px;
+  border: 1px solid var(--sp-border);
+  border-radius: 12px;
+  background: white;
+  transition: var(--sp-transition);
+}
+
+.sp-feature-card:hover {
+  border-color: var(--sp-primary);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.sp-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--sp-accent);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  color: var(--sp-primary);
+}
+
+/* Case Study Light */
+.sp-case-study {
+  background: #111;
+  color: white;
+  padding: 80px;
+  border-radius: 30px;
+}
+
+.sp-case-study h2, .sp-case-study h3 { color: white; }
+
+.sp-stat-box {
+  border-left: 3px solid var(--sp-primary);
+  padding-left: 25px;
+  margin-top: 30px;
+}
+
+.sp-stat-val {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--sp-primary);
+}
+
+/* CTAs */
+.sp-cta {
+  background: linear-gradient(135deg, #ff8c00 0%, #ff5e00 100%);
+  padding: 80px 0;
+  text-align: center;
+  color: white;
+  border-radius: 30px;
+  margin: 60px 0;
+}
+
+.sp-cta h2 { color: white; margin-bottom: 20px; }
+
+.btn-sp {
+  background: white;
+  color: var(--sp-primary);
+  padding: 18px 45px;
+  border-radius: 50px;
+  font-weight: 800;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+@media (max-width: 992px) {
+  .sp-grid { grid-template-columns: 1fr; gap: 50px; }
+  .sp-case-study { padding: 40px; }
+}

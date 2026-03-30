@@ -1,0 +1,34 @@
+{
+  "name": "mkshopzone",
+  "version": "1.0.0",
+  "description": "Professional digital marketing website for MK Shopzone - SEO, Social Media, PPC, and Web Development Services",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo 'Run tests'"
+  },
+  "keywords": [
+    "digital marketing",
+    "SEO",
+    "social media marketing",
+    "PPC",
+    "web development",
+    "digital agency",
+    "Tamil Nadu",
+    "India"
+  ],
+  "author": "MK Shopzone",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "vite": "^8.0.3"
+  },
+  "devDependencies": {
+    "terser": "^5.46.1"
+  }
+}
