@@ -142,47 +142,57 @@
 
         <!-- Contact Section -->
         <section class="section" id="contact" style="background: var(--bg-deep);">
-            <div class="container contact-container">
-                <div class="split-grid">
-                    <div data-reveal>
-                        <span class="contact-badge">Direct Agency Access</span>
-                        <h2 style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 30px;">Stop Guessing. <br><span class="gradient-text">Start Growing.</span></h2>
-                        <p style="font-size: 1.25rem; line-height: 1.8; color: var(--text-muted); max-width: 550px;">Our SEO Precision Audits reveal exactly where you're losing organic reach. Get a clear roadmap to category dominance.</p>
-                        
-                        <div style="margin-top: 50px; display: grid; gap: 30px;">
-                            <div style="display: flex; gap: 20px; align-items: start;">
-                                <div style="color: var(--primary); font-size: 1.5rem; transform: translateY(-5px);">✦</div>
-                                <div>
-                                    <h4 style="color: #fff; text-transform: none; letter-spacing: 0; font-size: 1.3rem; margin-bottom: 6px;">Search Intent IQ</h4>
-                                    <p style="font-size: 1rem; margin: 0;">Comprehensive audit of your visibility for high-value search terms.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="margin-top: 50px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; flex-wrap: wrap; gap: 40px;">
-                            <div style="display: flex; gap: 15px; align-items: center;">
-                                <div style="background: rgba(255,140,0,0.1); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem;">📧</div>
-                                <div>
-                                    <h5 style="color: #fff; margin: 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Strategy Desk</h5>
-                                    <p style="margin: 0; font-size: 1rem; color: var(--text-dim);">mkshopzone2@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-form-wrap" data-reveal>
-                        <div class="glass-card">
-                            <h3 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; margin-bottom: 10px; color: #fff;">Request Audit</h3>
-                            <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 40px;">Speak with an Elite SEO Strategist Today.</p>
+            <div class="container">
+                <!-- UNIFIED SPLIT BOX -->
+                <div class="unified-audit-card glass-card" data-reveal>
+                    <div class="split-grid" style="grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+                        <!-- LEFT: Text & Branding -->
+                        <div class="audit-branding">
+                            <span class="contact-badge">Direct Agency Access</span>
+                            <h2 style="font-size: 3.5rem; line-height: 1.1; margin: 15px 0 25px;">Stop Guessing. <br><span class="gradient-text">Start Growing.</span></h2>
+                            <p style="font-size: 1.1rem; color: #94a3b8; line-height: 1.6; margin-bottom: 40px;">Our SEO Precision Audits reveal exactly where you're losing organic reach. Get a clear roadmap to category dominance.</p>
                             
+                            <div style="display: grid; gap: 20px;">
+                                <div style="display: flex; gap: 15px; align-items: center;">
+                                    <div style="color: var(--primary); font-size: 1.2rem;">✦</div>
+                                    <div>
+                                        <h4 style="color: #fff; margin: 0; font-size: 1.1rem;">Search Intent IQ</h4>
+                                        <p style="margin: 0; font-size: 0.9rem; color: #64748b;">Audit your visibility for high-value terms.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Contact Links -->
+                            <div style="margin-top: 50px; display: flex; gap: 30px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px;">
+                                <div>
+                                    <h5 style="color: var(--primary); margin: 0; font-size: 0.75rem; text-transform: uppercase;">Voice Line</h5>
+                                    <p style="margin: 5px 0 0; font-size: 0.9rem; color: #fff;">+91 95007 04443</p>
+                                </div>
+                                <div>
+                                    <h5 style="color: var(--primary); margin: 0; font-size: 0.75rem; text-transform: uppercase;">Strategy Desk</h5>
+                                    <p style="margin: 5px 0 0; font-size: 0.9rem; color: #fff;">strategy@mkshopzone.com</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT: Form -->
+                        <div class="audit-form-col">
+                            <div style="margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 20px;">
+                                <h2 style="font-size: 2rem; margin: 0;">Request Audit</h2>
+                                <p style="color: var(--primary); font-size: 0.9rem; margin: 5px 0 0;">Elite Performance SEO Strategy.</p>
+                            </div>
                             <form id="contactForm">
                                 <div class="form-group">
                                     <input type="text" class="form-input" id="name" placeholder=" " required>
                                     <label for="name" class="form-label">Full Name</label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-input" id="email" placeholder=" " required>
+                                    <input type="email" name="email" id="email" class="form-input" placeholder=" " required>
                                     <label for="email" class="form-label">Email Address</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" name="phone" id="phone" class="form-input" placeholder=" " required>
+                                    <label for="phone" class="form-label">Phone Number</label>
                                 </div>
                                 <div class="form-group">
                                     <select class="form-input" id="service-select" required>
@@ -195,10 +205,10 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-input" id="message" rows="3" placeholder=" " required></textarea>
-                                    <label for="message" class="form-label">Tell us about your brand/goals...</label>
+                                    <textarea class="form-input" id="message" rows="2" placeholder=" " required></textarea>
+                                    <label for="message" class="form-label">Key goals...</label>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-magnetic" style="width: 100%; padding: 20px; font-weight: 900; letter-spacing: 1px;">LAUNCH SUCCESS AUDIT →</button>
+                                <button type="submit" class="btn btn-primary btn-magnetic" style="width: 100%;">LAUNCH SUCCESS AUDIT →</button>
                             </form>
                         </div>
                     </div>
