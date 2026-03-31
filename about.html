@@ -1,228 +1,841 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Elite Digital Marketing Leadership | MK Shopzone</title>
-    <meta name="description" content="Meet the team behind the world's most aggressive performance marketing agency. We build digital legacies through data-driven creativity and technical mastery.">
-    <meta name="keywords" content="digital marketing agency, MK Shopzone team, about us agency, performance marketing specialists">
+    <title>About Our Digital Marketing Agency | Top SEO & Web Design Experts</title>
+    <meta name="description"
+        content="Discover MK Shopzone, a premium digital marketing agency specializing in advanced SEO, performance PPC, and elite web architecture to accelerate business growth.">
+    <meta name="keywords"
+        content="digital marketing agency Coimbatore, professional SEO agency India, performance marketing experts, ecommerce digital solutions, B2B lead generation">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://mkshopzone.com/about.html">
     <link rel="stylesheet" href="/src/style.css">
+    <style>
+        /* Custom Background & Core Animations */
+        @keyframes subtlePan {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes floatAccurate {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 140, 0, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 15px 10px rgba(255, 140, 0, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 140, 0, 0);
+            }
+        }
+
+        .gradient-text-clip {
+            background: linear-gradient(135deg, #fff 30%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .animated-float {
+            animation: floatAccurate 4s ease-in-out infinite;
+        }
+
+        .animated-pulse-border {
+            animation: pulseGlow 2.5s infinite;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .industry-tag {
+            padding: 10px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .industry-tag:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .dark-hover-lift {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid transparent;
+        }
+
+        .dark-hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 140, 0, 0.1) !important;
+            border-color: rgba(255, 140, 0, 0.3) !important;
+            background: rgba(15, 23, 42, 0.4) !important;
+        }
+
+        @keyframes slideUpFade {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-animate-1 {
+            animation: slideUpFade 1s ease 0.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            opacity: 0;
+            display: inline-flex !important;
+        }
+
+        .hero-animate-2 {
+            animation: slideUpFade 1s ease 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            opacity: 0;
+        }
+
+        .hero-animate-3 {
+            animation: slideUpFade 1s ease 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            opacity: 0;
+        }
+
+        .hero-animate-4 {
+            animation: slideUpFade 1s ease 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            opacity: 0;
+        }
+    </style>
 </head>
-<body>
 
+<body style="background-color: #050505; color: #e2e8f0;">
 
-    <header class="navbar" id="navbar">
+    <!-- Navigation -->
+    <header class="navbar" id="navbar"
+        style="background: rgba(5,5,5,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.03);">
         <div class="container nav-container">
             <a href="/" class="logo">MK<span>SHOPZONE</span></a>
             <nav class="nav-links" id="navLinks">
                 <a href="/">Home</a>
                 <div class="nav-dropdown">
-                    <a href="#services" class="dropdown-trigger">Services</a>
+                    <a href="index.html#services" class="dropdown-trigger">Services</a>
                     <div class="dropdown-content">
                         <a href="seo.html">Advanced SEO</a>
-                        <a href="paid-ads.html">Paid Ads & PPC</a>
-                        <a href="website-design.html">Elite Web Design</a>
-                        <a href="android-app.html">App Development</a>
-                        <a href="social-media.html">Social Media Marketing</a>
-                        <a href="email-marketing.html">Email Marketing</a>
-                        <a href="video-marketing.html">Video Production</a>
+                        <a href="paid-ads.html">Digital Advertising</a>
+                        <a href="website-design.html">Web Development</a>
+                        <a href="android-app.html">Mobile Solutions</a>
+                        <a href="social-media.html">Social Media</a>
                     </div>
                 </div>
                 <div class="nav-dropdown">
-                    <a href="#why-us" class="dropdown-trigger">Industries</a>
+                    <a href="index.html#why-us" class="dropdown-trigger">Industries</a>
                     <div class="dropdown-content">
                         <a href="ecommerce.html">E-commerce</a>
                         <a href="healthcare.html">Healthcare</a>
                         <a href="real-estate.html">Real Estate</a>
-                        <a href="education.html">Education</a>
                     </div>
                 </div>
-                <a href="about.html" class="active">About</a>
-                <a href="blog.html">Blog</a>
-                <a href="#contact">Contact</a>
+                <a href="about.html" class="active">About Us</a>
+                <a href="blog.html">Insights</a>
+                <a href="index.html#contact">Contact</a>
             </nav>
             <div class="nav-actions">
-                <a href="#contact" class="btn btn-secondary btn-magnetic" style="padding: 10px 24px; font-size: 0.82rem;">Free Audit</a>
+                <a href="#contact" class="btn btn-primary btn-magnetic"
+                    style="padding: 10px 24px; font-size: 0.82rem;">Engage Firm</a>
             </div>
             <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
     </header>
 
     <main>
-        <section class="hero" id="hero">
-            <video class="hero-video" autoplay muted loop playsinline poster="/public/hero-bg.png">
+        <!-- 1. About Our Digital Marketing Agency (SEO-focused Hero Heading) -->
+        <section class="hero" id="hero"
+            style="min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden;">
+            <video class="hero-video" autoplay muted loop playsinline poster="/public/hero-bg.png" title="Best Digital Marketing Agency in Coimbatore - Enterprise Web Design and SEO Services" aria-label="MK Shopzone - Top SEO and Performance Marketing Firm Overview Video"
+                style="opacity: 0.8; animation: subtlePan 30s ease-in-out infinite alternate; filter: contrast(1.1) brightness(0.8);">
                 <source src="/public/about 2.mp4" type="video/mp4">
+                <p style="display: none;">Your browser does not support our video format. MK Shopzone is widely recognized as the best digital marketing agency in Coimbatore, providing top-tier enterprise web design, B2B lead generation, Meta advertising, and advanced technical SEO campaigns to scale revenue rapidly.</p>
             </video>
-            <div class="hero-overlay"></div>
-            <div class="container hero-content" data-reveal>
-                <span class="badge">The Agency Paradigm</span>
-                <h1>We Speak The <br> <span class="gradient-text">Language Of Revenue.</span></h1>
-                <p class="lead">MK Shopzone isn't just an agency; it's a high-performance growth collective dedicated to transforming ambitious brands into category leaders.</p>
-                <div class="hero-btns">
-                    <a href="#contact" class="btn btn-primary btn-magnetic">Partner With Us</a>
-                    <a href="/" class="btn btn-secondary btn-magnetic">Explore Results</a>
+            <div class="hero-overlay"
+                style="background: radial-gradient(circle at 50% 50%, rgba(5,5,5,0.3) 0%, rgba(5,5,5,0.9) 80%), linear-gradient(180deg, transparent 50%, #050505 100%);">
+            </div>
+
+            <div class="container hero-content"
+                style="position: relative; z-index: 999; padding-top: 100px; display: block; width: 100%;">
+                <div style="display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); color: #94a3b8; font-size: 0.75rem; font-weight: 600; margin-bottom: 30px; letter-spacing: 2px; text-transform: uppercase;">
+                    <div class="animated-pulse-border"
+                        style="width: 6px; height: 6px; background-color: var(--primary); border-radius: 50%;"></div>
+                    #1 Digital Marketing Agency in Coimbatore
+                </div>
+
+                <h1 style="font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1.1; font-weight: 300; letter-spacing: -1px; color: #ffffff; margin-bottom: 30px;">
+                    Enterprise SEO & <br>
+                    <span class="gradient-text-clip" style="font-weight: 700;">Performance Marketing.</span>
+                </h1>
+
+                <p style="font-size: 1.25rem; color: #94a3b8; max-width: 650px; line-height: 1.6; margin-bottom: 50px; font-weight: 300;">
+                    We are Coimbatore's premier digital marketing firm. We engineer top-ranking SEO campaigns, high-converting B2B web designs, and aggressive Meta & Google Ad strategies to help scale your revenue rapidly and dominate the market.
+                </p>
+
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <a href="#contact" class="btn btn-primary btn-magnetic"
+                        style="padding: 16px 36px; font-size: 0.95rem; font-weight: 600; border-radius: 0;">Request Your
+                        SEO Audit</a>
+                    <a href="#who-we-are" class="btn btn-magnetic"
+                        style="padding: 16px 36px; font-size: 0.95rem; font-weight: 600; color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 0; display: inline-flex; align-items: center; gap: 10px;">
+                        Explore Our Firm
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="split-grid">
-                    <div class="image-reveal" data-reveal>
-                        <img src="/public/digital-marketing-agency-seo-strategy-meeting-chennai.jpg" alt="Agency Strategy HQ">
-                    </div>
-                    <div class="content-wrap" data-reveal>
-                        <h4>The MK Philosophy</h4>
-                        <h2>Growth Engineered <span class="gradient-text">By Strategy.</span></h2>
-                        <div style="margin-top: 40px;">
-                            <p>Founded on the principle that "clicks mean nothing without capital," MK Shopzone has pioneered a data-driven framework that bridges the gap between digital attention and concrete business growth.</p>
-                            <p>Our team of elite specialists in SEO, PPC, and UX/UI design work in perfect symphony to create omnichannel dominance for our clients.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-item text-center" data-reveal>
-                        <h2 class="counter" data-count="10" data-suffix="+">0+</h2>
-                        <p>Years Excellence</p>
-                    </div>
-                    <div class="stat-item text-center" data-reveal>
-                        <h2 class="counter" data-count="500" data-suffix="+">0+</h2>
-                        <p>Market Leaders</p>
-                    </div>
-                    <div class="stat-item text-center" data-reveal>
-                        <h2 class="counter" data-count="93" data-suffix="%">0%</h2>
-                        <p>Retention Rate</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="section" id="contact" style="background: var(--bg-deep);">
-            <div class="container contact-container">
-                <div class="split-grid">
-                    <!-- LEFT Content -->
+        <!-- 2. Who We Are -->
+        <section class="section" id="who-we-are" style="background-color: #050505; padding: 100px 0;">
+            <div class="container container-max">
+                <div class="split-grid" style="gap: 80px; align-items: flex-start;">
                     <div data-reveal>
-                        <span class="contact-badge">Direct Agency Access</span>
-                        <h2 style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 30px;">Stop Guessing. <br><span class="gradient-text">Start Growing.</span></h2>
-                        <p style="font-size: 1.25rem; line-height: 1.8; color: var(--text-muted); max-width: 550px;">Our Precision Audits reveal exactly where you're losing revenue. Get a clear roadmap to 10x organic and paid growth.</p>
-                        
-                        <div style="margin-top: 50px; display: grid; gap: 30px;">
-                            <div style="display: flex; gap: 20px; align-items: start;">
-                                <div style="color: var(--primary); font-size: 1.5rem; transform: translateY(-5px);">✦</div>
+                        <h4
+                            style="color: var(--primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px;">
+                            Who We Are</h4>
+                        <h2
+                            style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: #fff; line-height: 1.2; margin-bottom: 40px;">
+                            Engineers of <span style="font-weight: 700;">Commercial Growth.</span>
+                        </h2>
+                        <!-- Content optimized for "Who We Are" SEO -->
+                        <div
+                            style="display: grid; gap: 25px; color: #ffffff; font-size: 1.1rem; line-height: 1.8; font-weight: 300;">
+                            <p>MK Shopzone operates entirely on a single metric: highly qualified lead generation and
+                                return on ad spend. We are a collective of analytical thinkers, technical web
+                                developers, and Google-certified search marketers who refuse to accept mediocre digital
+                                presence.</p>
+                            <p>We analyze the market conditions of our clients, strip down inefficient marketing
+                                campaigns, and reconstruct bespoke, high-authority digital ecosystems that pull organic
+                                traffic effortlessly from competitors.</p>
+                        </div>
+                    </div>
+                    <div class="image-reveal" data-reveal style="position: relative;">
+                        <img src="/public/team-strategy.jpg" alt="Who We Are - Digital Marketing Strategy"
+                            style="width: 100%; height: 500px; object-fit: cover; filter: grayscale(80%) contrast(1.2);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Our Mission & Vision & 4. Our Core Values -->
+        <section class="section" id="mission-vision" style="background-color: #ffffff; padding: 120px 0;">
+            <div class="container container-max">
+                <!-- Mission & Vision -->
+                <div class="split-grid" style="gap: 40px; margin-bottom: 80px;">
+                    <div class="hover-lift" data-reveal
+                        style="padding: 50px; background: #f8fafc; border: 1px solid rgba(0,0,0,0.05); text-align: left;">
+                        <svg class="animated-float" width="36" height="36" viewBox="0 0 24 24" fill="none"
+                            stroke="var(--primary)" stroke-width="1.5" style="margin-bottom: 25px;">
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="12" r="6" />
+                            <circle cx="12" cy="12" r="2" />
+                        </svg>
+                        <h3 style="color: #050505; font-size: 1.6rem; font-weight: 600; margin-bottom: 15px;">Our
+                            Mission</h3>
+                        <p style="color: #334155; font-size: 1.05rem; line-height: 1.7; font-weight: 300;">To architect
+                            unbreakable digital marketing infrastructures. We execute precise website development and
+                            mathematical SEO strategies that turn anonymous web traffic into high-value institutional
+                            capital.</p>
+                    </div>
+                    <div class="hover-lift" data-reveal
+                        style="padding: 50px; background: #f8fafc; border: 1px solid rgba(0,0,0,0.05); text-align: left;">
+                        <svg class="animated-float" style="animation-delay: 1s;" width="36" height="36"
+                            viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5"
+                            style="margin-bottom: 25px;">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                        <h3 style="color: #050505; font-size: 1.6rem; font-weight: 600; margin-bottom: 15px;">Our Vision
+                        </h3>
+                        <p style="color: #334155; font-size: 1.05rem; line-height: 1.7; font-weight: 300;">To establish
+                            our firm as the global benchmark for performance marketing, ensuring every strategic partner
+                            we onboard holds absolute, unshakeable market share in their respective industry.</p>
+                    </div>
+                </div>
+
+                <!-- Core Values -->
+                <div data-reveal style="text-align: center; margin-bottom: 50px;">
+                    <h2 style="font-size: 2.2rem; color: #050505; font-weight: 700;">The Code We Live By</h2>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div class="hover-lift" data-reveal
+                        style="padding: 30px; text-align: center; border-bottom: 2px solid var(--primary);">
+                        <h4 style="color: #050505; font-size: 1.2rem; font-weight: 600;">Data Over Ego</h4>
+                        <p style="color: #64748b; font-size: 0.95rem; margin-top: 10px;">Numbers do not lie. We optimize
+                            exclusively off analytical performance.</p>
+                    </div>
+                    <div class="hover-lift" data-reveal
+                        style="padding: 30px; text-align: center; border-bottom: 2px solid var(--primary);">
+                        <h4 style="color: #050505; font-size: 1.2rem; font-weight: 600;">Absolute Integrity</h4>
+                        <p style="color: #64748b; font-size: 0.95rem; margin-top: 10px;">We employ strictly white-hat
+                            SEO to protect your corporate reputation.</p>
+                    </div>
+                    <div class="hover-lift" data-reveal
+                        style="padding: 30px; text-align: center; border-bottom: 2px solid var(--primary);">
+                        <h4 style="color: #050505; font-size: 1.2rem; font-weight: 600;">Relentless Iteration</h4>
+                        <p style="color: #64748b; font-size: 0.95rem; margin-top: 10px;">The algorithms change
+                            constantly. Our methodologies adapt instantly.</p>
+                    </div>
+                    <div class="hover-lift" data-reveal
+                        style="padding: 30px; text-align: center; border-bottom: 2px solid var(--primary);">
+                        <h4 style="color: #050505; font-size: 1.2rem; font-weight: 600;">Client Sovereignty</h4>
+                        <p style="color: #64748b; font-size: 0.95rem; margin-top: 10px;">Your ultimate ROI and market
+                            share is our only measure of success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Our Story & Growth Journey -->
+        <section class="section" id="story" style="background-color: #000; padding: 100px 0;">
+            <div class="container" style="max-width: 800px; text-align: left;" data-reveal>
+                <h4
+                    style="color: var(--primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px;">
+                    Our Journey</h4>
+                <h2
+                    style="font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 300; color: #fff; line-height: 1.2; margin-bottom: 30px;">
+                    From a boutique studio to <br><span style="font-weight: 700;">a digital marketing authority.</span>
+                </h2>
+                <p style="color: #94a3b8; font-size: 1.15rem; line-height: 1.8; margin-bottom: 30px; font-weight: 300;">
+                    Founded in Coimbatore, MK Shopzone was built on the realization that a beautiful website is
+                    commercially useless without a conversion engine. We mastered technical search intelligence before
+                    it was a trend.</p>
+                <p style="color: #94a3b8; font-size: 1.15rem; line-height: 1.8; margin-bottom: 40px; font-weight: 300;">
+                    By integrating behavioral science into our web development and mathematical precision into our SEO,
+                    we expanded across India and into global markets, helping our partners generate over $50M in
+                    attributed digital revenue.</p>
+                <div class="image-reveal" data-reveal style="margin-top: 50px; overflow: hidden; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                    <img src="/public/digital-marketing-agency-seo-strategy-meeting-chennai.jpg" alt="Client Strategy Meeting - Data Analytics Discussion" style="width: 100%; height: 400px; object-fit: cover; filter: grayscale(80%) contrast(1.1); transition: filter 0.5s ease;" onmouseover="this.style.filter='grayscale(0%) contrast(1.1)'" onmouseout="this.style.filter='grayscale(80%) contrast(1.1)'">
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. What We Do Best & 7. Our Services & Solutions -->
+        <section class="section" id="services"
+            style="background-color: #050505; border-top: 1px solid rgba(255,255,255,0.03); padding: 120px 0;">
+            <div class="container">
+                <div data-reveal style="margin-bottom: 60px;">
+                    <h4
+                        style="color: var(--primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px;">
+                        What We Do Best</h4>
+                    <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: #fff; line-height: 1.2;">
+                        Comprehensive <br><span style="font-weight: 700;">Digital Solutions.</span>
+                    </h2>
+                </div>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: rgba(255,255,255,0.05);">
+                    <div class="dark-hover-lift" style="background: #050505; padding: 60px 40px;" data-reveal>
+                        <h3 style="color: #fff; font-size: 1.4rem; font-weight: 600; margin-bottom: 15px;">Advanced SEO
+                            Architecture</h3>
+                        <p style="color: #94a3b8; font-size: 1rem; line-height: 1.7; font-weight: 300;">We manipulate
+                            technical search parameters to ensure your brand holds absolute topical authority for
+                            high-intent queries.</p>
+                    </div>
+                    <div class="dark-hover-lift" style="background: #0a0a0a; padding: 60px 40px;" data-reveal>
+                        <h3 style="color: #fff; font-size: 1.4rem; font-weight: 600; margin-bottom: 15px;">High-ROAS
+                            Paid Advertising</h3>
+                        <p style="color: #94a3b8; font-size: 1rem; line-height: 1.7; font-weight: 300;">Data-driven
+                            media buying on Google and Meta that focuses exclusively on lowering acquisition costs and
+                            scaling net profit.</p>
+                    </div>
+                    <div class="dark-hover-lift" style="background: #050505; padding: 60px 40px;" data-reveal>
+                        <h3 style="color: #fff; font-size: 1.4rem; font-weight: 600; margin-bottom: 15px;">Elite
+                            Performance Web Dev</h3>
+                        <p style="color: #94a3b8; font-size: 1rem; line-height: 1.7; font-weight: 300;">Coding bespoke
+                            digital storefronts and B2B platforms optimized for 100/100 performance scores and maximum
+                            user retention.</p>
+                    </div>
+                    <div class="dark-hover-lift" style="background: #0a0a0a; padding: 60px 40px;" data-reveal>
+                        <h3 style="color: #fff; font-size: 1.4rem; font-weight: 600; margin-bottom: 15px;">Omnichannel
+                            Automation</h3>
+                        <p style="color: #94a3b8; font-size: 1rem; line-height: 1.7; font-weight: 300;">Integrating
+                            lifecycle marketing and CRM systems to nurture anonymous traffic into lifelong brand
+                            advocates automatically.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Our Proven Process -->
+        <!-- 9. Why Choose Our Agency -->
+        <!-- 15. Commitment to Transparency -->
+        <section class="section" id="process" style="background-color: #ffffff; padding: 120px 0;">
+            <div class="container container-max">
+                <div class="split-grid" style="gap: 60px;">
+                    <div data-reveal>
+                        <h4
+                            style="color: var(--primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px;">
+                            Our Proven Process</h4>
+                        <h2
+                            style="font-size: clamp(2rem, 3.5vw, 2.5rem); color: #050505; margin-bottom: 40px; font-weight: 300;">
+                            Our Proven <span style="font-weight: 700;">Process.</span></h2>
+
+                        <div style="display: grid; gap: 30px;">
+                            <div class="hover-lift"
+                                style="display: flex; gap: 20px; padding: 25px; background: #f8fafc; border: 1px solid rgba(0,0,0,0.05);">
+                                <div class="animated-pulse-border"
+                                    style="color: var(--primary); font-size: 2rem; font-weight: bold; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,140,0,0.1);">
+                                    1</div>
                                 <div>
-                                    <h4 style="color: #fff; text-transform: none; letter-spacing: 0; font-size: 1.3rem; margin-bottom: 6px;">Gap Analysis IQ</h4>
-                                    <p style="font-size: 1rem; margin: 0;">Comprehensive audit of your current digital visibility.</p>
+                                    <h4 style="color: #050505; font-size: 1.1rem; margin-bottom: 5px;">Strategic Insight
+                                    </h4>
+                                    <p style="color: #334155; font-size: 0.95rem; margin: 0;">Competitor gap analysis
+                                        and infrastructure auditing.</p>
+                                </div>
+                            </div>
+                            <div class="hover-lift"
+                                style="display: flex; gap: 20px; padding: 25px; background: #f8fafc; border: 1px solid rgba(0,0,0,0.05);">
+                                <div class="animated-pulse-border"
+                                    style="color: var(--primary); font-size: 2rem; font-weight: bold; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,140,0,0.1);">
+                                    2</div>
+                                <div>
+                                    <h4 style="color: #050505; font-size: 1.1rem; margin-bottom: 5px;">Flawless
+                                        Execution</h4>
+                                    <p style="color: #334155; font-size: 0.95rem; margin: 0;">Deploying hyper-optimized
+                                        web code and launching aggressive ad logic.</p>
+                                </div>
+                            </div>
+                            <div class="hover-lift"
+                                style="display: flex; gap: 20px; padding: 25px; background: #f8fafc; border: 1px solid rgba(0,0,0,0.05);">
+                                <div class="animated-pulse-border"
+                                    style="color: var(--primary); font-size: 2rem; font-weight: bold; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,140,0,0.1);">
+                                    3</div>
+                                <div>
+                                    <h4 style="color: #050505; font-size: 1.1rem; margin-bottom: 5px;">Exponential
+                                        Growth</h4>
+                                    <p style="color: #334155; font-size: 0.95rem; margin: 0;">Scaling traffic, lowering
+                                        acquisition cost, multiplying ROI.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Direct Contact Details -->
-                        <div style="margin-top: 50px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; flex-wrap: wrap; gap: 40px;">
-                            <div style="display: flex; gap: 15px; align-items: center;">
-                                <div style="background: rgba(255,140,0,0.1); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem;">📧</div>
-                                <div>
-                                    <h5 style="color: #fff; margin: 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Strategy Desk</h5>
-                                    <p style="margin: 0; font-size: 1rem; color: var(--text-dim);">mkshopzone2@gmail.com</p>
-                                </div>
-                            </div>
+                        <div class="image-reveal hover-lift" data-reveal style="margin-top: 40px; border-radius: 4px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05);">
+                            <img src="/public/SEO-Dashboard.webp" alt="Performance Digital Marketing Analytics Dashboard" style="width: 100%; height: auto; max-height: 400px; object-fit: cover;">
+                        </div>
+
+                        <!-- 15. Commitment to Transparency -->
+                        <div class="hover-lift"
+                            style="margin-top: 50px; padding: 30px; border-left: 3px solid var(--primary); background: #f8fafc; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+                            <h4 style="color: #050505; margin-bottom: 10px; font-size: 1.1rem; font-weight: 700;">The
+                                Transparency Charter</h4>
+                            <p style="color: #334155; font-size: 0.95rem; line-height: 1.6; margin: 0;">We provide 24/7
+                                access to live performance dashboards. No hidden fees, no opaque reporting—just a clear,
+                                clinical focus on your ROI. If we can't project a 3X scale, we won't take your capital.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- RIGHT Form -->
-                    <div class="contact-form-wrap" data-reveal>
-                        <div class="glass-card">
-                            <h3 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; margin-bottom: 10px; color: #fff;">Request Audit</h3>
-                            <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 40px;">Speak with an Elite Growth Strategist Today.</p>
-                            
+                    <!-- 9. Why Choose Us -->
+                    <div class="hover-lift" data-reveal
+                        style="background: #f8fafc; padding: 50px; border: 1px solid rgba(0,0,0,0.05); align-self: start;">
+                        <h2 style="font-size: 2rem; color: #050505; margin-bottom: 30px; font-weight: 300;">Why Partner
+                            <span style="font-weight: 700;">With Us.</span>
+                        </h2>
+                        <ul
+                            style="list-style: none; padding: 0; display: grid; gap: 25px; color: #334155; font-size: 1.05rem; font-weight: 500;">
+                            <li style="display: flex; gap: 15px; align-items: center;"><span class="animated-float"
+                                    style="color: var(--primary); font-size: 1.4rem;">✦</span> End-to-end performance
+                                guarantee</li>
+                            <li style="display: flex; gap: 15px; align-items: center;"><span class="animated-float"
+                                    style="color: var(--primary); font-size: 1.4rem; animation-delay: 0.5s;">✦</span>
+                                Proprietary SEO backlinking strategies</li>
+                            <li style="display: flex; gap: 15px; align-items: center;"><span class="animated-float"
+                                    style="color: var(--primary); font-size: 1.4rem; animation-delay: 1s;">✦</span>
+                                Certified Google & Meta Ad Partners</li>
+                            <li style="display: flex; gap: 15px; align-items: center;"><span class="animated-float"
+                                    style="color: var(--primary); font-size: 1.4rem; animation-delay: 1.5s;">✦</span>
+                                B2B and E-commerce specialization</li>
+                            <li style="display: flex; gap: 15px; align-items: center;"><span class="animated-float"
+                                    style="color: var(--primary); font-size: 1.4rem; animation-delay: 2s;">✦</span>
+                                Unmatched local Coimbatore market authority</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Results That Speak & 11. Industries We Serve -->
+        <section class="section" id="results"
+            style="background-color: #050505; border-top: 1px solid rgba(255,255,255,0.03); padding: 80px 0;">
+            <div class="container">
+                <div class="stats-grid" style="padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <div class="stat-item text-center" data-reveal>
+                        <h2 class="counter gradient-text-clip" data-count="10" data-suffix="+"
+                            style="font-size: 4rem; line-height: 1;">0+</h2>
+                        <p
+                            style="color: #64748b; text-transform: uppercase; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px;">
+                            Years Authority</p>
+                    </div>
+                    <div class="stat-item text-center" data-reveal>
+                        <h2 class="counter gradient-text-clip" data-count="500" data-suffix="+"
+                            style="font-size: 4rem; line-height: 1;">0+</h2>
+                        <p
+                            style="color: #64748b; text-transform: uppercase; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px;">
+                            Projects Deployed</p>
+                    </div>
+                    <div class="stat-item text-center" data-reveal>
+                        <h2 class="counter gradient-text-clip" data-count="98" data-suffix="%"
+                            style="font-size: 4rem; line-height: 1;">0%</h2>
+                        <p
+                            style="color: #64748b; text-transform: uppercase; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px;">
+                            Retention Rate</p>
+                    </div>
+                </div>
+
+                <div class="image-reveal" data-reveal style="margin-top: 60px; text-align: center; max-width: 900px; margin-inline: auto;">
+                    <img src="/public/seo-performance-marketing-expert-chennai.png" alt="SEO Performance Growth Charts and Marketing ROI" style="width: 100%; height: auto; object-fit: contain; filter: brightness(0.9);">
+                </div>
+
+                <div data-reveal style="text-align: center; margin-top: 60px;">
+                    <h4
+                        style="color: var(--primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 30px;">
+                        Industries We Serve</h4>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px;">
+                        <span class="industry-tag">Healthcare & Clinics</span>
+                        <span class="industry-tag">E-Commerce Networks</span>
+                        <span class="industry-tag">B2B Software & Tech</span>
+                        <span class="industry-tag">Luxury Real Estate</span>
+                        <span class="industry-tag">Education Technology</span>
+                        <span class="industry-tag">Manufacturing & Logistics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. Client Success Stories & Testimonials -->
+        <section class="section" id="testimonials" style="background-color: #ffffff; padding: 120px 0;">
+            <div class="container container-max">
+                <div data-reveal style="margin-bottom: 80px;">
+                    <h4
+                        style="color: var(--primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px;">
+                        Client Testimonials</h4>
+                    <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: #050505; line-height: 1.2;">
+                        The results that <br><span style="font-weight: 700;">speak for themselves.</span>
+                    </h2>
+                </div>
+
+                <div class="services-grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+                    <div class="hover-lift" data-reveal
+                        style="padding: 30px; border: 1px solid rgba(0,0,0,0.05); background: #f8fafc;">
+                        <span style="color: #fbbf24; font-size: 1.5rem;">★★★★★</span>
+                        <p
+                            style="color: #334155; font-size: 1.05rem; line-height: 1.7; font-weight: 300; margin: 20px 0;">
+                            "MK Shopzone completely restructured our technical SEO. Within a quarter, organic user
+                            acquisition tripled. Elite marketing execution from top to bottom."</p>
+                        <h4 style="color: #050505; font-size: 0.95rem; font-weight: 600; margin: 0;">Rajesh N. — <span
+                                style="color: var(--primary); font-weight: normal;">Retail Director</span></h4>
+                    </div>
+                    <div class="hover-lift" data-reveal
+                        style="padding: 30px; border: 1px solid rgba(0,0,0,0.05); background: #f8fafc;">
+                        <span style="color: #fbbf24; font-size: 1.5rem;">★★★★★</span>
+                        <p
+                            style="color: #334155; font-size: 1.05rem; line-height: 1.7; font-weight: 300; margin: 20px 0;">
+                            "Localized SEO and Meta Ads delivered by them resulted in a 300% increase in patient
+                            bookings. The best digital marketing agency we've ever hired."</p>
+                        <h4 style="color: #050505; font-size: 0.95rem; font-weight: 600; margin: 0;">Dr. Arun K. — <span
+                                style="color: var(--primary); font-weight: normal;">Clinic Founder</span></h4>
+                    </div>
+                    <div class="hover-lift" data-reveal
+                        style="padding: 30px; border: 1px solid rgba(0,0,0,0.05); background: #f8fafc;">
+                        <span style="color: #fbbf24; font-size: 1.5rem;">★★★★★</span>
+                        <p
+                            style="color: #334155; font-size: 1.05rem; line-height: 1.7; font-weight: 300; margin: 20px 0;">
+                            "Their command over APIs, web development and search engine logic is unmatched. Absolute
+                            clarity on ROAS matrices."</p>
+                        <h4 style="color: #050505; font-size: 0.95rem; font-weight: 600; margin: 0;">Sanjay P. — <span
+                                style="color: var(--primary); font-weight: normal;">SaaS CEO</span></h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. Meet Our Expert Team -->
+        <!-- 14. Tools & Technologies We Use -->
+        <section class="section" id="team-tech" style="background-color: #ffffff; padding: 120px 0;">
+            <div class="container container-max">
+                <div class="split-grid" style="gap: 80px;">
+                    <!-- 13. Meet Our Expert Team -->
+                    <div data-reveal style="padding-top: 30px;">
+                        <h4
+                            style="color: var(--primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px;">
+                            The Leadership</h4>
+                        <h2
+                            style="font-size: 2.5rem; font-weight: 300; color: #050505; line-height: 1.2; margin-bottom: 30px;">
+                            Meet Our <span style="font-weight: 700;">Expert Team.</span></h2>
+                        <p
+                            style="color: #334155; font-size: 1.1rem; line-height: 1.8; font-weight: 300; margin-bottom: 40px;">
+                            We do not outsource. Every strategic campaign is handled internally by our hand-picked
+                            specialists in Coimbatore. Our team consists of algorithmic search engineers,
+                            Google-certified performance analysts, and elite UI developers who bring institutional
+                            knowledge to every project.</p>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div style="background: #f8fafc; padding: 20px; border: 1px solid rgba(0,0,0,0.05);">
+                                <h5 style="color: #050505; font-weight: 700; margin-bottom: 5px;">Search Engineers</h5>
+                                <p style="color: #64748b; font-size: 0.85rem; margin: 0;">Specializing in semantic crawl
+                                    logic and technical indexing.</p>
+                            </div>
+                            <div style="background: #f8fafc; padding: 20px; border: 1px solid rgba(0,0,0,0.05);">
+                                <h5 style="color: #050505; font-weight: 700; margin-bottom: 5px;">PPC Analysts</h5>
+                                <p style="color: #64748b; font-size: 0.85rem; margin: 0;">Certified experts in
+                                    algorithmic media buying and scale.</p>
+                            </div>
+                            <div style="background: #f8fafc; padding: 20px; border: 1px solid rgba(0,0,0,0.05);">
+                                <h5 style="color: #050505; font-weight: 700; margin-bottom: 5px;">Creative Architects
+                                </h5>
+                                <p style="color: #64748b; font-size: 0.85rem; margin: 0;">Designing behavioral-centric
+                                    interfaces that convert.</p>
+                            </div>
+                            <div style="background: #f8fafc; padding: 20px; border: 1px solid rgba(0,0,0,0.05);">
+                                <h5 style="color: #050505; font-weight: 700; margin-bottom: 5px;">Growth Strategists
+                                </h5>
+                                <p style="color: #64748b; font-size: 0.85rem; margin: 0;">Mapping business DNA to
+                                    high-yield digital funnels.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="image-reveal" data-reveal style="margin-top: 40px; overflow: hidden; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                            <img src="/public/about-us.png" alt="MK Shopzone Elite Digital Marketing Team in Coimbatore" style="width: 100%; height: 350px; object-fit: cover; filter: grayscale(20%);">
+                        </div>
+                    </div>
+                    <!-- 14. Tools & Technologies We Use -->
+                    <div class="hover-lift" data-reveal
+                        style="background: #f8fafc; padding: 50px; border: 1px solid rgba(0,0,0,0.05);">
+                        <h4
+                            style="color: #050505; font-size: 1.5rem; font-weight: 300; margin-bottom: 30px; display: flex; align-items: center; gap: 15px;">
+                            <span class="animated-pulse-border"
+                                style="width: 8px; height: 8px; background: var(--primary); border-radius: 50%; display: inline-block;"></span>
+                            Tools & Technologies We Use
+                        </h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+                            <span class="hover-lift"
+                                style="background: #ffffff; padding: 12px 24px; border: 1px solid rgba(0,0,0,0.05); color: #050505; font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">Google
+                                Analytics 4</span>
+                            <span class="hover-lift"
+                                style="background: #ffffff; padding: 12px 24px; border: 1px solid rgba(0,0,0,0.05); color: #050505; font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">Meta
+                                Business Manager</span>
+                            <span class="hover-lift"
+                                style="background: #ffffff; padding: 12px 24px; border: 1px solid rgba(0,0,0,0.05); color: #050505; font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">Ahrefs
+                                & Semrush</span>
+                            <span class="hover-lift"
+                                style="background: #ffffff; padding: 12px 24px; border: 1px solid rgba(0,0,0,0.05); color: #050505; font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">Next.js
+                                & React</span>
+                            <span class="hover-lift"
+                                style="background: #ffffff; padding: 12px 24px; border: 1px solid rgba(0,0,0,0.05); color: #050505; font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">Python
+                                Data Science</span>
+                            <span class="hover-lift"
+                                style="background: #ffffff; padding: 12px 24px; border: 1px solid rgba(0,0,0,0.05); color: #050505; font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">Shopify
+                                Plus</span>
+                        </div>
+                        
+                        <div class="image-reveal hover-lift" data-reveal style="margin-top: 40px; border-radius: 4px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05);">
+                            <img src="/public/technical-seo-ai-search-optimization.jpg" alt="Technical SEO & AI Search Optimization Stack" style="width: 100%; height: 350px; object-fit: cover; filter: brightness(0.9) contrast(1.1);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 16. Let’s Grow Your Business Together (Strong Textual CTA) -->
+        <section class="section"
+            style="background-color: #000; border-top: 1px solid rgba(255,255,255,0.05); padding: 100px 0;">
+            <div class="container text-center" data-reveal>
+                <h2
+                    style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 20px;">
+                    Ready to <span class="gradient-text">Own Your Market?</span></h2>
+                <p style="color: #94a3b8; font-size: 1.25rem; max-width: 750px; margin: 0 auto 40px; font-weight: 300;">
+                    The digital landscape doesn't wait for permission. We are the agency that secures your dominance.
+                    Let's build your growth engine today.</p>
+                <a href="#contact" class="btn btn-primary btn-magnetic"
+                    style="padding: 20px 50px; font-size: 1.1rem; font-weight: 700; border-radius: 0;">Initiate
+                    Partnership →</a>
+            </div>
+        </section>
+
+        <!-- 17. Get Your Free Digital Marketing Audit (Lead Generation CTA) -->
+        <section class="section" id="contact" style="background-color: #050505; padding: 120px 0;">
+            <div class="container container-max">
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 80px; position: relative; overflow: hidden;"
+                    data-reveal>
+                    <div
+                        style="position: absolute; right: 0; top: 0; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,140,0,0.05) 0%, transparent 70%); border-radius: 50%;">
+                    </div>
+
+                    <div class="split-grid" style="gap: 80px; align-items: center; position: relative; z-index: 2;">
+                        <!-- Left: Briefing -->
+                        <div>
+                            <h4
+                                style="color: var(--primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px;">
+                                Lead Generation Tool</h4>
+                            <h2
+                                style="font-size: 3rem; font-weight: 300; color: #fff; line-height: 1.1; margin-bottom: 30px;">
+                                Get Your Free Digital <br><span style="font-weight: 700;">Marketing Audit.</span>
+                            </h2>
+                            <p
+                                style="color: #94a3b8; font-size: 1rem; line-height: 1.8; font-weight: 300; margin-bottom: 40px; max-width: 400px;">
+                                Submit your current website URL and primary objective. Our senior strategists will
+                                conduct an immediate assessment of your SEO deficiencies and paid media gaps.
+                            </p>
+
+                            <div
+                                style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; display: grid; gap: 20px;">
+                                <div>
+                                    <p
+                                        style="color: #64748b; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 5px 0;">
+                                        Strategy Email</p>
+                                    <p style="color: #fff; font-size: 1rem; margin: 0;">strategy@mkshopzone.com</p>
+                                </div>
+                                <div>
+                                    <p
+                                        style="color: #64748b; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 5px 0;">
+                                        Direct Phone / WhatsApp</p>
+                                    <p style="color: #fff; font-size: 1rem; margin: 0;">+91 95007 04443</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Professional Form -->
+                        <div style="background: #000; padding: 40px; border: 1px solid rgba(255,255,255,0.08);">
                             <form id="contactForm">
-                                <div class="form-group">
-                                    <input type="text" class="form-input" id="name" placeholder=" " required>
-                                    <label for="name" class="form-label">Full Name</label>
+                                <div class="form-group" style="margin-bottom: 25px;">
+                                    <input type="text" class="form-input" id="name" placeholder=" " required
+                                        style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2); border-radius: 0; padding: 15px 0; box-shadow: none;">
+                                    <label for="name" class="form-label" style="left: 0; color: #64748b;">Full Name /
+                                        Company Name</label>
                                 </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-input" id="email" placeholder=" " required>
-                                    <label for="email" class="form-label">Email Address</label>
+                                <div class="form-group" style="margin-bottom: 25px;">
+                                    <input type="email" name="email" id="email" class="form-input" placeholder=" "
+                                        required
+                                        style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2); border-radius: 0; padding: 15px 0; box-shadow: none;">
+                                    <label for="email" class="form-label" style="left: 0; color: #64748b;">Business
+                                        Email</label>
                                 </div>
-                                <div class="form-group">
-                                    <select class="form-input" id="service-select" required>
-                                        <option value="" disabled selected hidden>Select Specialist Service</option>
-                                        <option value="seo">Advanced SEO Optimization</option>
-                                        <option value="web">Elite Web Development</option>
-                                        <option value="ads">Performance Paid Ads</option>
-                                        <option value="social">Social Media Authority</option>
-                                        <option value="all">Full Digital Strategy Audit</option>
+                                <div class="form-group" style="margin-bottom: 25px;">
+                                    <input type="tel" name="phone" id="phone" class="form-input" placeholder=" "
+                                        required
+                                        style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2); border-radius: 0; padding: 15px 0; box-shadow: none;">
+                                    <label for="phone" class="form-label" style="left: 0; color: #64748b;">Phone
+                                        Number</label>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 25px;">
+                                    <select class="form-input" id="service-select" required
+                                        style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2); border-radius: 0; padding: 15px 0; color: #fff; box-shadow: none;">
+                                        <option value="" disabled selected hidden style="color: #64748b;">Select Service
+                                            Needed</option>
+                                        <option value="seo" style="color: #000;">Comprehensive SEO Strategy</option>
+                                        <option value="web" style="color: #000;">Performance Web Design</option>
+                                        <option value="ads" style="color: #000;">PPC & Meta Lead Generation</option>
+                                        <option value="all" style="color: #000;">Full Digital Audit</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <textarea class="form-input" id="message" rows="3" placeholder=" " required></textarea>
-                                    <label for="message" class="form-label">Tell us about your goals...</label>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-magnetic" style="width: 100%; padding: 20px; font-weight: 900; letter-spacing: 1px;">LAUNCH SUCCESS AUDIT →</button>
+                                <button type="submit" class="btn btn-primary"
+                                    style="width: 100%; border-radius: 0; padding: 18px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;">Submit
+                                    For Free Audit</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <footer class="footer">
+    <!-- Point 18: Contact & Connect With Us -->
+    <footer class="footer"
+        style="background-color: #000; padding: 80px 0 40px 0; border-top: 1px solid rgba(255,255,255,0.05);">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="logo" style="font-size: 1.5rem;">MK<span>SHOPZONE</span></a>
-                    <p style="margin-top: 20px; font-size: 0.9rem;">Building digital legacies for ambitious brands through data-driven performance and elite creative execution.</p>
+                    <a href="/" class="logo" style="font-size: 1.2rem; margin-bottom: 15px;">MK<span>SHOPZONE</span></a>
+                    <p style="font-size: 0.85rem; color: #64748b; line-height: 1.6; font-weight: 300;">An elite digital
+                        marketing agency building unstoppable search authority and paid performance matrices for modern
+                        businesses.</p>
                 </div>
+                <!-- Links -->
                 <div class="footer-links">
-                    <h4>Solutions</h4>
-                    <ul>
-                        <li><a href="seo.html">Advanced SEO</a></li>
-                        <li><a href="paid-ads.html">Paid Advertisements</a></li>
-                        <li><a href="website-design.html">Web Development</a></li>
-                        <li><a href="social-media.html">Social Content</a></li>
+                    <h4 style="font-size: 0.8rem; letter-spacing: 2px;">SERVICES</h4>
+                    <ul style="opacity: 0.7; font-weight: 300; font-size: 0.9rem;">
+                        <li><a href="seo.html">Search Intelligence</a></li>
+                        <li><a href="paid-ads.html">Algorithmic Ads</a></li>
+                        <li><a href="website-design.html">Web Architecture</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>About</h4>
-                    <ul>
-                        <li><a href="/#why-us">Our Story</a></li>
-                        <li><a href="/#process">Our Process</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <h4 style="font-size: 0.8rem; letter-spacing: 2px;">THE FIRM</h4>
+                    <ul style="opacity: 0.7; font-weight: 300; font-size: 0.9rem;">
+                        <li><a href="about.html" style="color: var(--primary);">About Agency</a></li>
+                        <li><a href="contact.html">Strategy Desk</a></li>
+                        <li><a href="privacy-policy.html">Privacy Charter</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Connect</h4>
-                    <ul>
+                    <h4 style="font-size: 0.8rem; letter-spacing: 2px;">CONNECT</h4>
+                    <ul style="opacity: 0.7; font-weight: 300; font-size: 0.9rem;">
                         <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Twitter/X</a></li>
-                        <li><a href="#">YouTube</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="https://wa.me/917200059453">WhatsApp Connect</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="text-center" style="padding-top: 40px; border-top: 1px solid var(--border-light);">
-                <p style="font-size: 0.8rem; letter-spacing: 1px;">&copy; 2026 MK SHOPZONE. Precision Engineered Growth.</p>
+            <div class="text-center"
+                style="padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px;">
+                <p style="font-size: 0.75rem; letter-spacing: 1px; color: #64748b;">&copy; 2026 MK SHOPZONE CONSULTANCY.
+                    ALL RIGHTS RESERVED.</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/917200059453" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <!-- WhatsApp Support Module -->
+    <a href="https://wa.me/917200059453" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+        style="background-color: #128C7E; border-radius: 5px; right: 30px; bottom: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
     </a>
 
     <script type="module" src="/src/main.js"></script>
 </body>
+
 </html>
