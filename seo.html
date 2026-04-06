@@ -20,7 +20,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* ELITE SEO PAGE DESIGN SYSTEM v12.0 - ULTRA PREMIUM ENHANCED */
+        /* ELITE SEO PAGE DESIGN SYSTEM v12.1 - ULTRA PREMIUM ENHANCED */
         :root {
             --white: #ffffff;
             --off-white: #f1f5f9;
@@ -208,11 +208,6 @@
             100% { box-shadow: 0 0 0 0 rgba(255, 140, 0, 0); }
         }
 
-        @keyframes slideInUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
         .animate-float { animation: float 6s ease-in-out infinite; }
         .animate-pulse { animation: pulse-glow 2s infinite; }
 
@@ -337,6 +332,33 @@
             to { transform: rotate(0deg); opacity: 1; }
         }
 
+        /* Hover Lift Utility */
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 140, 0, 0.1);
+        }
+
+        /* Decorative Glows */
+        .glow-soft {
+            position: relative;
+        }
+        .glow-soft::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .glow-soft:hover::before {
+            opacity: 0.4;
+        }
+
         @media (max-width: 991px) {
             .lead-gen-card { padding: 40px; }
             h1 { font-size: 3.5rem !important; }
@@ -440,29 +462,29 @@
             </div>
         </section>
 
-        <!-- NEW: KEYWORD INTELLIGENCE & MARKET MAPPING -->
+        <!-- KEYWORD INTELLIGENCE & MARKET MAPPING -->
         <section class="section" style="background: radial-gradient(circle at bottom left, rgba(255,140,0,0.05), transparent);">
             <div class="container">
                 <div class="split-grid" style="align-items: center;">
-                    <div class="reveal-left order-2 lg:order-1">
+                    <div class="reveal-left">
                         <div style="position: relative;">
                             <img src="/public/seo-keyword-strategy-laptop.jpg" alt="Laptop showing deep keyword research and competitive analysis" class="img-premium">
-                            <div class="glass-box-v2" style="position: absolute; bottom: -30px; right: -30px; padding: 20px; width: 250px; text-align: center;" class="animate-float">
+                            <div class="glass-box-v2 hover-lift" style="position: absolute; bottom: -30px; right: -30px; padding: 20px; width: 250px; text-align: center; z-index: 10;">
                                 <h3 style="color: var(--primary) !important; font-size: 2.5rem; margin: 0;">500%</h3>
                                 <p style="font-size: 0.8rem; margin: 0;">Increase in Transactional Queries</p>
                             </div>
                         </div>
                     </div>
-                    <div class="reveal-right order-1 lg:order-2">
+                    <div class="reveal-right">
                         <h4>Strategic Discovery</h4>
                         <h2 style="font-size: 3rem;">Keyword Intelligence & <span class="gradient-text">Market Mapping.</span></h2>
                         <p style="margin-top: 25px;">We don't just guess what people are searching for. We use advanced behavioral data to map the entire customer journey, from awareness to transaction.</p>
                         <div style="margin-top: 40px; display: grid; gap: 20px;">
-                            <div style="display: flex; gap: 15px; align-items: flex-start;">
+                            <div style="display: flex; gap: 15px; align-items: flex-start;" class="glow-soft">
                                 <div style="width: 40px; height: 40px; background: rgba(255,140,0,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i data-lucide="target" style="color: var(--primary); width: 20px;"></i></div>
                                 <div><h4 style="font-size: 1.1rem; margin-bottom: 5px;">Intent-Based Targeting</h4><p style="font-size: 0.9rem;">Focusing on "buy-ready" keywords that drive revenue, not just vanity metrics.</p></div>
                             </div>
-                            <div style="display: flex; gap: 15px; align-items: flex-start;">
+                            <div style="display: flex; gap: 15px; align-items: flex-start;" class="glow-soft">
                                 <div style="width: 40px; height: 40px; background: rgba(255,140,0,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i data-lucide="users-2" style="color: var(--primary); width: 20px;"></i></div>
                                 <div><h4 style="font-size: 1.1rem; margin-bottom: 5px;">Competitor Gap Analysis</h4><p style="font-size: 0.9rem;">Identifying and exploiting the weaknesses in your competitors' SEO armor.</p></div>
                             </div>
@@ -513,22 +535,22 @@
                     <p style="max-width: 800px; margin: 20px auto;">We use advanced diagnostic tools and proprietary frameworks to ensure movements are backed by algorithmic logic.</p>
                 </div>
                 <div class="stats-grid mt-60">
-                    <div class="stat-item reveal stagger-1">
+                    <div class="stat-item reveal stagger-1 hover-lift">
                         <div class="stat-icon-wrap"><i data-lucide="search"></i></div>
                         <h2>98%</h2>
                         <p>Ranking Success Rate</p>
                     </div>
-                    <div class="stat-item reveal stagger-2">
+                    <div class="stat-item reveal stagger-2 hover-lift">
                         <div class="stat-icon-wrap"><i data-lucide="trending-up"></i></div>
                         <h2>240%</h2>
                         <p>Avg. Traffic Increase</p>
                     </div>
-                    <div class="stat-item reveal stagger-3">
+                    <div class="stat-item reveal stagger-3 hover-lift">
                         <div class="stat-icon-wrap"><i data-lucide="award"></i></div>
                         <h2>#1</h2>
                         <p>Position Goal</p>
                     </div>
-                    <div class="stat-item reveal stagger-4">
+                    <div class="stat-item reveal stagger-4 hover-lift">
                         <div class="stat-icon-wrap"><i data-lucide="users"></i></div>
                         <h2>12k+</h2>
                         <p>Keywords Managed</p>
@@ -545,7 +567,7 @@
                     <h2 style="font-size: 4rem; color: #111 !important;" class="gradient-text-dark">Our Core SEO Services.</h2>
                 </div>
                 <div class="grid-three mt-60" style="gap: 35px;">
-                    <div class="service-card-light reveal stagger-1">
+                    <div class="service-card-light reveal stagger-1 hover-lift">
                         <i data-lucide="layout-template" class="service-icon animate-float" style="color: var(--primary);"></i>
                         <h3>On-Page SEO</h3>
                         <p>Optimizing everything on your website, from meta tags and headers to keyword density and core content architecture.</p>
@@ -555,7 +577,7 @@
                             <li style="display: flex; gap: 10px;"><i data-lucide="check" style="color: var(--primary); width: 16px;"></i> Internal Linking Strategy</li>
                         </ul>
                     </div>
-                    <div class="service-card-light reveal stagger-2">
+                    <div class="service-card-light reveal stagger-2 hover-lift">
                         <i data-lucide="external-link" class="service-icon animate-float" style="color: var(--primary);"></i>
                         <h3>Off-Page SEO</h3>
                         <p>Building institucional authority through high-quality backlink acquisition and strategic brand mentions across the web.</p>
@@ -565,7 +587,7 @@
                             <li style="display: flex; gap: 10px;"><i data-lucide="check" style="color: var(--primary); width: 16px;"></i> Guest Posting Strategy</li>
                         </ul>
                     </div>
-                    <div class="service-card-light reveal stagger-3">
+                    <div class="service-card-light reveal stagger-3 hover-lift">
                         <i data-lucide="terminal" class="service-icon animate-float" style="color: var(--primary);"></i>
                         <h3>Technical SEO</h3>
                         <p>The foundation of rankings. We optimize server-side performance, site speed, and indexability for Google's bots.</p>
@@ -591,7 +613,7 @@
                         <h2 style="font-size: 3rem;">Comprehensive <span class="gradient-text">SEO Solutions.</span></h2>
                         <p>We provide a 360-degree approach to search visibility. From code to backlinks, we manage every variable that influences your position.</p>
                         <div style="margin-top: 40px; display: grid; gap: 30px;">
-                            <div style="display: flex; gap: 20px;" class="hover-lift">
+                            <div style="display: flex; gap: 20px;" class="hover-lift glow-soft">
                                 <div style="width: 50px; height: 50px; background: rgba(255,140,0,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary);">
                                     <i data-lucide="eye"></i>
                                 </div>
@@ -600,7 +622,7 @@
                                     <p style="font-size: 0.9rem; margin-top: 5px;">Understanding search volume, seasonal trends, and user intent to drive qualified traffic.</p>
                                 </div>
                             </div>
-                            <div style="display: flex; gap: 20px;" class="hover-lift">
+                            <div style="display: flex; gap: 20px;" class="hover-lift glow-soft">
                                 <div style="width: 50px; height: 50px; background: rgba(255,140,0,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary);">
                                     <i data-lucide="bar-chart-3"></i>
                                 </div>
@@ -656,11 +678,11 @@
                         <h2 style="font-size: 3.5rem;">Technical <span class="gradient-text">Excellence.</span></h2>
                         <p style="margin-top: 30px;">Search engines are bots. If they can't crawl or understand your site, you won't rank. We optimize the core architecture to ensure seamless indexing.</p>
                         <div style="margin-top: 40px; display: grid; gap: 20px;">
-                            <div class="hover-lift" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 25px; border-radius: 16px;">
+                            <div class="hover-lift glow-soft" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 25px; border-radius: 16px;">
                                 <h4 style="color: var(--primary) !important; text-transform: none; margin-bottom: 10px;">Core Web Vitals</h4>
                                 <p style="font-size: 0.9rem; margin: 0;">Optimizing LCP, FID, and CLS for the ultimate user experience and ranking boost.</p>
                             </div>
-                            <div class="hover-lift" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 25px; border-radius: 16px;">
+                            <div class="hover-lift glow-soft" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 25px; border-radius: 16px;">
                                 <h4 style="color: var(--primary) !important; text-transform: none; margin-bottom: 10px;">Advanced Schema</h4>
                                 <p style="font-size: 0.9rem; margin: 0;">Implementing JSON-LD structured data to help Google understand your context and display rich results.</p>
                             </div>
@@ -673,7 +695,7 @@
             </div>
         </section>
 
-        <!-- NEW: SPEED & PERFORMANCE AUDIT SECTION -->
+        <!-- SPEED & PERFORMANCE AUDIT SECTION -->
         <section class="section" style="background: #000; overflow: hidden;">
             <div class="container">
                 <div class="text-center reveal">
@@ -702,37 +724,37 @@
                 </div>
                 <div class="services-grid mt-60" style="gap: 35px;">
                     <!-- 7. Keyword Research & Competitor Analysis -->
-                    <div class="glass-card reveal stagger-1">
+                    <div class="glass-card reveal stagger-1 hover-lift">
                         <i data-lucide="crosshair" class="service-icon animate-float" style="color: var(--primary);"></i>
                         <h3>Keyword & Competitor IQ</h3>
                         <p>We reverse-engineer your competitors' winning strategies to identify high-converting keyword gaps for your brand.</p>
                     </div>
                     <!-- 8. On-Page SEO Optimization -->
-                    <div class="glass-card reveal stagger-2">
+                    <div class="glass-card reveal stagger-2 hover-lift">
                         <i data-lucide="edit-3" class="service-icon animate-float" style="color: var(--primary);"></i>
                         <h3>Content Optimization</h3>
                         <p>Transforming your web content into a relevance-engine that ranks for hundreds of long-tail variations.</p>
                     </div>
                     <!-- 9. Technical SEO Implementation -->
-                    <div class="glass-card reveal stagger-3">
+                    <div class="glass-card reveal stagger-3 hover-lift">
                         <i data-lucide="settings-2" class="service-icon animate-float" style="color: var(--primary);"></i>
                         <h3>Technical Engineering</h3>
                         <p>Fixing speed, crawl errors, and mobile issues that prevent Google from ranking your site appropriately.</p>
                     </div>
                     <!-- 10. Link Building & Off-Page SEO -->
-                    <div class="glass-card reveal stagger-4">
+                    <div class="glass-card reveal stagger-4 hover-lift">
                         <i data-lucide="link-2" class="service-icon animate-float" style="color: var(--primary);"></i>
                         <h3>Bespoke Link Building</h3>
                         <p>Acquiring high-authority backlinks from legitimate, traffic-heavy domains to skyrocket your domain trust.</p>
                     </div>
                     <!-- 11. Local SEO Services (Google My Business) -->
-                    <div class="glass-card reveal stagger-5">
+                    <div class="glass-card reveal stagger-5 hover-lift">
                         <i data-lucide="map-pin" class="service-icon animate-float" style="color: var(--primary);"></i>
                         <h3>Local Search Dominance</h3>
                         <p>Dominating the "Map Pack" and local searches to drive physical foot traffic and local leads.</p>
                     </div>
                     <!-- 12. E-commerce SEO Solutions -->
-                    <div class="glass-card reveal stagger-6">
+                    <div class="glass-card reveal stagger-6 hover-lift">
                         <i data-lucide="shopping-bag" class="service-icon animate-float" style="color: var(--primary);"></i>
                         <h3>E-commerce Scaling</h3>
                         <p>Optimizing product pages and category architectures to capture transactional buyer-intent traffic.</p>
@@ -779,7 +801,7 @@
                     <p style="max-width: 700px; margin: 20px auto 60px;">Numbers don't lie. See how we've transformed struggling websites into market leaders.</p>
                     
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; text-align: left;">
-                        <div class="hover-lift" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: 40px; border-radius: 24px; transition: 0.4s; position: relative; overflow: hidden;">
+                        <div class="hover-lift glow-soft" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: 40px; border-radius: 24px; transition: 0.4s; position: relative; overflow: hidden;">
                             <span style="color: var(--primary); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px;">E-commerce Brand</span>
                             <h3 style="margin-top: 15px; font-size: 2.2rem; color: #fff !important;">+450% Traffic</h3>
                             <p style="font-size: 0.95rem; margin-top: 15px; color: var(--off-white); opacity: 0.85;">In 12 months, we grew a luxury retail brand's organic revenue from $20k to $110k/month.</p>
@@ -787,7 +809,7 @@
                                 <i data-lucide="shield-check" style="width: 18px;"></i> VERIFIED SUCCESS
                             </div>
                         </div>
-                        <div class="hover-lift" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: 40px; border-radius: 24px; transition: 0.4s;">
+                        <div class="hover-lift glow-soft" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: 40px; border-radius: 24px; transition: 0.4s;">
                             <span style="color: var(--primary); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px;">SaaS Platform</span>
                             <h3 style="margin-top: 15px; font-size: 2.2rem; color: #fff !important;">Elite Mastery</h3>
                             <p style="font-size: 0.95rem; margin-top: 15px; color: var(--off-white); opacity: 0.85;">Secured 85 high-difficulty keywords in the top 3 spots, resulting in 3x user acquisitions.</p>
@@ -795,7 +817,7 @@
                                 <i data-lucide="shield-check" style="width: 18px;"></i> VERIFIED SUCCESS
                             </div>
                         </div>
-                        <div class="hover-lift" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: 40px; border-radius: 24px; transition: 0.4s;">
+                        <div class="hover-lift glow-soft" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: 40px; border-radius: 24px; transition: 0.4s;">
                             <span style="color: var(--primary); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px;">Healthcare Group</span>
                             <h3 style="margin-top: 15px; font-size: 2.2rem; color: #fff !important;">Map Dominance</h3>
                             <p style="font-size: 0.95rem; margin-top: 15px; color: var(--off-white); opacity: 0.85;">Achieved #1 position in 15 different locations, increasing patient leads by 210%.</p>
@@ -816,27 +838,27 @@
                     <h2 style="font-size: 4rem; color: #111 !important;" class="gradient-text-dark">Industries We Serve.</h2>
                 </div>
                 <div class="industry-grid">
-                    <div class="industry-card reveal stagger-1">
+                    <div class="industry-card reveal stagger-1 hover-lift">
                         <i data-lucide="building-2" style="width: 40px; height: 40px; color: var(--primary);" class="animate-float"></i>
                         <h3>Real Estate</h3>
                     </div>
-                    <div class="industry-card reveal stagger-2">
+                    <div class="industry-card reveal stagger-2 hover-lift">
                         <i data-lucide="shopping-cart" style="width: 40px; height: 40px; color: var(--primary);" class="animate-float"></i>
                         <h3>E-commerce</h3>
                     </div>
-                    <div class="industry-card reveal stagger-3">
+                    <div class="industry-card reveal stagger-3 hover-lift">
                         <i data-lucide="stethoscope" style="width: 40px; height: 40px; color: var(--primary);" class="animate-float"></i>
                         <h3>Healthcare</h3>
                     </div>
-                    <div class="industry-card reveal stagger-4">
+                    <div class="industry-card reveal stagger-4 hover-lift">
                         <i data-lucide="landmark" style="width: 40px; height: 40px; color: var(--primary);" class="animate-float"></i>
                         <h3>Legal & Finance</h3>
                     </div>
-                    <div class="industry-card reveal stagger-5">
+                    <div class="industry-card reveal stagger-5 hover-lift">
                         <i data-lucide="cpu" style="width: 40px; height: 40px; color: var(--primary);" class="animate-float"></i>
                         <h3>SaaS & Tech</h3>
                     </div>
-                    <div class="industry-card reveal stagger-6">
+                    <div class="industry-card reveal stagger-6 hover-lift">
                         <i data-lucide="plane" style="width: 40px; height: 40px; color: var(--primary);" class="animate-float"></i>
                         <h3>Travel & Hospitality</h3>
                     </div>
@@ -895,7 +917,7 @@
                         <p style="margin-top: 20px;">Everything you need to know about search dominance and ranking strategies.</p>
                     </div>
                     <div class="faq-container reveal-right">
-                        <div class="faq-card">
+                        <div class="faq-card hover-lift">
                             <button class="faq-header">
                                 <span>How long does it take to see results from SEO?</span>
                                 <i data-lucide="plus" class="faq-icon"></i>
@@ -904,7 +926,7 @@
                                 <p>While technical improvements can yield results in 30 days, competitive ranking shifts typically occur between 4 to 6 months of consistent optimization. SEO is a compounding investment, not a quick fix.</p>
                             </div>
                         </div>
-                        <div class="faq-card">
+                        <div class="faq-card hover-lift">
                             <button class="faq-header">
                                 <span>Do you guarantee #1 rankings on Google?</span>
                                 <i data-lucide="plus" class="faq-icon"></i>
@@ -913,7 +935,7 @@
                                 <p>No ethical SEO agency can guarantee a specific spot due to Google's algorithm changes. However, our track record shows that our clinical approach consistently secures top positions for high-value terms.</p>
                             </div>
                         </div>
-                        <div class="faq-card">
+                        <div class="faq-card hover-lift">
                             <button class="faq-header">
                                 <span>What is the difference between On-Page and Off-Page SEO?</span>
                                 <i data-lucide="plus" class="faq-icon"></i>
@@ -937,15 +959,15 @@
                             <h2 style="font-size: 4rem; color: #fff; margin-top: 20px;">Grow Your <br><span class="gradient-text">Traffic.</span></h2>
                             <p style="margin-top: 30px; font-size: 1.2rem;">Claim your free 30-minute strategic SEO audit. We’ll identify ranking gaps and market opportunities.</p>
                             <div style="margin-top: 50px; display: grid; gap: 30px;">
-                                <div style="display: flex; gap: 20px;">
+                                <div style="display: flex; gap: 20px;" class="hover-lift">
                                     <i data-lucide="check-square" style="color: var(--primary);"></i>
                                     <p style="margin: 0;">Comprehensive Technical Site Crawl</p>
                                 </div>
-                                <div style="display: flex; gap: 20px;">
+                                <div style="display: flex; gap: 20px;" class="hover-lift">
                                     <i data-lucide="check-square" style="color: var(--primary);"></i>
                                     <p style="margin: 0;">Competitor Backlink Analysis</p>
                                 </div>
-                                <div style="display: flex; gap: 20px;">
+                                <div style="display: flex; gap: 20px;" class="hover-lift">
                                     <i data-lucide="check-square" style="color: var(--primary);"></i>
                                     <p style="margin: 0;">High-Value Keyword Roadmap</p>
                                 </div>

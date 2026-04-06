@@ -25,7 +25,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
-        /* ELITE MIDNIGHT PREMIUM v30.0 - ALIGNMENT & PRECISION ARCHITECTURE */
+        /* ELITE MIDNIGHT PREMIUM v31.0 - ALIGNMENT & PRECISION ARCHITECTURE */
         :root {
             --white: #ffffff;
             --off-white: #f8fafc;
@@ -57,6 +57,9 @@
         /* Multi-Stage Reveal */
         [data-reveal] { opacity: 0; transform: translateY(40px); transition: 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
         [data-reveal].active { opacity: 1; transform: translateY(0); }
+
+        [data-reveal="zoom"] { opacity: 0; transform: scale(0.95); transition: 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        [data-reveal="zoom"].active { opacity: 1; transform: scale(1); }
 
         .stagger-1 { transition-delay: 0.1s; }
         .stagger-2 { transition-delay: 0.2s; }
@@ -225,7 +228,7 @@
             overflow: hidden;
             padding: 160px 0 100px;
         }
-        .hero-ads-v3 video {
+        .hero-ads-v3 .bg-media {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -245,13 +248,45 @@
         .grid-align { display: grid; align-items: center; }
 
         /* Section Spacing */
-        .section-luxe { padding: 140px 0; }
+        .section-luxe { padding: 140px 0; position: relative; }
 
         /* FAQ Alignment */
         .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
         .faq-btn { width: 100%; padding: 35px 0; display: flex; justify-content: space-between; align-items: center; background: none; border: none; cursor: pointer; color: #fff; font-size: 1.4rem; font-weight: 800; text-align: left; }
         .faq-content { max-height: 0; overflow: hidden; transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1); color: var(--text-dim); }
         .faq-item.active .faq-content { max-height: 300px; padding-bottom: 35px; }
+
+        /* Custom Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+
+        /* Visual Enhancement Styles */
+        .img-premium {
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 60px 150px rgba(0,0,0,0.7);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 100%;
+            display: block;
+        }
+        .img-premium:hover { transform: scale(1.03); }
+
+        .dashboard-overlay {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background: rgba(255, 140, 0, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--primary);
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            z-index: 5;
+        }
 
         /* Responsive Mobile Handling */
         @media (max-width: 1024px) {
@@ -304,7 +339,7 @@
     <main>
         <!-- 1. HERO SECTION -->
         <section class="hero-ads-v3">
-            <video autoplay muted loop playsinline poster="/public/ads 1.webp">
+            <video class="bg-media" autoplay muted loop playsinline poster="/public/ads 1.webp">
                 <source src="/public/home 7.mp4" type="video/mp4">
             </video>
             <div class="container" style="position: relative; z-index: 2;">
@@ -315,6 +350,23 @@
                     <div class="flex-center" style="gap: 30px; flex-wrap: wrap;">
                         <button class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();">LET'S SCALE MY REVENUE <i data-lucide="trending-up"></i></button>
                         <a href="#services" class="btn-elite btn-outline">SHOW ME THE PLATFORMS</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DASHBOARD PERFORMANCE ANIMATION -->
+        <section class="section-luxe" style="padding-bottom: 0;">
+            <div class="container">
+                <div class="text-center" data-reveal="zoom">
+                    <h4 style="color: var(--primary) !important;">Live Intelligence</h4>
+                    <h2 style="font-size: 4rem; margin-bottom: 50px;">Real-Time <span class="gradient-span">Performance Monitoring.</span></h2>
+                    <div style="position: relative; max-width: 1100px; margin: 0 auto;">
+                        <img src="/public/ads-performance-dashboard.jpg" alt="Live Paid Ads performance dashboard showing conversions and ROI growth" class="img-premium">
+                        <div class="dashboard-overlay animate-float">
+                            <h3 class="gradient-span" style="font-size: 2.5rem; margin: 0;">+320%</h3>
+                            <p style="font-size: 0.8rem; margin: 0; letter-spacing: 1px;">AVERAGE ROAS LIFT</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -341,10 +393,49 @@
                         </div>
                     </div>
                     <div data-reveal class="stagger-2">
-                        <div style="position: relative; border-radius: 40px; overflow: hidden; box-shadow: 0 60px 150px rgba(0,0,0,0.7);">
+                        <div class="img-premium">
                             <img src="/public/ads 1.webp" alt="Elite Ads Dashboard Analytics" style="width: 100%; display: block; filter: contrast(1.1);">
                         </div>
+                        <div style="margin-top: 40px;" class="animate-float">
+                            <img src="/public/ads-conversion-graph.png" alt="Graph showing conversion growth" style="width: 100%; border-radius: 20px; filter: brightness(1.1);">
+                        </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONVERSION FUNNEL VISUALIZATION -->
+        <section class="section-luxe" style="background: radial-gradient(circle at center, #0a0c14 0%, #030408 100%);">
+            <div class="container">
+                <div class="text-center" data-reveal>
+                    <h4 style="color: var(--primary) !important;">The Conversion Engine</h4>
+                    <h2 style="font-size: 4.5rem; margin-bottom: 80px;">Liquidating Acquisition <span class="gradient-span">Costs.</span></h2>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+                    <div class="glass-card-premium text-center" data-reveal class="stagger-1">
+                        <div style="width: 80px; height: 80px; background: rgba(255,140,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px;">
+                            <i data-lucide="mouse-pointer-click" style="color: var(--primary); width: 35px; height: 35px;"></i>
+                        </div>
+                        <h3 style="font-size: 2rem; margin-bottom: 20px;">01. Click</h3>
+                        <p>High-intent targeting intercepts the customer journey at the moment of search.</p>
+                    </div>
+                    <div class="glass-card-premium text-center" data-reveal class="stagger-2">
+                        <div style="width: 80px; height: 80px; background: rgba(255,140,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px;">
+                            <i data-lucide="user-plus" style="color: var(--primary); width: 35px; height: 35px;"></i>
+                        </div>
+                        <h3 style="font-size: 2rem; margin-bottom: 20px;">02. Lead</h3>
+                        <p>Conversion-optimized landing pages transform curiosity into verified interest.</p>
+                    </div>
+                    <div class="glass-card-premium text-center" data-reveal class="stagger-3">
+                        <div style="width: 80px; height: 80px; background: rgba(255,140,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px;">
+                            <i data-lucide="banknote" style="color: var(--primary); width: 35px; height: 35px;"></i>
+                        </div>
+                        <h3 style="font-size: 2rem; margin-bottom: 20px;">03. Scale</h3>
+                        <p>Revenue is reinvested into the winners to dominate your industry market share.</p>
+                    </div>
+                </div>
+                <div style="margin-top: 100px; text-align: center;" data-reveal="zoom">
+                    <img src="/public/ads-funnel-visualization.jpg" alt="Digital marketing funnel visualization from click to sale" class="img-premium" style="max-width: 900px; margin: 0 auto;">
                 </div>
             </div>
         </section>
@@ -386,7 +477,7 @@
                 </div>
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px;">
                     <!-- Google -->
-                    <div class="platform-box" data-reveal class="stagger-1" style="box-shadow: 0 40px 100px rgba(0,0,0,0.05);">
+                    <div class="platform-box hover-lift" data-reveal class="stagger-1" style="box-shadow: 0 40px 100px rgba(0,0,0,0.05); transition: 0.4s;">
                         <i data-lucide="search" style="color: var(--primary); width: 60px; height: 60px;"></i>
                         <h3 style="margin: 35px 0 25px; font-size: 2.8rem;">Google Ads</h3>
                         <p>Dominate search intent. We position you at the top for the highest-value commercial keywords in your industry.</p>
@@ -397,7 +488,7 @@
                         </ul>
                     </div>
                     <!-- Meta -->
-                    <div class="platform-box" style="background: #f8fafc; box-shadow: 0 40px 100px rgba(0,0,0,0.05);" data-reveal class="stagger-2">
+                    <div class="platform-box hover-lift" style="background: #f8fafc; box-shadow: 0 40px 100px rgba(0,0,0,0.05); transition: 0.4s;" data-reveal class="stagger-2">
                         <i data-lucide="instagram" style="color: var(--primary); width: 60px; height: 60px;"></i>
                         <h3 style="margin: 35px 0 25px; font-size: 2.8rem;">Meta Ads</h3>
                         <p>Harness the power of social behavior. We build scroll-stopping creative funnels for Facebook & Instagram.</p>
@@ -408,7 +499,7 @@
                         </ul>
                     </div>
                     <!-- YouTube -->
-                    <div class="platform-box" data-reveal class="stagger-3" style="box-shadow: 0 40px 100px rgba(0,0,0,0.05);">
+                    <div class="platform-box hover-lift" data-reveal class="stagger-3" style="box-shadow: 0 40px 100px rgba(0,0,0,0.05); transition: 0.4s;">
                         <i data-lucide="youtube" style="color: var(--primary); width: 60px; height: 60px;"></i>
                         <h3 style="margin: 35px 0 25px; font-size: 2.8rem;">YouTube Ads</h3>
                         <p>Scale through cinematic authority. We use video storytelling to build immediate trust and drive action.</p>
@@ -459,8 +550,11 @@
             <div class="container">
                 <div class="split-grid grid-align" style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 120px;">
                     <div data-reveal>
-                        <div style="border-radius: 32px; overflow: hidden; box-shadow: 0 50px 100px rgba(0,0,0,0.8);">
+                        <div class="img-premium">
                             <img src="/public/digital-marketing-agency-seo-strategy-meeting-chennai.jpg" alt="Strategic Meeting Visual" style="width: 100%; display: block;">
+                        </div>
+                        <div style="margin-top: 40px;" class="animate-float">
+                            <img src="/public/ads-strategy-laptop.jpg" alt="Marketer managing ad campaigns on laptop" class="img-premium">
                         </div>
                     </div>
                     <div data-reveal class="stagger-2">
@@ -497,7 +591,7 @@
                         </div>
                     </div>
                     <div data-reveal class="stagger-2">
-                        <div style="border-radius: 32px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.15);">
+                        <div class="img-premium">
                             <img src="/public/digital-marketing-agency-chennai-team.jpg" alt="Creative Team Working" style="width: 100%; display: block;">
                         </div>
                     </div>
@@ -513,12 +607,15 @@
                     <h2 style="font-size: 5rem;">Remarketing & <span class="gradient-span">E-commerce.</span></h2>
                 </div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px;">
-                    <div class="glass-card-premium" data-reveal class="stagger-1" style="text-align: left; padding: 80px 60px;">
+                    <div class="glass-card-premium hover-lift" data-reveal class="stagger-1" style="text-align: left; padding: 80px 60px; transition: 0.4s;">
                         <img src="/public/seo-strategy.webp" alt="Strategy Visual" style="border-radius: 20px; width: 100%; margin-bottom: 40px;">
                         <h3 style="font-size: 3rem; margin-bottom: 25px;">Surgical Remarketing</h3>
                         <p style="font-size: 1.2rem; line-height: 1.8;">Recapture 98% of lost traffic. We build multi-touch remarketing funnels that follow your prospects with personalized offers until they convert.</p>
+                        <div style="margin-top: 30px;">
+                            <img src="/public/ads-remarketing-visual.png" alt="Retargeting and remarketing concept graphic" style="width: 100%; border-radius: 15px; filter: brightness(1.2);">
+                        </div>
                     </div>
-                    <div class="glass-card-premium" data-reveal class="stagger-2" style="text-align: left; padding: 80px 60px;">
+                    <div class="glass-card-premium hover-lift" data-reveal class="stagger-2" style="text-align: left; padding: 80px 60px; transition: 0.4s;">
                         <img src="/public/seo-services-performance-marketing-chennai.jpg" alt="Performance Visual" style="border-radius: 20px; width: 100%; margin-bottom: 40px;">
                         <h3 style="font-size: 3rem; margin-bottom: 25px;">D2C Scaling Legacy</h3>
                         <p style="font-size: 1.2rem; line-height: 1.8;">Exponentially scale your transactional revenue. We specialize in Advantage+ and Merchant Center mastery for high-growth e-commerce brands.</p>
@@ -539,7 +636,7 @@
                             <button class="btn-elite" style="margin-top: 60px;">VIEW CASE STUDIES <i data-lucide="eye"></i></button>
                         </div>
                         <div data-reveal class="stagger-2">
-                            <div style="border-radius: 24px; overflow: hidden;">
+                            <div class="img-premium">
                                 <img src="/public/seo-growth.png" alt="Growth Graph" style="width: 100%; display: block; filter: saturate(1.2) brightness(1.1);">
                             </div>
                         </div>
@@ -555,19 +652,19 @@
                     <h2 style="font-size: 5rem; color: #000 !important;">Industries <span class="gradient-span">We Serve.</span></h2>
                 </div>
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
-                    <div class="platform-box" style="padding: 50px; text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.05);" data-reveal class="stagger-1">
+                    <div class="platform-box hover-lift" style="padding: 50px; text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.05); transition: 0.4s;" data-reveal class="stagger-1">
                         <i data-lucide="building-2" style="color: var(--primary); margin: 0 auto 20px;"></i>
                         <h4 style="color: #111 !important; font-size: 1.4rem; margin: 0;">Real Estate</h4>
                     </div>
-                    <div class="platform-box" style="padding: 50px; text-align: center; background: #f8fafc; box-shadow: 0 40px 80px rgba(0,0,0,0.05);" data-reveal class="stagger-2">
+                    <div class="platform-box hover-lift" style="padding: 50px; text-align: center; background: #f8fafc; box-shadow: 0 40px 80px rgba(0,0,0,0.05); transition: 0.4s;" data-reveal class="stagger-2">
                         <i data-lucide="shopping-cart" style="color: var(--primary); margin: 0 auto 20px;"></i>
                         <h4 style="color: #111 !important; font-size: 1.4rem; margin: 0;">E-commerce</h4>
                     </div>
-                    <div class="platform-box" style="padding: 50px; text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.05);" data-reveal class="stagger-3">
+                    <div class="platform-box hover-lift" style="padding: 50px; text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.05); transition: 0.4s;" data-reveal class="stagger-3">
                         <i data-lucide="stethoscope" style="color: var(--primary); margin: 0 auto 20px;"></i>
                         <h4 style="color: #111 !important; font-size: 1.4rem; margin: 0;">Healthcare</h4>
                     </div>
-                    <div class="platform-box" style="padding: 50px; text-align: center; background: #f8fafc; box-shadow: 0 40px 80px rgba(0,0,0,0.05);" data-reveal class="stagger-4">
+                    <div class="platform-box hover-lift" style="padding: 50px; text-align: center; background: #f8fafc; box-shadow: 0 40px 80px rgba(0,0,0,0.05); transition: 0.4s;" data-reveal class="stagger-4">
                         <i data-lucide="cpu" style="color: var(--primary); margin: 0 auto 20px;"></i>
                         <h4 style="color: #111 !important; font-size: 1.4rem; margin: 0;">SaaS & Tech</h4>
                     </div>
@@ -582,11 +679,11 @@
                     <h4 style="color: var(--primary) !important; margin-bottom: 20px;">Absolute Transparency</h4>
                     <h2 style="font-size: 5rem; margin-bottom: 80px;">Stack & Reporting.</h2>
                     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;" data-reveal class="stagger-2">
-                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">LOOKER STUDIO</span>
-                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">GA4 ANALYTICS</span>
-                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">SUPERMETRICS</span>
-                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">HYROS TRACKING</span>
-                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">SEMRUSH ADS</span>
+                        <span class="hover-lift" style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s;">LOOKER STUDIO</span>
+                        <span class="hover-lift" style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s;">GA4 ANALYTICS</span>
+                        <span class="hover-lift" style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s;">SUPERMETRICS</span>
+                        <span class="hover-lift" style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s;">HYROS TRACKING</span>
+                        <span class="hover-lift" style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s;">SEMRUSH ADS</span>
                     </div>
                 </div>
             </div>

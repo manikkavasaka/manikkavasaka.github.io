@@ -114,17 +114,17 @@ class MKAssistant {
             },
             faq: {
                 pricing: { keywords: ['price','cost','pricing','budget','affordable','cheap','expensive','how much','fee','charge','package','plan'],
-                    answer: `Our pricing is tailored to your goals and scope, so there's no one-size-fits-all number. That said, here's a rough idea:\n\n**Web Design** starts from ₹15,000\n**SEO packages** from ₹8,000/month\n**Paid Ads management** from ₹5,000/month + ad spend\n\nWant a custom quote? I just need to know a bit more about your project.` },
+                    answer: `Our prices really depend on what you need—there's no one-size-fits-all here! But to give you a rough idea:\n\nIf you need a **website**, those start around ₹15,000.\nFor **SEO**, it's usually from ₹8,000 a month.\nAnd if you want us to handle your **Paid Ads**, our management fee starts at ₹5,000 a month (plus your ad spend).\n\nIf you want an exact number, I'd just need to hear a bit more about your project!` },
                 timeline: { keywords: ['timeline','how long','when','duration','turnaround','deadline','fast','quick','urgent','rush'],
-                    answer: 'Timelines depend on the scope, but here\'s what\'s typical:\n\n**Website** – 2 to 4 weeks\n**SEO results** – initial improvements in 60–90 days; strong results in 4–6 months\n**App development** – 6 to 14 weeks\n**Paid ads** – campaigns live within 3–5 business days\n\nNeed something on a tighter schedule? Let me know and we\'ll see what\'s possible.' },
+                    answer: `It honestly depends on the project size, but here's a general idea:\n\n**Websites** usually take us 2 to 4 weeks.\n**SEO** starts showing some movement in 60 to 90 days, with the really good stuff happening around months 4 to 6.\n**App dev** takes anywhere from 6 to 14 weeks.\nAnd **Paid ads** can be up and running in just a few days!\n\nIf you're on a tight deadline, just let us know and we'll see what we can do.` },
                 contact: { keywords: ['contact','reach','call','phone','email','whatsapp','speak','talk','meet','book','schedule','consultation','chat','connect'],
-                    answer: 'You can reach us a few ways:\n\n📞 **Phone / WhatsApp:** +91 95007 04443\n📧 **Email:** strategy@mkshopzone.com\n\nOr simply fill in the form at the bottom of this page and our team will get back to you within an hour. Want me to scroll you there?' },
+                    answer: `You can definitely reach out! Here's how to get in touch:\n\n📞 **Give us a call or WhatsApp:** +91 95007 04443\n📧 **Shoot us an email:** strategy@mkshopzone.com\n\nOr you can just fill out the short form at the bottom of the page, and the team will get back to you super fast. Want me to just scroll you down there?` },
                 about: { keywords: ['who are you','about','mk shopzone','your team','experience','agency','background','founded','years','coimbatore'],
-                    answer: 'MK Shopzone is a full-service digital agency based in **Coimbatore, India**, with over **10 years of experience** and **500+ successful client engagements**.\n\nWe specialise in SEO, Paid Ads, Web Design, App Development, and Social Media — essentially the full growth stack for ambitious brands. What can I help you with today?' },
+                    answer: `MK Shopzone is a digital agency based right out of **Coimbatore, India**. We've been at this for over **10 years** and have worked with over **500 clients**!\n\nWe basically handle everything you need to grow online—SEO, Ads, Web Design, Apps, Social Media, you name it. What can I help you figure out today?` },
                 results: { keywords: ['result','success','case study','proof','roi','growth','revenue','traffic increase','ranking improved','testimonial','client win'],
-                    answer: 'Our clients\'s results speak for themselves:\n\n📊 **+300% average organic traffic growth** within 6 months\n💰 **3–5× ROAS** on paid campaigns\n🏆 **Top 3 Google Rankings** for competitive keywords\n⭐ **500+ brands served** across 12+ industries\n\nWant to see what\'s possible for your specific business?' },
+                    answer: `We've had some really great wins! On average, our clients see:\n\n📊 **A 300% bump in organic traffic** within the first 6 months.\n💰 **A 3 to 5x return** on their paid ad spend.\n🏆 **Top 3 rankings** on Google for some really tough keywords.\n⭐ And we've partnered with over **500 brands** across tons of industries.\n\nWant to chat about what we could do for your specific business?` },
                 location: { keywords: ['location','where','city','coimbatore','india','chennai','bangalore','office','based'],
-                    answer: 'We\'re headquartered in **Coimbatore, Tamil Nadu, India**, and we work with clients across India and globally. All services are delivered remotely with clear communication — geography is never a barrier. Anything else?' }
+                    answer: `We're based right here in **Coimbatore, Tamil Nadu, India**, but we actually work with clients all over the place! Since everything is digital, location is never an issue. Did you have any other questions?` }
             },
             smallTalk: {
                 greetings: ['hello','hi','hey','hiya','good morning','good afternoon','good evening','howdy','sup','what\'s up'],
@@ -139,39 +139,39 @@ class MKAssistant {
         /* ── Conversation templates ────────────────────────── */
         this.templates = {
             greetings: [
-                `👋 Hey! Welcome to MK Shopzone. I'm your AI assistant — think of me as your dedicated digital growth guide.\n\nI can help you understand our services, figure out the right strategy for your business, or just answer any questions you have. **What brings you here today?**`,
-                `Hi there! 👋 I'm MK's AI assistant. Whether you're looking to dominate Google search, run high-ROI ads, build a stunning website, or grow on social media — I'm here to help you figure out exactly the right move.\n\n**What's your main goal right now?**`,
-                `Hello! Great to have you here. 🙌 I'm MK Shopzone's AI assistant, built to be your guide through everything we offer — SEO, Paid Ads, Web Design, App Dev, Social Media, and more.\n\n**Tell me what's on your mind — no question is too big or small!**`
+                `👋 Hey there! Welcome to MK Shopzone. I'm the AI assistant around here. What brings you to our site today? Just looking around, or is there a specific project you're working on?`,
+                `Hi! 👋 I'm here to help you figure out exactly what you need, whether that's getting more eyes on your business with SEO or turning your website into a lead machine. What's the main goal you're trying to hit right now?`,
+                `Hey! So glad you stopped by. 🙌 I'm the MK Shopzone AI guide. I'm here to chat about anything you need—from paid ads to a whole new website. What's on your mind today?`
             ],
             fallback: [
-                `That's an interesting one! I want to make sure I give you the most useful answer. Could you tell me a bit more about what you're trying to achieve? I'm all ears.`,
-                `Got it. To point you in the right direction, could you share a little more context? What's the goal you're working toward?`,
-                `I hear you. Let me think about the best way to help. Could you tell me more about your business and what challenge you're trying to solve?`,
-                `Makes sense. I'd love to understand your situation better so I can give you genuinely useful guidance. What does your current digital presence look like?`
+                `That's an interesting one! Could you tell me a little bit more about what you're trying to achieve? I really want to make sure I give you the best advice.`,
+                `Got it! To help me point you in the right direction, could you share a bit more? Like, what's the big goal you're working toward?`,
+                `I hear that. Let me think about how best to help. Could you tell me a little more about your business and the main problem you're trying to solve right now?`,
+                `Makes sense. I'd love to understand your situation a bit better so I can actually be helpful. What does your digital setup look like currently?`
             ],
             acknowledgement: [
-                `Got it, that makes a lot of sense.`,
-                `I understand — that's actually a very common challenge.`,
-                `Absolutely, many businesses run into exactly that.`,
-                `That's really helpful context, thanks for sharing.`,
-                `Makes perfect sense. Here's what I'd suggest...`
+                `Got it, that makes total sense.`,
+                `I hear you—that's a super common challenge actually.`,
+                `For sure, a lot of businesses run into the exact same thing.`,
+                `That’s really helpful to know, thanks for sharing!`,
+                `Makes perfect sense. Here’s what I’d suggest...`
             ],
             closingCta: [
-                `\n\nReady to take the next step? I can connect you with our strategy team — they'll give you a free, no-obligation audit of your current situation. **Want me to do that?**`,
-                `\n\nThe easiest next step is a quick chat with one of our specialists. They'll review your situation and put together a clear game plan. **Shall I get that set up for you?**`,
-                `\n\nTo move forward, the best thing is a free strategy call with our team. They'll audit your current digital presence and map out a personalised roadmap. **Interested?**`
+                `\n\nSound good? If you're ready to take the next step, I can connect you with our strategy team for a quick, free chat. **Want me to set that up?**`,
+                `\n\nHonestly, the best next step is just a quick chat with one of our specialists so they can map out a plan for you. **Should I get them in touch with you?**`,
+                `\n\nTo move forward, I highly recommend a free strategy call with our team. They'll look at what you're doing now and give you a solid roadmap. **Sound like a plan?**`
             ],
-            leadCapture: `Perfect! 🎯 Here's what I'll do — I'll have one of our senior strategists reach out to you directly. They'll do a **free audit** of your current situation and come back with a clear, actionable plan.\n\nTo make that happen, could you share:\n\n1. **Your name**\n2. **Email address**\n3. **Phone number**\n\nOr if you prefer, jump straight to our contact form below — it only takes 60 seconds. 👇`,
-            leadConfirmation: `🎉 Brilliant! You're in good hands. Our team will reach out **within the next hour** (during business hours) with a personalised plan.\n\nIn the meantime, feel free to explore our work or ask me anything else!`,
+            leadCapture: `Awesome! 🎯 Here's the plan—I'll have one of our senior strategists reach out to you directly. They'll do a **free audit** of where you're at and come back with some clear next steps.\n\nTo get that rolling, could you just share:\n\n1. **Your name**\n2. **Email address**\n3. **Phone number**\n\nOr if it's easier, you can just fill out the quick form at the bottom of the page. 👇`,
+            leadConfirmation: `🎉 Perfect, you're in great hands! Our team will reach out **within the next hour** (as long as we're open!) with a game plan just for you.\n\nWhile you wait, feel free to poke around the site or ask me anything else!`,
             pageGreetings: {
-                seo: `👋 Hi! I see you're exploring our SEO services. Great choice — organic search is one of the highest-ROI channels there is.\n\nI'm here to help you understand what's possible for your business. **What's your biggest SEO challenge right now?**`,
-                ads: `💰 Hey! You're checking out our Paid Ads service. Smart move — our campaigns typically deliver 3–5× ROAS.\n\nI can walk you through our approach or help you figure out the right budget and strategy. **What would be most useful?**`,
-                web: `🌐 Hi there! Looking to build or redesign your website? You're in the right place — we build high-performance, conversion-focused digital experiences.\n\n**What kind of website are you envisioning?**`,
-                social: `📱 Welcome! Social media can be a massive growth lever when done right.\n\nI can help you figure out the best platforms, content strategy, and whether organic or paid social is the right starting point for you. **What's your current social media situation like?**`,
-                email: `📧 Hey! Email marketing is still the highest ROI channel — and we're really good at it.\n\n**What's your current email marketing setup like?**`,
-                video: `🎬 Hi! Great to see you exploring video production. Video content consistently outperforms static content in engagement and conversion.\n\n**What kind of video are you thinking about?**`,
-                about: `👋 Curious about who we are? I love that.\n\nMK Shopzone has been helping ambitious brands grow for over 10 years — 500+ clients, 12+ industries. **What would you like to know about us?**`,
-                contact: `Hey! You're on the contact page — which means you're ready to talk. 🙌\n\nI can answer any last-minute questions, or if you're ready, **just fill in the form above and our team will be in touch within the hour.**`
+                seo: `👋 Hi! Checking out our SEO stuff? Honestly, organic search is one of the best ways to get reliable, long-term growth.\n\nI'm here to answer any questions you have. **What's the biggest SEO hurdle you're dealing with right now?**`,
+                ads: `💰 Hey! Exploring our Paid Ads? Good call—our campaigns usually bring back 3 to 5 times what you spend.\n\nI can walk you through how we do it, or help you figure out a good budget. **What sounds best for you?**`,
+                web: `🌐 Hey there! Thinking about a new website or a redesign? You're in the right spot—we love building sites that actually get results.\n\n**What kind of vibe are you dreaming of for your site?**`,
+                social: `📱 Welcome! Social media can be a massive game changer when it's done right.\n\nI can help you figure out the best platforms, content ideas, and if organic or paid social makes more sense for you. **What's your social media looking like these days?**`,
+                email: `📧 Hey! Email marketing is truly the gift that keeps on giving—and we're pretty great at it.\n\n**What's your current email setup look like?**`,
+                video: `🎬 Hi! Love that you're checking out video production. Video is honestly unbeatable for getting people's attention right now.\n\n**What kind of video are you picturing?**`,
+                about: `👋 Curious about who we are? I love that!\n\nMK Shopzone has been partnering with ambitious brands for over 10 years now—over 500 clients across basically every industry. **What would you like to know about the team?**`,
+                contact: `Hey! You made it to the contact page, which usually means you're ready to chat! 🙌\n\nI can answer any last-minute questions you have, or if you're good to go, **just fill in that form up above and we'll be in touch within the hour!**`
             }
         };
 
@@ -419,13 +419,13 @@ class MKAssistant {
             return this._rand(this.templates.greetings);
         }
         if (this._matchesAny(lower, this.KB.smallTalk.thanks)) {
-            return `You're very welcome! 😊 Is there anything else I can help you with?\n\nWhether it's strategy, pricing, timelines — I've got you covered.`;
+            return `You're so welcome! 😊 Is there anything else on your mind?\n\nHappy to chat about strategy, pricing, timelines, or anything else you need.`;
         }
         if (this._matchesAny(lower, this.KB.smallTalk.bye)) {
-            return `It was great chatting! 👋 Feel free to come back any time — we're always here. Good luck with everything, and don't hesitate to reach out when you're ready to grow. 🚀`;
+            return `It was so great chatting with you! 👋 Feel free to swing by anytime. Good luck with everything, and definitely reach out whenever you're ready to make some moves! 🚀`;
         }
         if (this._matchesAny(lower, this.KB.smallTalk.confused)) {
-            return `No worries at all! Let me try to be clearer. What specifically were you hoping to understand? I'm happy to break it down step by step.`;
+            return `Oh, my bad! Let me try to clear that up. What part specifically were you wondering about? I'm more than happy to break it down for you.`;
         }
 
         /* 2. FAQ matching */
@@ -439,7 +439,7 @@ class MKAssistant {
         for (const [key, ind] of Object.entries(this.KB.industries)) {
             if (this._matchesAny(lower, ind.keywords)) {
                 this.userProfile.industry = ind.label;
-                return `Great — ${ind.label} is a competitive space, and we've done some excellent work there.\n\nWe have a dedicated section for ${ind.label} businesses on our site. The most impactful services for your industry are usually **SEO**, **Paid Ads**, and **Web Design** working together.\n\nWhat's your primary goal right now — more leads, better visibility online, or a stronger website? That'll help me point you in the right direction.`;
+                return `Oh nice, **${ind.label}** is a super competitive space, but we've actually done some excellent work there!\n\nWe even have a dedicated section on our site for it. Usually, the best bang for your buck in your industry comes from combining **SEO**, **Paid Ads**, and a killer **Web Design**.\n\nWhat's your main focus right now? Do you want more leads, better visibility, or a shiny new website? Let me know so I can point you the right way!`;
             }
         }
 
@@ -459,7 +459,7 @@ class MKAssistant {
 
             if (this.msgCount === 1) {
                 // First message mentions a service — dive right in
-                return `${ack} You're interested in **${svc.label}** — that's a great call.\n\n${svc.pitch}\n\n${question}`;
+                return `${ack} Thinking about **${svc.label}**? That's a really solid call.\n\n${svc.pitch}\n\n${question}`;
             }
 
             return `${ack} ${svc.pitch}\n\n**${question}**`;
@@ -477,25 +477,25 @@ class MKAssistant {
                     (this.userProfile[`asked_${svc}`] || 0) % this.KB.services[svc].questions.length
                 ] || '';
                 this.userProfile[`asked_${svc}`] = (this.userProfile[`asked_${svc}`] || 0) + 1;
-                return `${this._rand(this.templates.acknowledgement)} Let me ask another quick question so I can recommend the best approach:\n\n**${nextQ}**`;
+                return `${this._rand(this.templates.acknowledgement)} Just so I can give you the best advice, let me ask one more quick thing:\n\n**${nextQ}**`;
             }
-            return `${this._rand(this.templates.acknowledgement)} What aspect of your digital presence would you like to grow most — visibility, leads, or revenue?`;
+            return `${this._rand(this.templates.acknowledgement)} What part of your digital presence do you want to upgrade the most right now—getting more visible, driving leads, or bumping up that revenue?`;
         }
 
         /* 6. Negation — user says no */
         if (this._matchesAny(lower, this.KB.smallTalk.no)) {
-            return `No problem at all! 👍 Is there a different area I can help with? Or if you'd rather explore on your own, our services page gives a great overview.`;
+            return `Totally fine! 👍 Is there anything else you'd like to chat about? Otherwise, feel free to just poke around the site!`;
         }
 
         /* 7. Budget / pricing signals */
         if (/budget|afford|invest|spend|money|fund/i.test(lower)) {
-            return `Budget is always an important consideration! Here's the honest answer:\n\nOur packages are scaled to business size, so whether you're a startup or an established brand, we have something that fits.\n\n**Rough starting points:**\n- 🌐 Website from ₹15,000\n- 📊 SEO from ₹8,000/month\n- 💰 PPC management from ₹5,000/month + ad spend\n\nThe more strategically you invest, the faster the return. **What's a rough range you have in mind?** That'll help me suggest the best-fit package.`;
+            return `Budget is always a huge factor, I totally get it! So here's the honest answer:\n\nOur prices scale based on what you actually need, so whether you're just starting out or you're a massive brand, we can usually make it work.\n\n**To give you a rough idea:**\n- 🌐 Websites start around ₹15,000\n- 📊 SEO kicks off at ₹8,000/month\n- 💰 PPC management begins at ₹5,000/month (plus your ad spend)\n\nThe better you invest, the faster you see returns. **Did you have a rough budget range in mind?** It really helps me suggest the perfect package for you.`;
         }
 
         /* 8. After enough conversation — nudge toward lead */
         if (this.history.length >= 8 && this.stage !== 'lead_sent') {
             this.stage = 'ready_for_lead';
-            return `Based on everything you've shared, I have a really clear picture of what you need, and I'm confident we can deliver excellent results for you.\n\n**The best next step is a short, free strategy call with one of our senior specialists.** They'll do a proper audit and come back with a personalised roadmap — no fluff, no hard sell.\n\nWant me to arrange that? 👇`;
+            return `Based on everything you've told me, I feel like I've got a really good grasp on what you need, and I'm super confident we can help out.\n\n**Honestly, the best next step is just a quick, free strategy call with one of our senior folks.** They'll take a look at your setup and give you a real, customized plan—no pressure, I promise.\n\nWant me to get that set up for you? 👇`;
         }
 
         /* 9. Lead contact details detected in message */
@@ -511,7 +511,7 @@ class MKAssistant {
 
         /* 10. Generic context-aware fallback */
         const contextHint = this.userProfile.interestedService
-            ? `\n\nWe were discussing **${this.KB.services[this.userProfile.interestedService]?.label}** — would you like to go deeper on that?`
+            ? `\n\nSince we were talking about **${this.KB.services[this.userProfile.interestedService]?.label}**, did you want to dive a bit deeper into that?`
             : '';
 
         return `${this._rand(this.templates.fallback)}${contextHint}`;
