@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Android App Development Services | MK Shopzone</title>
+    <meta name="description" content="Expert Android app development in Kotlin & Java. Custom business apps, e-commerce apps, Play Store optimization, UI/UX design, and post-launch support. Get a free consultation.">
+    <meta name="keywords" content="Android app development, mobile app development, Kotlin, Java, Play Store optimization, app design, Android Studio, cross-platform app, backend API integration, app maintenance">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff8c00'/><text x='50%' y='55%' font-family='Outfit' font-weight='bold' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'>MK</text></svg>">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/public/chatbot.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root { --white:#fff; --text-dim:#94a3b8; --primary:#ff8c00; --an-green:#3ddc84; --an-blue:#4285f4; --an-dark:#1a1a2e; --bg:#030408; --glass:rgba(255,255,255,0.03); --border:rgba(255,255,255,0.1); --ag:linear-gradient(135deg,#3ddc84,#4285f4); --og:linear-gradient(135deg,#fff,#ff8c00); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background:var(--bg); color:var(--white); font-family:'Outfit',sans-serif; overflow-x:hidden; line-height:1.7; -webkit-font-smoothing:antialiased; }
+        h1,h2,h3,h4 { color:var(--white); font-weight:800; letter-spacing:-0.02em; }
+        p { color:var(--text-dim); }
+        .container { max-width:1400px; margin:0 auto; padding:0 40px; }
+        [data-reveal] { opacity:0; transform:translateY(40px); transition:1.2s cubic-bezier(0.16,1,0.3,1); }
+        [data-reveal].active { opacity:1; transform:translateY(0); }
+        .s1{transition-delay:.1s}.s2{transition-delay:.2s}.s3{transition-delay:.3s}.s4{transition-delay:.4s}
+        .gs { background:var(--og); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+        .ags { background:var(--ag); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+        .btn { padding:18px 48px; border-radius:100px; font-weight:900; text-transform:uppercase; letter-spacing:2px; border:none; cursor:pointer; transition:0.4s; display:inline-flex; align-items:center; justify-content:center; gap:12px; font-size:0.9rem; text-decoration:none; }
+        .btn-green { background:var(--ag); color:#000; }
+        .btn-green:hover { transform:scale(1.05); filter:brightness(1.1); }
+        .btn-outline { background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.2); }
+        .btn-outline:hover { border-color:var(--an-green); color:var(--an-green); }
+        .navbar { height:96px; display:flex; align-items:center; position:fixed; top:0; width:100%; z-index:1000; background:rgba(3,4,8,0.92); backdrop-filter:blur(20px); border-bottom:1px solid rgba(255,255,255,0.05); }
+        .nav-c { display:flex; justify-content:space-between; align-items:center; width:100%; }
+        .nav-links { display:flex; gap:36px; align-items:center; }
+        .nav-links a { color:var(--white); text-decoration:none; font-weight:700; text-transform:uppercase; font-size:0.85rem; letter-spacing:1.5px; transition:0.3s; }
+        .nav-links a:hover,.nav-links a.active { color:var(--an-green); }
+        .hero { min-height:100vh; display:flex; align-items:center; padding:160px 0 100px; position:relative; overflow:hidden; }
+        .hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse at 30% 55%,rgba(61,220,132,0.1) 0%,transparent 55%),radial-gradient(ellipse at 80% 20%,rgba(66,133,244,0.08) 0%,transparent 50%),var(--bg); }
+        .sec { padding:130px 0; }
+        .sec-dark { background:#050505; }
+        .card { background:var(--glass); border:1px solid var(--border); backdrop-filter:blur(25px); border-radius:28px; padding:42px; transition:all 0.5s cubic-bezier(0.16,1,0.3,1); }
+        .card:hover { border-color:var(--an-green); transform:translateY(-10px); background:rgba(255,255,255,0.05); }
+        .img { border-radius:20px; width:100%; display:block; object-fit:cover; box-shadow:0 40px 100px rgba(0,0,0,0.6); transition:transform 0.6s; }
+        .img:hover { transform:scale(1.02); }
+        .hl { transition:transform 0.3s; }
+        .hl:hover { transform:translateY(-10px); }
+        .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+        .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+        .grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+        .step { padding:42px 32px; border-radius:28px; background:var(--glass); border:1px solid var(--border); text-align:center; transition:0.5s; }
+        .step:hover { border-color:var(--an-green); transform:translateY(-8px); }
+        .snum { width:58px; height:58px; background:var(--ag); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:1.4rem; color:#000; margin:0 auto 22px; }
+        .tag { display:inline-flex; align-items:center; gap:9px; border:2px solid rgba(61,220,132,0.3); padding:10px 24px; border-radius:100px; font-weight:700; font-size:0.87rem; transition:0.3s; }
+        .tag:hover { border-color:var(--an-green); color:var(--an-green); background:rgba(61,220,132,0.08); }
+        .chk { display:flex; align-items:flex-start; gap:13px; margin-bottom:15px; font-size:1.02rem; font-weight:600; }
+        .faq-item { border-bottom:1px solid rgba(255,255,255,0.08); }
+        .faq-btn { width:100%; padding:24px 0; display:flex; justify-content:space-between; align-items:center; gap:20px; background:none; border:none; cursor:pointer; color:#fff; font-size:1.15rem; font-weight:700; text-align:left; }
+        .faq-content { max-height:0; overflow:hidden; transition:0.5s; color:var(--text-dim); }
+        .faq-item.active .faq-content { max-height:400px; padding-bottom:24px; }
+        .faq-icon { flex-shrink:0; transition:transform 0.3s; }
+        .faq-item.active .faq-icon { transform:rotate(45deg); }
+        input,select,textarea { background:rgba(0,0,0,0.55); border:1px solid rgba(255,255,255,0.14); border-radius:14px; padding:18px 22px; color:#fff; font-size:1rem; width:100%; }
+        @media(max-width:1024px){.nav-links{display:none;}}
+        @media(max-width:768px){.grid2,.grid3,.grid4{grid-template-columns:1fr!important;gap:40px!important;}.hero h1{font-size:3.2rem!important;}.sec{padding:80px 0;}.container{padding:0 20px;}}
+    </style>
+</head>
+<body>
+<header class="navbar" id="navbar">
+    <div class="container nav-c">
+        <a href="/" style="font-size:2rem;font-weight:900;text-decoration:none;color:#fff;">MK<span style="color:var(--primary);">SHOPZONE</span></a>
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="ecommerce.html">E-Commerce</a>
+            <a href="healthcare.html">Healthcare</a>
+            <a href="education.html">Education</a>
+            <a href="android-app.html" class="active">Android Apps</a>
+            <button class="btn btn-green" style="padding:12px 26px;font-size:0.8rem;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">FREE CONSULTATION</button>
+        </nav>
+    </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container" style="position:relative;z-index:2;">
+        <div class="grid2">
+            <div data-reveal>
+                <span style="letter-spacing:4px;font-weight:900;color:var(--an-green);text-transform:uppercase;font-size:0.9rem;margin-bottom:20px;display:block;">Native Android Development</span>
+                <h1 style="font-size:5rem;line-height:0.95;margin-bottom:28px;">Custom Android <span class="ags">App</span><br>Development.</h1>
+                <p style="font-size:1.25rem;max-width:550px;margin-bottom:38px;color:#e2e8f0;">From idea to Play Store — we build high-performance, pixel-perfect Android apps in Kotlin and Java that scale with your business and delight your users.</p>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;">
+                    <button class="btn btn-green" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">BUILD MY APP <i data-lucide="smartphone"></i></button>
+                    <button class="btn btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});">VIEW SERVICES</button>
+                </div>
+                <div style="display:flex;gap:38px;margin-top:48px;flex-wrap:wrap;">
+                    <div><h3 style="font-size:2.2rem;color:var(--an-green);margin:0;">200+</h3><p style="margin:0;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;">Apps Delivered</p></div>
+                    <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:38px;"><h3 style="font-size:2.2rem;color:var(--an-green);margin:0;">4.8★</h3><p style="margin:0;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;">Avg. Play Store Rating</p></div>
+                    <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:38px;"><h3 style="font-size:2.2rem;color:var(--an-green);margin:0;">10M+</h3><p style="margin:0;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;">Total App Downloads</p></div>
+                </div>
+            </div>
+            <div data-reveal class="s2" style="position:relative;">
+                <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=900&q=80" alt="Android app UI screens mobile development" class="img" style="height:580px;">
+                <div style="position:absolute;bottom:-22px;left:-20px;background:rgba(3,4,8,0.95);padding:22px 28px;border-radius:16px;border:1px solid var(--an-green);backdrop-filter:blur(12px);">
+                    <h3 class="ags" style="font-size:1.9rem;margin:0;">98%</h3>
+                    <p style="margin:0;font-size:0.78rem;letter-spacing:2px;color:#94a3b8;">CLIENT SATISFACTION</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY ANDROID + WHO WE ARE -->
+<section class="sec sec-dark" data-reveal>
+    <div class="container">
+        <div class="grid2">
+            <div data-reveal class="s1">
+                <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?auto=format&fit=crop&w=900&q=80" alt="Android developer coding in Android Studio" class="img" style="height:510px;">
+            </div>
+            <div data-reveal class="s2">
+                <h4 style="color:var(--an-green);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">3 Billion+ Devices</h4>
+                <h2 style="font-size:3.8rem;line-height:1.1;margin-bottom:24px;">Why Android is <span class="ags">Essential for Business.</span></h2>
+                <p style="font-size:1.15rem;margin-bottom:20px;">Android commands over 72% of the global smartphone market. A powerful, custom Android app puts your business directly on billions of devices — delivering unmatched reach, engagement, and revenue potential.</p>
+                <p style="font-size:1.15rem;margin-bottom:35px;">As specialist Android App Development Experts, MK Shopzone engineers native Kotlin/Java applications with cutting-edge UI/UX, backend infrastructure, and deep Play Store optimization to maximize installs and reviews.</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+                    <div class="card" style="padding:26px;"><i data-lucide="zap" style="color:var(--an-green);width:34px;height:34px;margin-bottom:10px;"></i><h3 style="font-size:1.2rem;margin-bottom:6px;">High Performance</h3><p style="font-size:0.88rem;">60fps native rendering.</p></div>
+                    <div class="card" style="padding:26px;"><i data-lucide="shield-check" style="color:var(--an-blue);width:34px;height:34px;margin-bottom:10px;"></i><h3 style="font-size:1.2rem;margin-bottom:6px;">Secure & Scalable</h3><p style="font-size:0.88rem;">Enterprise-grade security.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES + PROCESS -->
+<section class="sec" id="services" data-reveal>
+    <div class="container" style="text-align:center;">
+        <h4 style="color:var(--primary);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Complete Android Ecosystem</h4>
+        <h2 style="font-size:4.5rem;margin-bottom:18px;">End-to-End <span class="gs">Android Services.</span></h2>
+        <p style="font-size:1.15rem;max-width:750px;margin:0 auto 60px;">From design and development through testing and Play Store deployment — we own every phase of your Android app lifecycle.</p>
+
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:13px;margin-bottom:90px;">
+            <span class="tag"><i data-lucide="smartphone" style="width:14px;height:14px;color:var(--an-green);"></i> Native Android Dev</span>
+            <span class="tag"><i data-lucide="layout" style="width:14px;height:14px;color:var(--an-green);"></i> UI/UX Design</span>
+            <span class="tag"><i data-lucide="code-2" style="width:14px;height:14px;color:var(--an-green);"></i> Kotlin / Java</span>
+            <span class="tag"><i data-lucide="server" style="width:14px;height:14px;color:var(--an-green);"></i> Backend & APIs</span>
+            <span class="tag"><i data-lucide="shield" style="width:14px;height:14px;color:var(--an-green);"></i> App Security</span>
+            <span class="tag"><i data-lucide="play-circle" style="width:14px;height:14px;color:var(--an-green);"></i> Play Store ASO</span>
+            <span class="tag"><i data-lucide="bug" style="width:14px;height:14px;color:var(--an-green);"></i> QA Testing</span>
+            <span class="tag"><i data-lucide="settings" style="width:14px;height:14px;color:var(--an-green);"></i> Maintenance</span>
+        </div>
+
+        <!-- 5-Step Process -->
+        <h4 style="color:var(--an-green);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Our Development Process</h4>
+        <h2 style="font-size:4rem;margin-bottom:55px;">Idea to <span class="gs">Play Store.</span></h2>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:18px;">
+            <div class="step hl" data-reveal class="s1"><div class="snum">1</div><h3 style="font-size:1.3rem;margin-bottom:10px;">Idea</h3><p style="font-size:0.9rem;">Discovery, scope definition & tech architecture planning.</p></div>
+            <div class="step hl" data-reveal class="s2"><div class="snum">2</div><h3 style="font-size:1.3rem;margin-bottom:10px;">UI/UX</h3><p style="font-size:0.9rem;">Wireframes, Figma prototypes & Material Design 3 screens.</p></div>
+            <div class="step hl" data-reveal class="s3"><div class="snum">3</div><h3 style="font-size:1.3rem;margin-bottom:10px;">Build</h3><p style="font-size:0.9rem;">Native Kotlin dev, API integration & backend engineering.</p></div>
+            <div class="step hl" data-reveal class="s4"><div class="snum">4</div><h3 style="font-size:1.3rem;margin-bottom:10px;">Test</h3><p style="font-size:0.9rem;">Device matrix QA, performance & security auditing.</p></div>
+            <div class="step hl" data-reveal><div class="snum">5</div><h3 style="font-size:1.3rem;margin-bottom:10px;">Launch</h3><p style="font-size:0.9rem;">Play Store submission, ASO & post-launch monitoring.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- CORE CAPABILITIES -->
+<section class="sec sec-dark" data-reveal>
+    <div class="container">
+        <div style="text-align:center;margin-bottom:70px;">
+            <h4 style="color:var(--an-green);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Technical Depth</h4>
+            <h2 style="font-size:4.5rem;margin-bottom:18px;">Android <span class="gs">Development Capabilities.</span></h2>
+            <p style="font-size:1.15rem;max-width:700px;margin:0 auto;">We build every layer of your Android ecosystem with institutional-grade precision.</p>
+        </div>
+        <div class="grid3">
+            <div class="card hl" data-reveal class="s1">
+                <i data-lucide="code-2" style="color:var(--an-green);width:46px;height:46px;margin-bottom:20px;"></i>
+                <h3 style="font-size:1.7rem;margin-bottom:12px;">Native Android (Kotlin/Java)</h3>
+                <p>Pixel-perfect, high-performance native apps using Kotlin Coroutines, Jetpack Compose, ViewModel, Room DB, and the full Android Jetpack library suite for modern, maintainable codebases.</p>
+            </div>
+            <div class="card hl" data-reveal class="s2">
+                <i data-lucide="layout" style="color:var(--an-blue);width:46px;height:46px;margin-bottom:20px;"></i>
+                <h3 style="font-size:1.7rem;margin-bottom:12px;">UI/UX for Android</h3>
+                <p>Material Design 3 compliant interfaces with smooth 60fps animations, gesture navigation, adaptive layouts for phones/tablets/foldables, and dark mode support — tested across 200+ device configurations.</p>
+            </div>
+            <div class="card hl" data-reveal class="s3">
+                <i data-lucide="server" style="color:var(--primary);width:46px;height:46px;margin-bottom:20px;"></i>
+                <h3 style="font-size:1.7rem;margin-bottom:12px;">Backend & API Integration</h3>
+                <p>RESTful and GraphQL API development, Firebase integration, real-time database sync, push notifications via FCM, payment gateways (Razorpay, Stripe), and third-party SDK integration.</p>
+            </div>
+            <div class="card hl" data-reveal class="s1">
+                <i data-lucide="globe" style="color:var(--an-green);width:46px;height:46px;margin-bottom:20px;"></i>
+                <h3 style="font-size:1.7rem;margin-bottom:12px;">Cross-Platform Compatibility</h3>
+                <p>Seamless Android-to-web API compatibility, deep-link handling, ShareSheet integrations, Bluetooth/NFC/Camera/Location feature modules, and Android Auto/TV/Wear OS extensions.</p>
+            </div>
+            <div class="card hl" data-reveal class="s2">
+                <i data-lucide="shield-check" style="color:var(--an-blue);width:46px;height:46px;margin-bottom:20px;"></i>
+                <h3 style="font-size:1.7rem;margin-bottom:12px;">Security & Performance</h3>
+                <p>ProGuard/R8 obfuscation, SSL pinning, biometric authentication, encrypted local storage, OWASP Mobile Top 10 mitigations, and rigorous performance profiling with Android Profiler.</p>
+            </div>
+            <div class="card hl" data-reveal class="s3">
+                <i data-lucide="play-circle" style="color:var(--primary);width:46px;height:46px;margin-bottom:20px;"></i>
+                <h3 style="font-size:1.7rem;margin-bottom:12px;">Play Store ASO & Deployment</h3>
+                <p>Keyword-optimised store listings, screenshot production, A/B store experiment setup, Policy compliance review, staged rollouts, and in-app review API integration to systematically boost your star rating.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- APP VISUALS + QA -->
+<section class="sec" data-reveal>
+    <div class="container">
+        <div class="grid2" style="margin-bottom:100px;">
+            <div data-reveal class="s1">
+                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80" alt="Android app wireframe design mockup" class="img" style="height:500px;">
+            </div>
+            <div data-reveal class="s2">
+                <h4 style="color:var(--an-green);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Zero-Defect Delivery</h4>
+                <h2 style="font-size:3.8rem;line-height:1.1;margin-bottom:22px;">App Testing & <span class="ags">Quality Assurance.</span></h2>
+                <p style="font-size:1.15rem;margin-bottom:26px;">Every app we ship passes a rigorous 6-layer quality process — from unit testing and UI automation to real-device testing across 50+ Android models, ensuring crash-free experiences at launch.</p>
+                <div class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i><span>Unit, integration & UI automation testing (JUnit, Espresso)</span></div>
+                <div class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i><span>Real device testing on 50+ Android versions & OEMs</span></div>
+                <div class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i><span>Performance profiling: CPU, memory, battery & network</span></div>
+                <div class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i><span>Security penetration testing & OWASP compliance</span></div>
+                <div class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i><span>Play Store pre-launch report review & policy compliance</span></div>
+            </div>
+        </div>
+
+        <!-- Analytics + Maintenance -->
+        <div class="card" style="background:linear-gradient(135deg,rgba(61,220,132,0.07),rgba(66,133,244,0.05));border-color:rgba(61,220,132,0.35);padding:55px;" data-reveal>
+            <div class="grid2" style="gap:60px;">
+                <div>
+                    <i data-lucide="bar-chart-2" style="color:var(--an-green);width:52px;height:52px;margin-bottom:20px;"></i>
+                    <h3 style="font-size:2.8rem;margin-bottom:18px;">Analytics & <span class="ags">Post-Launch Support.</span></h3>
+                    <p style="font-size:1.1rem;margin-bottom:22px;">We integrate Firebase Analytics, Crashlytics, Google Analytics 4, and custom event tracking so you see exactly how users interact with your app — and identify growth opportunities continuously.</p>
+                    <div class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i><span>Firebase Crashlytics real-time crash monitoring</span></div>
+                    <div class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i><span>User funnel & retention analytics</span></div>
+                    <div class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i><span>Monthly app health reports & update sprints</span></div>
+                </div>
+                <div><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="App performance analytics dashboard" class="img" style="height:340px;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE + PORTFOLIO -->
+<section class="sec sec-dark" data-reveal>
+    <div class="container" style="text-align:center;">
+        <h4 style="color:var(--an-green);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">The Android Authority</h4>
+        <h2 style="font-size:4.5rem;margin-bottom:60px;">Why Choose Our <span class="gs">App Dev Agency.</span></h2>
+        <div class="grid4" style="margin-bottom:90px;">
+            <div class="card hl" data-reveal class="s1"><i data-lucide="code-2" style="color:var(--an-green);width:44px;height:44px;margin:0 auto 16px;"></i><h3 style="font-size:1.4rem;margin-bottom:10px;">Native-First</h3><p style="font-size:0.9rem;">Pure Kotlin/Java — no cross-platform compromises on performance or UX.</p></div>
+            <div class="card hl" data-reveal class="s2"><i data-lucide="clock" style="color:var(--primary);width:44px;height:44px;margin:0 auto 16px;"></i><h3 style="font-size:1.4rem;margin-bottom:10px;">On-Time Delivery</h3><p style="font-size:0.9rem;">Sprint-based Agile development with weekly milestone demos — no deadline surprises.</p></div>
+            <div class="card hl" data-reveal class="s3"><i data-lucide="users" style="color:var(--an-blue);width:44px;height:44px;margin:0 auto 16px;"></i><h3 style="font-size:1.4rem;margin-bottom:10px;">Dedicated Team</h3><p style="font-size:0.9rem;">Your own project manager, UI designer, Kotlin engineer, and QA specialist.</p></div>
+            <div class="card hl" data-reveal class="s4"><i data-lucide="refresh-cw" style="color:var(--an-green);width:44px;height:44px;margin:0 auto 16px;"></i><h3 style="font-size:1.4rem;margin-bottom:10px;">Lifetime Support</h3><p style="font-size:0.9rem;">Android OS updates, feature additions, and performance tuning beyond day one.</p></div>
+        </div>
+
+        <!-- Portfolio -->
+        <h4 style="color:var(--primary);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Case Studies</h4>
+        <h2 style="font-size:4rem;margin-bottom:55px;">App <span class="gs">Success Stories.</span></h2>
+        <div class="grid3" style="text-align:left;">
+            <div class="card hl" data-reveal class="s1">
+                <div style="display:inline-block;background:var(--ag);color:#000;padding:5px 16px;border-radius:100px;font-size:0.75rem;font-weight:900;margin-bottom:16px;letter-spacing:2px;">FINTECH APP</div>
+                <h3 style="font-size:1.5rem;margin-bottom:10px;">Digital Wallet App</h3>
+                <p style="margin-bottom:18px;">Built a UPI + card payment wallet with biometric auth, split-bill features, and real-time transaction notifications. Achieved 500K downloads in 4 months.</p>
+                <div style="display:flex;gap:20px;"><div><h4 style="font-size:1.8rem;color:var(--an-green);">500K</h4><p style="font-size:0.76rem;margin:0;">Downloads</p></div><div><h4 style="font-size:1.8rem;color:var(--primary);">4.7★</h4><p style="font-size:0.76rem;margin:0;">Play Store</p></div></div>
+            </div>
+            <div class="card hl" data-reveal class="s2">
+                <div style="display:inline-block;background:rgba(66,133,244,0.2);color:var(--an-blue);padding:5px 16px;border-radius:100px;font-size:0.75rem;font-weight:900;margin-bottom:16px;letter-spacing:2px;">E-COMMERCE APP</div>
+                <h3 style="font-size:1.5rem;margin-bottom:10px;">Fashion Retail App</h3>
+                <p style="margin-bottom:18px;">Full-feature Shopify-connected Android app with AR try-on, wishlist, loyalty points, and one-tap checkout. Boosted mobile revenue by 180% vs. mobile web.</p>
+                <div style="display:flex;gap:20px;"><div><h4 style="font-size:1.8rem;color:var(--an-green);">180%</h4><p style="font-size:0.76rem;margin:0;">Revenue Lift</p></div><div><h4 style="font-size:1.8rem;color:var(--primary);">4.9★</h4><p style="font-size:0.76rem;margin:0;">Play Store</p></div></div>
+            </div>
+            <div class="card hl" data-reveal class="s3">
+                <div style="display:inline-block;background:rgba(255,140,0,0.2);color:var(--primary);padding:5px 16px;border-radius:100px;font-size:0.75rem;font-weight:900;margin-bottom:16px;letter-spacing:2px;">HEALTHTECH APP</div>
+                <h3 style="font-size:1.5rem;margin-bottom:10px;">Patient Care App</h3>
+                <p style="margin-bottom:18px;">HIPAA-aware telemedicine Android app with video consultations, prescription management, lab reports, and appointment booking. 200K+ active monthly users.</p>
+                <div style="display:flex;gap:20px;"><div><h4 style="font-size:1.8rem;color:var(--an-green);">200K</h4><p style="font-size:0.76rem;margin:0;">Monthly Users</p></div><div><h4 style="font-size:1.8rem;color:var(--primary);">4.8★</h4><p style="font-size:0.76rem;margin:0;">Play Store</p></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INDUSTRIES + TECH STACK -->
+<section class="sec" style="background:#f8fffe;" data-reveal>
+    <div class="container">
+        <div style="text-align:center;margin-bottom:70px;">
+            <h4 style="color:var(--primary);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Sectors We Serve</h4>
+            <h2 style="font-size:4rem;color:#111;margin-bottom:16px;">Industries We <span class="gs">Build For.</span></h2>
+        </div>
+        <div class="grid4" style="margin-bottom:90px;">
+            <div class="hl" style="background:#fff;border:2px solid #dcfce7;border-radius:24px;padding:36px;text-align:center;" data-reveal class="s1">
+                <i data-lucide="shopping-bag" style="color:var(--an-green);width:40px;height:40px;margin:0 auto 12px;"></i>
+                <h3 style="color:#111;font-size:1.25rem;">E-commerce & Retail</h3>
+            </div>
+            <div class="hl" style="background:#fff;border:2px solid #dbeafe;border-radius:24px;padding:36px;text-align:center;" data-reveal class="s2">
+                <i data-lucide="heart-pulse" style="color:var(--an-blue);width:40px;height:40px;margin:0 auto 12px;"></i>
+                <h3 style="color:#111;font-size:1.25rem;">Healthcare & Wellness</h3>
+            </div>
+            <div class="hl" style="background:#fff;border:2px solid #fef9c3;border-radius:24px;padding:36px;text-align:center;" data-reveal class="s3">
+                <i data-lucide="banknote" style="color:#ca8a04;width:40px;height:40px;margin:0 auto 12px;"></i>
+                <h3 style="color:#111;font-size:1.25rem;">Fintech & Banking</h3>
+            </div>
+            <div class="hl" style="background:#fff;border:2px solid #f3e8ff;border-radius:24px;padding:36px;text-align:center;" data-reveal class="s4">
+                <i data-lucide="graduation-cap" style="color:#9333ea;width:40px;height:40px;margin:0 auto 12px;"></i>
+                <h3 style="color:#111;font-size:1.25rem;">EdTech & Learning</h3>
+            </div>
+        </div>
+        <div style="text-align:center;" data-reveal>
+            <h4 style="color:var(--primary);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">The Android Stack</h4>
+            <h2 style="font-size:3.8rem;color:#111;margin-bottom:45px;">Tools & Technologies.</h2>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;">
+                <span class="hl" style="border:2px solid #d1fae5;background:#fff;color:#111;padding:13px 28px;border-radius:100px;font-weight:700;">Kotlin & Jetpack Compose</span>
+                <span class="hl" style="border:2px solid #d1fae5;background:#fff;color:#111;padding:13px 28px;border-radius:100px;font-weight:700;">Android Studio</span>
+                <span class="hl" style="border:2px solid #d1fae5;background:#fff;color:#111;padding:13px 28px;border-radius:100px;font-weight:700;">Firebase (Auth/DB/ML)</span>
+                <span class="hl" style="border:2px solid #d1fae5;background:#fff;color:#111;padding:13px 28px;border-radius:100px;font-weight:700;">Retrofit & OkHttp</span>
+                <span class="hl" style="border:2px solid #d1fae5;background:#fff;color:#111;padding:13px 28px;border-radius:100px;font-weight:700;">Room & SQLite</span>
+                <span class="hl" style="border:2px solid #d1fae5;background:#fff;color:#111;padding:13px 28px;border-radius:100px;font-weight:700;">Figma & Material Design 3</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING TRANSPARENCY -->
+<section class="sec sec-dark" data-reveal>
+    <div class="container" style="text-align:center;">
+        <h4 style="color:var(--an-green);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">No Hidden Costs</h4>
+        <h2 style="font-size:4rem;margin-bottom:60px;">Transparent Pricing <span class="gs">& Timelines.</span></h2>
+        <div class="grid3">
+            <div class="card hl" data-reveal class="s1" style="border-color:rgba(61,220,132,0.3);">
+                <h3 style="color:var(--an-green);font-size:1.8rem;margin-bottom:6px;">Starter App</h3>
+                <h4 style="font-size:2.5rem;margin-bottom:16px;">₹1.5L – ₹3L</h4>
+                <p style="margin-bottom:20px;">Timeline: 6–8 Weeks</p>
+                <ul style="list-style:none;text-align:left;">
+                    <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i>Up to 8 screens</li>
+                    <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i>Firebase backend</li>
+                    <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i>Play Store submission</li>
+                </ul>
+            </div>
+            <div class="card hl" data-reveal class="s2" style="border-color:var(--an-green);background:rgba(61,220,132,0.06);">
+                <div style="display:inline-block;background:var(--ag);color:#000;padding:4px 14px;border-radius:100px;font-size:0.75rem;font-weight:900;margin-bottom:14px;">MOST POPULAR</div>
+                <h3 style="color:var(--an-green);font-size:1.8rem;margin-bottom:6px;">Business App</h3>
+                <h4 style="font-size:2.5rem;margin-bottom:16px;">₹3L – ₹8L</h4>
+                <p style="margin-bottom:20px;">Timeline: 10–16 Weeks</p>
+                <ul style="list-style:none;text-align:left;">
+                    <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i>Full custom design</li>
+                    <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i>Custom REST API backend</li>
+                    <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i>Payment gateway + push</li>
+                    <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i>3 months support</li>
+                </ul>
+            </div>
+            <div class="card hl" data-reveal class="s3" style="border-color:rgba(66,133,244,0.4);">
+                <h3 style="color:var(--an-blue);font-size:1.8rem;margin-bottom:6px;">Enterprise App</h3>
+                <h4 style="font-size:2.5rem;margin-bottom:16px;">₹8L+</h4>
+                <p style="margin-bottom:20px;">Timeline: 16–28 Weeks</p>
+                <ul style="list-style:none;text-align:left;">
+                    <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-blue);flex-shrink:0;"></i>Complex custom features</li>
+                    <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-blue);flex-shrink:0;"></i>Microservices architecture</li>
+                    <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-blue);flex-shrink:0;"></i>AI/ML feature integration</li>
+                    <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-blue);flex-shrink:0;"></i>12 months SLA support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQs -->
+<section class="sec" data-reveal>
+    <div class="container">
+        <div style="text-align:center;margin-bottom:60px;">
+            <h4 style="color:var(--an-green);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Common Questions</h4>
+            <h2 style="font-size:4rem;">Frequently Asked <span class="gs">Questions.</span></h2>
+        </div>
+        <div style="max-width:900px;margin:0 auto;">
+            <div class="faq-item"><button class="faq-btn"><span>How long does it take to develop an Android app?</span><i data-lucide="plus" class="faq-icon"></i></button><div class="faq-content"><p>Timeline depends on complexity: simple apps take 6–8 weeks; medium business apps 10–16 weeks; complex enterprise solutions 16–28 weeks. We provide a detailed sprint plan before project start so you know exactly what's happening at every stage.</p></div></div>
+            <div class="faq-item"><button class="faq-btn"><span>Do you use Kotlin or Java for Android development?</span><i data-lucide="plus" class="faq-icon"></i></button><div class="faq-content"><p>We primarily use Kotlin — Google's official, modern Android language — with Jetpack Compose for UI. For projects requiring it, we maintain Java codebases and can work with hybrid legacy/Kotlin projects. We follow Android best practices including MVVM architecture and Clean Code principles.</p></div></div>
+            <div class="faq-item"><button class="faq-btn"><span>Can you integrate payment gateways like Razorpay or Stripe?</span><i data-lucide="plus" class="faq-icon"></i></button><div class="faq-content"><p>Yes — we integrate all major Indian and international payment gateways including Razorpay, Stripe, PayU, CCAvenue, and PhonePe. We implement native Android SDKs with proper security handling, PCI-DSS considerations, and fallback flows.</p></div></div>
+            <div class="faq-item"><button class="faq-btn"><span>Do you handle Google Play Store submission?</span><i data-lucide="plus" class="faq-icon"></i></button><div class="faq-content"><p>Absolutely. We manage the complete Play Store submission process including app signing, policy compliance review, store listing optimisation (ASO), screenshot production, and staged rollout configuration. We also set up A/B store listing experiments to maximise organic install rates.</p></div></div>
+            <div class="faq-item"><button class="faq-btn"><span>What happens after the app is launched?</span><i data-lucide="plus" class="faq-icon"></i></button><div class="faq-content"><p>All projects include a minimum 30-day post-launch warranty covering critical bug fixes at no charge. We offer flexible ongoing maintenance retainers covering Android OS update compatibility, feature additions, performance monitoring, and Play Store policy compliance as Google's policies evolve.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA + CONTACT -->
+<section class="sec" id="contact" style="background:url('https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1600&q=80') center/cover;position:relative;">
+    <div style="position:absolute;inset:0;background:rgba(3,4,8,0.93);"></div>
+    <div class="container" style="position:relative;z-index:2;text-align:center;">
+        <div data-reveal>
+            <h4 style="color:var(--an-green);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Your App Starts Here</h4>
+            <h2 style="font-size:4.8rem;margin-bottom:16px;">Let's Build Your <span class="ags">Android App.</span></h2>
+            <p style="font-size:1.28rem;max-width:620px;margin:0 auto 48px;">Get Your Free App Consultation. Share your idea and our Android experts will deliver a detailed scope, timeline, and quote within 24 hours — at zero cost.</p>
+            <form id="appForm" style="display:grid;gap:16px;max-width:620px;margin:0 auto;text-align:left;" onsubmit="handleAppSubmit(event)">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="tel" placeholder="Phone Number" required>
+                </div>
+                <input type="email" placeholder="Business Email" required>
+                <input type="text" placeholder="App Idea (Brief Description)" required>
+                <select>
+                    <option value="">Estimated Budget</option>
+                    <option>Under ₹1.5 Lakh</option>
+                    <option>₹1.5L – ₹3L (Starter)</option>
+                    <option>₹3L – ₹8L (Business)</option>
+                    <option>₹8L+ (Enterprise)</option>
+                </select>
+                <button type="submit" class="btn btn-green" style="width:100%;font-size:1.05rem;padding:22px;">GET FREE APP CONSULTATION →</button>
+            </form>
+            <p id="appSuccess" style="display:none;color:#4ade80;font-size:1.1rem;margin-top:20px;font-weight:700;">✅ Received! Our Android experts will contact you within 24 hours.</p>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer style="padding:75px 0;border-top:1px solid rgba(255,255,255,0.05);background:#000;text-align:center;">
+    <div class="container">
+        <a href="/" style="font-size:1.9rem;font-weight:900;text-decoration:none;color:#fff;">MK<span style="color:var(--primary);">SHOPZONE</span></a>
+        <p style="opacity:0.5;margin:22px auto;max-width:500px;">Building high-performance Android apps that scale businesses and delight users.</p>
+        <div style="display:flex;justify-content:center;gap:34px;flex-wrap:wrap;margin-bottom:35px;opacity:0.6;font-size:0.86rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;">
+            <a href="/" style="color:#fff;text-decoration:none;">Home</a>
+            <a href="ecommerce.html" style="color:#fff;text-decoration:none;">E-Commerce</a>
+            <a href="healthcare.html" style="color:#fff;text-decoration:none;">Healthcare</a>
+            <a href="education.html" style="color:#fff;text-decoration:none;">Education</a>
+            <a href="real-estate.html" style="color:#fff;text-decoration:none;">Real Estate</a>
+        </div>
+        <p style="opacity:0.3;font-size:0.78rem;letter-spacing:2px;">© 2026 MK SHOPZONE. All rights reserved.</p>
+    </div>
+</footer>
+
+<script type="module" src="/src/behavior-tracker.js"></script>
+<script type="module" src="/src/personalization.js"></script>
+<script type="module" src="/src/lead-system.js"></script>
+<script type="module" src="/src/ai-chatbot.js"></script>
+<script type="module" src="/src/main.js"></script>
+<script>
+    lucide.createIcons();
+    const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('active');obs.unobserve(e.target);}}),{threshold:0.08});
+    document.querySelectorAll('[data-reveal]').forEach(el=>obs.observe(el));
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll',()=>{nav.style.background=window.scrollY>60?'rgba(3,4,8,0.99)':'rgba(3,4,8,0.92)';});
+    document.querySelectorAll('.faq-btn').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.parentElement;const isA=item.classList.contains('active');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('active'));if(!isA)item.classList.add('active');});});
+    function handleAppSubmit(e){e.preventDefault();document.getElementById('appForm').style.display='none';document.getElementById('appSuccess').style.display='block';}
+</script>
+</body>
+</html>
