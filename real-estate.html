@@ -3,572 +3,573 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Result-Driven Real Estate Marketing & Digital Solutions | MK Shopzone</title>
-    <meta name="description" content="Expert real estate digital marketing, property lead generation, real estate SEO, Google Ads for builders, virtual tours, CRM integration & property website design. Scale your real estate business.">
-    <meta name="keywords" content="real estate marketing, property leads, real estate SEO, property advertising, builders marketing, property lead generation, real estate Google ads, virtual tour marketing, real estate CRM, local SEO for agents">
+    <title>Real Estate Digital Marketing & Property Lead Generation | MK Shopzone</title>
+    <meta name="description" content="Result-driven real estate digital marketing, property lead generation, real estate SEO, paid ads, virtual tours, and CRM integration. Scale your property business with MK Shopzone.">
+    <meta name="keywords" content="real estate marketing, property leads, real estate SEO, property advertising, builders marketing, real estate website design, property listing optimization, local SEO for agents, virtual property tours">
+
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff8c00'/><text x='50%' y='55%' font-family='Outfit' font-weight='bold' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'>MK</text></svg>">
     <link rel="stylesheet" href="/src/style.css">
     <link rel="stylesheet" href="/public/chatbot.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
         :root {
             --white: #ffffff;
             --text-dim: #94a3b8;
             --primary: #ff8c00;
             --primary-glow: rgba(255,140,0,0.3);
-            --gold: #f59e0b;
-            --gold-light: #fbbf24;
+            --re-gold: #d4a017;
+            --re-blue: #1e3a5f;
+            --re-blue-light: #2563eb;
+            --re-cream: #f8f4ef;
             --bg-ultra: #030408;
             --bg-glass: rgba(255,255,255,0.03);
             --border-glass: rgba(255,255,255,0.1);
-            --accent-gradient: linear-gradient(135deg,#ffffff 0%,var(--primary) 100%);
-            --gold-gradient: linear-gradient(135deg,#f59e0b,#ff8c00);
+            --accent-gradient: linear-gradient(135deg, #ffffff 0%, #ff8c00 100%);
+            --re-gradient: linear-gradient(135deg, #d4a017, #ff8c00);
             --dark-section: #050505;
         }
-        *{box-sizing:border-box;}
-        body{background-color:var(--bg-ultra);color:var(--white);font-family:'Outfit',sans-serif;overflow-x:hidden;line-height:1.7;-webkit-font-smoothing:antialiased;}
-        h1,h2,h3,h4{color:var(--white);font-weight:800;letter-spacing:-0.02em;}
-        p{color:var(--text-dim);}
-        a{text-decoration:none;}
-        .container{max-width:1400px;margin:0 auto;padding:0 40px;}
-        [data-reveal]{opacity:0;transform:translateY(40px);transition:1.2s cubic-bezier(0.16,1,0.3,1);}
-        [data-reveal].active{opacity:1;transform:translateY(0);}
-        .s1{transition-delay:.1s;} .s2{transition-delay:.2s;} .s3{transition-delay:.3s;} .s4{transition-delay:.4s;}
-        .gradient-span{background:var(--accent-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-        .gold-span{background:var(--gold-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
 
-        /* NAV */
-        .navbar{height:100px;display:flex;align-items:center;position:fixed;top:0;width:100%;z-index:1000;background:rgba(3,4,8,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05);transition:.3s;}
-        .nav-container{display:flex;justify-content:space-between;align-items:center;width:100%;}
-        .nav-links{display:flex;gap:40px;align-items:center;}
-        .nav-links a{color:var(--white);font-weight:700;text-transform:uppercase;font-size:.9rem;letter-spacing:1.5px;transition:.3s;}
-        .nav-links a:hover,.nav-links a.active{color:var(--primary);}
+        body { background: var(--bg-ultra); color: var(--white); font-family: 'Outfit', sans-serif; overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4 { color: var(--white); font-weight: 800; letter-spacing: -0.02em; }
+        p { color: var(--text-dim); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
 
-        /* BUTTONS */
-        .btn-elite{padding:20px 50px;background:var(--white);color:#000;border-radius:100px;font-weight:900;text-transform:uppercase;letter-spacing:2px;border:none;cursor:pointer;transition:.4s;display:inline-flex;align-items:center;justify-content:center;gap:12px;}
-        .btn-elite:hover{transform:scale(1.05);background:var(--primary);color:#fff;}
-        .btn-gold{background:var(--gold-gradient);color:#fff;}
-        .btn-gold:hover{background:var(--primary);color:#fff;}
-        .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.25);}
-        .btn-outline:hover{background:var(--primary);border-color:var(--primary);color:#fff;}
+        [data-reveal] { opacity: 0; transform: translateY(40px); transition: 1.2s cubic-bezier(0.16,1,0.3,1); }
+        [data-reveal].active { opacity: 1; transform: translateY(0); }
+        .stagger-1 { transition-delay: 0.1s; } .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; } .stagger-4 { transition-delay: 0.4s; }
 
-        /* HERO */
-        .hero-re{min-height:100vh;display:flex;align-items:center;position:relative;padding:160px 0 100px;overflow:hidden;}
-        .hero-bg-re{position:absolute;inset:0;background:radial-gradient(ellipse at 65% 50%,rgba(245,158,11,.12) 0%,transparent 60%),radial-gradient(ellipse at 20% 30%,rgba(255,140,0,.07) 0%,transparent 50%),var(--bg-ultra);}
+        .gradient-span { background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .re-span { background: var(--re-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* SECTIONS */
-        .section-luxe{padding:130px 0;position:relative;}
-        .section-dark{background:var(--dark-section);}
-        .section-white{background:#fff;}
-        .section-gold-tint{background:rgba(245,158,11,.03);border-top:1px solid rgba(245,158,11,.1);}
+        .btn-elite { padding: 20px 50px; background: var(--white); color: #000; border-radius: 100px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: 0.4s; display: inline-flex; align-items: center; justify-content: center; gap: 12px; text-decoration: none; font-size: 0.95rem; }
+        .btn-elite:hover { transform: scale(1.05); background: var(--primary); color: #fff; }
+        .btn-gold { background: var(--re-gradient); color: #000; }
+        .btn-gold:hover { background: var(--primary); color: #fff; transform: scale(1.05); }
+        .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.25); }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--re-gold); color: var(--re-gold); transform: none; }
 
-        /* CARDS */
-        .glass-card{background:var(--bg-glass);border:1px solid var(--border-glass);backdrop-filter:blur(25px);border-radius:28px;padding:45px;transition:all .5s cubic-bezier(.16,1,.3,1);}
-        .glass-card:hover{border-color:var(--gold);transform:translateY(-10px);background:rgba(255,255,255,.05);}
-        .kpi-badge{background:rgba(3,4,8,.95);padding:22px 28px;border-radius:16px;border:1px solid var(--gold);backdrop-filter:blur(12px);}
+        .navbar { height: 100px; display: flex; align-items: center; position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(3,4,8,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .nav-links { display: flex; gap: 38px; align-items: center; }
+        .nav-links a { color: var(--white); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.88rem; letter-spacing: 1.5px; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--re-gold); }
 
-        /* IMAGES */
-        .img-premium{border-radius:20px;width:100%;display:block;object-fit:cover;box-shadow:0 40px 100px rgba(0,0,0,.6);transition:transform .6s;}
-        .img-premium:hover{transform:scale(1.02);}
-        .hover-lift{transition:transform .3s cubic-bezier(.16,1,.3,1);}
-        .hover-lift:hover{transform:translateY(-10px);}
+        .hero-re { min-height: 100vh; display: flex; align-items: center; position: relative; padding: 160px 0 100px; overflow: hidden; }
+        .hero-bg-re { position: absolute; inset: 0; background: radial-gradient(ellipse at 25% 60%, rgba(212,160,23,0.1) 0%, transparent 55%), radial-gradient(ellipse at 80% 25%, rgba(37,99,235,0.08) 0%, transparent 50%), var(--bg-ultra); }
 
-        /* LAYOUT */
-        .split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-        .split-60{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center;}
+        .section-luxe { padding: 130px 0; position: relative; }
+        .section-dark { background: var(--dark-section); }
+        .section-cream { background: var(--re-cream); }
 
-        /* STEP */
-        .step-num{width:62px;height:62px;background:var(--gold-gradient);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.5rem;color:#fff;margin:0 auto 25px;box-shadow:0 0 30px rgba(245,158,11,.3);}
+        .glass-card { background: var(--bg-glass); border: 1px solid var(--border-glass); backdrop-filter: blur(25px); border-radius: 28px; padding: 45px; transition: all 0.5s cubic-bezier(0.16,1,0.3,1); }
+        .glass-card:hover { border-color: var(--re-gold); transform: translateY(-10px); background: rgba(255,255,255,0.05); }
+        .glass-card-dark { background: rgba(30,58,95,0.15); border-color: rgba(37,99,235,0.2); }
+        .glass-card-dark:hover { border-color: var(--re-blue-light); }
 
-        /* SERVICE PILL */
-        .pill{display:inline-flex;align-items:center;gap:10px;border:2px solid rgba(245,158,11,.3);padding:12px 28px;border-radius:100px;font-weight:700;font-size:.95rem;transition:.3s;cursor:default;}
-        .pill:hover{border-color:var(--gold);background:rgba(245,158,11,.08);color:var(--gold-light);}
+        .img-premium { border-radius: 20px; width: 100%; display: block; object-fit: cover; box-shadow: 0 40px 100px rgba(0,0,0,0.6); transition: transform 0.6s; }
+        .img-premium:hover { transform: scale(1.02); }
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); }
+        .hover-lift:hover { transform: translateY(-10px); }
 
-        /* FAQ */
-        .faq-item{border-bottom:1px solid rgba(255,255,255,.08);}
-        .faq-btn{width:100%;padding:28px 0;display:flex;justify-content:space-between;align-items:center;background:none;border:none;cursor:pointer;color:#fff;font-size:1.2rem;font-weight:700;text-align:left;gap:20px;}
-        .faq-icon{flex-shrink:0;transition:transform .3s;}
-        .faq-item.active .faq-icon{transform:rotate(45deg);}
-        .faq-content{max-height:0;overflow:hidden;transition:.5s;color:var(--text-dim);line-height:1.8;}
-        .faq-item.active .faq-content{max-height:400px;padding-bottom:28px;}
+        .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .split-grid-rev { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
 
-        /* FORM */
-        .form-input{padding:20px 25px;border-radius:14px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.5);color:#fff;font-size:1rem;width:100%;font-family:inherit;}
-        .form-input::placeholder{color:#64748b;}
+        .step-card { padding: 45px 35px; border-radius: 28px; background: var(--bg-glass); border: 1px solid var(--border-glass); text-align: center; transition: 0.5s; }
+        .step-card:hover { border-color: var(--re-gold); transform: translateY(-8px); }
+        .step-num { width: 62px; height: 62px; background: var(--re-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.6rem; color: #000; margin: 0 auto 25px; }
 
-        @media(max-width:1024px){.nav-links{display:none;}}
-        @media(max-width:768px){
-            .split,.split-60{grid-template-columns:1fr!important;gap:50px!important;}
-            .section-luxe{padding:80px 0;}
-            .container{padding:0 20px;}
-            h1{font-size:3.2rem!important;}
-            h2{font-size:2.6rem!important;}
+        .service-tag { display: inline-flex; align-items: center; gap: 10px; border: 2px solid rgba(212,160,23,0.3); padding: 12px 28px; border-radius: 100px; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+        .service-tag:hover { border-color: var(--re-gold); color: var(--re-gold); background: rgba(212,160,23,0.08); }
+
+        .stat-pill { background: rgba(3,4,8,0.95); padding: 22px 28px; border-radius: 16px; border: 1px solid rgba(212,160,23,0.4); backdrop-filter: blur(12px); }
+
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .faq-btn { width: 100%; padding: 28px 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: none; border: none; cursor: pointer; color: #fff; font-size: 1.2rem; font-weight: 700; text-align: left; }
+        .faq-content { max-height: 0; overflow: hidden; transition: 0.5s; color: var(--text-dim); line-height: 1.8; }
+        .faq-item.active .faq-content { max-height: 400px; padding-bottom: 28px; }
+        .faq-icon { flex-shrink: 0; transition: transform 0.3s; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+
+        .check-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; font-size: 1.05rem; font-weight: 600; }
+
+        @media (max-width: 1024px) { .nav-links { display: none; } }
+        @media (max-width: 768px) {
+            .split-grid, .split-grid-rev { grid-template-columns: 1fr !important; gap: 50px !important; }
+            .hero-re h1 { font-size: 3.5rem !important; }
+            .section-luxe { padding: 80px 0; }
+            .container { padding: 0 20px; }
+        }
+        @media (max-width: 580px) {
+            .hero-re h1 { font-size: 2.8rem !important; }
         }
     </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
-<header class="navbar" id="navbar">
-    <div class="container nav-container">
-        <a href="/" style="font-size:2rem;font-weight:900;letter-spacing:-1px;color:#fff;">MK<span style="color:var(--primary);">SHOPZONE</span></a>
-        <nav class="nav-links">
-            <a href="/">Home</a>
-            <a href="ecommerce.html">E-commerce</a>
-            <a href="seo.html">SEO</a>
-            <a href="healthcare.html">Healthcare</a>
-            <a href="real-estate.html" class="active">Real Estate</a>
-            <button class="btn-elite btn-gold" style="padding:13px 28px;font-size:.85rem;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">FREE STRATEGY</button>
-        </nav>
-    </div>
-</header>
-
-<main>
-
-<!-- 1. HERO -->
-<section class="hero-re">
-    <div class="hero-bg-re"></div>
-    <div class="container" style="position:relative;z-index:2;">
-        <div class="split">
-            <div data-reveal>
-                <span style="letter-spacing:4px;font-weight:900;color:var(--gold);text-transform:uppercase;font-size:.95rem;margin-bottom:20px;display:block;">Real Estate Digital Authority</span>
-                <h1 style="font-size:5.5rem;line-height:.93;margin-bottom:30px;">Result-Driven<br><span class="gold-span">Real Estate</span><br>Marketing.</h1>
-                <p style="font-size:1.35rem;max-width:560px;margin-bottom:40px;color:#e2e8f0;">We generate high-quality property leads, build authority real estate websites, and run precision ad campaigns — turning digital impressions into signed agreements.</p>
-                <div style="display:flex;gap:20px;flex-wrap:wrap;">
-                    <button class="btn-elite btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">GENERATE LEADS <i data-lucide="home"></i></button>
-                    <button class="btn-elite btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});">VIEW SERVICES</button>
-                </div>
-            </div>
-            <div data-reveal class="s2" style="position:relative;">
-                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80" alt="Premium real estate property showcase" class="img-premium" style="height:580px;">
-                <div class="kpi-badge" style="position:absolute;bottom:-25px;left:-30px;">
-                    <h3 class="gold-span" style="font-size:2.5rem;margin:0;">520%</h3>
-                    <p style="margin:0;font-size:.85rem;letter-spacing:2px;color:#94a3b8;">AVG. LEAD VOLUME GROWTH</p>
-                </div>
-            </div>
+    <!-- NAVIGATION -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="/" style="font-size: 2rem; font-weight: 900; letter-spacing: -1px; text-decoration: none; color: #fff;">MK<span style="color: var(--primary);">SHOPZONE</span></a>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="ecommerce.html">E-Commerce</a>
+                <a href="seo.html">SEO</a>
+                <a href="healthcare.html">Healthcare</a>
+                <a href="real-estate.html" class="active">Real Estate</a>
+                <button class="btn-elite btn-gold" style="padding: 13px 28px; font-size: 0.82rem;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">FREE STRATEGY</button>
+            </nav>
         </div>
-    </div>
-</section>
+    </header>
 
-<!-- 2. WHY DIGITAL + WHO WE ARE -->
-<section class="section-luxe section-dark" data-reveal>
-    <div class="container">
-        <div class="split">
-            <div data-reveal class="s1">
-                <img src="https://images.unsplash.com/photo-1582407947304-fd86f28f31af?auto=format&fit=crop&w=900&q=80" alt="Real estate agent reviewing digital marketing analytics" class="img-premium" style="height:500px;">
-            </div>
-            <div data-reveal class="s2">
-                <h4 style="color:var(--gold);margin-bottom:15px;font-size:1rem;letter-spacing:3px;text-transform:uppercase;">The Digital Imperative</h4>
-                <h2 style="font-size:3.8rem;line-height:1.1;margin-bottom:25px;">Why Digital is <span class="gold-span">Non-Negotiable.</span></h2>
-                <p style="font-size:1.15rem;margin-bottom:20px;">Over 92% of property buyers begin their search online. Builders, developers, and agents without a dominant digital presence are invisible at the most critical moment of the buyer journey.</p>
-                <p style="font-size:1.15rem;margin-bottom:40px;">As dedicated Real Estate Marketing Experts, we combine deep property market knowledge with institutional-grade digital strategy — delivering a consistent pipeline of qualified property leads.</p>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-                    <div class="glass-card" style="padding:28px;">
-                        <i data-lucide="target" style="color:var(--gold);width:36px;height:36px;margin-bottom:12px;"></i>
-                        <h3 style="font-size:1.3rem;margin-bottom:8px;">Precision Targeting</h3>
-                        <p style="font-size:.9rem;">Reach buyers by intent, location & budget.</p>
+    <main>
+        <!-- 1. HERO -->
+        <section class="hero-re">
+            <div class="hero-bg-re"></div>
+            <div class="container" style="position: relative; z-index: 2;">
+                <div class="split-grid">
+                    <div data-reveal>
+                        <span style="letter-spacing: 4px; font-weight: 900; color: var(--re-gold); text-transform: uppercase; font-size: 0.92rem; margin-bottom: 20px; display: block;">Result-Driven Property Growth</span>
+                        <h1 style="font-size: 5.2rem; line-height: 0.95; margin-bottom: 30px;">Real Estate <br><span class="re-span">Marketing</span><br>Experts.</h1>
+                        <p style="font-size: 1.3rem; max-width: 560px; margin-bottom: 40px; color: #e2e8f0;">We attract, engage, and convert high-intent property buyers and investors through precision digital marketing, SEO, paid ads, and lead management systems purpose-built for real estate.</p>
+                        <div style="display: flex; gap: 18px; flex-wrap: wrap;">
+                            <button class="btn-elite btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">GET FREE STRATEGY <i data-lucide="building-2"></i></button>
+                            <button class="btn-elite btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});">OUR SERVICES</button>
+                        </div>
+                        <div style="display: flex; gap: 40px; margin-top: 50px; flex-wrap: wrap;">
+                            <div><h3 style="font-size: 2.5rem; color: var(--re-gold); margin: 0;">500+</h3><p style="margin: 0; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;">Properties Marketed</p></div>
+                            <div style="border-left: 1px solid rgba(255,255,255,0.15); padding-left: 40px;"><h3 style="font-size: 2.5rem; color: var(--re-gold); margin: 0;">8×</h3><p style="margin: 0; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;">Avg. Lead ROI</p></div>
+                            <div style="border-left: 1px solid rgba(255,255,255,0.15); padding-left: 40px;"><h3 style="font-size: 2.5rem; color: var(--re-gold); margin: 0;">₹200Cr+</h3><p style="margin: 0; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;">Revenue Driven</p></div>
+                        </div>
                     </div>
-                    <div class="glass-card" style="padding:28px;">
-                        <i data-lucide="bar-chart-2" style="color:var(--primary);width:36px;height:36px;margin-bottom:12px;"></i>
-                        <h3 style="font-size:1.3rem;margin-bottom:8px;">ROI Focused</h3>
-                        <p style="font-size:.9rem;">Every rupee tracked with transparent reporting.</p>
+                    <div data-reveal class="stagger-2" style="position: relative;">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1000&q=80" alt="Luxury real estate property showcase" class="img-premium" style="height: 600px;">
+                        <div class="stat-pill" style="position: absolute; bottom: -25px; right: -20px;">
+                            <h3 class="re-span" style="font-size: 2rem; margin: 0;">94%</h3>
+                            <p style="margin: 0; font-size: 0.8rem; letter-spacing: 2px; color: #94a3b8;">LEAD CONVERSION LIFT</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<!-- 3. EXPERTISE + SERVICES + STRATEGY -->
-<section class="section-luxe" id="services" data-reveal>
-    <div class="container" style="text-align:center;">
-        <h4 style="color:var(--primary);margin-bottom:20px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Full-Stack Property Growth</h4>
-        <h2 style="font-size:4.5rem;margin-bottom:25px;">End-to-End Real Estate <span class="gradient-span">Services.</span></h2>
-        <p style="font-size:1.2rem;max-width:800px;margin:0 auto 70px;">From property website development and SEO to hyper-targeted Google Ads, virtual tour campaigns, and CRM automation — we cover every growth lever.</p>
-
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:90px;">
-            <span class="pill"><i data-lucide="globe" style="width:16px;height:16px;color:var(--gold)"></i>Website Design</span>
-            <span class="pill"><i data-lucide="search" style="width:16px;height:16px;color:var(--gold)"></i>Real Estate SEO</span>
-            <span class="pill"><i data-lucide="map-pin" style="width:16px;height:16px;color:var(--gold)"></i>Local SEO</span>
-            <span class="pill"><i data-lucide="trending-up" style="width:16px;height:16px;color:var(--gold)"></i>Google & Meta Ads</span>
-            <span class="pill"><i data-lucide="instagram" style="width:16px;height:16px;color:var(--gold)"></i>Social Media</span>
-            <span class="pill"><i data-lucide="video" style="width:16px;height:16px;color:var(--gold)"></i>Video & Virtual Tours</span>
-            <span class="pill"><i data-lucide="layout" style="width:16px;height:16px;color:var(--gold)"></i>Landing Pages</span>
-            <span class="pill"><i data-lucide="database" style="width:16px;height:16px;color:var(--gold)"></i>CRM & Lead Mgmt</span>
-        </div>
-
-        <!-- Growth Strategy -->
-        <h4 style="color:var(--gold);margin-bottom:20px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">The MK Framework</h4>
-        <h2 style="font-size:4rem;margin-bottom:60px;">Proven Real Estate <span class="gradient-span">Growth Strategy.</span></h2>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:30px;">
-            <div class="glass-card hover-lift" data-reveal class="s1" style="text-align:center;">
-                <div class="step-num">1</div>
-                <h3 style="font-size:1.7rem;margin-bottom:15px;">Attract</h3>
-                <p>Dominate local Google searches, run targeted property ads, and produce scroll-stopping social and video content to pull high-intent buyers into your funnel.</p>
-            </div>
-            <div class="glass-card hover-lift" data-reveal class="s2" style="text-align:center;">
-                <div class="step-num">2</div>
-                <h3 style="font-size:1.7rem;margin-bottom:15px;">Engage</h3>
-                <p>Immersive property websites, virtual tour experiences, and automated lead nurturing sequences that keep prospects warm and moving through the sales pipeline.</p>
-            </div>
-            <div class="glass-card hover-lift" data-reveal class="s3" style="text-align:center;">
-                <div class="step-num">3</div>
-                <h3 style="font-size:1.7rem;margin-bottom:15px;">Convert</h3>
-                <p>High-converting landing pages, CRM follow-up automation, and retargeting campaigns that transform interested prospects into booked site visits and signed deals.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 4. WEBSITE DESIGN + LISTING UI/UX (white section) -->
-<section class="section-luxe section-white" data-reveal>
-    <div class="container">
-        <div class="split-60">
-            <div data-reveal>
-                <h4 style="color:var(--primary);margin-bottom:15px;font-size:1rem;letter-spacing:3px;text-transform:uppercase;">Digital Property Presence</h4>
-                <h2 style="font-size:3.8rem;color:#000;line-height:1.1;margin-bottom:25px;">Real Estate Website Design <span class="gradient-span">& Listing UI/UX.</span></h2>
-                <p style="font-size:1.15rem;color:#4b5563;margin-bottom:30px;">We design and develop lightning-fast, visually stunning real estate websites with advanced property search, interactive listing pages, and intuitive inquiry forms that convert browsers into genuine inquiries.</p>
-                <ul style="list-style:none;padding:0;">
-                    <li style="margin-bottom:16px;display:flex;align-items:center;gap:14px;font-size:1.05rem;color:#1f2937;font-weight:600;"><i data-lucide="check-circle-2" style="color:#22c55e;flex-shrink:0;"></i>Advanced property search & filter UI</li>
-                    <li style="margin-bottom:16px;display:flex;align-items:center;gap:14px;font-size:1.05rem;color:#1f2937;font-weight:600;"><i data-lucide="check-circle-2" style="color:#22c55e;flex-shrink:0;"></i>Interactive map-based property listings</li>
-                    <li style="margin-bottom:16px;display:flex;align-items:center;gap:14px;font-size:1.05rem;color:#1f2937;font-weight:600;"><i data-lucide="check-circle-2" style="color:#22c55e;flex-shrink:0;"></i>Mobile-first, Core Web Vitals optimized</li>
-                    <li style="margin-bottom:16px;display:flex;align-items:center;gap:14px;font-size:1.05rem;color:#1f2937;font-weight:600;"><i data-lucide="check-circle-2" style="color:#22c55e;flex-shrink:0;"></i>WhatsApp & call CTA integration for instant leads</li>
-                </ul>
-            </div>
-            <div data-reveal class="s2">
-                <img src="https://images.unsplash.com/photo-1469022563428-aa04fef9f5a2?auto=format&fit=crop&w=900&q=80" alt="Real estate property listing UI design" class="img-premium" style="height:520px;">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 5. SEO + LOCAL SEO + ADS + SOCIAL + VIDEO + LANDING PAGES + CRM -->
-<section class="section-luxe section-dark" data-reveal>
-    <div class="container">
-        <div style="text-align:center;margin-bottom:80px;">
-            <h4 style="color:var(--gold);margin-bottom:20px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Full-Spectrum Capabilities</h4>
-            <h2 style="font-size:4.5rem;margin-bottom:20px;">Real Estate Digital <span class="gradient-span">Services.</span></h2>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;">
-            <div class="glass-card hover-lift" data-reveal class="s1">
-                <i data-lucide="search" style="color:var(--gold);width:46px;height:46px;margin-bottom:22px;"></i>
-                <h3 style="font-size:1.7rem;margin-bottom:14px;">Real Estate SEO</h3>
-                <p>Rank for high-value terms like "2 BHK flats in [city]" and "top builders near me" — capturing buyers at the exact moment of intent through organic search.</p>
-            </div>
-            <div class="glass-card hover-lift" data-reveal class="s2">
-                <i data-lucide="map-pin" style="color:var(--primary);width:46px;height:46px;margin-bottom:22px;"></i>
-                <h3 style="font-size:1.7rem;margin-bottom:14px;">Local SEO for Builders & Agents</h3>
-                <p>Optimized Google Business profiles, hyper-local keyword targeting, and review generation strategies to dominate local map packs and outrank every competitor.</p>
-            </div>
-            <div class="glass-card hover-lift" data-reveal class="s3">
-                <i data-lucide="trending-up" style="color:var(--gold);width:46px;height:46px;margin-bottom:22px;"></i>
-                <h3 style="font-size:1.7rem;margin-bottom:14px;">Paid Ads for Property</h3>
-                <p>High-ROI Google Search, Display, and Meta Advantage+ campaigns with geo-targeting and retargeting to serve property ads to verified, high-intent buyers.</p>
-            </div>
-            <div class="glass-card hover-lift" data-reveal class="s1">
-                <i data-lucide="instagram" style="color:var(--primary);width:46px;height:46px;margin-bottom:22px;"></i>
-                <h3 style="font-size:1.7rem;margin-bottom:14px;">Social Media Marketing</h3>
-                <p>Brand-building content, property showcase reels, and community engagement across Instagram, Facebook, and LinkedIn to establish your market authority.</p>
-            </div>
-            <div class="glass-card hover-lift" data-reveal class="s2">
-                <i data-lucide="video" style="color:var(--gold);width:46px;height:46px;margin-bottom:22px;"></i>
-                <h3 style="font-size:1.7rem;margin-bottom:14px;">Video & Virtual Tours</h3>
-                <p>360° virtual property walkthroughs, drone aerial footage editing, and short-form reels that let buyers experience a property before visiting — dramatically increasing site visit intent.</p>
-            </div>
-            <div class="glass-card hover-lift" data-reveal class="s3">
-                <i data-lucide="layout" style="color:var(--primary);width:46px;height:46px;margin-bottom:22px;"></i>
-                <h3 style="font-size:1.7rem;margin-bottom:14px;">Landing Pages & Lead Gen</h3>
-                <p>Conversion-engineered property landing pages with lead forms, social proof, WhatsApp CTAs, and retargeting pixels to generate a consistent pipeline of qualified inquiries.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 6. CRM + VIDEO VISUAL SPLIT -->
-<section class="section-luxe" data-reveal>
-    <div class="container">
-        <div class="split" style="margin-bottom:100px;">
-            <div data-reveal class="s1">
-                <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=900&q=80" alt="Real estate video marketing and virtual property tour" class="img-premium" style="height:480px;">
-            </div>
-            <div data-reveal class="s2">
-                <h4 style="color:var(--gold);margin-bottom:15px;font-size:1rem;letter-spacing:3px;text-transform:uppercase;">CRM & Automation</h4>
-                <h2 style="font-size:3.8rem;line-height:1.1;margin-bottom:25px;">CRM Integration & <span class="gold-span">Lead Management.</span></h2>
-                <p style="font-size:1.15rem;margin-bottom:35px;">Never lose a lead again. We integrate CRM systems (Salesforce, HubSpot, Zoho, or custom solutions) to automatically capture, score, and distribute leads to your sales team — with full pipeline visibility and follow-up automation.</p>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-                    <div class="glass-card" style="padding:25px;">
-                        <h3 style="font-size:1.15rem;margin-bottom:8px;color:var(--gold);">Auto Lead Routing</h3>
-                        <p style="font-size:.9rem;margin:0;">Instant assignment to the right sales agent.</p>
+        <!-- 2. WHY DIGITAL + WHO WE ARE -->
+        <section class="section-luxe section-dark" data-reveal>
+            <div class="container">
+                <div class="split-grid">
+                    <div data-reveal>
+                        <h4 style="color: var(--re-gold); margin-bottom: 15px; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem;">The Digital Shift</h4>
+                        <h2 style="font-size: 3.8rem; line-height: 1.1; margin-bottom: 28px;">Why Digital Marketing is <span class="re-span">Essential for Real Estate.</span></h2>
+                        <p style="font-size: 1.2rem; margin-bottom: 22px;">Over 93% of property buyers begin their search online. Yet most builders and agents still rely on outdated referral networks and newspaper ads. That window of opportunity is closing fast.</p>
+                        <p style="font-size: 1.2rem; margin-bottom: 38px;">As specialist Real Estate Marketing Experts, MK Shopzone builds performance-driven digital ecosystems — from hyper-local SEO to Meta lead campaigns — that fill your pipeline with verified, high-intent buyers.</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="glass-card" style="padding: 28px;">
+                                <i data-lucide="target" style="color: var(--re-gold); width: 36px; height: 36px; margin-bottom: 12px;"></i>
+                                <h3 style="font-size: 1.3rem; margin-bottom: 8px;">High-Intent Leads</h3>
+                                <p style="font-size: 0.9rem;">Buyers actively searching to purchase now.</p>
+                            </div>
+                            <div class="glass-card" style="padding: 28px;">
+                                <i data-lucide="bar-chart-2" style="color: var(--primary); width: 36px; height: 36px; margin-bottom: 12px;"></i>
+                                <h3 style="font-size: 1.3rem; margin-bottom: 8px;">Measurable ROI</h3>
+                                <p style="font-size: 0.9rem;">Every rupee tracked from ad to site visit to inquiry.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="glass-card" style="padding:25px;">
-                        <h3 style="font-size:1.15rem;margin-bottom:8px;color:var(--primary);">Follow-Up Automation</h3>
-                        <p style="font-size:.9rem;margin:0;">SMS, WhatsApp & email drip sequences.</p>
+                    <div data-reveal class="stagger-2">
+                        <img src="https://images.unsplash.com/photo-1582407947304-fd86f28f5afe?auto=format&fit=crop&w=900&q=80" alt="Real estate agent and client property consultation" class="img-premium" style="height: 520px;">
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Analytics Visual -->
-        <div class="glass-card hover-lift" style="border-color:var(--gold);background:rgba(245,158,11,.04);" data-reveal>
-            <div class="split">
-                <div>
-                    <i data-lucide="bar-chart-2" style="color:var(--gold);width:55px;height:55px;margin-bottom:22px;"></i>
-                    <h3 style="font-size:3rem;margin-bottom:20px;">Performance Tracking <span class="gold-span">& ROI.</span></h3>
-                    <p style="font-size:1.15rem;margin-bottom:30px;">We build real-time Looker Studio dashboards tracking cost per lead, campaign ROAS, property page views, and inquiry conversion rates — giving you complete clarity on every marketing rupee spent.</p>
-                    <ul style="list-style:none;padding:0;">
-                        <li style="margin-bottom:14px;display:flex;align-items:center;gap:14px;font-weight:700;"><i data-lucide="activity" style="color:var(--gold);flex-shrink:0;"></i>Real-time lead volume reporting</li>
-                        <li style="margin-bottom:14px;display:flex;align-items:center;gap:14px;font-weight:700;"><i data-lucide="activity" style="color:var(--gold);flex-shrink:0;"></i>Cost per lead & site visit tracking</li>
-                        <li style="margin-bottom:14px;display:flex;align-items:center;gap:14px;font-weight:700;"><i data-lucide="activity" style="color:var(--gold);flex-shrink:0;"></i>Monthly performance review calls</li>
-                    </ul>
+        <!-- 3. SERVICES + GROWTH STRATEGY -->
+        <section class="section-luxe" id="services" data-reveal>
+            <div class="container" style="text-align: center;">
+                <h4 style="color: var(--re-gold); margin-bottom: 18px; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem;">Full-Spectrum Real Estate Marketing</h4>
+                <h2 style="font-size: 4.5rem; margin-bottom: 20px;">End-to-End <span class="gradient-span">Services.</span></h2>
+                <p style="font-size: 1.2rem; max-width: 780px; margin: 0 auto 70px;">From property website design and real estate SEO to paid advertising, virtual tours, and CRM lead management — we cover every touchpoint of the property buyer journey.</p>
+
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 100px;">
+                    <span class="service-tag"><i data-lucide="globe" style="width:16px;height:16px;color:var(--re-gold)"></i> Property Websites</span>
+                    <span class="service-tag"><i data-lucide="search" style="width:16px;height:16px;color:var(--re-gold)"></i> Real Estate SEO</span>
+                    <span class="service-tag"><i data-lucide="map-pin" style="width:16px;height:16px;color:var(--re-gold)"></i> Local SEO</span>
+                    <span class="service-tag"><i data-lucide="trending-up" style="width:16px;height:16px;color:var(--re-gold)"></i> Google & Meta Ads</span>
+                    <span class="service-tag"><i data-lucide="instagram" style="width:16px;height:16px;color:var(--re-gold)"></i> Social Media</span>
+                    <span class="service-tag"><i data-lucide="video" style="width:16px;height:16px;color:var(--re-gold)"></i> Virtual Tours</span>
+                    <span class="service-tag"><i data-lucide="layout" style="width:16px;height:16px;color:var(--re-gold)"></i> Landing Pages</span>
+                    <span class="service-tag"><i data-lucide="database" style="width:16px;height:16px;color:var(--re-gold)"></i> CRM Integration</span>
                 </div>
-                <div>
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Real estate marketing ROI analytics dashboard" class="img-premium" style="height:360px;">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- 7. WHY CHOOSE US + SUCCESS STORIES -->
-<section class="section-luxe section-dark" data-reveal>
-    <div class="container" style="text-align:center;">
-        <h4 style="color:var(--primary);margin-bottom:20px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Proven Authority</h4>
-        <h2 style="font-size:4.5rem;margin-bottom:70px;">Why Choose Our <span class="gradient-span">Real Estate Agency.</span></h2>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:35px;margin-bottom:100px;">
-            <div class="glass-card hover-lift" data-reveal class="s1">
-                <i data-lucide="home" style="color:var(--gold);width:50px;height:50px;margin:0 auto 20px;"></i>
-                <h3 style="font-size:2rem;margin-bottom:12px;">Property-Specific</h3>
-                <p>We understand real estate buyer psychology — crafting campaigns that speak to aspiration, trust, and urgency at every stage of the property purchase journey.</p>
-            </div>
-            <div class="glass-card hover-lift" data-reveal class="s2">
-                <i data-lucide="rocket" style="color:var(--primary);width:50px;height:50px;margin:0 auto 20px;"></i>
-                <h3 style="font-size:2rem;margin-bottom:12px;">520% Lead Growth</h3>
-                <p>Average lead volume increase across our real estate portfolio, tracked and reported through transparent monthly analytics dashboards.</p>
-            </div>
-            <div class="glass-card hover-lift" data-reveal class="s3">
-                <i data-lucide="users" style="color:var(--gold);width:50px;height:50px;margin:0 auto 20px;"></i>
-                <h3 style="font-size:2rem;margin-bottom:12px;">End-to-End</h3>
-                <p>From strategy to creative to media buying to CRM — one integrated team managing your entire real estate growth engine.</p>
-            </div>
-        </div>
-
-        <!-- Success Stories -->
-        <h4 style="color:var(--gold);margin-bottom:20px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Case Studies</h4>
-        <h2 style="font-size:4rem;margin-bottom:60px;">Property Campaign <span class="gradient-span">Success Stories.</span></h2>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;text-align:left;">
-            <div class="glass-card hover-lift" data-reveal>
-                <h3 style="font-size:1.8rem;margin-bottom:18px;color:var(--gold);">Residential Township Builder</h3>
-                <p style="margin-bottom:25px;">SEO + Google Lead Form Ads + landing page optimization for a 500-unit residential project. Generated 3,200 qualified inquiries in 90 days, leading to 180 site visits and 42 closed bookings.</p>
-                <div style="display:flex;gap:28px;flex-wrap:wrap;">
-                    <div><h4 style="font-size:2rem;color:var(--gold);">3.2K</h4><p style="font-size:.85rem;margin:0;">Leads (90 Days)</p></div>
-                    <div><h4 style="font-size:2rem;color:var(--primary);">42</h4><p style="font-size:.85rem;margin:0;">Units Booked</p></div>
-                    <div><h4 style="font-size:2rem;color:#22c55e;">₹780/</h4><p style="font-size:.85rem;margin:0;">Cost Per Lead</p></div>
-                </div>
-            </div>
-            <div class="glass-card hover-lift" data-reveal class="s2">
-                <h3 style="font-size:1.8rem;margin-bottom:18px;color:var(--primary);">Luxury Villa Developer</h3>
-                <p style="margin-bottom:25px;">Full-stack campaign for a premium villa project: cinematic video ads + Instagram reels + retargeting. Reached 1.8M affluent consumers, generated 680 high-intent leads at ₹2,400 CPL for a ₹2.5Cr+ product category.</p>
-                <div style="display:flex;gap:28px;flex-wrap:wrap;">
-                    <div><h4 style="font-size:2rem;color:var(--gold);">1.8M</h4><p style="font-size:.85rem;margin:0;">Reach</p></div>
-                    <div><h4 style="font-size:2rem;color:var(--primary);">680</h4><p style="font-size:.85rem;margin:0;">Premium Leads</p></div>
-                    <div><h4 style="font-size:2rem;color:#22c55e;">8.4×</h4><p style="font-size:.85rem;margin:0;">Marketing ROI</p></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 8. CLIENT TYPES + INDUSTRIES -->
-<section class="section-luxe section-white" data-reveal>
-    <div class="container">
-        <div style="text-align:center;margin-bottom:80px;">
-            <h4 style="color:var(--primary);margin-bottom:20px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Who We Partner With</h4>
-            <h2 style="font-size:4.5rem;color:#000;margin-bottom:20px;">Real Estate Clients <span class="gradient-span">We Serve.</span></h2>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-bottom:90px;">
-            <div class="hover-lift" style="background:#fff7ed;border:1px solid #fed7aa;border-radius:24px;padding:40px;text-align:center;" data-reveal class="s1">
-                <i data-lucide="building-2" style="color:var(--primary);width:44px;height:44px;margin:0 auto 15px;"></i>
-                <h3 style="color:#000;font-size:1.4rem;">Builders & Developers</h3>
-                <p style="color:#4b5563;font-size:.9rem;margin:0;">Large-scale project launches and sustained lead pipelines.</p>
-            </div>
-            <div class="hover-lift" style="background:#fefce8;border:1px solid #fde68a;border-radius:24px;padding:40px;text-align:center;" data-reveal class="s2">
-                <i data-lucide="user-check" style="color:var(--gold);width:44px;height:44px;margin:0 auto 15px;"></i>
-                <h3 style="color:#000;font-size:1.4rem;">Real Estate Agents</h3>
-                <p style="color:#4b5563;font-size:.9rem;margin:0;">Personal brand building and hyper-local lead generation.</p>
-            </div>
-            <div class="hover-lift" style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:24px;padding:40px;text-align:center;" data-reveal class="s3">
-                <i data-lucide="landmark" style="color:#0ea5e9;width:44px;height:44px;margin:0 auto 15px;"></i>
-                <h3 style="color:#000;font-size:1.4rem;">Brokers & Firms</h3>
-                <p style="color:#4b5563;font-size:.9rem;margin:0;">Multi-property portfolio marketing and CRM automation.</p>
-            </div>
-            <div class="hover-lift" style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:24px;padding:40px;text-align:center;" data-reveal class="s4">
-                <i data-lucide="briefcase" style="color:#22c55e;width:44px;height:44px;margin:0 auto 15px;"></i>
-                <h3 style="color:#000;font-size:1.4rem;">PropTech Startups</h3>
-                <p style="color:#4b5563;font-size:.9rem;margin:0;">Growth hacking and user acquisition for property platforms.</p>
-            </div>
-        </div>
-
-        <!-- Technologies -->
-        <div style="text-align:center;" data-reveal>
-            <h4 style="color:var(--primary);margin-bottom:20px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">The Property Tech Stack</h4>
-            <h2 style="font-size:4rem;color:#000;margin-bottom:45px;">Tools & Technologies <span class="gradient-span">We Use.</span></h2>
-            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;">
-                <span class="hover-lift" style="border:2px solid #e2e8f0;padding:13px 32px;border-radius:100px;font-weight:700;color:#000;background:#f8fafc;">Google Ads (Search/Display)</span>
-                <span class="hover-lift" style="border:2px solid #e2e8f0;padding:13px 32px;border-radius:100px;font-weight:700;color:#000;background:#f8fafc;">Meta Advantage+ Ads</span>
-                <span class="hover-lift" style="border:2px solid #e2e8f0;padding:13px 32px;border-radius:100px;font-weight:700;color:#000;background:#f8fafc;">HubSpot / Zoho CRM</span>
-                <span class="hover-lift" style="border:2px solid #e2e8f0;padding:13px 32px;border-radius:100px;font-weight:700;color:#000;background:#f8fafc;">WordPress / Webflow</span>
-                <span class="hover-lift" style="border:2px solid #e2e8f0;padding:13px 32px;border-radius:100px;font-weight:700;color:#000;background:#f8fafc;">Google Analytics 4</span>
-                <span class="hover-lift" style="border:2px solid #e2e8f0;padding:13px 32px;border-radius:100px;font-weight:700;color:#000;background:#f8fafc;">Matterport (Virtual Tours)</span>
-                <span class="hover-lift" style="border:2px solid #e2e8f0;padding:13px 32px;border-radius:100px;font-weight:700;color:#000;background:#f8fafc;">WhatsApp Business API</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 9. ONGOING SUPPORT -->
-<section class="section-luxe section-gold-tint" data-reveal>
-    <div class="container">
-        <div class="split">
-            <div data-reveal>
-                <h4 style="color:var(--gold);margin-bottom:15px;font-size:1rem;letter-spacing:3px;text-transform:uppercase;">Long-Term Partnership</h4>
-                <h2 style="font-size:3.8rem;line-height:1.1;margin-bottom:25px;">Ongoing Support & <span class="gold-span">Campaign Optimization.</span></h2>
-                <p style="font-size:1.15rem;margin-bottom:30px;">Real estate is a long-cycle business. We stay with you beyond campaign launches — continuously optimizing ad spend, refreshing creatives, A/B testing landing pages, and scaling what works to sustain your lead flow month over month.</p>
-                <div style="display:flex;flex-direction:column;gap:18px;">
-                    <div style="display:flex;align-items:center;gap:18px;padding:22px;border-radius:16px;background:var(--bg-glass);border:1px solid var(--border-glass);">
-                        <i data-lucide="refresh-cw" style="color:var(--gold);width:36px;height:36px;flex-shrink:0;"></i>
-                        <div><h4 style="font-size:1.05rem;margin:0;">Monthly Campaign Reviews</h4><p style="font-size:.9rem;margin:0;">Full performance audit + strategy realignment every month.</p></div>
+                <!-- Growth Strategy -->
+                <h4 style="color: var(--primary); margin-bottom: 18px; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem;">The MK Formula</h4>
+                <h2 style="font-size: 4rem; margin-bottom: 60px;">Proven Real Estate <span class="gradient-span">Growth Strategy.</span></h2>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+                    <div class="step-card hover-lift" data-reveal class="stagger-1">
+                        <div class="step-num">1</div>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 15px;">Attract</h3>
+                        <p>Drive high-intent property buyers through SEO, Google Ads, Meta property campaigns, and organic social content — reaching the right audience at the right stage.</p>
                     </div>
-                    <div style="display:flex;align-items:center;gap:18px;padding:22px;border-radius:16px;background:var(--bg-glass);border:1px solid var(--border-glass);">
-                        <i data-lucide="zap" style="color:var(--primary);width:36px;height:36px;flex-shrink:0;"></i>
-                        <div><h4 style="font-size:1.05rem;margin:0;">Creative Refresh Cycles</h4><p style="font-size:.9rem;margin:0;">Fresh ad creatives and landing page variants every 30 days.</p></div>
+                    <div class="step-card hover-lift" data-reveal class="stagger-2">
+                        <div class="step-num">2</div>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 15px;">Engage</h3>
+                        <p>Convert interest into deep engagement through stunning property websites, immersive virtual tours, WhatsApp automation, and retargeting campaigns.</p>
+                    </div>
+                    <div class="step-card hover-lift" data-reveal class="stagger-3">
+                        <div class="step-num">3</div>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 15px;">Convert</h3>
+                        <p>Close leads faster with optimized landing pages, CRM pipelines, automated follow-ups, and site visit scheduling systems that eliminate revenue leakage.</p>
                     </div>
                 </div>
             </div>
-            <div data-reveal class="s2">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Commercial real estate and builder marketing" class="img-premium" style="height:470px;">
+        </section>
+
+        <!-- 4. WEBSITE + PROPERTY LISTING UI/UX -->
+        <section class="section-luxe section-dark" data-reveal>
+            <div class="container">
+                <div class="split-grid-rev">
+                    <div data-reveal>
+                        <h4 style="color: var(--re-gold); margin-bottom: 15px; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem;">Digital Presence</h4>
+                        <h2 style="font-size: 3.8rem; line-height: 1.1; margin-bottom: 28px;">Real Estate Website Design <span class="re-span">& Property UI/UX.</span></h2>
+                        <p style="font-size: 1.15rem; margin-bottom: 30px;">We craft high-performance property websites with stunning visual architecture, interactive floor plans, and conversion-optimised listing pages that make buyers stop scrolling and start enquiring.</p>
+                        <div style="display: flex; flex-direction: column; gap: 0;">
+                            <div class="check-item"><i data-lucide="check-circle-2" style="color: var(--re-gold); flex-shrink: 0;"></i><span>Interactive property galleries & 360° virtual walkthrough embeds</span></div>
+                            <div class="check-item"><i data-lucide="check-circle-2" style="color: var(--re-gold); flex-shrink: 0;"></i><span>EMI calculator, map integration & neighbourhood insights</span></div>
+                            <div class="check-item"><i data-lucide="check-circle-2" style="color: var(--re-gold); flex-shrink: 0;"></i><span>Lightning-fast Core Web Vitals scores for maximum SEO signals</span></div>
+                            <div class="check-item"><i data-lucide="check-circle-2" style="color: var(--re-gold); flex-shrink: 0;"></i><span>Mobile-first design with WhatsApp enquiry widgets</span></div>
+                        </div>
+                    </div>
+                    <div data-reveal class="stagger-2">
+                        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=900&q=80" alt="Real estate website UI and property listing design" class="img-premium" style="height: 520px;">
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <!-- 5. SEO + LOCAL SEO + PAID ADS + SOCIAL + VIDEO -->
+        <section class="section-luxe" data-reveal>
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 80px;" data-reveal>
+                    <h4 style="color: var(--re-gold); margin-bottom: 18px; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem;">Traffic & Lead Acquisition</h4>
+                    <h2 style="font-size: 4.5rem; margin-bottom: 20px;">Real Estate <span class="gradient-span">Marketing Channels.</span></h2>
+                    <p style="font-size: 1.15rem; max-width: 700px; margin: 0 auto;">We deploy a multi-channel strategy that dominates every platform where property buyers are searching, scrolling, and deciding.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+                    <div class="glass-card hover-lift" data-reveal class="stagger-1">
+                        <i data-lucide="search" style="color: var(--re-gold); width: 46px; height: 46px; margin-bottom: 22px;"></i>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 14px;">Real Estate SEO & Local SEO</h3>
+                        <p>Rank for "2BHK flats in [city]" and "luxury villas near [location]." We build topical authority maps, local citations, and Google Business Profile strategies that generate free, compounding lead flow for builders and agents.</p>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="stagger-2">
+                        <i data-lucide="trending-up" style="color: var(--primary); width: 46px; height: 46px; margin-bottom: 22px;"></i>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 14px;">Paid Ads for Property Promotion</h3>
+                        <p>High-ROAS Google Search, Display, and YouTube campaigns paired with Meta Lead Ads targeting buyers by income, location radius, life events, and property intent signals — delivering verified site-visit bookings at scale.</p>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="stagger-3">
+                        <i data-lucide="instagram" style="color: var(--re-gold); width: 46px; height: 46px; margin-bottom: 22px;"></i>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 14px;">Social Media Marketing</h3>
+                        <p>Premium Instagram Reels, Facebook property showcases, and LinkedIn campaigns for luxury and commercial real estate. We build aspirational brand presences that attract high-net-worth buyers organically.</p>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="stagger-1">
+                        <i data-lucide="video" style="color: var(--re-gold); width: 46px; height: 46px; margin-bottom: 22px;"></i>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 14px;">Video Marketing & Virtual Tours</h3>
+                        <p>Cinematic drone and walk-through video production, Matterport 3D virtual tours, and short-form property Reels that give remote buyers confidence to enquire and book site visits without being physically present.</p>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="stagger-2">
+                        <i data-lucide="layout" style="color: var(--primary); width: 46px; height: 46px; margin-bottom: 22px;"></i>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 14px;">Landing Pages for Lead Generation</h3>
+                        <p>Hyper-focused, A/B-tested property campaign landing pages with zero distraction elements, social proof badges, scarcity timers, and instant WhatsApp/call triggers — built to convert cold traffic into warm enquiries.</p>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="stagger-3">
+                        <i data-lucide="database" style="color: var(--re-gold); width: 46px; height: 46px; margin-bottom: 22px;"></i>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 14px;">CRM & Lead Management Systems</h3>
+                        <p>We integrate Salesforce, HubSpot, Zoho, and custom CRM workflows to ensure every lead is instantly captured, scored, assigned, and followed up — eliminating the costly lead leakage that bleeds most developers dry.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. VIRTUAL TOUR VISUAL + ANALYTICS -->
+        <section class="section-luxe section-dark" data-reveal>
+            <div class="container">
+                <div class="split-grid" style="margin-bottom: 100px;">
+                    <div data-reveal class="stagger-1">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80" alt="Virtual property tour and real estate video marketing" class="img-premium" style="height: 500px;">
+                    </div>
+                    <div data-reveal class="stagger-2">
+                        <h4 style="color: var(--re-gold); margin-bottom: 15px; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem;">Immersive Property Experience</h4>
+                        <h2 style="font-size: 3.8rem; line-height: 1.1; margin-bottom: 25px;">Video & Virtual Tour <span class="re-span">Marketing.</span></h2>
+                        <p style="font-size: 1.15rem; margin-bottom: 30px;">Properties showcased through professional video and 3D virtual tours receive 4× more enquiries than static listings. We produce, host, and distribute your property content across YouTube, Reels, and your website.</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+                            <div class="glass-card" style="padding: 25px;">
+                                <h4 style="font-size: 1.1rem; color: var(--re-gold); margin-bottom: 8px;">4× More Enquiries</h4>
+                                <p style="font-size: 0.9rem; margin: 0;">From video vs. static listings.</p>
+                            </div>
+                            <div class="glass-card" style="padding: 25px;">
+                                <h4 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 8px;">3D Virtual Tours</h4>
+                                <p style="font-size: 0.9rem; margin: 0;">Matterport-powered walkthroughs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Analytics CTA Banner -->
+                <div class="glass-card" style="background: linear-gradient(135deg, rgba(212,160,23,0.08), rgba(255,140,0,0.05)); border-color: rgba(212,160,23,0.4); padding: 60px; text-align: center;" data-reveal>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; text-align: left;">
+                        <div>
+                            <i data-lucide="bar-chart-2" style="color: var(--re-gold); width: 55px; height: 55px; margin-bottom: 22px;"></i>
+                            <h3 style="font-size: 3rem; margin-bottom: 18px;">Performance Tracking <span class="re-span">& ROI.</span></h3>
+                            <p style="font-size: 1.15rem; margin-bottom: 25px;">We implement GA4, Meta Pixel, and custom Looker Studio property dashboards — giving you real-time visibility on cost per lead, lead quality scores, campaign ROAS, and site visit bookings by source.</p>
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div class="check-item"><i data-lucide="check-circle-2" style="color: var(--re-gold); flex-shrink:0;"></i><span>Real-time lead pipeline dashboards</span></div>
+                                <div class="check-item"><i data-lucide="check-circle-2" style="color: var(--re-gold); flex-shrink:0;"></i><span>Source-level cost per qualified lead</span></div>
+                                <div class="check-item"><i data-lucide="check-circle-2" style="color: var(--re-gold); flex-shrink:0;"></i><span>Monthly strategy review calls</span></div>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Real estate marketing analytics dashboard and ROI tracking" class="img-premium" style="height: 360px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. WHY CHOOSE US + SUCCESS STORIES -->
+        <section class="section-luxe" data-reveal>
+            <div class="container" style="text-align: center;">
+                <h4 style="color: var(--re-gold); margin-bottom: 18px; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem;">The Real Estate Authority</h4>
+                <h2 style="font-size: 4.5rem; margin-bottom: 70px;">Why Choose Our <span class="gradient-span">Real Estate Agency.</span></h2>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-bottom: 100px;">
+                    <div class="glass-card hover-lift" data-reveal class="stagger-1">
+                        <i data-lucide="building-2" style="color: var(--re-gold); width: 46px; height: 46px; margin: 0 auto 18px;"></i>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 12px;">Property-Specific</h3>
+                        <p style="font-size: 0.95rem;">We exclusively understand the buyer psyche, seasonal cycles, and local market nuances of real estate marketing.</p>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="stagger-2">
+                        <i data-lucide="zap" style="color: var(--primary); width: 46px; height: 46px; margin: 0 auto 18px;"></i>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 12px;">Speed to Lead</h3>
+                        <p style="font-size: 0.95rem;">Automated lead response in under 60 seconds — because the agent who responds first wins 78% of the time.</p>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="stagger-3">
+                        <i data-lucide="pie-chart" style="color: var(--re-gold); width: 46px; height: 46px; margin: 0 auto 18px;"></i>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 12px;">Verified ROI</h3>
+                        <p style="font-size: 0.95rem;">Transparent reporting on cost per lead, campaign ROAS, and direct revenue attribution — no vanity metrics.</p>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="stagger-4">
+                        <i data-lucide="refresh-cw" style="color: var(--primary); width: 46px; height: 46px; margin: 0 auto 18px;"></i>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 12px;">Ongoing Optimisation</h3>
+                        <p style="font-size: 0.95rem;">Weekly campaign reviews, A/B testing, and audience refresh cycles to prevent ad fatigue and maintain lead flow.</p>
+                    </div>
+                </div>
+
+                <!-- Success Stories -->
+                <h4 style="color: var(--primary); margin-bottom: 18px; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem;">Case Studies</h4>
+                <h2 style="font-size: 4rem; margin-bottom: 60px;">Property Campaign <span class="gradient-span">Results.</span></h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; text-align: left;">
+                    <div class="glass-card hover-lift" data-reveal class="stagger-1">
+                        <div style="display: inline-block; background: var(--re-gradient); color: #000; padding: 6px 18px; border-radius: 100px; font-size: 0.8rem; font-weight: 900; margin-bottom: 20px; letter-spacing: 2px;">RESIDENTIAL BUILDER</div>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 14px;">Township Launch, Pune</h3>
+                        <p style="margin-bottom: 22px;">Ran a 90-day integrated Google + Meta campaign for a 500-unit residential township. Generated 2,400 qualified enquiries and 180 site visit bookings.</p>
+                        <div style="display: flex; gap: 24px;">
+                            <div><h4 style="font-size: 2rem; color: var(--re-gold);">2,400</h4><p style="font-size: 0.8rem; margin: 0;">Qualified Leads</p></div>
+                            <div><h4 style="font-size: 2rem; color: var(--primary);">₹420</h4><p style="font-size: 0.8rem; margin: 0;">Cost per Lead</p></div>
+                        </div>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="stagger-2">
+                        <div style="display: inline-block; background: rgba(255,140,0,0.2); color: var(--primary); padding: 6px 18px; border-radius: 100px; font-size: 0.8rem; font-weight: 900; margin-bottom: 20px; letter-spacing: 2px;">LUXURY VILLAS</div>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 14px;">Ultra-Premium Villas, Goa</h3>
+                        <p style="margin-bottom: 22px;">Targeted HNI investors via LinkedIn + YouTube pre-roll + Meta LAL audiences. Achieved 42 qualified enquiries with average ticket size ₹4.5Cr+.</p>
+                        <div style="display: flex; gap: 24px;">
+                            <div><h4 style="font-size: 2rem; color: var(--re-gold);">42</h4><p style="font-size: 0.8rem; margin: 0;">HNI Enquiries</p></div>
+                            <div><h4 style="font-size: 2rem; color: var(--primary);">11×</h4><p style="font-size: 0.8rem; margin: 0;">Campaign ROAS</p></div>
+                        </div>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="stagger-3">
+                        <div style="display: inline-block; background: rgba(37,99,235,0.2); color: #60a5fa; padding: 6px 18px; border-radius: 100px; font-size: 0.8rem; font-weight: 900; margin-bottom: 20px; letter-spacing: 2px;">COMMERCIAL RE</div>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 14px;">Office Park SEO, Bengaluru</h3>
+                        <p style="margin-bottom: 22px;">Built topical SEO authority for a Grade-A commercial development. Ranked first page for 47 commercial property keywords within 4 months.</p>
+                        <div style="display: flex; gap: 24px;">
+                            <div><h4 style="font-size: 2rem; color: var(--re-gold);">47</h4><p style="font-size: 0.8rem; margin: 0;">Keywords Ranked</p></div>
+                            <div><h4 style="font-size: 2rem; color: var(--primary);">380%</h4><p style="font-size: 0.8rem; margin: 0;">Organic Traffic</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. CLIENTS + TOOLS -->
+        <section class="section-luxe" style="background: var(--re-cream);" data-reveal>
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 80px;">
+                    <h4 style="color: var(--primary); margin-bottom: 18px; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem;">We Partner With</h4>
+                    <h2 style="font-size: 4rem; color: #1a1a1a; margin-bottom: 20px;">Real Estate Clients <span class="gradient-span">We Serve.</span></h2>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-bottom: 100px;">
+                    <div class="hover-lift" style="background: #fff; border: 2px solid #e5e7eb; border-radius: 24px; padding: 38px; text-align: center;" data-reveal class="stagger-1">
+                        <i data-lucide="building-2" style="color: var(--re-gold); width: 42px; height: 42px; margin: 0 auto 14px;"></i>
+                        <h3 style="color: #111; font-size: 1.35rem; margin-bottom: 8px;">Residential Builders</h3>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">Launch campaigns for townships, apartments & villas.</p>
+                    </div>
+                    <div class="hover-lift" style="background: #fff; border: 2px solid #e5e7eb; border-radius: 24px; padding: 38px; text-align: center;" data-reveal class="stagger-2">
+                        <i data-lucide="user-check" style="color: var(--primary); width: 42px; height: 42px; margin: 0 auto 14px;"></i>
+                        <h3 style="color: #111; font-size: 1.35rem; margin-bottom: 8px;">Real Estate Agents</h3>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">Personal branding, SEO & lead gen for brokers.</p>
+                    </div>
+                    <div class="hover-lift" style="background: #fff; border: 2px solid #e5e7eb; border-radius: 24px; padding: 38px; text-align: center;" data-reveal class="stagger-3">
+                        <i data-lucide="hard-hat" style="color: var(--re-gold); width: 42px; height: 42px; margin: 0 auto 14px;"></i>
+                        <h3 style="color: #111; font-size: 1.35rem; margin-bottom: 8px;">Developers</h3>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">Large-scale project pre-launch & inventory sales.</p>
+                    </div>
+                    <div class="hover-lift" style="background: #fff; border: 2px solid #e5e7eb; border-radius: 24px; padding: 38px; text-align: center;" data-reveal class="stagger-4">
+                        <i data-lucide="briefcase" style="color: var(--primary); width: 42px; height: 42px; margin: 0 auto 14px;"></i>
+                        <h3 style="color: #111; font-size: 1.35rem; margin-bottom: 8px;">Commercial RE</h3>
+                        <p style="color: #6b7280; font-size: 0.9rem; margin: 0;">Office parks, retail spaces & warehousing lease-ups.</p>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div style="text-align: center;" data-reveal>
+                    <h4 style="color: var(--primary); margin-bottom: 18px; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem;">The Tech Stack</h4>
+                    <h2 style="font-size: 3.8rem; color: #1a1a1a; margin-bottom: 50px;">Tools & Technologies.</h2>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
+                        <span class="hover-lift" style="border: 2px solid #d1d5db; background:#fff; color: #111; padding: 14px 32px; border-radius: 100px; font-weight: 700;">Google Ads & Search Console</span>
+                        <span class="hover-lift" style="border: 2px solid #d1d5db; background:#fff; color: #111; padding: 14px 32px; border-radius: 100px; font-weight: 700;">Meta Lead Ads & Pixel</span>
+                        <span class="hover-lift" style="border: 2px solid #d1d5db; background:#fff; color: #111; padding: 14px 32px; border-radius: 100px; font-weight: 700;">HubSpot / Zoho CRM</span>
+                        <span class="hover-lift" style="border: 2px solid #d1d5db; background:#fff; color: #111; padding: 14px 32px; border-radius: 100px; font-weight: 700;">Matterport 3D Tours</span>
+                        <span class="hover-lift" style="border: 2px solid #d1d5db; background:#fff; color: #111; padding: 14px 32px; border-radius: 100px; font-weight: 700;">Google Analytics 4</span>
+                        <span class="hover-lift" style="border: 2px solid #d1d5db; background:#fff; color: #111; padding: 14px 32px; border-radius: 100px; font-weight: 700;">WhatsApp Business API</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. FAQs -->
+        <section class="section-luxe section-dark" data-reveal>
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 65px;">
+                    <h4 style="color: var(--re-gold); margin-bottom: 18px; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem;">Common Questions</h4>
+                    <h2 style="font-size: 4rem;">Frequently Asked <span class="gradient-span">Questions.</span></h2>
+                </div>
+                <div style="max-width: 920px; margin: 0 auto;">
+                    <div class="faq-item">
+                        <button class="faq-btn"><span>How quickly can you generate real estate leads?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content"><p>Paid advertising campaigns (Google and Meta) typically generate their first qualified leads within 48–72 hours of launch. SEO-driven organic leads compound over 3–6 months. We recommend a combined strategy for both immediate and long-term lead flow.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-btn"><span>What is the typical cost per lead for real estate?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content"><p>Cost per lead varies by city tier and property type. Affordable housing campaigns can achieve CPLs as low as ₹200–₹500, while luxury and commercial property campaigns may range ₹800–₹2,500 per lead. We always benchmark against your project ticket size to ensure positive ROI.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-btn"><span>Do you handle leads from Meta and Google into my CRM?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content"><p>Yes — we set up seamless integrations between Meta Lead Ads, Google lead forms, and your CRM (HubSpot, Zoho, Salesforce, or custom). Every lead is instantly captured, tagged by source/campaign, and can trigger automated WhatsApp or SMS follow-ups.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-btn"><span>Can you do virtual tour production as well as marketing?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content"><p>Absolutely. We offer Matterport 3D virtual tour production, drone video campaigns, and short-form Reels production as part of our full-service offering. Properties with immersive virtual tours convert at 4× the rate of static image listings.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-btn"><span>What is included in ongoing campaign optimisation?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content"><p>Weekly creative refresh, audience expansion testing, bidding strategy updates, A/B split tests on landing pages, and monthly strategy calls. We proactively counter ad fatigue and seasonal slowdowns to maintain consistent lead volume throughout the year.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. CTA + CONTACT -->
+        <section class="section-luxe" id="contact" style="background: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80') center/cover; position: relative;">
+            <div style="position: absolute; inset: 0; background: rgba(3,4,8,0.93);"></div>
+            <div class="container" style="position: relative; z-index: 2; text-align: center;">
+                <div data-reveal>
+                    <h4 style="color: var(--re-gold); margin-bottom: 18px; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem;">Your Pipeline Starts Here</h4>
+                    <h2 style="font-size: 4.8rem; margin-bottom: 18px;">Let's Generate Quality<br><span class="re-span">Property Leads.</span></h2>
+                    <p style="font-size: 1.35rem; max-width: 640px; margin: 0 auto 55px;">Get Your Free Real Estate Marketing Strategy. Contact Our Real Estate Experts today — we'll audit your current efforts and present a custom growth roadmap within 24 hours.</p>
+
+                    <form id="reContactForm" style="display: grid; gap: 18px; max-width: 620px; margin: 0 auto; text-align: left;" onsubmit="handleRESubmit(event)">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+                            <input type="text" placeholder="Full Name" required style="padding: 18px 22px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.55); color:#fff; font-size:1rem; box-sizing:border-box; width:100%;">
+                            <input type="tel" placeholder="Phone Number" required style="padding: 18px 22px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.55); color:#fff; font-size:1rem; box-sizing:border-box; width:100%;">
+                        </div>
+                        <input type="email" placeholder="Business Email" required style="padding: 18px 22px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.55); color:#fff; font-size:1rem; box-sizing:border-box; width:100%;">
+                        <select style="padding: 18px 22px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.8); color:#fff; font-size:1rem; box-sizing:border-box; width:100%;">
+                            <option value="">I am a...</option>
+                            <option>Residential Builder / Developer</option>
+                            <option>Real Estate Agent / Broker</option>
+                            <option>Commercial Property Developer</option>
+                            <option>Luxury Property Developer</option>
+                            <option>Real Estate Marketing Agency</option>
+                        </select>
+                        <select style="padding: 18px 22px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.8); color:#fff; font-size:1rem; box-sizing:border-box; width:100%;">
+                            <option value="">Primary Service Needed</option>
+                            <option>Real Estate Website Design</option>
+                            <option>Real Estate SEO & Local SEO</option>
+                            <option>Google & Meta Property Ads</option>
+                            <option>Virtual Tour Production</option>
+                            <option>Social Media Marketing</option>
+                            <option>CRM & Lead Management</option>
+                            <option>Full Marketing Strategy</option>
+                        </select>
+                        <button type="submit" class="btn-elite btn-gold" style="width:100%; font-size:1.05rem; padding: 22px;">GET FREE STRATEGY SESSION →</button>
+                    </form>
+                    <p id="reFormSuccess" style="display:none; color:#4ade80; font-size:1.1rem; margin-top:22px; font-weight:700;">✅ Received! Our real estate marketing team will contact you within 2 hours.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.05); background: #000; text-align: center;">
+        <div class="container">
+            <a href="/" style="font-size: 2rem; font-weight: 900; text-decoration: none; color: #fff;">MK<span style="color: var(--primary);">SHOPZONE</span></a>
+            <p style="opacity: 0.5; margin: 24px auto; max-width: 520px;">Generating premium real estate leads through data-driven digital marketing at institutional scale.</p>
+            <div style="display: flex; justify-content: center; gap: 38px; flex-wrap: wrap; margin-bottom: 40px; opacity: 0.6; font-size: 0.88rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">
+                <a href="/" style="color:#fff; text-decoration:none;">Home</a>
+                <a href="ecommerce.html" style="color:#fff; text-decoration:none;">E-Commerce</a>
+                <a href="seo.html" style="color:#fff; text-decoration:none;">SEO</a>
+                <a href="healthcare.html" style="color:#fff; text-decoration:none;">Healthcare</a>
+                <a href="website-design.html" style="color:#fff; text-decoration:none;">Web Design</a>
+                <a href="#contact" style="color:#fff; text-decoration:none;">Contact</a>
+            </div>
+            <p style="opacity: 0.3; font-size: 0.8rem; letter-spacing: 2px;">© 2026 MK SHOPZONE. All rights reserved.</p>
         </div>
-    </div>
-</section>
+    </footer>
 
-<!-- 10. FAQs -->
-<section class="section-luxe section-dark" data-reveal>
-    <div class="container">
-        <div style="text-align:center;margin-bottom:70px;">
-            <h4 style="color:var(--primary);margin-bottom:20px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Common Questions</h4>
-            <h2 style="font-size:4rem;">Frequently Asked <span class="gradient-span">Questions.</span></h2>
-        </div>
-        <div style="max-width:920px;margin:0 auto;">
-            <div class="faq-item">
-                <button class="faq-btn"><span>What is the average cost per lead for real estate ads?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                <div class="faq-content"><p>Cost per lead varies by project type, location, and competition. For affordable housing, CPLs of ₹500–1,200 are achievable. For luxury or commercial real estate, CPLs typically range from ₹1,500–5,000. Our campaigns are continuously optimized to drive down CPL while maintaining lead quality.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-btn"><span>How long does real estate SEO take to show results?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                <div class="faq-content"><p>Most real estate businesses see meaningful organic traffic growth within 60–90 days for local SEO terms, while competitive city-level keywords may take 4–6 months to reach first-page rankings. Paid ads deliver immediate lead volume while SEO compounds over time.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-btn"><span>Do you create virtual tours for property marketing?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                <div class="faq-content"><p>Yes — we integrate Matterport 360° virtual tours, drone footage, and scripted video walkthroughs into your property listings and ad campaigns, allowing buyers to experience properties before visiting and dramatically increasing serious inquiry rates.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-btn"><span>Can you integrate leads directly into our sales CRM?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                <div class="faq-content"><p>Absolutely. We integrate Google and Meta lead forms directly into HubSpot, Zoho, Salesforce, or your existing CRM via webhook/API — ensuring every lead is instantly captured, tagged, and routed to the right sales team member with automated follow-up triggered.</p></div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-btn"><span>Do you work with individual agents or only large builders?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                <div class="faq-content"><p>We work with the full spectrum — from individual agents building their personal brand and local presence, to large builders managing multi-project portfolios. Our engagement models are scaled to suit each client's budget and growth objectives.</p></div>
-            </div>
-        </div>
-    </div>
-</section>
+    <script type="module" src="/src/behavior-tracker.js"></script>
+    <script type="module" src="/src/personalization.js"></script>
+    <script type="module" src="/src/lead-system.js"></script>
+    <script type="module" src="/src/ai-chatbot.js"></script>
+    <script type="module" src="/src/main.js"></script>
 
-<!-- 11. CTA + CONTACT -->
-<section class="section-luxe" id="contact" style="background:url('https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1500&q=80') center/cover;position:relative;">
-    <div style="position:absolute;inset:0;background:rgba(3,4,8,.93);"></div>
-    <div class="container" style="position:relative;z-index:2;text-align:center;">
-        <div data-reveal>
-            <h4 style="color:var(--gold);margin-bottom:20px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Start Generating Quality Leads</h4>
-            <h2 style="font-size:5rem;margin-bottom:20px;">Let's Grow Your <span class="gold-span">Real Estate Business.</span></h2>
-            <p style="font-size:1.4rem;max-width:650px;margin:0 auto 60px;">Get Your Free Real Estate Marketing Strategy. Contact Our Real Estate Experts today and discover exactly how we will fill your pipeline with qualified property buyers.</p>
-            <form id="reForm" style="display:grid;gap:20px;max-width:620px;margin:0 auto;text-align:left;" onsubmit="handleRESubmit(event)">
-                <input type="text" placeholder="Your Name / Company" required class="form-input">
-                <input type="email" placeholder="Business Email" required class="form-input">
-                <input type="tel" placeholder="Phone / WhatsApp" class="form-input">
-                <select class="form-input" style="background:rgba(0,0,0,.8);">
-                    <option value="">Select Project Type</option>
-                    <option>Residential (Affordable)</option>
-                    <option>Residential (Premium / Luxury)</option>
-                    <option>Commercial / Office Space</option>
-                    <option>Plots / Land</option>
-                    <option>Real Estate Agent / Broker</option>
-                    <option>PropTech Platform</option>
-                    <option>Multiple Projects</option>
-                </select>
-                <input type="text" placeholder="City / Target Market" class="form-input">
-                <button type="submit" class="btn-elite btn-gold" style="width:100%;font-size:1.1rem;padding:24px;">GET FREE STRATEGY SESSION →</button>
-            </form>
-            <p id="reSuccess" style="display:none;color:#22c55e;font-size:1.1rem;margin-top:20px;font-weight:700;">✅ Thank you! Our real estate marketing experts will reach out within 24 hours.</p>
-        </div>
-    </div>
-</section>
+    <script>
+        lucide.createIcons();
 
-</main>
+        // Scroll reveal
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); obs.unobserve(e.target); } });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
 
-<!-- FOOTER -->
-<footer style="padding:80px 0;border-top:1px solid rgba(255,255,255,.05);background:#000;text-align:center;">
-    <div class="container">
-        <a href="/" style="font-size:2rem;font-weight:900;color:#fff;">MK<span style="color:var(--primary);">SHOPZONE</span></a>
-        <p style="opacity:.5;margin:25px auto;max-width:500px;">Result-driven digital marketing for real estate builders, agents, and developers across India.</p>
-        <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:40px;opacity:.6;font-size:.9rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;">
-            <a href="/" style="color:#fff;">Home</a>
-            <a href="ecommerce.html" style="color:#fff;">E-commerce</a>
-            <a href="seo.html" style="color:#fff;">SEO</a>
-            <a href="healthcare.html" style="color:#fff;">Healthcare</a>
-            <a href="#contact" style="color:#fff;">Contact</a>
-        </div>
-        <p style="opacity:.3;font-size:.8rem;letter-spacing:2px;">© 2026 MK SHOPZONE. All rights reserved.</p>
-    </div>
-</footer>
-
-<!-- Scripts -->
-<script type="module" src="/src/behavior-tracker.js"></script>
-<script type="module" src="/src/personalization.js"></script>
-<script type="module" src="/src/lead-system.js"></script>
-<script type="module" src="/src/ai-chatbot.js"></script>
-<script type="module" src="/src/main.js"></script>
-
-<script>
-    lucide.createIcons();
-
-    // Scroll reveal
-    const ro = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('active');ro.unobserve(e.target);} });
-    },{threshold:.08});
-    document.querySelectorAll('[data-reveal]').forEach(el => ro.observe(el));
-
-    // Navbar scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        navbar.style.background = window.scrollY > 50 ? 'rgba(3,4,8,.98)' : 'rgba(3,4,8,.9)';
-    });
-
-    // FAQ
-    document.querySelectorAll('.faq-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const item = btn.parentElement;
-            const isActive = item.classList.contains('active');
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-            if(!isActive) item.classList.add('active');
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.style.background = window.scrollY > 60 ? 'rgba(3,4,8,0.99)' : 'rgba(3,4,8,0.92)';
         });
-    });
 
-    // Form
-    function handleRESubmit(e){
-        e.preventDefault();
-        document.getElementById('reForm').style.display='none';
-        document.getElementById('reSuccess').style.display='block';
-    }
-</script>
+        // FAQ accordion
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Form submit
+        function handleRESubmit(e) {
+            e.preventDefault();
+            document.getElementById('reContactForm').style.display = 'none';
+            document.getElementById('reFormSuccess').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
