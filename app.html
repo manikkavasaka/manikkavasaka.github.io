@@ -1,0 +1,617 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Mobile App Development Services | Android & iOS Expert | MK Shopzone</title>
+    <meta name="description"
+        content="Build scalable, high-performance mobile applications with MK Shopzone. Leading app development agency for Android, iOS, and Cross-Platform (Flutter/React Native) solutions.">
+    <meta name="keywords"
+        content="mobile app development, Android app development, iOS app development, Flutter development, React Native, custom app solutions, startup apps, e-commerce apps, UI/UX design, mobile engineering, app deployment">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Elite Mobile App Development & Engineering | MK Shopzone">
+    <meta property="og:description"
+        content="Transforming complex business ideas into high-performance mobile experiences through clinical engineering and UI/UX mastery.">
+    <meta property="og:image" content="/public/web-dev-icon.png">
+
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff8c00'/><text x='50%' y='55%' font-family='Outfit' font-weight='bold' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'>MK</text></svg>">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/public/chatbot.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* ELITE MIDNIGHT PREMIUM v40.0 - APP ECOSYSTEM ARCHITECTURE */
+        :root {
+            --white: #ffffff;
+            --off-white: #f8fafc;
+            --text-dim: #94a3b8;
+            --primary: #ff8c00;
+            --primary-glow: rgba(255, 140, 0, 0.4);
+            --bg-ultra: #030408;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --accent-gradient: linear-gradient(135deg, #ffffff 0%, var(--primary) 100%);
+            --dark-section: #050505;
+            --nav-height: 100px;
+        }
+
+        body {
+            background-color: var(--bg-ultra);
+            color: var(--white);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { color: var(--white) !important; font-weight: 800; letter-spacing: -0.02em; }
+        p { color: var(--text-dim); }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+
+        /* Multi-Stage Reveal */
+        [data-reveal] { opacity: 0; transform: translateY(40px); transition: 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        [data-reveal].active { opacity: 1; transform: translateY(0); }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* Navbar Alignment Precision */
+        .navbar {
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            background: rgba(3, 4, 8, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .navbar.scrolled { height: 80px; background: rgba(3, 4, 8, 0.95); }
+
+        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+
+        .nav-links { display: flex; align-items: center; gap: 40px; }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+        .nav-dropdown { position: relative; }
+        .dropdown-trigger::after {
+            content: ''; display: inline-block; width: 6px; height: 6px;
+            border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+            transform: rotate(45deg); margin-left: 2px; transition: 0.3s;
+        }
+
+        .dropdown-content {
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(20px);
+            background: rgba(14, 18, 27, 0.98); border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px); min-width: 250px; border-radius: 16px; padding: 15px;
+            opacity: 0; visibility: hidden; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .nav-dropdown:hover .dropdown-content { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(10px); }
+
+        /* Hero App Engineering */
+        .hero-app {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: #000;
+            overflow: hidden;
+            padding: 160px 0 100px;
+        }
+        .hero-app video {
+            position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%;
+            width: auto; height: auto; transform: translate(-50%, -50%);
+            z-index: 0; opacity: 0.4; filter: contrast(1.1) brightness(0.4);
+        }
+
+        /* High-End Components */
+        .glass-card-premium {
+            background: var(--bg-glass); border: 1px solid var(--border-glass);
+            backdrop-filter: blur(25px); border-radius: 32px; padding: 50px;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden;
+        }
+        .glass-card-premium:hover {
+            border-color: var(--primary); transform: translateY(-12px) scale(1.02);
+            background: rgba(255, 255, 255, 0.06); box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+        }
+
+        .gradient-span { 
+            background: var(--accent-gradient); 
+            -webkit-background-clip: text; 
+            background-clip: text;
+            -webkit-text-fill-color: transparent; 
+        }
+
+        .btn-elite {
+            padding: 22px 55px; background: var(--white); color: #000; border-radius: 100px;
+            font-weight: 900; text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer;
+            transition: 0.4s; display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+            font-size: 1rem; white-space: nowrap;
+        }
+        .btn-elite:hover { transform: scale(1.05); background: var(--primary); color: #fff; }
+
+        .btn-outline { background: transparent; border: 1.5px solid var(--white); color: var(--white); }
+
+        /* Specific Section Spacing */
+        .section-luxe { padding: 140px 0; }
+        .text-center { text-align: center; }
+        .flex-center { display: flex; justify-content: center; align-items: center; }
+        .grid-align { display: grid; align-items: center; }
+
+        /* Process Steps */
+        .process-step { position: relative; padding: 40px; background: #080808; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); text-align: left; }
+        .process-num { position: absolute; top: -25px; left: 40px; width: 50px; height: 50px; background: var(--primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; box-shadow: 0 10px 20px var(--primary-glow); }
+
+        /* App Platform Grid */
+        .platform-box { background: #ffffff; color: #000; padding: 50px; border-radius: 40px; transition: 0.6s; box-shadow: 0 30px 60px rgba(0,0,0,0.05); height: 100%; border: 1px solid transparent; }
+        .platform-box:hover { transform: translateY(-15px); border-color: var(--primary); background: #fdfdfd; }
+        .platform-box h3 { color: #111 !important; font-size: 2.3rem; margin: 25px 0 15px; }
+        .platform-box p { color: #4b5563 !important; font-size: 1.1rem; }
+        .platform-box ul { list-style: none; padding: 0; margin-top: 30px; }
+        .platform-box ul li { color: #1f2937 !important; font-weight: 700; margin-bottom: 12px; display: flex; gap: 12px; align-items: center; }
+
+        /* FAQ Alignment */
+        .faq-wrapper { max-width: 1000px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .faq-btn { width: 100%; padding: 35px 0; display: flex; justify-content: space-between; align-items: center; background: none; border: none; cursor: pointer; color: #fff; font-size: 1.4rem; font-weight: 800; text-align: left; }
+        .faq-content { max-height: 0; overflow: hidden; transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1); color: var(--text-dim); }
+        .faq-item.active .faq-content { max-height: 300px; padding-bottom: 35px; }
+
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .hero-app h1 { font-size: 4.5rem !important; }
+        }
+        @media (max-width: 640px) {
+            .hero-app h1 { font-size: 3.2rem !important; }
+            .section-luxe { padding: 100px 20px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo" style="font-size: 2rem; font-weight: 900; letter-spacing: -1px; text-decoration: none; color: #fff;">
+                MK<span style="color: var(--primary);">SHOPZONE</span>
+            </a>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <div class="nav-dropdown">
+                    <a href="#services" class="dropdown-trigger">Solutions</a>
+                    <div class="dropdown-content">
+                        <a href="seo.html">Elite SEO Architecture</a>
+                        <a href="paid-ads.html">Performance Paid Ads</a>
+                        <a href="website-design.html">Web Architecture</a>
+                        <a href="app.html" class="active">Mobile Solutions</a>
+                        <a href="social-media.html">Social Authority</a>
+                    </div>
+                </div>
+                <a href="about.html">The Firm</a>
+                <button class="btn-elite" style="padding: 12px 30px; font-size: 0.85rem;" onclick="document.getElementById('contact').scrollIntoView();">
+                    APP STRATEGY
+                </button>
+            </nav>
+
+            <div class="hamburger" id="hamburger" style="display: none; cursor: pointer;">
+                <span style="display: block; width: 25px; height: 3px; background: #fff; margin: 5px 0;"></span>
+                <span style="display: block; width: 25px; height: 3px; background: #fff; margin: 5px 0;"></span>
+                <span style="display: block; width: 25px; height: 3px; background: #fff; margin: 5px 0;"></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HERO SECTION -->
+        <section class="hero-app">
+            <video autoplay muted loop playsinline poster="/public/hero-bg.png">
+                <source src="/public/web 2.mp4" type="video/mp4">
+            </video>
+            <div class="container" style="position: relative; z-index: 2;">
+                <div data-reveal class="text-center">
+                    <span style="letter-spacing: 6px; font-weight: 900; color: var(--primary); text-transform: uppercase; font-size: 1.1rem; display: block; margin-bottom: 20px;">Precision Mobile Engineering</span>
+                    <h1 style="font-size: 7.5rem; line-height: 0.85; margin: 0 auto 40px; max-width: 1200px;">How shall we build <br><span class="gradient-span">your app's legacy?</span></h1>
+                    <p style="font-size: 1.6rem; max-width: 850px; color: #fff; opacity: 0.95; margin: 0 auto 60px;">I'm MK's Engineering Assistant. Our lead developers and I engineer high-performance mobile ecosystems designed to drive engagement and growth.</p>
+                    <div class="flex-center" style="gap: 30px; flex-wrap: wrap;">
+                        <button class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();">SCALE MY BUSINESS <i data-lucide="smartphone"></i></button>
+                        <a href="#services" class="btn-elite btn-outline">VIEW OUR PLATFORMS</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. WHY YOUR BUSINESS NEEDS A MOBILE APP & 3. APP EXPERTISE -->
+        <section class="section-luxe" data-reveal>
+            <div class="container">
+                <div class="split-grid grid-align" style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 120px;">
+                    <div data-reveal>
+                        <h4 style="color: var(--primary) !important; margin-bottom: 20px;">The Retention Engine</h4>
+                        <h2 style="font-size: 4.5rem; line-height: 1.1;">Why Your Business <br><span class="gradient-span">Needs a Mobile App.</span></h2>
+                        <p style="font-size: 1.35rem; margin-top: 40px; font-weight: 500;">A mobile app is the ultimate instrument for customer loyalty. It provides a direct-to-consumer channel that bypasses noisy social feeds and search algorithms, keeping your brand 1-tap away 24/7.</p>
+                        <p style="margin-top: 25px;">Through clinical UI/UX and seamless performance, we build environments where your customers feel empowered to transact, engage, and advocate for your legacy.</p>
+                        <div style="margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                            <div class="glass-card-premium" style="padding: 40px; text-align: center;">
+                                <h3 style="font-size: 2.2rem;" class="gradient-span">9x</h3>
+                                <p style="font-size: 1rem; color: #fff;">Higher retention rates compared to mobile web.</p>
+                            </div>
+                            <div class="glass-card-premium" style="padding: 40px; text-align: center;">
+                                <h3 style="font-size: 2.2rem;" class="gradient-span">1.2B</h3>
+                                <p style="font-size: 1rem; color: #fff;">Push notifications delivered with 98% open rates.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-reveal class="stagger-2">
+                        <div style="position: relative; border-radius: 40px; overflow: hidden; box-shadow: 0 60px 150px rgba(0,0,0,0.7);">
+                            <img src="/public/seo-analytics.png" alt="App Performance Intelligence" style="width: 100%; display: block; filter: contrast(1.1);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. END-TO-END APP SERVICES & 5. CUSTOM SOLUTIONS -->
+        <section class="section-luxe" id="services" style="background: #ffffff; color: #000;" data-reveal>
+            <div class="container text-center">
+                <div data-reveal style="margin-bottom: 90px;">
+                    <h2 style="font-size: 5rem; color: #000 !important; line-height: 1;">Custom App <br><span class="gradient-span">Solutions.</span></h2>
+                    <p style="color: #4b5563 !important; font-size: 1.4rem; max-width: 850px; margin: 30px auto;">End-to-end engineering for iOS, Android, and Cross-Platform ecosystems.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+                    <div class="platform-box" data-reveal class="stagger-1">
+                        <i data-lucide="smartphone" style="color: var(--primary); width: 50px; height: 50px;"></i>
+                        <h3>iOS Native</h3>
+                        <p>High-performance Swift and Objective-C engineering for the premium Apple ecosystem.</p>
+                        <ul>
+                            <li><i data-lucide="check" style="color: var(--primary);"></i> Apple Watch Sync</li>
+                            <li><i data-lucide="check" style="color: var(--primary);"></i> iCloud Integration</li>
+                            <li><i data-lucide="check" style="color: var(--primary);"></i> App Store Mastery</li>
+                        </ul>
+                    </div>
+                    <div class="platform-box" style="background: #f8fafc;" data-reveal class="stagger-2">
+                        <i data-lucide="android" style="color: var(--primary); width: 50px; height: 50px;"></i>
+                        <h3>Android Native</h3>
+                        <p>Kotlin and Java development designed for massive scalability across the global Android market.</p>
+                        <ul>
+                            <li><i data-lucide="check" style="color: var(--primary);"></i> Multi-Device Testing</li>
+                            <li><i data-lucide="check" style="color: var(--primary);"></i> Custom Material UI</li>
+                            <li><i data-lucide="check" style="color: var(--primary);"></i> Play Store Launch</li>
+                        </ul>
+                    </div>
+                    <div class="platform-box" data-reveal class="stagger-3">
+                        <i data-lucide="layers" style="color: var(--primary); width: 50px; height: 50px;"></i>
+                        <h3>Cross-Platform</h3>
+                        <p>Unified Flutter and React Native architectures that deliver 99% logic sharing with native flair.</p>
+                        <ul>
+                            <li><i data-lucide="check" style="color: var(--primary);"></i> Flutter Engineering</li>
+                            <li><i data-lucide="check" style="color: var(--primary);"></i> React Native Ops</li>
+                            <li><i data-lucide="check" style="color: var(--primary);"></i> Single-Code Scaling</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. OUR PROVEN DEVELOPMENT PROCESS -->
+        <section class="section-luxe" data-reveal>
+            <div class="container text-center">
+                <div data-reveal style="margin-bottom: 100px;">
+                    <h4 style="color: var(--primary) !important; margin-bottom: 20px;">The App Lifecycle</h4>
+                    <h2 style="font-size: 5rem; line-height: 1;">Discovery to <span class="gradient-span">Deployment.</span></h2>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;">
+                    <div class="process-step" data-reveal class="stagger-1">
+                        <div class="process-num">01</div>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 15px;">Idea</h3>
+                        <p>Strategic scoping and competitive teardowns.</p>
+                    </div>
+                    <div class="process-step" data-reveal class="stagger-2">
+                        <div class="process-num">02</div>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 15px;">Design</h3>
+                        <p>High-fidelity UI/UX and motion architecture.</p>
+                    </div>
+                    <div class="process-step" data-reveal class="stagger-3">
+                        <div class="process-num">03</div>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 15px;">Develop</h3>
+                        <p>Clinical backend and frontend engineering.</p>
+                    </div>
+                    <div class="process-step" data-reveal class="stagger-4">
+                        <div class="process-num">04</div>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 15px;">Testing</h3>
+                        <p>Rigorous Q/A on real hardware devices.</p>
+                    </div>
+                    <div class="process-step" data-reveal class="stagger-4">
+                        <div class="process-num">05</div>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 15px;">Launch</h3>
+                        <p>Store optimization and global release.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7-10. UI/UX, BACKEND, PERFORMANCE -->
+        <section class="section-luxe" style="background: var(--dark-section); border-top: 1px solid rgba(255,255,255,0.05);" data-reveal>
+            <div class="container">
+                <div class="split-grid grid-align" style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 120px;">
+                    <div data-reveal>
+                        <div style="border-radius: 40px; overflow: hidden; box-shadow: 0 50px 100px rgba(0,0,0,0.8);">
+                            <img src="/public/con 3.jpg" alt="App Strategy Workshop" style="width: 100%; display: block;">
+                        </div>
+                    </div>
+                    <div data-reveal class="stagger-2">
+                        <h4 style="color: var(--primary) !important; margin-bottom: 20px;">Deep Engineering</h4>
+                        <h2 style="font-size: 4rem; line-height: 1.1;">Backend & API <br><span class="gradient-span">Stability.</span></h2>
+                        <p style="font-size: 1.3rem; margin-top: 40px;">An app is only as strong as its invisible infrastructure. We build institutional-grade backends designed for millions of concurrent users, absolute security, and lightning-fast API responses.</p>
+                        <div style="margin-top: 50px; display: grid; gap: 25px;">
+                            <div class="glass-card-premium" style="padding: 30px;">
+                                <h3 class="gradient-span">Encrypted Core</h3>
+                                <p style="margin: 0; font-size: 1rem;">End-to-end data security and sub-second latency.</p>
+                            </div>
+                            <div class="glass-card-premium" style="padding: 30px;">
+                                <h3 class="gradient-span">Scalable Cloud</h3>
+                                <p style="margin: 0; font-size: 1rem;">Auto-scaling architectures that grow with your traffic.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11-13. E-COMMERCE & ON-DEMAND -->
+        <section class="section-luxe" style="background: #ffffff; color: #000;" data-reveal>
+            <div class="container">
+                <div class="split-grid grid-align" style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 120px;">
+                    <div data-reveal profile>
+                        <h4 style="color: var(--primary) !important; margin-bottom: 20px;">Specialized Verticals</h4>
+                        <h2 style="font-size: 4.2rem; color: #000 !important; line-height: 1;">E-commerce & <br><span class="gradient-span">On-Demand Engines.</span></h2>
+                        <p style="color: #4b5563 !important; font-size: 1.3rem; margin-top: 35px;">From complex logistics for on-demand delivery to high-velocity e-commerce checkouts—we engineering the logic that powers modern commerce.</p>
+                        <ul style="list-style: none; padding: 0; margin-top: 45px; display: grid; gap: 20px;">
+                            <li style="display: flex; gap: 15px; align-items: center; color: #111; font-weight: 700; font-size: 1.2rem;"><i data-lucide="shopping-cart" style="color: var(--primary);"></i> Transactional Security</li>
+                            <li style="display: flex; gap: 15px; align-items: center; color: #111; font-weight: 700; font-size: 1.2rem;"><i data-lucide="map-pin" style="color: var(--primary);"></i> Real-time Geolocation</li>
+                            <li style="display: flex; gap: 15px; align-items: center; color: #111; font-weight: 700; font-size: 1.2rem;"><i data-lucide="user-check" style="color: var(--primary);"></i> Biometric Authentication</li>
+                        </ul>
+                    </div>
+                    <div data-reveal class="stagger-2">
+                        <div style="border-radius: 32px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.15);">
+                            <img src="/public/seo-growth.png" alt="Growth & Analytics" style="width: 100%; display: block;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14-17. WHY CHOOSE & PORTFOLIO -->
+        <section class="section-luxe" data-reveal>
+            <div class="container">
+                <div class="glass-card-premium" style="padding: 120px 80px; border: 2px solid var(--primary); background: rgba(255, 140, 0, 0.05);" data-reveal>
+                    <div class="split-grid grid-align" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px;">
+                        <div data-reveal>
+                            <h4 style="color: var(--primary) !important; margin-bottom: 20px;">The Showcase</h4>
+                            <h2 style="font-size: 5rem; line-height: 1;">App Success <br><span class="gradient-span">Stories.</span></h2>
+                            <p style="font-size: 1.4rem; margin-top: 40px; font-weight: 500;">See how our engineering legacy helped a healthcare startup scale to 500k active users and secure $10M in Series A funding.</p>
+                            <button class="btn-elite" style="margin-top: 60px;">VIEW CASE STUDIES <i data-lucide="eye"></i></button>
+                        </div>
+                        <div data-reveal class="stagger-2">
+                            <div style="border-radius: 24px; overflow: hidden;">
+                                <img src="/public/seo-performance-marketing-expert-chennai.png" alt="Success Visual" style="width: 100%; display: block; filter: saturate(1.2) brightness(1.1);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 18. INDUSTRIES WE SERVE -->
+        <section class="section-luxe" style="background: #ffffff; color: #000;" data-reveal>
+            <div class="container text-center">
+                <div data-reveal style="margin-bottom: 80px;">
+                    <h2 style="font-size: 5rem; color: #000 !important;">Industries <span class="gradient-span">We Dominance.</span></h2>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
+                    <div class="platform-box" style="padding: 50px; text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.05);" data-reveal class="stagger-1">
+                        <i data-lucide="activity" style="color: var(--primary); margin: 0 auto 20px;"></i>
+                        <h4 style="color: #111 !important; font-size: 1.4rem; margin: 0;">Healthcare</h4>
+                    </div>
+                    <div class="platform-box" style="padding: 50px; text-align: center; background: #f8fafc; box-shadow: 0 40px 80px rgba(0,0,0,0.05);" data-reveal class="stagger-2">
+                        <i data-lucide="shopping-bag" style="color: var(--primary); margin: 0 auto 20px;"></i>
+                        <h4 style="color: #111 !important; font-size: 1.4rem; margin: 0;">E-commerce</h4>
+                    </div>
+                    <div class="platform-box" style="padding: 50px; text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.05);" data-reveal class="stagger-3">
+                        <i data-lucide="truck" style="color: var(--primary); margin: 0 auto 20px;"></i>
+                        <h4 style="color: #111 !important; font-size: 1.4rem; margin: 0;">Logistics</h4>
+                    </div>
+                    <div class="platform-box" style="padding: 50px; text-align: center; background: #f8fafc; box-shadow: 0 40px 80px rgba(0,0,0,0.05);" data-reveal class="stagger-4">
+                        <i data-lucide="star" style="color: var(--primary); margin: 0 auto 20px;"></i>
+                        <h4 style="color: #111 !important; font-size: 1.4rem; margin: 0;">Luxury Apps</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 19-21. TOOLS, SUPPORT & PRICING -->
+        <section class="section-luxe" style="background: #000; border-top: 1px solid rgba(255,255,255,0.05);" data-reveal>
+            <div class="container text-center">
+                <div data-reveal>
+                    <h4 style="color: var(--primary) !important; margin-bottom: 20px;">The Tech Stack</h4>
+                    <h2 style="font-size: 5rem; margin-bottom: 80px;">Engineering & Frameworks.</h2>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px;" data-reveal class="stagger-2">
+                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">SWIFT / KOTLIN</span>
+                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">FLUTTER / REACT NATIVE</span>
+                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">FIREBASE / AWS</span>
+                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">REDUX / BLOC</span>
+                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">CI/CD PIPELINES</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 22. FAQ -->
+        <section class="section-luxe" data-reveal>
+            <div class="container">
+                <div class="text-center" data-reveal style="margin-bottom: 60px;">
+                    <h4 style="color: var(--primary) !important; margin-bottom: 20px;">Common App Queries</h4>
+                    <h2 style="font-size: 5rem;">App <span class="gradient-span">FAQs.</span></h2>
+                </div>
+                <div class="faq-wrapper" data-reveal>
+                    <div class="faq-item">
+                        <button class="faq-btn"><span>Native vs Cross-Platform: Which is better?</span> <i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content">
+                            <p style="font-size: 1.2rem; line-height: 1.8;">Native (Swift/Kotlin) offers absolute peak performance and system access. Cross-Platform (Flutter/React Native) offers 2x speed-to-market and code parity. We recommend based on your scaling complexity and budget roadmap.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-btn"><span>How do you handle post-launch updates?</span> <i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content">
+                            <p style="font-size: 1.2rem; line-height: 1.8;">We provide 12 months of standard concierge maintenance including OS compatibility updates, performance patching, and priority security monitoring.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-btn"><span>Can you integrate with existing company APIs?</span> <i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content">
+                            <p style="font-size: 1.2rem; line-height: 1.8;">Absolutely. We specialize in building secure gateway layers that interface with legacy CRM, ERP, and custom-built internal infrastructures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 23-25. CTA & LEAD GEN CONSULTATION -->
+        <section class="section-luxe" id="contact" style="background: #000;">
+            <div class="container">
+                <div class="glass-card-premium" style="padding: 120px 100px; border-width: 3px; border-color: rgba(255,255,255,0.2);" data-reveal>
+                    <div class="split-grid grid-align" style="display: grid; grid-template-columns: 1fr 1fr; gap: 120px;">
+                        <div data-reveal>
+                            <h2 style="font-size: 6rem; line-height: 0.9; margin-bottom: 50px;">Scale Your Idea into <br><span class="gradient-span">App Reality.</span></h2>
+                            <p style="font-size: 1.5rem; color: #fff; opacity: 0.9; font-weight: 500;">Claim your free App Strategy Consultation. We'll teardown your idea and map out a 120-day engineering blueprint.</p>
+                            <div style="margin-top: 70px; display: grid; gap: 35px;">
+                                <div style="display: flex; gap: 20px; align-items: center;"><i data-lucide="check-circle" style="color: var(--primary); width: 35px; height: 35px;"></i> <span style="font-weight: 800; font-size: 1.3rem;">Monetization & Flow Audit</span></div>
+                                <div style="display: flex; gap: 20px; align-items: center;"><i data-lucide="check-circle" style="color: var(--primary); width: 35px; height: 35px;"></i> <span style="font-weight: 800; font-size: 1.3rem;">Tech Stack Feasibility Analysis</span></div>
+                                <div style="display: flex; gap: 20px; align-items: center;"><i data-lucide="check-circle" style="color: var(--primary); width: 35px; height: 35px;"></i> <span style="font-weight: 800; font-size: 1.3rem;">MVP Growth Roadmap</span></div>
+                            </div>
+                        </div>
+                        <div data-reveal class="stagger-2">
+                            <form id="contactForm" style="display: grid; gap: 30px;">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                    <input type="text" placeholder="Full Name" required style="padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #fff; font-weight: 700; font-size: 1.1rem;">
+                                    <input type="email" placeholder="Business Email" required style="padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #fff; font-weight: 700; font-size: 1.1rem;">
+                                </div>
+                                <input type="text" placeholder="App Concept / Focus Industry" required style="padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #fff; font-weight: 700; font-size: 1.1rem;">
+                                <select required style="padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: #000; color: #fff; font-weight: 700; font-size: 1.1rem;">
+                                    <option value="" disabled selected hidden>Development Phase</option>
+                                    <option value="idea">Conceptual / Idea Phase</option>
+                                    <option value="mvp">Building MVP</option>
+                                    <option value="scaled">Scaling Existing App</option>
+                                </select>
+                                <button type="submit" class="btn-elite" style="width: 100%; font-size: 1.2rem; padding: 28px;">GET MY FREE CONSULTATION →</button>
+                                <p style="font-size: 0.9rem; text-align: center; opacity: 0.6; margin: 0; font-weight: 600;">*Institutional non-disclosure protocols apply.</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" style="padding: 120px 0; border-top: 1px solid rgba(255,255,255,0.05); background: #000;">
+        <div class="container text-center">
+            <a href="/" class="logo" style="font-size: 2.2rem; text-decoration: none; color: #fff; font-weight: 900;">MK<span style="color: var(--primary);">SHOPZONE</span></a>
+            <p style="margin-top: 40px; opacity: 0.6; max-width: 600px; margin: 40px auto; font-size: 1.1rem;">Building digital mobile legacies through clinical engineering and performance-driven development pipelines.</p>
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px solid #111;">
+                <p style="font-size: 0.9rem; letter-spacing: 4px; opacity: 0.5;">&copy; 2026 MK SHOPZONE. PRECISION ENGINEERED REVENUE.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Automation Scripts -->
+    <script type="module" src="/src/behavior-tracker.js"></script>
+    <script type="module" src="/src/personalization.js"></script>
+    <script type="module" src="/src/lead-system.js"></script>
+    <script type="module" src="/src/ai-chatbot.js"></script>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/main.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Reveal Observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Form Handling
+        const form = document.getElementById('contactForm');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('button');
+                btn.innerText = 'TRANSMITTING STRATEGY...';
+                btn.disabled = true;
+                setTimeout(() => {
+                    alert('App Engineering Request Transmitted. Our Lead Architect will follow up within 60 minutes.');
+                    form.reset();
+                    btn.innerText = 'GET MY FREE CONSULTATION →';
+                    btn.disabled = false;
+                }, 1800);
+            });
+        }
+        
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

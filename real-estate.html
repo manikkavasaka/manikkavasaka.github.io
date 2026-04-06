@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,7 @@
     <meta name="keywords" content="real estate marketing, property leads, developer marketing, property SEO, MK Shopzone">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff8c00'/><text x='50%' y='55%' font-family='Outfit' font-weight='bold' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'>MK</text></svg>">
     <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/public/chatbot.css">
 </head>
 <body>
 
@@ -24,7 +25,7 @@
                         <a href="seo.html">Advanced SEO</a>
                         <a href="paid-ads.html">Paid Ads & PPC</a>
                         <a href="website-design.html">Elite Web Design</a>
-                        <a href="android-app.html">App Development</a>
+                        <a href="app.html">App Development</a>
                         <a href="social-media.html">Social Media Marketing</a>
                         <a href="email-marketing.html">Email Marketing</a>
                         <a href="video-marketing.html">Video Production</a>
@@ -58,12 +59,14 @@
             <div class="hero-overlay"></div>
             
             <div class="container hero-content" data-reveal>
-                <span class="badge">Real Estate Excellence</span>
-                <h1>Scale Your <br> <span class="gradient-text">Property Inventory</span></h1>
-                <p class="lead">We deliver a sophisticated digital ecosystem that bridges the gap between luxury construction and high-intent buyers. Scale your sales velocity with India's premier property marketing engine.</p>
-                <div class="hero-btns">
-                    <a href="#contact" class="btn btn-primary btn-magnetic">Scale My Sales</a>
-                    <a href="#details" class="btn btn-secondary btn-magnetic">Our Framework</a>
+                <div class="text-center">
+                    <span class="badge">Real Estate Excellence</span>
+                    <h1 style="font-size: 7rem; line-height: 0.85; margin: 0 auto 40px; max-width: 1000px;">How shall we move <br> <span class="gradient-text">your property inventory?</span></h1>
+                    <p class="lead" style="font-size: 1.6rem; max-width: 850px; margin: 0 auto 60px;">I'm MK's Property Assistant. Our real estate specialists and I deliver a sophisticated digital ecosystem that bridges the gap between luxury construction and high-intent buyers.</p>
+                    <div class="hero-btns" style="display: flex; justify-content: center; gap: 30px;">
+                        <a href="#contact" class="btn btn-primary btn-magnetic">SCALE MY SALES <i data-lucide="home"></i></a>
+                        <a href="#details" class="btn btn-secondary btn-magnetic">OUR FRAMEWORK</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -204,6 +207,17 @@
         </svg>
     </a>
 
+    <!-- AI Automation Scripts -->
+    <script type="module" src="/src/behavior-tracker.js"></script>
+    <script type="module" src="/src/personalization.js"></script>
+    <script type="module" src="/src/lead-system.js"></script>
+    <script type="module" src="/src/ai-chatbot.js"></script>
+
+    <!-- Scripts -->
     <script type="module" src="/src/main.js"></script>
+    <script>
+        // Lucide implementation
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    </script>
 </body>
 </html>

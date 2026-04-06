@@ -1,0 +1,541 @@
+/* ═══════════════════════════════════════════════════════════
+   MK SHOPZONE – CONVERSATIONAL AI ASSISTANT STYLES v3.0
+   Inspired by ChatGPT / Gemini UI patterns
+═══════════════════════════════════════════════════════════ */
+
+:root {
+    --mka-primary:     #ff8c00;
+    --mka-primary-dim: rgba(255, 140, 0, 0.12);
+    --mka-bg:          #0d0d1a;
+    --mka-bg-2:        #13131f;
+    --mka-bg-3:        #1a1a2e;
+    --mka-border:      rgba(255,255,255,0.08);
+    --mka-text:        #e8e8f0;
+    --mka-text-muted:  #8888aa;
+    --mka-user-bg:     linear-gradient(135deg, #ff8c00, #ff6200);
+    --mka-radius:      20px;
+    --mka-shadow:      0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+    --mka-z:           9999;
+}
+
+/* ── Container ──────────────────────────────────────────── */
+
+.mka-container {
+    position: fixed;
+    bottom: 96px;
+    right: 24px;
+    width: 388px;
+    height: 620px;
+    background: var(--mka-bg);
+    border: 1px solid var(--mka-border);
+    border-radius: var(--mka-radius);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--mka-shadow);
+    z-index: var(--mka-z);
+    overflow: hidden;
+
+    /* Closed state */
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+    pointer-events: none;
+    visibility: hidden;
+    transition:
+        opacity 0.28s cubic-bezier(0.16,1,0.3,1),
+        transform 0.28s cubic-bezier(0.16,1,0.3,1),
+        visibility 0.28s;
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
+
+.mka-container.mka-open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    visibility: visible;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+
+.mka-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--mka-border);
+    background: linear-gradient(135deg,
+        rgba(255,140,0,0.08) 0%,
+        rgba(255,98,0,0.04) 100%);
+    flex-shrink: 0;
+}
+
+.mka-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mka-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--mka-primary-dim);
+    border: 1.5px solid rgba(255,140,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--mka-primary);
+}
+
+.mka-avatar svg { width: 20px; height: 20px; }
+
+.mka-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.mka-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.02em;
+    font-family: 'Outfit', sans-serif;
+}
+
+.mka-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    color: var(--mka-text-muted);
+}
+
+.mka-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: mkaPulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes mkaPulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(34,197,94,0); }
+}
+
+.mka-header-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.mka-clear-btn,
+.mka-close-btn {
+    background: none;
+    border: none;
+    color: var(--mka-text-muted);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s, background 0.2s;
+}
+
+.mka-clear-btn svg,
+.mka-close-btn svg { width: 16px; height: 16px; }
+
+.mka-clear-btn:hover,
+.mka-close-btn:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+}
+
+/* ── Messages ───────────────────────────────────────────── */
+
+.mka-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px 14px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    scroll-behavior: smooth;
+}
+
+.mka-messages::-webkit-scrollbar { width: 4px; }
+.mka-messages::-webkit-scrollbar-track { background: transparent; }
+.mka-messages::-webkit-scrollbar-thumb {
+    background: rgba(255, 140, 0, 0.25);
+    border-radius: 2px;
+}
+
+.mka-msg {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    animation: mkaMsgIn 0.25s ease-out both;
+}
+
+@keyframes mkaMsgIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* User message (right-aligned) */
+.mka-msg-user {
+    flex-direction: row-reverse;
+}
+
+.mka-msg-user .mka-bubble {
+    background: var(--mka-user-bg);
+    color: #fff;
+    border-radius: 18px 18px 4px 18px;
+    font-weight: 500;
+    box-shadow: 0 4px 16px rgba(255,140,0,0.25);
+    max-width: 78%;
+}
+
+/* Bot message (left-aligned) */
+.mka-msg-bot .mka-bubble {
+    background: var(--mka-bg-3);
+    border: 1px solid var(--mka-border);
+    color: var(--mka-text);
+    border-radius: 18px 18px 18px 4px;
+    max-width: 86%;
+}
+
+.mka-bubble {
+    padding: 11px 15px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    word-break: break-word;
+}
+
+/* Markdown-rendered content inside bubbles */
+.mka-bubble p { margin: 0 0 0.5em; }
+.mka-bubble p:last-child { margin-bottom: 0; }
+
+.mka-bubble strong {
+    color: var(--mka-primary);
+    font-weight: 700;
+}
+
+.mka-msg-user .mka-bubble strong {
+    color: #fff;
+}
+
+.mka-bubble em {
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Bot avatar badge */
+.mka-bot-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--mka-primary-dim);
+    border: 1px solid rgba(255,140,0,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--mka-primary);
+    margin-bottom: 2px;
+}
+
+.mka-bot-avatar svg { width: 15px; height: 15px; }
+
+/* ── Typing Bubble ──────────────────────────────────────── */
+
+.mka-typing-bubble {
+    display: flex;
+    gap: 5px;
+    padding: 14px 18px !important;
+    align-items: center;
+}
+
+.mka-typing-bubble span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--mka-primary);
+    opacity: 0.4;
+    animation: mkaBounce 1.2s ease-in-out infinite;
+}
+
+.mka-typing-bubble span:nth-child(2) { animation-delay: 0.18s; }
+.mka-typing-bubble span:nth-child(3) { animation-delay: 0.36s; }
+
+@keyframes mkaBounce {
+    0%, 80%, 100% { opacity: 0.3; transform: scale(1); }
+    40% { opacity: 1; transform: scale(1.3); }
+}
+
+/* ── Suggestion Chips ───────────────────────────────────── */
+
+.mka-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 8px 14px;
+    border-top: 1px solid var(--mka-border);
+    background: var(--mka-bg-2);
+    flex-shrink: 0;
+    animation: mkaMsgIn 0.3s ease-out both;
+}
+
+.mka-chip {
+    background: var(--mka-primary-dim);
+    border: 1px solid rgba(255,140,0,0.25);
+    color: var(--mka-text);
+    padding: 6px 13px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    font-family: 'Outfit', sans-serif;
+}
+
+.mka-chip:hover {
+    background: rgba(255,140,0,0.2);
+    border-color: var(--mka-primary);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* ── Input Area ─────────────────────────────────────────── */
+
+.mka-input-area {
+    padding: 10px 12px 8px;
+    border-top: 1px solid var(--mka-border);
+    background: var(--mka-bg-2);
+    flex-shrink: 0;
+}
+
+.mka-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--mka-bg-3);
+    border: 1px solid var(--mka-border);
+    border-radius: 12px;
+    padding: 4px 4px 4px 14px;
+    transition: border-color 0.2s;
+}
+
+.mka-form:focus-within {
+    border-color: rgba(255,140,0,0.5);
+    box-shadow: 0 0 0 3px rgba(255,140,0,0.08);
+}
+
+.mka-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 9px 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+.mka-input::placeholder { color: var(--mka-text-muted); font-size: 0.88rem; }
+
+.mka-send {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    border: none;
+    background: var(--mka-primary);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.mka-send svg { width: 17px; height: 17px; }
+
+.mka-send:hover {
+    background: #ff7200;
+    transform: scale(1.05);
+    box-shadow: 0 4px 14px rgba(255,140,0,0.4);
+}
+
+.mka-send:active { transform: scale(0.95); }
+
+.mka-footer-note {
+    font-size: 0.67rem;
+    color: var(--mka-text-muted);
+    text-align: center;
+    margin: 7px 0 0;
+}
+
+.mka-footer-note a {
+    color: rgba(255,140,0,0.6);
+    text-decoration: none;
+}
+
+.mka-footer-note a:hover { color: var(--mka-primary); }
+
+
+/* ═══════════════════════════════════════════════════════════
+   TOGGLE BUTTON
+═══════════════════════════════════════════════════════════ */
+
+.mka-toggle-btn {
+    position: fixed;
+    bottom: 26px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff8c00 0%, #ff5500 100%);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    box-shadow: 0 8px 28px rgba(255,140,0,0.45), 0 2px 8px rgba(0,0,0,0.3);
+    z-index: calc(var(--mka-z) + 1);
+    transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s;
+    animation: mkaTogglePop 0.5s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+@keyframes mkaTogglePop {
+    from { transform: scale(0); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+.mka-toggle-btn svg { width: 26px; height: 26px; }
+
+.mka-toggle-label {
+    font-size: 0.55rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 1px;
+    font-family: 'Outfit', sans-serif;
+    display: none; /* Only shown on wide screens */
+}
+
+.mka-toggle-btn:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 14px 36px rgba(255,140,0,0.55), 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.mka-toggle-btn.mka-toggle-active {
+    background: linear-gradient(135deg, #1a1a2e 0%, #0d0d1a 100%);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+
+/* Unread badge */
+.mka-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ef4444;
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 800;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+    animation: mkaPulse 1.4s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   WHATSAPP CO-EXISTENCE
+═══════════════════════════════════════════════════════════ */
+
+.whatsapp-float {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STREAMING ANIMATION
+═══════════════════════════════════════════════════════════ */
+
+.mka-msg-entering .mka-bubble::after {
+    content: '▋';
+    display: inline;
+    color: var(--mka-primary);
+    animation: mkaCursor 0.7s step-end infinite;
+    font-size: 0.85em;
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+@keyframes mkaCursor {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO INQUIRY BOX ENHANCEMENT
+═══════════════════════════════════════════════════════════ */
+
+.smart-inquiry-box {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.smart-inquiry-box:focus-within {
+    border-color: rgba(255,140,0,0.5) !important;
+    box-shadow: 0 0 0 4px rgba(255,140,0,0.15), 0 30px 60px rgba(0,0,0,0.3) !important;
+}
+
+#smart-inquiry-input::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 480px) {
+    .mka-container {
+        width: calc(100vw - 16px);
+        height: 75vh;
+        min-height: 480px;
+        bottom: 86px;
+        right: 8px;
+        border-radius: 16px;
+    }
+
+    .mka-toggle-btn {
+        bottom: 20px;
+        right: 16px;
+        width: 54px;
+        height: 54px;
+    }
+
+    .mka-toggle-btn svg { width: 22px; height: 22px; }
+
+    .mka-input { font-size: 16px; /* prevent iOS zoom */ }
+
+    .mka-chip { font-size: 0.74rem; padding: 5px 11px; }
+}
+
+@media (min-width: 600px) {
+    .mka-toggle-label { display: block; }
+    .mka-toggle-btn { width: 68px; height: 68px; }
+}

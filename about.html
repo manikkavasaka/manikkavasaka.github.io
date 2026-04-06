@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -12,6 +12,7 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://mkshopzone.com/about.html">
     <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/public/chatbot.css">
     <style>
         /* Custom Background & Core Animations */
         @keyframes subtlePan {
@@ -159,7 +160,7 @@
                         <a href="seo.html">Advanced SEO</a>
                         <a href="paid-ads.html">Digital Advertising</a>
                         <a href="website-design.html">Web Development</a>
-                        <a href="android-app.html">Mobile Solutions</a>
+                        <a href="app.html">Mobile Solutions</a>
                         <a href="social-media.html">Social Media</a>
                     </div>
                 </div>
@@ -205,12 +206,12 @@
                 </div>
 
                 <h1 style="font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1.1; font-weight: 300; letter-spacing: -1px; color: #ffffff; margin-bottom: 30px;">
-                    Enterprise SEO & <br>
-                    <span class="gradient-text-clip" style="font-weight: 700;">Performance Marketing.</span>
+                    How shall we engineer <br>
+                    <span class="gradient-text-clip" style="font-weight: 700;">your commercial growth?</span>
                 </h1>
 
                 <p style="font-size: 1.25rem; color: #94a3b8; max-width: 650px; line-height: 1.6; margin-bottom: 50px; font-weight: 300;">
-                    We are Coimbatore's premier digital marketing firm. We engineer top-ranking SEO campaigns, high-converting B2B web designs, and aggressive Meta & Google Ad strategies to help scale your revenue rapidly and dominate the market.
+                    I'm MK's Engineering Assistant. Our technical specialists and I engineer top-ranking SEO campaigns, high-converting B2B web designs, and aggressive digital growth strategies to scale your revenue.
                 </p>
 
                 <div style="display: flex; gap: 20px; flex-wrap: wrap;">
@@ -670,7 +671,7 @@
                         </div>
                         
                         <div class="image-reveal hover-lift" data-reveal style="margin-top: 40px; border-radius: 4px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05);">
-                            <img src="/public/technical-seo-ai-search-optimization.jpg" alt="Technical SEO & AI Search Optimization Stack" style="width: 100%; height: 350px; object-fit: cover; filter: brightness(0.9) contrast(1.1);">
+                            <img src="/public/technical-seo-performance-optimization.jpg" alt="Technical SEO & Performance Optimization Stack" style="width: 100%; height: 350px; object-fit: cover; filter: brightness(0.9) contrast(1.1);">
                         </div>
                     </div>
                 </div>
@@ -835,7 +836,53 @@
         </svg>
     </a>
 
+    <!-- AI Automation Scripts -->
+    <script type="module" src="/src/behavior-tracker.js"></script>
+    <script type="module" src="/src/personalization.js"></script>
+    <script type="module" src="/src/lead-system.js"></script>
+    <script type="module" src="/src/ai-chatbot.js"></script>
+
+    <!-- Scripts -->
     <script type="module" src="/src/main.js"></script>
+    <script>
+        // Reveal Logic
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+        // Counter Logic
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.dataset.count);
+                    const suffix = counter.dataset.suffix || '';
+                    let count = 0;
+                    const duration = 2000;
+                    const increment = target / (duration / 16);
+                    
+                    const updateCount = () => {
+                        count += increment;
+                        if (count < target) {
+                            counter.innerText = Math.floor(count) + suffix;
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            counter.innerText = target + suffix;
+                        }
+                    };
+                    updateCount();
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+    </script>
 </body>
 
 </html>

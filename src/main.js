@@ -3,6 +3,8 @@
  * High-performance interactivity and animation framework
  */
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initCounters();
@@ -89,7 +91,7 @@ function initNavbar() {
 
 // 6. FORM HANDLING & VALIDATION
 function initForms() {
-    const form = document.getElementById('contactForm');
+    const form = document.getElementById('contactForm') || document.getElementById('auditForm');
     if (!form) return;
 
     form.addEventListener('submit', (e) => {
@@ -97,16 +99,16 @@ function initForms() {
         const btn = form.querySelector('button');
         const originalText = btn.innerText;
         
-        btn.innerText = 'Transmitting Growth Strategy...';
+        btn.innerText = 'Analyzing Requirements...';
         btn.disabled = true;
 
-        // Simulate transmission
+        // Simulate data analysis transmission
         setTimeout(() => {
-            alert('Strategic Audit Requested Successfully. Our lead growth specialist will contact you within 90 minutes.');
+            alert('Analysis Complete. Your Strategic Audit has been prioritized. Our Lead Growth strategist will review the data and contact you within 60 minutes.');
             form.reset();
             btn.innerText = originalText;
             btn.disabled = false;
-        }, 1500);
+        }, 2500);
     });
 }
 

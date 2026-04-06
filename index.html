@@ -40,6 +40,7 @@
     </script>
 
     <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/public/chatbot.css">
 </head>
 <body>
 
@@ -55,7 +56,7 @@
                         <a href="seo.html">Advanced SEO</a>
                         <a href="paid-ads.html">Paid Ads & PPC</a>
                         <a href="website-design.html">Elite Web Design</a>
-                        <a href="android-app.html">App Development</a>
+                        <a href="app.html">App Development</a>
                         <a href="social-media.html">Social Media Marketing</a>
                         <a href="email-marketing.html">Email Marketing</a>
                         <a href="video-marketing.html">Video Production</a>
@@ -91,14 +92,37 @@
             
             <div class="container hero-content" data-reveal>
                 <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,140,0,0.15); padding: 8px 18px; border-radius: 50px; border: 1px solid rgba(255,140,0,0.3); color: #fff; font-size: 0.85rem; font-weight: 700; margin-bottom: 25px; letter-spacing: 1px; flex-wrap: wrap;">
-                    <span style="color: var(--primary);">✦</span> Premium Web Design & Elite SEO Agency in Coimbatore
+                    <span style="color: var(--primary);">✦</span> Intelligent Digital Solutions for Ambitious Brands
                 </div>
-                <h1 class="display-1">Precision-Guided <br> <span class="gradient-text">Market Dominance</span></h1>
-                <p class="lead" style="max-width: 800px; margin: 0 auto 40px; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">MK Shopzone transforms ambitious Indian brands into global industry titans through best-in-class custom web development, highly-engineered SEO architecture, and performance-based marketing. <strong>Scale your revenue with the top digital marketing agency in Coimbatore.</strong></p>
+                <h1 class="display-1">How can we help you <br> <span class="gradient-text">dominate today?</span></h1>
+                <p class="lead" style="max-width: 800px; margin: 0 auto 40px; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Welcome to MK Shopzone. I'm your AI-powered growth assistant. Our team of elite specialists and I translate complex technology into measurable profit. <strong>Ready to scale your revenue?</strong></p>
                 <div class="hero-btns" style="justify-content: center; margin-top: 10px;">
-                    <a href="#contact" class="btn btn-primary btn-magnetic" style="font-size: 1.1rem; padding: 18px 40px;">Launch Revenue Campaign</a>
-                    <a href="#services" class="btn btn-secondary btn-magnetic" style="font-size: 1.1rem; padding: 18px 40px;">Explore Our Ecosystem</a>
+                    <a href="#contact" class="btn btn-primary btn-magnetic" style="font-size: 1.1rem; padding: 18px 40px;">Let's Build Your Strategy</a>
+                    <a href="#services" class="btn btn-secondary btn-magnetic" style="font-size: 1.1rem; padding: 18px 40px;">Show Me What's Possible</a>
                 </div>
+
+                <!-- Conversational Inquiry Prompt -->
+                <div class="smart-inquiry-box" style="margin-top: 60px; max-width: 600px; margin-left: auto; margin-right: auto; background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); padding: 8px; display: flex; align-items: center; box-shadow: 0 30px 60px rgba(0,0,0,0.3);">
+                    <div style="padding: 0 20px; color: var(--primary); font-size: 1.2rem;">✨</div>
+                    <input type="text" id="smart-inquiry-input" placeholder="Ask me anything: 'Grow ROI', 'SEO Audit', 'New Site'..." style="flex-grow: 1; background: transparent; border: none; color: #fff; padding: 15px 10px; outline: none; font-size: 1rem; font-family: 'Outfit', sans-serif;">
+                    <button id="smart-inquiry-btn" style="background: var(--primary); color: #fff; border: none; padding: 12px 25px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s ease;">Go</button>
+                </div>
+                <script>
+                    document.getElementById('smart-inquiry-btn')?.addEventListener('click', () => {
+                        const val = document.getElementById('smart-inquiry-input').value;
+                        if(val && window.aiChatbot) {
+                            window.aiChatbot.openChat();
+                            const chatInput = document.getElementById('chat-input');
+                            if(chatInput) {
+                                chatInput.value = val;
+                                document.getElementById('chat-form')?.dispatchEvent(new Event('submit'));
+                            }
+                        }
+                    });
+                    document.getElementById('smart-inquiry-input')?.addEventListener('keypress', (e) => {
+                        if(e.key === 'Enter') document.getElementById('smart-inquiry-btn')?.click();
+                    });
+                </script>
             </div>
         </section>
 
@@ -123,9 +147,9 @@
         <section class="section section-light" id="services" style="background: radial-gradient(circle at 50% 100%, rgba(255, 140, 0, 0.05) 0%, transparent 60%);">
             <div class="container container-max">
                 <div class="text-center" data-reveal style="margin-bottom: 60px;">
-                    <h4 style="color: var(--primary); text-transform: uppercase; letter-spacing: 2px;">Our Core Expertise</h4>
-                    <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); color: #0f172a; line-height: 1.1; margin-bottom: 20px; font-weight: 800;">Elite Web & <span class="gradient-text">Marketing Spectrum</span></h2>
-                    <p style="max-width: 800px; margin: 0 auto; color: #444; font-size: 1.1rem; line-height: 1.8;">As the <strong>best website designers in Coimbatore</strong>, we don't just provide services; we construct high-performance digital growth engines precisely tailored to your unique demographic intent and business DNA.</p>
+                    <h4 style="color: var(--primary); text-transform: uppercase; letter-spacing: 2px;">Tailored Solutions</h4>
+                    <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); color: #0f172a; line-height: 1.1; margin-bottom: 20px; font-weight: 800;">Let's find the <span class="gradient-text">right fit for you</span></h2>
+                    <p style="max-width: 800px; margin: 0 auto; color: #444; font-size: 1.1rem; line-height: 1.8;">Whatever your goal—more traffic, a stunning website, or explosive sales—we have the precision tools to get you there. Which path shall we take?</p>
                 </div>
 
                 <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
@@ -135,8 +159,8 @@
                             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21 21-4.3-4.3"/><circle cx="10" cy="10" r="7"/><path d="M16 10a6 6 0 0 1-6 6"/></svg>
                         </div>
                         <h3 style="font-size: 1.6rem; color: #0f172a; margin-bottom: 15px; font-family: 'Outfit', sans-serif;">Advanced Technical SEO</h3>
-                        <p style="color: #666; font-size: 1rem; line-height: 1.7; margin-bottom: 25px; flex-grow: 1;">Dominate search queries with Google-compliant technical excellence and strategic content audits. As a leading SEO agency in Coimbatore, we don't just find keywords; we capture intent for maximum traffic.</p>
-                        <a href="seo.html" class="card-link" style="color: #0f172a; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">View More →</a>
+                        <p style="color: #666; font-size: 1rem; line-height: 1.7; margin-bottom: 25px; flex-grow: 1;">I'll help you dominate search results with Google-compliant technical excellence. We don't just find keywords; we capture intent to bring you real traffic.</p>
+                        <a href="seo.html" class="card-link" style="color: #0f172a; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">Show Me How →</a>
                     </article>
 
                     <article class="glass-card animated-border-box" style="padding: 40px; background: #fff; border: 1px solid var(--border-light); text-align: left; box-shadow: 0 20px 40px rgba(0,0,0,0.04);" data-reveal>
@@ -144,7 +168,7 @@
                             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/><line x1="12" x2="12" y1="15" y2="15"/></svg>
                         </div>
                         <h3 style="font-size: 1.6rem; color: #0f172a; margin-bottom: 15px; font-family: 'Outfit', sans-serif;">Performance Ads (PPC)</h3>
-                        <p style="color: #666; font-size: 1rem; line-height: 1.7; margin-bottom: 25px; flex-grow: 1;">Scale revenue rapidly with hyper-optimized Google & Meta ad campaigns. We employ daily data refinement and AI-driven bidding algorithms to guarantee maximum Return On Ad Spend (ROAS).</p>
+                        <p style="color: #666; font-size: 1rem; line-height: 1.7; margin-bottom: 25px; flex-grow: 1;">Scale revenue rapidly with hyper-optimized Google & Meta ad campaigns. We employ daily data refinement and advanced bidding algorithms to guarantee maximum Return On Ad Spend (ROAS).</p>
                         <a href="paid-ads.html" class="card-link" style="color: #0f172a; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;">View More →</a>
                     </article>
 
@@ -154,8 +178,8 @@
                             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="M12 18H2"/><path d="M22 18H16"/></svg>
                         </div>
                         <h3 style="font-size: 1.6rem; color: #fff; margin-bottom: 15px; font-family: 'Outfit', sans-serif;">Elite Web Design</h3>
-                        <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 25px; flex-grow: 1;">Fast, highly responsive, high-converting digital storefronts. We build fully custom web architectures focusing on psychological UI, lightning-fast Core Web Vitals, and mobile-first excellence in India.</p>
-                        <a href="website-design.html" class="btn btn-primary" style="padding: 12px 20px; font-size: 0.9rem; width: fit-content;">Explore Capabilities →</a>
+                        <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 25px; flex-grow: 1;">I'll build you a lightning-fast digital architecture that turns visitors into loyal customers. No templates, just pure performance-driven design.</p>
+                        <a href="website-design.html" class="btn btn-primary" style="padding: 12px 20px; font-size: 0.9rem; width: fit-content;">Start Building →</a>
                     </article>
 
                     <article class="glass-card animated-border-box" style="padding: 40px; background: #fff; border: 1px solid var(--border-light); text-align: left; box-shadow: 0 20px 40px rgba(0,0,0,0.04);" data-reveal>
@@ -267,7 +291,7 @@
                         <p style="font-size: 0.95rem; color: #666; margin-bottom: 0;">Our elite developers provide post-launch maintenance to ensure your digital ecosystem remains stable and fast.</p>
                     </div>
                     <div class="glass-card animated-border-box" style="padding: 35px; background: var(--bg-light); border: 1px solid var(--border-light); align-items: flex-start; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
-                        <h3 style="font-size: 1.3rem; color: #0f172a; margin-bottom: 15px;">✓ Custom AI Analytics</h3>
+                        <h3 style="font-size: 1.3rem; color: #0f172a; margin-bottom: 15px;">✓ Custom Conversion Analytics</h3>
                         <p style="font-size: 0.95rem; color: #666; margin-bottom: 0;">Scale your decision-making with custom analytics dashboards that track heatmaps and user behavior in real-time.</p>
                     </div>
                 </div>
@@ -590,15 +614,15 @@
                             <form id="contactForm">
                                 <div class="form-group">
                                     <input type="text" class="form-input" id="name" placeholder=" " required>
-                                    <label for="name" class="form-label">Full Name</label>
+                                    <label for="name" class="form-label">Wait, who am I speaking with?</label>
                                 </div>
                                 <div class="form-group">
                                     <input type="email" name="email" id="email" class="form-input" placeholder=" " required>
-                                    <label for="email" class="form-label">Email Address</label>
+                                    <label for="email" class="form-label">Where can I send your audit?</label>
                                 </div>
                                 <div class="form-group">
                                     <input type="tel" name="phone" id="phone" class="form-input" placeholder=" " required>
-                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <label for="phone" class="form-label">How can I reach you directly?</label>
                                 </div>
                                 <div class="form-group">
                                     <select class="form-input" id="service-select" required>
@@ -673,6 +697,13 @@
         </svg>
     </a>
 
+    <!-- AI Automation Scripts -->
+    <script type="module" src="/src/behavior-tracker.js"></script>
+    <script type="module" src="/src/personalization.js"></script>
+    <script type="module" src="/src/lead-system.js"></script>
+    <script type="module" src="/src/ai-chatbot.js"></script>
+
+    <!-- Main Application -->
     <script type="module" src="/src/main.js"></script>
 </body>
 </html>

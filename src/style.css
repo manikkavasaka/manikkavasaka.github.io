@@ -529,8 +529,51 @@ p {
     position: relative;
     z-index: 1;
     overflow: hidden;
-    /* For shimmer */
 }
+
+/* UTILITY GRIDS */
+.grid-two { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.grid-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.grid-four { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+
+@media (max-width: 1024px) {
+    .grid-four { grid-template-columns: repeat(2, 1fr); }
+    .grid-three { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .grid-four, .grid-three, .grid-two { grid-template-columns: 1fr; }
+}
+
+/* REVEAL ANIMATIONS */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+
+/* REUSABLE ANCHOR BOXES/GLASS BOXES */
+.glass-box-v2 {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px);
+    border-radius: 24px;
+    padding: 50px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
 
 .btn::after {
     content: '';
@@ -1254,8 +1297,8 @@ select.form-input {
 /* WhatsApp Floating Button */
 .whatsapp-float {
     position: fixed;
-    bottom: 40px;
-    right: 40px;
+    bottom: 20px;
+    right: 20px;
     width: 60px;
     height: 60px;
     background-color: #25d366;
@@ -1264,7 +1307,7 @@ select.form-input {
     text-align: center;
     font-size: 30px;
     box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-    z-index: 9999;
+    z-index: 9988;
     display: flex;
     align-items: center;
     justify-content: center;

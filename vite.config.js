@@ -6,7 +6,13 @@ export default defineConfig({
   server: {
     port: 5173,
     open: true,
-    strictPort: false
+    strictPort: false,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true
+      }
+    }
   },
   build: {
     outDir: 'dist',
@@ -14,6 +20,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
+        dashboard: resolve(__dirname, 'dashboard.html'),
         seo: resolve(__dirname, 'seo.html'),
         social: resolve(__dirname, 'social-media.html'),
         ads: resolve(__dirname, 'paid-ads.html'),
@@ -33,5 +40,11 @@ export default defineConfig({
         enterprise: resolve(__dirname, 'enterprise.html')
       }
     }
+  },
+  define: {
+    'import.meta.env.VITE_HUGGING_FACE_API': JSON.stringify(process.env.VITE_HUGGING_FACE_API || ''),
+    'import.meta.env.VITE_API_KEY': JSON.stringify(process.env.VITE_API_KEY || '')
   }
 })
+
+

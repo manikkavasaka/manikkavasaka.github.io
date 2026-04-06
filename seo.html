@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,7 @@
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff8c00'/><text x='50%' y='55%' font-family='Outfit' font-weight='bold' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'>MK</text></svg>">
     <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/public/chatbot.css">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -85,6 +86,7 @@
         .gradient-span {
             background: var(--accent-gradient);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 900;
         }
@@ -261,7 +263,7 @@
                         <a href="seo.html" class="active">Elite SEO</a>
                         <a href="paid-ads.html">Digital Ads</a>
                         <a href="website-design.html">Web Engineering</a>
-                        <a href="android-app.html">App Innovation</a>
+                        <a href="app.html">App Innovation</a>
                         <a href="social-media.html">Social Authority</a>
                     </div>
                 </div>
@@ -281,11 +283,11 @@
             <div class="container">
                 <div class="reveal" style="max-width: 900px; padding-top: 100px;">
                     <span class="hero-badge" style="padding: 10px 25px; display: inline-block; border: 1px solid var(--white); color: var(--white); font-weight: 900; background: rgba(255,255,255,0.05);">RANK #1 ON SEARCH ENGINES</span>
-                    <h1 style="margin-top: 25px;">Professional <br><span class="gradient-span">SEO Services.</span></h1>
-                    <p class="lead" style="margin-top: 30px; font-size: 1.35rem; color: var(--white); opacity: 0.95;">We engineer search dominance through clinical data and aggressive strategies to turn organic traffic into revenue.</p>
+                    <h1 style="margin-top: 25px;">Welcome to our SEO center. <br><span class="gradient-span">How high shall we rank?</span></h1>
+                    <p class="lead" style="margin-top: 30px; font-size: 1.35rem; color: var(--white); opacity: 0.95;">I'm MK's SEO strategist. Whether you're fighting for the top spot or recovering from a traffic drop, our team and I are here to help you dominate your niche.</p>
                     <div class="hero-btns reveal stagger-3">
-                        <a href="#contact" class="btn btn-primary animate-pulse" style="padding: 22px 55px; background: var(--white); color: #000; border: none;">CLAIM YOUR FREE AUDIT</a>
-                        <a href="#services" class="btn btn-secondary" style="padding: 22px 55px; border-color: var(--white); color: var(--white);">VIEW OUR CAPABILITIES</a>
+                        <a href="#contact" class="btn btn-primary animate-pulse" style="padding: 22px 55px; background: var(--white); color: #000; border: none;">CLAIM MY FREE AUDIT</a>
+                        <a href="#services" class="btn btn-secondary" style="padding: 22px 55px; border-color: var(--white); color: var(--white);">SHOW ME WHAT'S POSSIBLE</a>
                     </div>
                 </div>
             </div>
@@ -790,6 +792,12 @@
         <svg viewBox="0 0 24 24" width="32" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
+    <!-- AI Automation Scripts -->
+    <script type="module" src="/src/behavior-tracker.js"></script>
+    <script type="module" src="/src/personalization.js"></script>
+    <script type="module" src="/src/lead-system.js"></script>
+    <script type="module" src="/src/ai-chatbot.js"></script>
+
     <!-- Scripts -->
     <script type="module" src="/src/main.js"></script>
     <script>
@@ -801,13 +809,13 @@
             header.addEventListener('click', () => {
                 const card = header.parentElement;
                 const body = header.nextElementSibling;
-                const icon = header.querySelector('.faq-icon');
                 const isOpen = card.classList.contains('active');
 
                 // Close all others
                 document.querySelectorAll('.faq-card').forEach(c => {
                     c.classList.remove('active');
-                    c.querySelector('.faq-body').style.maxHeight = null;
+                    const b = c.querySelector('.faq-body');
+                    if(b) b.style.maxHeight = null;
                 });
 
                 if (!isOpen) {
