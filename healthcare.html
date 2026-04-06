@@ -1,232 +1,509 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ff8c00">
-    <title>Elite Healthcare Marketing & Patient Acquisition | MK Shopzone</title>
-    <meta name="description" content="Build authority and acquire more patients with MK Shopzone's ethical healthcare marketing framework. Specialists in medical SEO and doctor branding.">
-    <meta name="keywords" content="healthcare marketing, medical SEO, patient acquisition, clinic branding, doctor marketing, MK Shopzone">
+    <title>Advanced Healthcare Solutions for Better Patient Care | MK Shopzone</title>
+    <meta name="description" content="Premium healthcare digital marketing, medical SEO, clinic marketing, patient acquisition and telemedicine app solutions for modern medical practices.">
+    <meta name="keywords" content="healthcare digital marketing, medical SEO, clinic marketing, patient acquisition, telemedicine solutions, HIPAA compliance web design, appointment booking systems">
+    
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff8c00'/><text x='50%' y='55%' font-family='Outfit' font-weight='bold' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'>MK</text></svg>">
     <link rel="stylesheet" href="/src/style.css">
     <link rel="stylesheet" href="/public/chatbot.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* ELITE MIDNIGHT PREMIUM - HEALTHCARE EDITION */
+        :root {
+            --white: #ffffff;
+            --text-dim: #94a3b8;
+            --primary: #ff8c00;
+            --primary-glow: rgba(255, 140, 0, 0.4);
+            /* Injecting a slight teal/medical clinical feel into the dark mode */
+            --bg-ultra: #02060b; 
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --accent-gradient: linear-gradient(135deg, #ffffff 0%, var(--primary) 100%);
+            --dark-section: #050a0f;
+        }
+
+        body {
+            background-color: var(--bg-ultra);
+            color: var(--white);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { color: var(--white); font-weight: 800; letter-spacing: -0.02em; }
+        p { color: var(--text-dim); }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+
+        /* Animation Classes */
+        [data-reveal] { opacity: 0; transform: translateY(40px); transition: 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        [data-reveal].active { opacity: 1; transform: translateY(0); }
+        
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        .gradient-span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-elite {
+            padding: 22px 55px;
+            background: var(--white);
+            color: #000;
+            border-radius: 100px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            transition: 0.4s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .btn-elite:hover {
+            transform: scale(1.05);
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .hero-health {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 160px 0 100px;
+            background: radial-gradient(circle at 50% 50%, rgba(255,140,0,0.08) 0%, var(--bg-ultra) 70%);
+        }
+
+        .section-luxe { padding: 140px 0; position: relative; }
+        
+        .glass-card-premium {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            backdrop-filter: blur(25px);
+            border-radius: 32px;
+            padding: 50px;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card-premium:hover {
+            border-color: var(--primary);
+            transform: translateY(-12px);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        /* FAQ Styling */
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .faq-btn { width: 100%; padding: 30px 0; display: flex; justify-content: space-between; align-items: center; background: none; border: none; cursor: pointer; color: #fff; font-size: 1.3rem; font-weight: 700; text-align: left; }
+        .faq-content { max-height: 0; overflow: hidden; transition: 0.5s; color: var(--text-dim); }
+        .faq-item.active .faq-content { max-height: 500px; padding-bottom: 30px; }
+
+        /* Navigation */
+        .navbar {
+            height: 100px; display: flex; align-items: center; position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(2, 6, 11, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .nav-links { display: flex; gap: 40px; align-items: center; }
+        .nav-links a { color: var(--white); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1.5px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .img-premium {
+            border-radius: 20px; width: 100%; display: block; object-fit: cover;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6); transition: transform 0.6s;
+        }
+        .img-premium:hover { transform: scale(1.02); }
+
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .hover-lift:hover { transform: translateY(-10px); }
+
+        @media (max-width: 1024px) { .nav-links { display: none; } }
+        @media (max-width: 768px) {
+            .hero-health h1 { font-size: 3.5rem !important; }
+            .section-luxe { padding: 80px 20px; }
+            .split-grid { grid-template-columns: 1fr !important; gap: 50px !important; }
+        }
+    </style>
 </head>
 <body>
 
-
+    <!-- Header -->
     <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">MK<span>SHOPZONE</span></a>
-            <nav class="nav-links" id="navLinks">
+            <a href="/" class="logo" style="font-size: 2rem; font-weight: 900; letter-spacing: -1px; text-decoration: none; color: #fff;">
+                MK<span style="color: var(--primary);">SHOPZONE</span>
+            </a>
+            <nav class="nav-links">
                 <a href="/">Home</a>
-                <div class="nav-dropdown">
-                    <a href="#services" class="dropdown-trigger">Services</a>
-                    <div class="dropdown-content">
-                        <a href="seo.html">Advanced SEO</a>
-                        <a href="paid-ads.html">Paid Ads & PPC</a>
-                        <a href="website-design.html">Elite Web Design</a>
-                        <a href="app.html">App Development</a>
-                        <a href="social-media.html">Social Media Marketing</a>
-                        <a href="email-marketing.html">Email Marketing</a>
-                        <a href="video-marketing.html">Video Production</a>
-                    </div>
-                </div>
-                <div class="nav-dropdown">
-                    <a href="#why-us" class="dropdown-trigger">Industries</a>
-                    <div class="dropdown-content">
-                        <a href="ecommerce.html">E-commerce</a>
-                        <a href="healthcare.html" class="active">Healthcare</a>
-                        <a href="real-estate.html">Real Estate</a>
-                        <a href="education.html">Education</a>
-                    </div>
-                </div>
-                <a href="about.html">About</a>
-                <a href="blog.html">Blog</a>
-                <a href="#contact">Contact</a>
+                <a href="healthcare.html" class="active" style="color: var(--primary);">Healthcare</a>
+                <a href="ecommerce.html">E-commerce</a>
+                <a href="seo.html">SEO</a>
+                <a href="website-design.html">Web Design</a>
+                <button class="btn-elite" style="padding: 12px 30px; font-size: 0.85rem;" onclick="document.getElementById('contact').scrollIntoView();">
+                    PATIENT ACQUISITION
+                </button>
             </nav>
-            <div class="nav-actions">
-                <a href="#contact" class="btn btn-secondary btn-magnetic" style="padding: 10px 24px; font-size: 0.82rem;">Free Audit</a>
-            </div>
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
     </header>
 
     <main>
-        <section class="hero" id="hero">
-            <video class="hero-video" autoplay muted loop playsinline poster="/public/con2.jpg">
-                <source src="/public/about 1.mp4" type="video/mp4">
-            </video>
-            <div class="hero-overlay"></div>
-            
-            <div class="container hero-content" data-reveal>
-                <div class="text-center">
-                    <span class="badge">Medical Growth Engine</span>
-                    <h1 style="font-size: 7rem; line-height: 0.85; margin: 0 auto 40px; max-width: 1000px;">How shall we build <br> <span class="gradient-text">your patient trust?</span></h1>
-                    <p class="lead" style="font-size: 1.6rem; max-width: 850px; margin: 0 auto 60px;">I'm MK's Healthcare Assistant. Our medical marketing specialists and I help practitioners bridge the gap between expertise and patients through ethical, data-driven strategies.</p>
-                    <div class="hero-btns" style="display: flex; justify-content: center; gap: 30px;">
-                        <a href="#contact" class="btn btn-primary btn-magnetic">START PATIENT PLAN <i data-lucide="shield-plus"></i></a>
-                        <a href="#details" class="btn btn-secondary btn-magnetic">ETHICAL FRAMEWORK</a>
+        <!-- 1. Hero Section -->
+        <section class="hero-health">
+            <div class="container" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center;">
+                <div data-reveal>
+                    <span style="letter-spacing: 4px; font-weight: 900; color: var(--primary); text-transform: uppercase; font-size: 1rem; margin-bottom: 20px; display: block;">Institutional Medical Tech</span>
+                    <h1 style="font-size: 5.2rem; line-height: 0.95; margin-bottom: 30px;">Advanced Healthcare <br><span class="gradient-span">Solutions.</span></h1>
+                    <p style="font-size: 1.4rem; max-width: 600px; margin-bottom: 40px; color: #e2e8f0;">Better Patient Care & Exponential Digital Growth. We engineer HIPAA-compliant infrastructure and high-converting marketing frameworks for modern medical institutions.</p>
+                    <button class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();">SCALE YOUR CLINIC <i data-lucide="activity"></i></button>
+                </div>
+                <div data-reveal class="stagger-2" style="position: relative;">
+                    <!-- Healthcare Telemedicine / Tech Visual -->
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80" alt="Doctor consulting patient through telemedicine interface" class="img-premium" style="height: 600px;">
+                    <div style="position: absolute; bottom: -30px; left: -40px; background: rgba(3,4,8,0.9); padding: 30px; border-radius: 20px; border: 1px solid var(--primary); backdrop-filter: blur(10px);">
+                        <h3 class="gradient-span" style="font-size: 2.5rem; margin: 0;">314%</h3>
+                        <p style="margin: 0; font-size: 0.9rem; letter-spacing: 2px;">PATIENT ACQUISITION LIFT</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="brand-marquee">
-            <div class="marquee-content">
-                <span>Patient Trust Specialists</span>
-                <span>Ethical Advertising Compliance</span>
-                <span>HIPAA-Aware Digital Systems</span>
-                <span>Doctor Personal Brands</span>
-                <span>Local Search Dominance</span>
-            </div>
-        </div>
-
-        <section class="section" id="details">
-            <div class="container split-grid">
-                <div class="image-reveal" data-reveal>
-                    <img src="/public/technical-seo-ai-search-optimization.jpg" alt="Healthcare Analytics">
-                </div>
-                <div class="content-wrap" data-reveal>
-                    <h4>Industrial strategy</h4>
-                    <h2>The Architecture of <span class="gradient-text">Digital Trust.</span></h2>
-                    <p>In healthcare, a patient isn't just a lead—they are seeking care. We build **Trust-First Funnels** that focus on educating your audience and establishing your practitioners as undisputed leaders.</p>
-                    
-                    <div style="margin-top: 40px; border-left: 2px solid var(--primary); padding-left: 30px;">
-                        <h3 style="color: #fff;">Clinic Opening Surge Case Study</h3>
-                        <p style="margin-top: 10px;">Localized search and reputation campaigns resulting in 120+ verified patient consultations in the first 30 days and #1 local ranking.</p>
-                        <div class="counter" data-count="120" data-suffix="+" style="font-size: 3rem; font-weight: 900; color: var(--primary); margin-top: 10px;">0+</div>
-                        <p style="font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">Patient Bookings in Month 1</p>
+        <!-- 2. Why Digital Transformation & Who We Are -->
+        <section class="section-luxe" style="background: var(--dark-section);" data-reveal>
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; align-items: center;">
+                    <div data-reveal class="stagger-1">
+                        <img src="https://images.unsplash.com/photo-1584982751601-97d8cb0f66fc?auto=format&fit=crop&w=800&q=80" alt="Healthcare medical dashboard on mobile screen" class="img-premium">
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="section" id="contact" style="background: var(--bg-deep);">            <div class="container">
-                <!-- UNIFIED SPLIT BOX -->
-                <div class="unified-audit-card glass-card" data-reveal>
-                    <div class="split-grid" style="grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
-                        <!-- LEFT: Text & Branding -->
-                        <div class="audit-branding">
-                            <span class="contact-badge">Direct Agency Access</span>
-                            <h2 style="font-size: 3.5rem; line-height: 1.1; margin: 15px 0 25px;">Care Meets <br><span class="gradient-text">Capability.</span></h2>
-                            <p style="font-size: 1.1rem; color: #94a3b8; line-height: 1.6; margin-bottom: 40px;">Ready to grow your practice and serve more patients with elite digital infrastructure? Request a free consultation today.</p>
-                            
-                            <!-- Contact Links -->
-                            <div style="margin-top: 50px; display: flex; gap: 30px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px;">
-                                <div>
-                                    <h5 style="color: var(--primary); margin: 0; font-size: 0.75rem; text-transform: uppercase;">Voice Line</h5>
-                                    <p style="margin: 5px 0 0; font-size: 0.9rem; color: #fff;">+91 95007 04443</p>
-                                </div>
-                                <div>
-                                    <h5 style="color: var(--primary); margin: 0; font-size: 0.75rem; text-transform: uppercase;">Strategy Desk</h5>
-                                    <p style="margin: 5px 0 0; font-size: 0.9rem; color: #fff;">strategy@mkshopzone.com</p>
-                                </div>
+                    <div data-reveal class="stagger-2">
+                        <h4 style="color: var(--primary); margin-bottom: 15px; font-size: 1.2rem;">The Paradigm Shift</h4>
+                        <h2 style="font-size: 4rem; line-height: 1.1; margin-bottom: 30px;">Why Digital Flow is <br><span class="gradient-span">Crucial.</span></h2>
+                        <p style="font-size: 1.2rem; margin-bottom: 20px;">Modern patients demand immediate convenience, secure data handling, and seamless booking. As Healthcare Technology & Marketing Experts, we bridge the gap between clinical excellence and digital authority.</p>
+                        <p style="font-size: 1.2rem; margin-bottom: 40px;">Our Healthcare Expertise & Capabilities span across HIPAA-compliant web apps, local SEO dominance, and high-trust patient engagement ecosystems.</p>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                            <div class="glass-card-premium" style="padding: 30px;">
+                                <i data-lucide="heart" style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 15px;"></i>
+                                <h3 style="font-size: 1.5rem;">Patient First</h3>
+                                <p style="font-size: 0.9rem;">Frictionless UI/UX built for care.</p>
+                            </div>
+                            <div class="glass-card-premium" style="padding: 30px;">
+                                <i data-lucide="shield" style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 15px;"></i>
+                                <h3 style="font-size: 1.5rem;">Fully Compliant</h3>
+                                <p style="font-size: 0.9rem;">HIPAA/GDPR Grade Security.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <!-- RIGHT: Form -->
-                        <div class="audit-form-col">
-                            <div style="margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 20px;">
-                                <h2 style="font-size: 2rem; margin: 0;">Request Audit</h2>
-                                <p style="color: var(--primary); font-size: 0.9rem; margin: 5px 0 0;">Elite Medical Digital Infrastructure.</p>
-                            </div>
-                            <form id="contactForm">
-                                <div class="form-group">
-                                    <input type="text" class="form-input" id="name" placeholder=" " required>
-                                    <label for="name" class="form-label">Full Name</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" name="email" id="email" class="form-input" placeholder=" " required>
-                                    <label for="email" class="form-label">Email Address</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="tel" name="phone" id="phone" class="form-input" placeholder=" " required>
-                                    <label for="phone" class="form-label">Phone Number</label>
-                                </div>
-                                <div class="form-group">
-                                    <select class="form-input" id="service-select" required>
-                                        <option value="" disabled selected hidden>Select Specialist Service</option>
-                                        <option value="seo">Advanced SEO Optimization</option>
-                                        <option value="web">Elite Web Development</option>
-                                        <option value="ads">Performance Paid Ads</option>
-                                        <option value="social">Social Media Authority</option>
-                                        <option value="all">Full Digital Strategy Audit</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-input" id="message" rows="2" placeholder=" " required></textarea>
-                                    <label for="message" class="form-label">Key goals...</label>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-magnetic" style="width: 100%;">LAUNCH SUCCESS AUDIT →</button>
-                            </form>
+        <!-- 3. Our Proven Growth Strategy -->
+        <section class="section-luxe" data-reveal>
+            <div class="container" style="text-align: center;">
+                <h4 style="color: var(--primary); margin-bottom: 15px;">The Clinical Framework</h4>
+                <h2 style="font-size: 4.5rem; margin-bottom: 80px;">Healthcare <span class="gradient-span">Growth Strategy.</span></h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
+                    <div class="glass-card-premium hover-lift stagger-1" data-reveal>
+                        <div style="width: 50px; height: 50px; background: var(--primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.4rem; margin: 0 auto 30px;">1</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Analyze</h3>
+                        <p style="font-size: 1rem;">Deep market auditing, identifying local search gaps, and evaluating current patient friction points.</p>
+                    </div>
+                    <div class="glass-card-premium hover-lift stagger-2" data-reveal>
+                        <div style="width: 50px; height: 50px; background: var(--primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.4rem; margin: 0 auto 30px;">2</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Design</h3>
+                        <p style="font-size: 1rem;">Architecting patient-centric UI/UX that builds immediate trust and medical authority.</p>
+                    </div>
+                    <div class="glass-card-premium hover-lift stagger-3" data-reveal>
+                        <div style="width: 50px; height: 50px; background: var(--primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.4rem; margin: 0 auto 30px;">3</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Implement</h3>
+                        <p style="font-size: 1rem;">Deploying secure portals, appointment integration, and telemedicine web infrastructure.</p>
+                    </div>
+                    <div class="glass-card-premium hover-lift stagger-4" data-reveal>
+                        <div style="width: 50px; height: 50px; background: var(--primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.4rem; margin: 0 auto 30px;">4</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Optimize</h3>
+                        <p style="font-size: 1rem;">Scaling via Local SEO, Google Ads, and automated patient recall email systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Architecture & UI/UX -->
+        <section class="section-luxe" style="background: #ffffff;" data-reveal>
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 80px;" data-reveal>
+                    <h2 style="font-size: 4.5rem; color: #000;">Development & <span class="gradient-span">Software Dev.</span></h2>
+                    <p style="color: #4b5563; font-size: 1.3rem; max-width: 800px; margin: 20px auto;">Deploying robust Healthcare Website Design & Mobile App Solutions that unify clinical operations.</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+                    <!-- Portals -->
+                    <div class="glass-card-premium hover-lift" style="background: var(--bg-ultra); border: none;" data-reveal class="stagger-1">
+                        <i data-lucide="smartphone" style="color: var(--primary); width: 50px; height: 50px; margin-bottom: 25px;"></i>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Healthcare Apps</h3>
+                        <p>Bespoke Healthcare Mobile App Development focusing on patient history tracking and care continuity.</p>
+                    </div>
+                    <!-- Booking -->
+                    <div class="glass-card-premium hover-lift" style="background: var(--bg-ultra); border: none;" data-reveal class="stagger-2">
+                        <i data-lucide="calendar-check" style="color: var(--primary); width: 50px; height: 50px; margin-bottom: 25px;"></i>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Booking Systems</h3>
+                        <p>Frictionless Appointment Booking System Integration that syncs seamlessly with EMR/EHR software.</p>
+                    </div>
+                    <!-- Telemedicine -->
+                    <div class="glass-card-premium hover-lift" style="background: var(--bg-ultra); border: none;" data-reveal class="stagger-3">
+                        <i data-lucide="video" style="color: var(--primary); width: 50px; height: 50px; margin-bottom: 25px;"></i>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Telemedicine Solutions</h3>
+                        <p>High-fidelity, end-to-end encrypted Online Consultation Solutions for boundaryless telehealth care.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Demanding the SERPs & Advertising -->
+        <section class="section-luxe" style="background: var(--dark-section);" data-reveal>
+            <div class="container">
+                <div class="split-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+                    <div data-reveal>
+                        <h4 style="color: var(--primary); margin-bottom: 15px;">Visibility & Authority</h4>
+                        <h2 style="font-size: 4rem; margin-bottom: 30px;">Digital <span class="gradient-span">Acquisition.</span></h2>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 30px;">
+                                <h3 style="color: #fff; font-size: 1.6rem; margin-bottom: 10px;"><i data-lucide="map-pin" style="color: var(--primary); display: inline-block; vertical-align: middle; margin-right: 10px;"></i> Local SEO for Clinics & Hospitals</h3>
+                                <p>We blanket the local 'map pack', ensuring your practice ranks #1 for high-intent medical queries.</p>
+                            </li>
+                            <li style="margin-bottom: 30px;">
+                                <h3 style="color: #fff; font-size: 1.6rem; margin-bottom: 10px;"><i data-lucide="target" style="color: var(--primary); display: inline-block; vertical-align: middle; margin-right: 10px;"></i> Paid Ads for Healthcare</h3>
+                                <p>Aggressive Google Search Ads targeting specific procedures, and Social Ads to build brand trust.</p>
+                            </li>
+                            <li style="margin-bottom: 30px;">
+                                <h3 style="color: #fff; font-size: 1.6rem; margin-bottom: 10px;"><i data-lucide="book-open" style="color: var(--primary); display: inline-block; vertical-align: middle; margin-right: 10px;"></i> Medical Content Marketing</h3>
+                                <p>Authoritative, YMYL-compliant content marketing designed to educate patients and boost organic search.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-reveal class="stagger-2">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Growth performance charts for healthcare marketing" class="img-premium">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Management, Security, Engagement -->
+        <section class="section-luxe" data-reveal>
+            <div class="container" style="text-align: center;">
+                <h4 style="color: var(--primary);">Secure Ecosystems</h4>
+                <h2 style="font-size: 4rem; margin-bottom: 60px;">Data Setup & <span class="gradient-span">Engagement.</span></h2>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px;">
+                    <div class="glass-card-premium text-left" data-reveal>
+                        <h3 style="font-size: 2rem; margin-bottom: 20px;">Data Security & Compliance</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 30px;">Absolute adherence to HIPAA & GDPR standards. We build fortresses around patient data, implementing end-to-end encryption for forms and internal workflows.</p>
+                        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="Medical data dashboard UI" class="img-premium" style="height: 250px;">
+                    </div>
+                    <div class="glass-card-premium text-left" data-reveal class="stagger-2">
+                        <h3 style="font-size: 2rem; margin-bottom: 20px;">Patient Engagement Automation</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 30px;">Intelligent Email Automation streams for pre-op instructions, automated appointment reminders, and post-visit review generation.</p>
+                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80" alt="Healthcare digital workflow in hospital" class="img-premium" style="height: 250px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Why Choose Our Healthcare Agency & Success Stories -->
+        <section class="section-luxe" style="background: rgba(255, 140, 0, 0.03); border-top: 1px solid rgba(255,140,0,0.1);" data-reveal>
+            <div class="container text-center">
+                <h4 style="color: var(--primary); margin-bottom: 20px;">The Authority</h4>
+                <h2 style="font-size: 4rem; margin-bottom: 60px;">Why Choose Our <span class="gradient-span">Agency.</span></h2>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 80px;">
+                    <div class="glass-card-premium hover-lift" data-reveal class="stagger-1">
+                        <i data-lucide="shield-check" style="color: var(--primary); width: 50px; height: 50px; margin: 0 auto 20px;"></i>
+                        <h3 style="font-size: 2.2rem; color: var(--primary);">Compliance First</h3>
+                        <p style="font-size: 1.1rem; margin-top: 10px;">We inherently understand the liability and operational risks involved in medical tech.</p>
+                    </div>
+                    <div class="glass-card-premium hover-lift" style="background: var(--bg-ultra);" data-reveal class="stagger-2">
+                        <i data-lucide="activity" style="color: var(--primary); width: 50px; height: 50px; margin: 0 auto 20px;"></i>
+                        <h3 style="font-size: 2.2rem; color: var(--white);">Patient Focus</h3>
+                        <p style="font-size: 1.1rem; margin-top: 10px;">Maximizing the patient's seamless experience from Google Search to the Waiting Room.</p>
+                    </div>
+                    <div class="glass-card-premium hover-lift" data-reveal class="stagger-3">
+                        <i data-lucide="line-chart" style="color: var(--primary); width: 50px; height: 50px; margin: 0 auto 20px;"></i>
+                        <h3 style="font-size: 2.2rem; color: var(--primary);">Measurable ROI</h3>
+                        <p style="font-size: 1.1rem; margin-top: 10px;">End-to-end Performance Tracking & HIPAA-compliant analytics to measure cost per acquisition.</p>
+                    </div>
+                </div>
+
+                <!-- Success Stories sub-section -->
+                <div style="text-align: left; background: var(--bg-ultra); border-radius: 30px; border: 1px solid var(--border-glass); padding: 60px;" data-reveal>
+                    <h2 style="font-size: 3.5rem; margin-bottom: 30px;">Success Stories & <span class="gradient-span">Case Studies.</span></h2>
+                    <p style="font-size: 1.3rem; margin-bottom: 30px; max-width: 800px;">We partnered with a regional dental network to overhaul their digital presence, resulting in a completely automated booking flow.</p>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px;">
+                            <h3 style="color: #22c55e; font-size: 2.5rem; margin-bottom: 10px;">+410%</h3>
+                            <p style="font-size: 1rem; font-weight: 700;">Local Organic Traffic</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px;">
+                            <h3 style="color: #22c55e; font-size: 2.5rem; margin-bottom: 10px;">2.5x</h3>
+                            <p style="font-size: 1rem; font-weight: 700;">New Patient Bookings</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px;">
+                            <h3 style="color: #22c55e; font-size: 2.5rem; margin-bottom: 10px;">-30%</h3>
+                            <p style="font-size: 1rem; font-weight: 700;">Drop in Cost-Per-Lead</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 8. Industries We Serve -->
+        <section class="section-luxe" style="background: #ffffff; color: #000;" data-reveal>
+            <div class="container text-center">
+                <h4 style="color: var(--primary); margin-bottom: 20px;">Scale For Every Practice</h4>
+                <h2 style="font-size: 4.5rem; margin-bottom: 80px; color: #000;">Industries We <span class="gradient-span">Serve.</span></h2>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                    <div class="glass-card-premium hover-lift" style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 40px;" data-reveal class="stagger-1">
+                        <i data-lucide="building" style="color: var(--primary); width: 40px; height: 40px; margin: 0 auto 15px;"></i>
+                        <h3 style="color: #000 !important; font-size: 1.8rem; margin-bottom: 10px;">Hospitals & Networks</h3>
+                        <p style="color: #4b5563;">Enterprise-grade search dominance.</p>
+                    </div>
+                    <div class="glass-card-premium hover-lift" style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 40px;" data-reveal class="stagger-2">
+                        <i data-lucide="door-open" style="color: var(--primary); width: 40px; height: 40px; margin: 0 auto 15px;"></i>
+                        <h3 style="color: #000 !important; font-size: 1.8rem; margin-bottom: 10px;">Private Clinics</h3>
+                        <p style="color: #4b5563;">Hyper-local SEO and lead generation.</p>
+                    </div>
+                    <div class="glass-card-premium hover-lift" style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 40px;" data-reveal class="stagger-3">
+                        <i data-lucide="laptop-2" style="color: var(--primary); width: 40px; height: 40px; margin: 0 auto 15px;"></i>
+                        <h3 style="color: #000 !important; font-size: 1.8rem; margin-bottom: 10px;">MedTech Startups</h3>
+                        <p style="color: #4b5563;">Rapid growth MVP and disruptive App Dev.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Tools, Tech & Ongoing Support -->
+        <section class="section-luxe" style="background: var(--dark-section);" data-reveal>
+            <div class="container text-center">
+                <div data-reveal>
+                    <h4 style="color: var(--primary); margin-bottom: 20px;">The Stack</h4>
+                    <h2 style="font-size: 4rem; margin-bottom: 40px;">Technologies We Use.</h2>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 100px;">
+                        <span class="hover-lift" style="border: 2px solid #222; padding: 15px 40px; border-radius: 100px; font-weight: 700;">HIPAA-Compliant Servers</span>
+                        <span class="hover-lift" style="border: 2px solid #222; padding: 15px 40px; border-radius: 100px; font-weight: 700;">React Native (Telehealth)</span>
+                        <span class="hover-lift" style="border: 2px solid #222; padding: 15px 40px; border-radius: 100px; font-weight: 700;">Twilio (Secure Comms)</span>
+                        <span class="hover-lift" style="border: 2px solid #222; padding: 15px 40px; border-radius: 100px; font-weight: 700;">Next.js web portals</span>
+                    </div>
+                </div>
+                
+                <div class="glass-card-premium hover-lift" style="text-align: left; background: var(--bg-ultra); border-color: var(--primary);" data-reveal>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                        <div>
+                            <h3 style="font-size: 3rem; margin-bottom: 20px;">Ongoing Support & <br><span class="gradient-span">Optimization.</span></h3>
+                            <p style="font-size: 1.2rem; margin-bottom: 20px;">Algorithm updates and security standards shift monthly. We provide continuous monitoring, UX iteration, and SEO content publishing to ensure your digital presence maintains peak authority.</p>
+                            <button class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();" style="padding: 15px 40px; font-size: 1rem;">CLINIC RETAINERS <i data-lucide="shield"></i></button>
+                        </div>
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80" alt="Ongoing healthcare software management" class="img-premium">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- 10. FAQs -->
+        <section class="section-luxe" data-reveal>
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 50px;">
+                    <h2 style="font-size: 4rem;">Frequently Asked <span class="gradient-span">Questions.</span></h2>
+                </div>
+                <div class="faq-wrapper" style="max-width: 900px; margin: 0 auto;">
+                    <div class="faq-item">
+                        <button class="faq-btn"><span>Are your web solutions fully HIPAA compliant?</span> <i data-lucide="plus"></i></button>
+                        <div class="faq-content"><p>Absolutely. Any component that touches Protected Health Information (PHI) is isolated, end-to-end encrypted, and hosted on certified compliant infrastructure.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-btn"><span>How long does it take to rank a clinic in Local SEO?</span> <i data-lucide="plus"></i></button>
+                        <div class="faq-content"><p>While initial Google Business Profile optimization shows results within weeks, dominating the 'Local Pack' for high-value procedures typically takes 3 to 6 months of aggressive, authoritative citation building.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-btn"><span>Do you build custom appointment systems or integrate existing ones?</span> <i data-lucide="plus"></i></button>
+                        <div class="faq-content"><p>We do both. We can build bespoke, lightweight portals or integrate seamlessly via API into your existing EMR/practice management software (like NexHealth, Zocdoc, etc).</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. CTA & Contact -->
+        <section class="section-luxe" id="contact" style="background: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1500&q=80') center/cover; position: relative;">
+            <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(2,6,11,0.92);"></div>
+            <div class="container" style="position: relative; z-index: 2; text-align: center;">
+                <h2 style="font-size: 5rem; margin-bottom: 20px;">Let's Transform Your <br><span class="gradient-span">Healthcare Business.</span></h2>
+                <p style="font-size: 1.5rem; max-width: 700px; margin: 0 auto 50px;">Get Your Free Healthcare Strategy Consultation. Contact Our Healthcare Experts to architect your patient acquisition pipeline.</p>
+                
+                <form id="contactForm" style="display: grid; gap: 20px; max-width: 600px; margin: 0 auto; text-align: left;">
+                    <input type="text" placeholder="Clinic / Practice Name" required style="padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.5); color: #fff;">
+                    <input type="email" placeholder="Professional Email" required style="padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.5); color: #fff;">
+                    <input type="url" placeholder="Current Website (Optional)" style="padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.5); color: #fff;">
+                    <button type="submit" class="btn-elite" style="width: 100%; font-size: 1.1rem; padding: 24px;">CLAIM CLINIC AUDIT →</button>
+                </form>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer style="padding: 100px 0; border-top: 1px solid rgba(255,255,255,0.05); background: #000; text-align: center;">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="/" class="logo" style="font-size: 1.5rem;">MK<span>SHOPZONE</span></a>
-                    <p style="margin-top: 20px; font-size: 0.9rem;">Building digital legacies for ambitious brands through data-driven performance and elite creative execution.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Solutions</h4>
-                    <ul>
-                        <li><a href="seo.html">Advanced SEO</a></li>
-                        <li><a href="paid-ads.html">Paid Advertisements</a></li>
-                        <li><a href="website-design.html">Web Development</a></li>
-                        <li><a href="social-media.html">Social Content</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>About</h4>
-                    <ul>
-                        <li><a href="/#why-us">Our Story</a></li>
-                        <li><a href="/#process">Our Process</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="tel:+919500704443">Voice: +91 95007 04443</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Twitter/X</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="text-center" style="padding-top: 40px; border-top: 1px solid var(--border-light);">
-                <p style="font-size: 0.8rem; letter-spacing: 1px;">&copy; 2026 MK SHOPZONE. Precision Engineered Growth.</p>
-            </div>
+            <a href="/" class="logo" style="font-size: 2rem; font-weight: 900; text-decoration: none; color: #fff;">MK<span style="color: var(--primary);">SHOPZONE</span></a>
+            <p style="opacity: 0.5; margin: 30px auto; max-width: 500px;">Architecting compliant, high-converting digital infrastructures for modern healthcare providers.</p>
+            <p style="opacity: 0.3; font-size: 0.8rem; letter-spacing: 2px;">&copy; 2026 MK SHOPZONE.</p>
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/917200059453" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-    </a>
-
-    <!-- AI Automation Scripts -->
+    <!-- Scripts -->
     <script type="module" src="/src/behavior-tracker.js"></script>
     <script type="module" src="/src/personalization.js"></script>
     <script type="module" src="/src/lead-system.js"></script>
-    <script type="module" src="/src/ai-chatbot.js"></script>
-
-    <!-- Scripts -->
+    <script type="module" src="/src/ai-chatbot.js"></script>    
     <script type="module" src="/src/main.js"></script>
+    
     <script>
-        // Lucide implementation
-        if (typeof lucide !== 'undefined') lucide.createIcons();
+        lucide.createIcons();
+
+        // Reveal animations
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+        // FAQ logic
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>
