@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education Digital Marketing, LMS Development & Student Enrollment | MK Shopzone</title>
-    <meta name="description" content="Expert education marketing, student enrollment growth, LMS development, e-learning platform solutions, school & college SEO, and paid ads for institutions. Transform your education brand digitally.">
-    <meta name="keywords" content="education marketing, student enrollment, LMS development, e-learning platform, school marketing, college digital marketing, EdTech solutions, education website design, online course platform">
+    <title>Education Digital Marketing, LMS Development & Student Enrollment Solutions | MK Shopzone</title>
+    <meta name="description" content="Expert education digital marketing, LMS development, e-learning platforms, student enrollment campaigns, and education SEO. Grow your school, college, or EdTech brand with MK Shopzone.">
+    <meta name="keywords" content="education marketing, student enrollment, LMS development, e-learning platform, school marketing, college digital marketing, EdTech solutions, online course platform, education SEO, education app development">
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff8c00'/><text x='50%' y='55%' font-family='Outfit' font-weight='bold' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'>MK</text></svg>">
     <link rel="stylesheet" href="/src/style.css">
@@ -17,75 +17,102 @@
             --white: #ffffff;
             --text-dim: #94a3b8;
             --primary: #ff8c00;
-            --ed-blue: #3b82f6;
-            --ed-purple: #8b5cf6;
+            --ed-purple: #7c3aed;
+            --ed-blue: #2563eb;
+            --ed-cyan: #06b6d4;
             --ed-green: #10b981;
-            --ed-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            --accent-gradient: linear-gradient(135deg, #ffffff 0%, #ff8c00 100%);
             --bg-ultra: #030408;
             --bg-glass: rgba(255,255,255,0.03);
             --border-glass: rgba(255,255,255,0.1);
+            --accent-gradient: linear-gradient(135deg,#ffffff 0%,#ff8c00 100%);
+            --ed-gradient: linear-gradient(135deg, #7c3aed, #2563eb);
+            --ed-gradient2: linear-gradient(135deg, #06b6d4, #10b981);
             --dark-section: #050505;
         }
-        body { background: var(--bg-ultra); color: var(--white); font-family: 'Outfit', sans-serif; overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-        h1, h2, h3, h4 { color: var(--white); font-weight: 800; letter-spacing: -0.02em; }
+        body { background: var(--bg-ultra); color: var(--white); font-family: 'Outfit', sans-serif; overflow-x: hidden; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        h1,h2,h3,h4 { color: var(--white); font-weight: 800; letter-spacing: -0.02em; }
         p { color: var(--text-dim); }
         .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+
         [data-reveal] { opacity: 0; transform: translateY(40px); transition: 1.2s cubic-bezier(0.16,1,0.3,1); }
         [data-reveal].active { opacity: 1; transform: translateY(0); }
-        .stagger-1{transition-delay:.1s}.stagger-2{transition-delay:.2s}.stagger-3{transition-delay:.3s}.stagger-4{transition-delay:.4s}
+        .s1{transition-delay:.1s}.s2{transition-delay:.2s}.s3{transition-delay:.3s}.s4{transition-delay:.4s}
+
         .gradient-span { background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
         .ed-span { background: var(--ed-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-        .btn-elite { padding: 20px 50px; background: var(--white); color: #000; border-radius: 100px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: 0.4s; display: inline-flex; align-items: center; justify-content: center; gap: 12px; text-decoration: none; font-size: 0.95rem; }
+        .ed-span2 { background: var(--ed-gradient2); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .btn-elite { padding: 20px 50px; background: var(--white); color: #000; border-radius: 100px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: 0.4s; display: inline-flex; align-items: center; justify-content: center; gap: 12px; text-decoration: none; font-size: 0.93rem; }
         .btn-elite:hover { transform: scale(1.05); background: var(--primary); color: #fff; }
-        .btn-blue { background: var(--ed-gradient); color: #fff; }
-        .btn-blue:hover { opacity: 0.9; transform: scale(1.05); }
+        .btn-purple { background: var(--ed-gradient); color: #fff; }
+        .btn-purple:hover { background: var(--ed-purple); transform: scale(1.05); }
         .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.2); }
-        .btn-outline:hover { border-color: var(--ed-blue); color: var(--ed-blue); background: rgba(59,130,246,0.08); transform: none; }
+        .btn-outline:hover { border-color: var(--ed-purple); color: #a78bfa; background: rgba(124,58,237,0.1); transform: none; }
+
         .navbar { height: 100px; display: flex; align-items: center; position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(3,4,8,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
         .nav-links { display: flex; gap: 36px; align-items: center; }
-        .nav-links a { color: var(--white); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.87rem; letter-spacing: 1.5px; transition: 0.3s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--ed-blue); }
-        .hero-ed { min-height: 100vh; display: flex; align-items: center; position: relative; padding: 160px 0 100px; overflow: hidden; }
-        .hero-bg-ed { position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 60%, rgba(59,130,246,0.12) 0%, transparent 55%), radial-gradient(ellipse at 85% 30%, rgba(139,92,246,0.09) 0%, transparent 50%), var(--bg-ultra); }
+        .nav-links a { color: var(--white); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.88rem; letter-spacing: 1.5px; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: #a78bfa; }
+
+        .hero-ed { min-height: 100vh; display: flex; align-items: center; padding: 160px 0 100px; position: relative; overflow: hidden; }
+        .hero-bg-ed { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(124,58,237,0.12) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, rgba(6,182,212,0.08) 0%, transparent 50%), var(--bg-ultra); }
+
         .section-luxe { padding: 130px 0; position: relative; }
+        .section-dark { background: var(--dark-section); }
+
         .glass-card { background: var(--bg-glass); border: 1px solid var(--border-glass); backdrop-filter: blur(25px); border-radius: 28px; padding: 45px; transition: all 0.5s cubic-bezier(0.16,1,0.3,1); }
-        .glass-card:hover { border-color: var(--ed-blue); transform: translateY(-10px); background: rgba(255,255,255,0.05); }
+        .glass-card:hover { border-color: var(--ed-purple); transform: translateY(-10px); background: rgba(255,255,255,0.05); }
+        .glass-card-cyan:hover { border-color: var(--ed-cyan); }
+
         .img-premium { border-radius: 20px; width: 100%; display: block; object-fit: cover; box-shadow: 0 40px 100px rgba(0,0,0,0.6); transition: transform 0.6s; }
         .img-premium:hover { transform: scale(1.02); }
         .hover-lift { transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); }
         .hover-lift:hover { transform: translateY(-10px); }
+
         .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
         .step-card { padding: 45px 35px; border-radius: 28px; background: var(--bg-glass); border: 1px solid var(--border-glass); text-align: center; transition: 0.5s; }
         .step-card:hover { border-color: var(--ed-purple); transform: translateY(-8px); }
-        .step-num { width: 62px; height: 62px; background: var(--ed-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.6rem; color: #fff; margin: 0 auto 25px; }
-        .svc-tag { display: inline-flex; align-items: center; gap: 10px; border: 2px solid rgba(59,130,246,0.3); padding: 11px 26px; border-radius: 100px; font-weight: 700; font-size: 0.88rem; transition: 0.3s; }
-        .svc-tag:hover { border-color: var(--ed-blue); color: var(--ed-blue); background: rgba(59,130,246,0.08); }
+        .step-num { width: 60px; height: 60px; background: var(--ed-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.5rem; color: #fff; margin: 0 auto 24px; }
+
+        .service-tag { display: inline-flex; align-items: center; gap: 10px; border: 2px solid rgba(124,58,237,0.3); padding: 11px 26px; border-radius: 100px; font-weight: 700; font-size: 0.88rem; transition: 0.3s; }
+        .service-tag:hover { border-color: var(--ed-purple); color: #a78bfa; background: rgba(124,58,237,0.08); }
+
         .check-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; font-size: 1.05rem; font-weight: 600; }
+
         .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .faq-btn { width: 100%; padding: 26px 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: none; border: none; cursor: pointer; color: #fff; font-size: 1.18rem; font-weight: 700; text-align: left; }
+        .faq-btn { width: 100%; padding: 26px 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: none; border: none; cursor: pointer; color: #fff; font-size: 1.2rem; font-weight: 700; text-align: left; }
         .faq-content { max-height: 0; overflow: hidden; transition: 0.5s; color: var(--text-dim); line-height: 1.8; }
         .faq-item.active .faq-content { max-height: 400px; padding-bottom: 26px; }
         .faq-icon { flex-shrink: 0; transition: transform 0.3s; }
         .faq-item.active .faq-icon { transform: rotate(45deg); }
-        @media(max-width:1024px){.nav-links{display:none}}
-        @media(max-width:768px){.split-grid{grid-template-columns:1fr!important;gap:50px!important}.hero-ed h1{font-size:3.5rem!important}.section-luxe{padding:80px 0}.container{padding:0 20px}}
-        @media(max-width:560px){.hero-ed h1{font-size:2.8rem!important}}
+
+        .stat-bubble { background: rgba(3,4,8,0.95); padding: 22px 28px; border-radius: 16px; border: 1px solid rgba(124,58,237,0.4); backdrop-filter: blur(12px); }
+
+        @media (max-width: 1024px) { .nav-links { display: none; } }
+        @media (max-width: 768px) {
+            .split-grid { grid-template-columns: 1fr !important; gap: 50px !important; }
+            .hero-ed h1 { font-size: 3.4rem !important; }
+            .section-luxe { padding: 80px 0; }
+            .container { padding: 0 20px; }
+        }
+        @media (max-width: 580px) { .hero-ed h1 { font-size: 2.7rem !important; } }
     </style>
 </head>
 <body>
 
+    <!-- NAVIGATION -->
     <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="/" style="font-size:2rem;font-weight:900;letter-spacing:-1px;text-decoration:none;color:#fff">MK<span style="color:var(--primary)">SHOPZONE</span></a>
+            <a href="/" style="font-size:2rem;font-weight:900;letter-spacing:-1px;text-decoration:none;color:#fff;">MK<span style="color:var(--primary);">SHOPZONE</span></a>
             <nav class="nav-links">
                 <a href="/">Home</a>
                 <a href="ecommerce.html">E-Commerce</a>
                 <a href="healthcare.html">Healthcare</a>
                 <a href="real-estate.html">Real Estate</a>
                 <a href="education.html" class="active">Education</a>
-                <button class="btn-elite btn-blue" style="padding:13px 28px;font-size:0.82rem" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">FREE STRATEGY</button>
+                <button class="btn-elite btn-purple" style="padding:13px 28px;font-size:0.82rem;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">FREE STRATEGY</button>
             </nav>
         </div>
     </header>
@@ -94,27 +121,27 @@
         <!-- 1. HERO -->
         <section class="hero-ed">
             <div class="hero-bg-ed"></div>
-            <div class="container" style="position:relative;z-index:2">
+            <div class="container" style="position:relative;z-index:2;">
                 <div class="split-grid">
                     <div data-reveal>
-                        <span style="letter-spacing:4px;font-weight:900;color:var(--ed-blue);text-transform:uppercase;font-size:.92rem;margin-bottom:20px;display:block">Innovative EdTech Growth</span>
-                        <h1 style="font-size:5.2rem;line-height:.95;margin-bottom:30px">Education <br><span class="ed-span">Digital Growth</span><br>Experts.</h1>
-                        <p style="font-size:1.3rem;max-width:560px;margin-bottom:40px;color:#e2e8f0">We attract, engage, and enroll students for schools, colleges, and EdTech platforms through precision digital marketing, LMS development, and intelligent automation.</p>
-                        <div style="display:flex;gap:18px;flex-wrap:wrap">
-                            <button class="btn-elite btn-blue" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">GET FREE STRATEGY <i data-lucide="graduation-cap"></i></button>
-                            <button class="btn-elite btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">OUR SERVICES</button>
+                        <span style="letter-spacing:4px;font-weight:900;color:#a78bfa;text-transform:uppercase;font-size:0.92rem;margin-bottom:20px;display:block;">Innovative EdTech & Marketing</span>
+                        <h1 style="font-size:5.2rem;line-height:0.95;margin-bottom:28px;">Education <span class="ed-span">Digital</span><br>Solutions.</h1>
+                        <p style="font-size:1.3rem;max-width:560px;margin-bottom:40px;color:#e2e8f0;">We attract, engage, and enroll students for schools, colleges, and EdTech platforms through full-stack digital marketing, LMS development, and precision lead generation campaigns.</p>
+                        <div style="display:flex;gap:18px;flex-wrap:wrap;">
+                            <button class="btn-elite btn-purple" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">GET FREE STRATEGY <i data-lucide="graduation-cap"></i></button>
+                            <button class="btn-elite btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});">EXPLORE SERVICES</button>
                         </div>
-                        <div style="display:flex;gap:40px;margin-top:50px;flex-wrap:wrap">
-                            <div><h3 style="font-size:2.4rem;color:var(--ed-blue);margin:0">350+</h3><p style="margin:0;font-size:.82rem;letter-spacing:2px;text-transform:uppercase">Institutions Served</p></div>
-                            <div style="border-left:1px solid rgba(255,255,255,.15);padding-left:40px"><h3 style="font-size:2.4rem;color:var(--ed-purple);margin:0">5×</h3><p style="margin:0;font-size:.82rem;letter-spacing:2px;text-transform:uppercase">Avg. Enrollment Growth</p></div>
-                            <div style="border-left:1px solid rgba(255,255,255,.15);padding-left:40px"><h3 style="font-size:2.4rem;color:var(--ed-green);margin:0">2M+</h3><p style="margin:0;font-size:.82rem;letter-spacing:2px;text-transform:uppercase">Student Reach</p></div>
+                        <div style="display:flex;gap:40px;margin-top:50px;flex-wrap:wrap;">
+                            <div><h3 style="font-size:2.4rem;color:#a78bfa;margin:0;">350+</h3><p style="margin:0;font-size:0.82rem;letter-spacing:2px;text-transform:uppercase;">Institutions Served</p></div>
+                            <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:40px;"><h3 style="font-size:2.4rem;color:#a78bfa;margin:0;">5×</h3><p style="margin:0;font-size:0.82rem;letter-spacing:2px;text-transform:uppercase;">Avg. Enrollment Growth</p></div>
+                            <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:40px;"><h3 style="font-size:2.4rem;color:#a78bfa;margin:0;">1M+</h3><p style="margin:0;font-size:0.82rem;letter-spacing:2px;text-transform:uppercase;">Students Reached</p></div>
                         </div>
                     </div>
-                    <div data-reveal class="stagger-2" style="position:relative">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80" alt="Students collaborating online with digital learning tools" class="img-premium" style="height:580px">
-                        <div style="position:absolute;bottom:-25px;right:-20px;background:rgba(3,4,8,.95);padding:22px 28px;border-radius:16px;border:1px solid var(--ed-blue);backdrop-filter:blur(12px)">
-                            <h3 style="font-size:2rem;margin:0;background:var(--ed-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">92%</h3>
-                            <p style="margin:0;font-size:.78rem;letter-spacing:2px;color:#94a3b8">ENROLLMENT CONVERSION LIFT</p>
+                    <div data-reveal class="s2" style="position:relative;">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80" alt="Students engaged in online digital learning" class="img-premium" style="height:580px;">
+                        <div class="stat-bubble" style="position:absolute;bottom:-22px;right:-15px;">
+                            <h3 class="ed-span" style="font-size:2rem;margin:0;">420%</h3>
+                            <p style="margin:0;font-size:0.78rem;letter-spacing:2px;color:#94a3b8;">AVG. ENROLLMENT LIFT</p>
                         </div>
                     </div>
                 </div>
@@ -122,29 +149,29 @@
         </section>
 
         <!-- 2. WHY DIGITAL + WHO WE ARE -->
-        <section class="section-luxe" style="background:var(--dark-section)" data-reveal>
+        <section class="section-luxe section-dark" data-reveal>
             <div class="container">
                 <div class="split-grid">
                     <div data-reveal>
-                        <h4 style="color:var(--ed-blue);margin-bottom:15px;letter-spacing:3px;text-transform:uppercase;font-size:1rem">The Education Shift</h4>
-                        <h2 style="font-size:3.8rem;line-height:1.1;margin-bottom:28px">Why Digital Transformation is <span class="ed-span">Essential in Education.</span></h2>
-                        <p style="font-size:1.2rem;margin-bottom:22px">Students today research institutions on Google, compare courses on YouTube, and expect seamless online enrollment. Institutions that fail to build a strong digital presence lose thousands of prospective students to better-marketed competitors every year.</p>
-                        <p style="font-size:1.2rem;margin-bottom:38px">As specialist Education Marketing & Technology Experts, MK Shopzone builds full-funnel digital ecosystems — from SEO and paid ads to LMS development and student automation — that consistently fill seats and grow institutional revenue.</p>
-                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-                            <div class="glass-card" style="padding:28px">
-                                <i data-lucide="users" style="color:var(--ed-blue);width:36px;height:36px;margin-bottom:12px"></i>
-                                <h3 style="font-size:1.3rem;margin-bottom:8px">Student-First</h3>
-                                <p style="font-size:.9rem">Every journey mapped around student intent.</p>
+                        <h4 style="color:#a78bfa;margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">The Education Revolution</h4>
+                        <h2 style="font-size:3.8rem;line-height:1.1;margin-bottom:26px;">Why Digital is <span class="ed-span">Essential in Education.</span></h2>
+                        <p style="font-size:1.15rem;margin-bottom:20px;">Over 87% of prospective students research institutions online before contacting them. Colleges and schools that fail to invest in digital presence are losing enrollments to tech-savvy competitors daily.</p>
+                        <p style="font-size:1.15rem;margin-bottom:36px;">As dedicated Education Marketing & Technology Experts, MK Shopzone helps schools, colleges, universities, and EdTech platforms build dominant digital presences that fill seats and drive sustainable growth.</p>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+                            <div class="glass-card glass-card-cyan" style="padding:28px;">
+                                <i data-lucide="users" style="color:var(--ed-cyan);width:36px;height:36px;margin-bottom:12px;"></i>
+                                <h3 style="font-size:1.3rem;margin-bottom:8px;">Student-First</h3>
+                                <p style="font-size:0.9rem;">Journeys built around the student decision cycle.</p>
                             </div>
-                            <div class="glass-card" style="padding:28px">
-                                <i data-lucide="trending-up" style="color:var(--ed-green);width:36px;height:36px;margin-bottom:12px"></i>
-                                <h3 style="font-size:1.3rem;margin-bottom:8px">Enrollment ROI</h3>
-                                <p style="font-size:.9rem">Every campaign tied directly to seat conversion.</p>
+                            <div class="glass-card" style="padding:28px;">
+                                <i data-lucide="bar-chart-2" style="color:var(--ed-green);width:36px;height:36px;margin-bottom:12px;"></i>
+                                <h3 style="font-size:1.3rem;margin-bottom:8px;">ROI-Proven</h3>
+                                <p style="font-size:0.9rem;">Every campaign tracked from click to enrollment.</p>
                             </div>
                         </div>
                     </div>
-                    <div data-reveal class="stagger-2">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80" alt="Digital classroom and e-learning environment" class="img-premium" style="height:520px">
+                    <div data-reveal class="s2">
+                        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=900&q=80" alt="Digital classroom learning environment" class="img-premium" style="height:520px;">
                     </div>
                 </div>
             </div>
@@ -152,379 +179,347 @@
 
         <!-- 3. SERVICES + GROWTH STRATEGY -->
         <section class="section-luxe" id="services" data-reveal>
-            <div class="container" style="text-align:center">
-                <h4 style="color:var(--primary);margin-bottom:18px;letter-spacing:3px;text-transform:uppercase;font-size:1rem">Full-Spectrum Education Digital</h4>
-                <h2 style="font-size:4.5rem;margin-bottom:20px">Comprehensive <span class="gradient-span">Education Services.</span></h2>
-                <p style="font-size:1.2rem;max-width:780px;margin:0 auto 70px">From education website design and student enrollment SEO to LMS platform development and paid admissions campaigns — we cover every touchpoint of the student decision journey.</p>
-                <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:100px">
-                    <span class="svc-tag"><i data-lucide="globe" style="width:16px;height:16px;color:var(--ed-blue)"></i> Education Websites</span>
-                    <span class="svc-tag"><i data-lucide="search" style="width:16px;height:16px;color:var(--ed-blue)"></i> Education SEO</span>
-                    <span class="svc-tag"><i data-lucide="map-pin" style="width:16px;height:16px;color:var(--ed-blue)"></i> Local SEO</span>
-                    <span class="svc-tag"><i data-lucide="monitor" style="width:16px;height:16px;color:var(--ed-blue)"></i> LMS Development</span>
-                    <span class="svc-tag"><i data-lucide="play-circle" style="width:16px;height:16px;color:var(--ed-blue)"></i> E-learning Platforms</span>
-                    <span class="svc-tag"><i data-lucide="smartphone" style="width:16px;height:16px;color:var(--ed-blue)"></i> Education Apps</span>
-                    <span class="svc-tag"><i data-lucide="trending-up" style="width:16px;height:16px;color:var(--ed-blue)"></i> Google & Meta Ads</span>
-                    <span class="svc-tag"><i data-lucide="mail" style="width:16px;height:16px;color:var(--ed-blue)"></i> Student Automation</span>
+            <div class="container" style="text-align:center;">
+                <h4 style="color:var(--primary);margin-bottom:16px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Full-Spectrum Education Digital</h4>
+                <h2 style="font-size:4.5rem;margin-bottom:18px;">Comprehensive <span class="gradient-span">Education Services.</span></h2>
+                <p style="font-size:1.15rem;max-width:780px;margin:0 auto 65px;">From education website design and SEO to LMS development, paid enrollment campaigns, and student engagement automation — we cover every stage of the student acquisition journey.</p>
+
+                <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:13px;margin-bottom:100px;">
+                    <span class="service-tag"><i data-lucide="globe" style="width:15px;height:15px;color:#a78bfa;"></i> Education Websites</span>
+                    <span class="service-tag"><i data-lucide="search" style="width:15px;height:15px;color:#a78bfa;"></i> Education SEO</span>
+                    <span class="service-tag"><i data-lucide="map-pin" style="width:15px;height:15px;color:#a78bfa;"></i> Local SEO</span>
+                    <span class="service-tag"><i data-lucide="monitor-play" style="width:15px;height:15px;color:#a78bfa;"></i> LMS Development</span>
+                    <span class="service-tag"><i data-lucide="play-circle" style="width:15px;height:15px;color:#a78bfa;"></i> E-Learning Platforms</span>
+                    <span class="service-tag"><i data-lucide="smartphone" style="width:15px;height:15px;color:#a78bfa;"></i> Education Apps</span>
+                    <span class="service-tag"><i data-lucide="trending-up" style="width:15px;height:15px;color:#a78bfa;"></i> Paid Ads</span>
+                    <span class="service-tag"><i data-lucide="mail" style="width:15px;height:15px;color:#a78bfa;"></i> Email Automation</span>
                 </div>
 
-                <!-- Growth Strategy -->
-                <h4 style="color:var(--ed-purple);margin-bottom:18px;letter-spacing:3px;text-transform:uppercase;font-size:1rem">The MK Education Formula</h4>
-                <h2 style="font-size:4rem;margin-bottom:60px">Proven Enrollment <span class="gradient-span">Growth Strategy.</span></h2>
-                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
-                    <div class="step-card hover-lift" data-reveal class="stagger-1">
+                <!-- Growth Strategy Steps -->
+                <h4 style="color:var(--ed-purple);margin-bottom:16px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">The MK EdTech Formula</h4>
+                <h2 style="font-size:4rem;margin-bottom:55px;">Proven Enrollment <span class="gradient-span">Growth Strategy.</span></h2>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;">
+                    <div class="step-card hover-lift" data-reveal class="s1">
                         <div class="step-num">1</div>
-                        <h3 style="font-size:1.7rem;margin-bottom:15px">Attract</h3>
-                        <p>Drive high-intent student and parent traffic through education SEO, Google Ads, Meta enrollment campaigns, and organic social content targeting prospects at every decision stage.</p>
+                        <h3 style="font-size:1.7rem;margin-bottom:14px;">Attract</h3>
+                        <p>Drive high-intent student traffic through education SEO, Google Ads, Meta student acquisition campaigns, and educational content marketing that positions your institution as the top choice.</p>
                     </div>
-                    <div class="step-card hover-lift" data-reveal class="stagger-2">
+                    <div class="step-card hover-lift" data-reveal class="s2">
                         <div class="step-num">2</div>
-                        <h3 style="font-size:1.7rem;margin-bottom:15px">Engage</h3>
-                        <p>Convert interest into deep engagement through stunning institution websites, virtual campus tours, WhatsApp drip sequences, and immersive LMS trial experiences.</p>
+                        <h3 style="font-size:1.7rem;margin-bottom:14px;">Engage</h3>
+                        <p>Convert interest into deep engagement via stunning education websites, virtual campus tours, LMS demos, webinars, and WhatsApp/email nurture sequences tailored to student concerns.</p>
                     </div>
-                    <div class="step-card hover-lift" data-reveal class="stagger-3">
+                    <div class="step-card hover-lift" data-reveal class="s3">
                         <div class="step-num">3</div>
-                        <h3 style="font-size:1.7rem;margin-bottom:15px">Enroll</h3>
-                        <p>Close admissions faster with optimised landing pages, CRM follow-up automation, counselor scheduling systems, and retargeting that re-captures dropped inquiries.</p>
+                        <h3 style="font-size:1.7rem;margin-bottom:14px;">Enroll</h3>
+                        <p>Close enrollments faster with frictionless application portals, CRM pipelines, automated counselor lead routing, and re-engagement campaigns targeting drop-off applicants.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. WEBSITE + UI/UX + SEO/LOCAL -->
-        <section class="section-luxe" style="background:var(--dark-section)" data-reveal>
+        <!-- 4. WEBSITE + UI/UX -->
+        <section class="section-luxe section-dark" data-reveal>
             <div class="container">
-                <div class="split-grid" style="margin-bottom:100px">
-                    <div data-reveal class="stagger-1">
-                        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=900&q=80" alt="Education website design and student UI/UX interface" class="img-premium" style="height:520px">
-                    </div>
-                    <div data-reveal class="stagger-2">
-                        <h4 style="color:var(--ed-blue);margin-bottom:15px;letter-spacing:3px;text-transform:uppercase;font-size:1rem">Digital Presence</h4>
-                        <h2 style="font-size:3.8rem;line-height:1.1;margin-bottom:28px">Education Website Design <span class="ed-span">& Student UI/UX.</span></h2>
-                        <p style="font-size:1.15rem;margin-bottom:30px">We build lightning-fast, conversion-driven education websites that guide prospective students and parents from first click to submitted application — with seamless admission enquiry flows, course catalog browsing, and virtual tour integrations.</p>
+                <div class="split-grid" style="grid-template-columns:1.2fr 1fr;">
+                    <div data-reveal>
+                        <h4 style="color:#a78bfa;margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Digital Presence</h4>
+                        <h2 style="font-size:3.8rem;line-height:1.1;margin-bottom:26px;">Education Website Design <span class="ed-span">& Student UI/UX.</span></h2>
+                        <p style="font-size:1.15rem;margin-bottom:28px;">We build high-performance education websites with intuitive student journeys, virtual campus experiences, and conversion-optimised admission pages that turn curious visitors into enrolled students.</p>
                         <div>
-                            <div class="check-item"><i data-lucide="check-circle-2" style="color:var(--ed-green);flex-shrink:0"></i><span>Interactive course catalog with search & filter</span></div>
-                            <div class="check-item"><i data-lucide="check-circle-2" style="color:var(--ed-green);flex-shrink:0"></i><span>Online admission forms & fee payment integration</span></div>
-                            <div class="check-item"><i data-lucide="check-circle-2" style="color:var(--ed-green);flex-shrink:0"></i><span>Mobile-first design with Core Web Vitals optimization</span></div>
-                            <div class="check-item"><i data-lucide="check-circle-2" style="color:var(--ed-green);flex-shrink:0"></i><span>WCAG accessibility compliance for inclusivity</span></div>
+                            <div class="check-item"><i data-lucide="check-circle-2" style="color:var(--ed-green);flex-shrink:0;"></i><span>Student-centric navigation with course discovery flows</span></div>
+                            <div class="check-item"><i data-lucide="check-circle-2" style="color:var(--ed-green);flex-shrink:0;"></i><span>Virtual tour embeds, faculty profiles & student testimonials</span></div>
+                            <div class="check-item"><i data-lucide="check-circle-2" style="color:var(--ed-green);flex-shrink:0;"></i><span>Online application forms with CRM integration</span></div>
+                            <div class="check-item"><i data-lucide="check-circle-2" style="color:var(--ed-green);flex-shrink:0;"></i><span>Mobile-first, Core Web Vitals optimised for Google rankings</span></div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Core Services Grid -->
-                <div style="text-align:center;margin-bottom:70px" data-reveal>
-                    <h4 style="color:var(--ed-purple);margin-bottom:18px;letter-spacing:3px;text-transform:uppercase;font-size:1rem">All Marketing Channels</h4>
-                    <h2 style="font-size:4.5rem;margin-bottom:20px">Education <span class="gradient-span">Marketing Services.</span></h2>
-                </div>
-                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
-                    <div class="glass-card hover-lift" data-reveal class="stagger-1">
-                        <i data-lucide="search" style="color:var(--ed-blue);width:46px;height:46px;margin-bottom:22px"></i>
-                        <h3 style="font-size:1.7rem;margin-bottom:14px">Education SEO & Local SEO</h3>
-                        <p>Rank for "best MBA college in [city]" and "top engineering institute near me." We build keyword-rich course pages, local citations, and Google Business Profile strategies to generate free, compounding enrollment inquiries for schools and colleges.</p>
-                    </div>
-                    <div class="glass-card hover-lift" data-reveal class="stagger-2">
-                        <i data-lucide="target" style="color:var(--primary);width:46px;height:46px;margin-bottom:22px"></i>
-                        <h3 style="font-size:1.7rem;margin-bottom:14px">Lead Gen for Admissions</h3>
-                        <p>High-ROAS Google Search campaigns and Meta Lead Ads targeting students by course interest, location, age group, and academic milestone events — delivering verified admission inquiries at predictable cost per enrollment.</p>
-                    </div>
-                    <div class="glass-card hover-lift" data-reveal class="stagger-3">
-                        <i data-lucide="monitor" style="color:var(--ed-purple);width:46px;height:46px;margin-bottom:22px"></i>
-                        <h3 style="font-size:1.7rem;margin-bottom:14px">LMS Development</h3>
-                        <p>Custom Learning Management Systems with course creation, live sessions, progress tracking, quizzes, certificates, and payment gateways — built on Moodle, custom React, or white-label EdTech frameworks to your exact specification.</p>
-                    </div>
-                    <div class="glass-card hover-lift" data-reveal class="stagger-1">
-                        <i data-lucide="play-circle" style="color:var(--ed-green);width:46px;height:46px;margin-bottom:22px"></i>
-                        <h3 style="font-size:1.7rem;margin-bottom:14px">Online Course & E-learning Platforms</h3>
-                        <p>End-to-end e-learning platform development — video hosting, multi-instructor management, subscription billing, student progress analytics, and mobile-responsive course players that deliver superior learning experiences.</p>
-                    </div>
-                    <div class="glass-card hover-lift" data-reveal class="stagger-2">
-                        <i data-lucide="smartphone" style="color:var(--ed-blue);width:46px;height:46px;margin-bottom:22px"></i>
-                        <h3 style="font-size:1.7rem;margin-bottom:14px">Mobile App Development</h3>
-                        <p>Custom iOS and Android education apps with offline learning, push notification reminders, live class support, digital certificates, and parent monitoring dashboards — keeping students engaged anywhere, anytime.</p>
-                    </div>
-                    <div class="glass-card hover-lift" data-reveal class="stagger-3">
-                        <i data-lucide="mail" style="color:var(--primary);width:46px;height:46px;margin-bottom:22px"></i>
-                        <h3 style="font-size:1.7rem;margin-bottom:14px">Email & Student Engagement Automation</h3>
-                        <p>Automated admission follow-up sequences, course completion nudges, fee reminder drips, alumni re-engagement campaigns, and parent communication workflows that nurture every lead through to enrolled student.</p>
+                    <div data-reveal class="s2">
+                        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=900&q=80" alt="Education website and student UI/UX design" class="img-premium" style="height:520px;">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. LMS VISUAL + SOCIAL + CONTENT -->
+        <!-- 5. SEO + LMS + ADS + SOCIAL + EMAIL + CONTENT -->
         <section class="section-luxe" data-reveal>
             <div class="container">
-                <div class="split-grid" style="margin-bottom:100px">
-                    <div data-reveal>
-                        <h4 style="color:var(--ed-blue);margin-bottom:15px;letter-spacing:3px;text-transform:uppercase;font-size:1rem">EdTech Infrastructure</h4>
-                        <h2 style="font-size:3.8rem;line-height:1.1;margin-bottom:25px">Learning Management <span class="ed-span">System Solutions.</span></h2>
-                        <p style="font-size:1.15rem;margin-bottom:30px">We design and develop institutional-grade LMS platforms that allow educators to create, manage, and monetize courses at scale — with student analytics, gamified progress tracking, and seamless third-party tool integrations.</p>
-                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
-                            <div class="glass-card" style="padding:25px">
-                                <h4 style="font-size:1.1rem;color:var(--ed-blue);margin-bottom:8px">Live & Recorded</h4>
-                                <p style="font-size:.9rem;margin:0">Zoom, Google Meet & custom video integration.</p>
+                <div style="text-align:center;margin-bottom:75px;">
+                    <h4 style="color:#a78bfa;margin-bottom:16px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Student Acquisition Engine</h4>
+                    <h2 style="font-size:4.5rem;margin-bottom:18px;">Education <span class="gradient-span">Marketing Channels.</span></h2>
+                    <p style="font-size:1.15rem;max-width:700px;margin:0 auto;">We operate every channel where prospective students discover, evaluate, and decide on their educational institution.</p>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;">
+                    <div class="glass-card hover-lift" data-reveal class="s1">
+                        <i data-lucide="search" style="color:#a78bfa;width:46px;height:46px;margin-bottom:20px;"></i>
+                        <h3 style="font-size:1.7rem;margin-bottom:13px;">Education SEO & Local SEO</h3>
+                        <p>Rank for "best MBA college in [city]" and course-specific searches. Local SEO for schools and colleges ensures your institution appears in Google's Local Pack for every relevant geographic query.</p>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="s2">
+                        <i data-lucide="monitor-play" style="color:var(--ed-cyan);width:46px;height:46px;margin-bottom:20px;"></i>
+                        <h3 style="font-size:1.7rem;margin-bottom:13px;">LMS & E-Learning Platforms</h3>
+                        <p>Custom Learning Management System development with live classes, recorded content, quizzes, progress tracking, certifications, and student dashboards — white-labelled for your institution or EdTech brand.</p>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="s3">
+                        <i data-lucide="smartphone" style="color:var(--ed-green);width:46px;height:46px;margin-bottom:20px;"></i>
+                        <h3 style="font-size:1.7rem;margin-bottom:13px;">Mobile App Development</h3>
+                        <p>iOS and Android education apps with push notification reminders, assignment submissions, live class integration, attendance tracking, and gamified learning modules that boost student engagement.</p>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="s1">
+                        <i data-lucide="trending-up" style="color:var(--primary);width:46px;height:46px;margin-bottom:20px;"></i>
+                        <h3 style="font-size:1.7rem;margin-bottom:13px;">Paid Ads for Enrollment</h3>
+                        <p>Google Search, YouTube pre-roll, and Meta Lead Ads targeting students by age, location, course interest, and life events (graduation, job change). Designed for maximum admission form completions at lowest CPL.</p>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="s2">
+                        <i data-lucide="instagram" style="color:#a78bfa;width:46px;height:46px;margin-bottom:20px;"></i>
+                        <h3 style="font-size:1.7rem;margin-bottom:13px;">Social Media Marketing</h3>
+                        <p>Campus life content, alumni success stories, faculty insights on Instagram, Facebook, and LinkedIn. We build aspirational institutional brands that attract students organically while retargeting website visitors.</p>
+                    </div>
+                    <div class="glass-card hover-lift" data-reveal class="s3">
+                        <i data-lucide="mail" style="color:var(--ed-cyan);width:46px;height:46px;margin-bottom:20px;"></i>
+                        <h3 style="font-size:1.7rem;margin-bottom:13px;">Email & Student Automation</h3>
+                        <p>Automated admission inquiry workflows, course recommendation drips, counselor follow-up sequences, and fee reminder campaigns — keeping prospective students engaged throughout the full decision cycle.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. LMS VISUAL + ANALYTICS -->
+        <section class="section-luxe section-dark" data-reveal>
+            <div class="container">
+                <div class="split-grid" style="margin-bottom:100px;">
+                    <div data-reveal class="s1">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="LMS dashboard and e-learning platform interface" class="img-premium" style="height:490px;">
+                    </div>
+                    <div data-reveal class="s2">
+                        <h4 style="color:var(--ed-cyan);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">EdTech Infrastructure</h4>
+                        <h2 style="font-size:3.6rem;line-height:1.1;margin-bottom:24px;">Online Course & E-Learning <span class="ed-span2">Platforms.</span></h2>
+                        <p style="font-size:1.15rem;margin-bottom:28px;">We build production-ready e-learning platforms that scale from 100 to 100,000 students — with intuitive course builders, live streaming, automated grading, payment integration, and affiliate systems.</p>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+                            <div class="glass-card" style="padding:24px;">
+                                <h4 style="font-size:1.1rem;color:#a78bfa;margin-bottom:8px;">Scalable Architecture</h4>
+                                <p style="font-size:0.9rem;margin:0;">Cloud-native platforms built to scale.</p>
                             </div>
-                            <div class="glass-card" style="padding:25px">
-                                <h4 style="font-size:1.1rem;color:var(--ed-purple);margin-bottom:8px">Progress Analytics</h4>
-                                <p style="font-size:.9rem;margin:0">Real-time student performance dashboards.</p>
-                            </div>
-                            <div class="glass-card" style="padding:25px">
-                                <h4 style="font-size:1.1rem;color:var(--ed-green);margin-bottom:8px">Certification Engine</h4>
-                                <p style="font-size:.9rem;margin:0">Automated verified digital certificates.</p>
-                            </div>
-                            <div class="glass-card" style="padding:25px">
-                                <h4 style="font-size:1.1rem;color:var(--primary);margin-bottom:8px">Multi-Instructor</h4>
-                                <p style="font-size:.9rem;margin:0">Faculty management with revenue sharing.</p>
+                            <div class="glass-card" style="padding:24px;">
+                                <h4 style="font-size:1.1rem;color:var(--ed-cyan);margin-bottom:8px;">White-Label Ready</h4>
+                                <p style="font-size:0.9rem;margin:0;">Fully branded to your institution.</p>
                             </div>
                         </div>
-                    </div>
-                    <div data-reveal class="stagger-2">
-                        <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80" alt="LMS dashboard and e-learning platform interface" class="img-premium" style="height:520px">
                     </div>
                 </div>
 
-                <!-- Social + Content Marketing Banner -->
-                <div class="glass-card" style="background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(139,92,246,.05));border-color:rgba(59,130,246,.35);padding:60px" data-reveal>
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+                <!-- Analytics Banner -->
+                <div class="glass-card" style="background:linear-gradient(135deg,rgba(124,58,237,0.08),rgba(6,182,212,0.05));border-color:rgba(124,58,237,0.4);padding:58px;" data-reveal>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
                         <div>
-                            <h3 style="font-size:3rem;margin-bottom:18px">Social Media & <span class="ed-span">Content Marketing.</span></h3>
-                            <p style="font-size:1.15rem;margin-bottom:25px">We build authoritative education brand presences on Instagram, YouTube, and LinkedIn — through faculty spotlights, student success story Reels, course preview content, and SEO-optimized blogs that organically attract prospective students 24/7.</p>
-                            <div>
-                                <div class="check-item"><i data-lucide="check-circle-2" style="color:var(--ed-green);flex-shrink:0"></i><span>Student testimonial video campaigns</span></div>
-                                <div class="check-item"><i data-lucide="check-circle-2" style="color:var(--ed-green);flex-shrink:0"></i><span>Course preview Reels & YouTube SEO</span></div>
-                                <div class="check-item"><i data-lucide="check-circle-2" style="color:var(--ed-green);flex-shrink:0"></i><span>Long-form career guidance blog content</span></div>
-                            </div>
+                            <i data-lucide="bar-chart-2" style="color:#a78bfa;width:55px;height:55px;margin-bottom:22px;"></i>
+                            <h3 style="font-size:3rem;margin-bottom:18px;">Performance Tracking <span class="ed-span">& ROI.</span></h3>
+                            <p style="font-size:1.15rem;margin-bottom:24px;">We implement GA4, Meta Pixel, and Looker Studio dashboards giving you real-time visibility on cost per enrollment inquiry, campaign ROAS, funnel drop-off points, and counselor follow-up performance.</p>
+                            <div class="check-item"><i data-lucide="check-circle-2" style="color:var(--ed-green);flex-shrink:0;"></i><span>Real-time enrollment pipeline dashboards</span></div>
+                            <div class="check-item"><i data-lucide="check-circle-2" style="color:var(--ed-green);flex-shrink:0;"></i><span>Cost per qualified admission inquiry</span></div>
+                            <div class="check-item"><i data-lucide="check-circle-2" style="color:var(--ed-green);flex-shrink:0;"></i><span>Monthly performance reviews & strategy calls</span></div>
                         </div>
                         <div>
-                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=900&q=80" alt="Student content creation and social media marketing for education" class="img-premium" style="height:340px">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Education marketing analytics and enrollment ROI dashboard" class="img-premium" style="height:340px;">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 6. WHY CHOOSE US + SUCCESS STORIES -->
-        <section class="section-luxe" style="background:var(--dark-section)" data-reveal>
-            <div class="container" style="text-align:center">
-                <h4 style="color:var(--primary);margin-bottom:18px;letter-spacing:3px;text-transform:uppercase;font-size:1rem">The Education Authority</h4>
-                <h2 style="font-size:4.5rem;margin-bottom:70px">Why Choose Our <span class="gradient-span">Education Agency.</span></h2>
-                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-bottom:100px">
-                    <div class="glass-card hover-lift" data-reveal class="stagger-1">
-                        <i data-lucide="graduation-cap" style="color:var(--ed-blue);width:46px;height:46px;margin:0 auto 18px"></i>
-                        <h3 style="font-size:1.55rem;margin-bottom:12px">Education-Specific</h3>
-                        <p style="font-size:.95rem">We understand the academic calendar, admission cycles, and parent-student decision psychology that generic marketers miss.</p>
+        <!-- 7. WHY CHOOSE US + SUCCESS STORIES -->
+        <section class="section-luxe" data-reveal>
+            <div class="container" style="text-align:center;">
+                <h4 style="color:#a78bfa;margin-bottom:16px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">The Education Authority</h4>
+                <h2 style="font-size:4.5rem;margin-bottom:65px;">Why Choose Our <span class="gradient-span">Education Agency.</span></h2>
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-bottom:100px;">
+                    <div class="glass-card hover-lift" data-reveal class="s1">
+                        <i data-lucide="graduation-cap" style="color:#a78bfa;width:46px;height:46px;margin:0 auto 18px;"></i>
+                        <h3 style="font-size:1.5rem;margin-bottom:10px;">EdTech-Specific</h3>
+                        <p style="font-size:0.93rem;">We understand the student decision cycle, seasonal cycles, and institutional sales processes uniquely.</p>
                     </div>
-                    <div class="glass-card hover-lift" data-reveal class="stagger-2">
-                        <i data-lucide="code-2" style="color:var(--ed-purple);width:46px;height:46px;margin:0 auto 18px"></i>
-                        <h3 style="font-size:1.55rem;margin-bottom:12px">Tech + Marketing</h3>
-                        <p style="font-size:.95rem">Rare combination of full-stack LMS development and high-ROI enrollment marketing under one roof.</p>
+                    <div class="glass-card hover-lift" data-reveal class="s2">
+                        <i data-lucide="zap" style="color:var(--primary);width:46px;height:46px;margin:0 auto 18px;"></i>
+                        <h3 style="font-size:1.5rem;margin-bottom:10px;">Fast Enrollment</h3>
+                        <p style="font-size:0.93rem;">Automated counselor lead assignment in under 5 minutes — dramatically improving contact and enrollment rates.</p>
                     </div>
-                    <div class="glass-card hover-lift" data-reveal class="stagger-3">
-                        <i data-lucide="bar-chart-2" style="color:var(--ed-green);width:46px;height:46px;margin:0 auto 18px"></i>
-                        <h3 style="font-size:1.55rem;margin-bottom:12px">Enrollment ROI</h3>
-                        <p style="font-size:.95rem">Every campaign measured against cost per enrolled student — not vanity metrics like impressions or clicks.</p>
+                    <div class="glass-card hover-lift" data-reveal class="s3">
+                        <i data-lucide="pie-chart" style="color:var(--ed-cyan);width:46px;height:46px;margin:0 auto 18px;"></i>
+                        <h3 style="font-size:1.5rem;margin-bottom:10px;">Transparent ROI</h3>
+                        <p style="font-size:0.93rem;">Clear reporting on cost per enrollment, ROAS, and campaign attribution — no vanity metrics.</p>
                     </div>
-                    <div class="glass-card hover-lift" data-reveal class="stagger-4">
-                        <i data-lucide="refresh-cw" style="color:var(--primary);width:46px;height:46px;margin:0 auto 18px"></i>
-                        <h3 style="font-size:1.55rem;margin-bottom:12px">Ongoing Optimisation</h3>
-                        <p style="font-size:.95rem">Weekly campaign analysis, creative refresh, and A/B testing tied to your academic admission calendar.</p>
+                    <div class="glass-card hover-lift" data-reveal class="s4">
+                        <i data-lucide="refresh-cw" style="color:var(--ed-green);width:46px;height:46px;margin:0 auto 18px;"></i>
+                        <h3 style="font-size:1.5rem;margin-bottom:10px;">Ongoing Optimisation</h3>
+                        <p style="font-size:0.93rem;">Weekly campaign reviews, A/B testing, and audience refresh cycles aligned to your admission calendar.</p>
                     </div>
                 </div>
 
                 <!-- Success Stories -->
-                <h4 style="color:var(--ed-blue);margin-bottom:18px;letter-spacing:3px;text-transform:uppercase;font-size:1rem">Case Studies</h4>
-                <h2 style="font-size:4rem;margin-bottom:60px">Enrollment <span class="gradient-span">Success Stories.</span></h2>
-                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;text-align:left">
-                    <div class="glass-card hover-lift" data-reveal class="stagger-1">
-                        <div style="display:inline-block;background:var(--ed-gradient);color:#fff;padding:5px 18px;border-radius:100px;font-size:.78rem;font-weight:900;margin-bottom:20px;letter-spacing:2px">ENGINEERING COLLEGE</div>
-                        <h3 style="font-size:1.5rem;margin-bottom:14px">Top Private University, Pune</h3>
-                        <p style="margin-bottom:20px">Google + Meta enrollment campaign during JEE counselling season drove 3,800 admission inquiries and 680 confirmed seat bookings in 60 days.</p>
-                        <div style="display:flex;gap:22px">
-                            <div><h4 style="font-size:1.8rem;color:var(--ed-blue)">3,800</h4><p style="font-size:.78rem;margin:0">Inquiries</p></div>
-                            <div><h4 style="font-size:1.8rem;color:var(--ed-green)">680</h4><p style="font-size:.78rem;margin:0">Seats Filled</p></div>
+                <h4 style="color:var(--primary);margin-bottom:16px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Case Studies</h4>
+                <h2 style="font-size:4rem;margin-bottom:55px;">Enrollment <span class="gradient-span">Success Stories.</span></h2>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;text-align:left;">
+                    <div class="glass-card hover-lift" data-reveal class="s1">
+                        <div style="display:inline-block;background:var(--ed-gradient);color:#fff;padding:6px 18px;border-radius:100px;font-size:0.78rem;font-weight:900;margin-bottom:18px;letter-spacing:2px;">PRIVATE UNIVERSITY</div>
+                        <h3 style="font-size:1.5rem;margin-bottom:12px;">MBA Enrollment Drive</h3>
+                        <p style="margin-bottom:20px;">Full-funnel Google + Meta + Email campaign for an MBA program. Generated 1,800 qualified inquiries and 420 confirmed enrollments in one admission cycle.</p>
+                        <div style="display:flex;gap:22px;">
+                            <div><h4 style="font-size:1.9rem;color:#a78bfa;">420</h4><p style="font-size:0.78rem;margin:0;">Enrollments</p></div>
+                            <div><h4 style="font-size:1.9rem;color:var(--primary);">₹310</h4><p style="font-size:0.78rem;margin:0;">Cost per Lead</p></div>
                         </div>
                     </div>
-                    <div class="glass-card hover-lift" data-reveal class="stagger-2">
-                        <div style="display:inline-block;background:rgba(139,92,246,.25);color:#c4b5fd;padding:5px 18px;border-radius:100px;font-size:.78rem;font-weight:900;margin-bottom:20px;letter-spacing:2px">EDTECH STARTUP</div>
-                        <h3 style="font-size:1.5rem;margin-bottom:14px">Online Coding Bootcamp</h3>
-                        <p style="margin-bottom:20px">Built complete LMS + ran YouTube + Meta ads campaign. Achieved 15,000 registered learners and ₹1.2Cr course revenue in first 6 months post-launch.</p>
-                        <div style="display:flex;gap:22px">
-                            <div><h4 style="font-size:1.8rem;color:var(--ed-purple)">15K</h4><p style="font-size:.78rem;margin:0">Learners</p></div>
-                            <div><h4 style="font-size:1.8rem;color:var(--primary)">₹1.2Cr</h4><p style="font-size:.78rem;margin:0">Revenue</p></div>
+                    <div class="glass-card hover-lift" data-reveal class="s2">
+                        <div style="display:inline-block;background:rgba(6,182,212,0.2);color:var(--ed-cyan);padding:6px 18px;border-radius:100px;font-size:0.78rem;font-weight:900;margin-bottom:18px;letter-spacing:2px;">EDTECH STARTUP</div>
+                        <h3 style="font-size:1.5rem;margin-bottom:12px;">Online Course Platform</h3>
+                        <p style="margin-bottom:20px;">Built a full LMS + ran student acquisition campaigns for a coding EdTech startup. Achieved 15,000 paid course enrollments in 6 months post-launch.</p>
+                        <div style="display:flex;gap:22px;">
+                            <div><h4 style="font-size:1.9rem;color:var(--ed-cyan);">15K</h4><p style="font-size:0.78rem;margin:0;">Paid Enrollments</p></div>
+                            <div><h4 style="font-size:1.9rem;color:var(--primary);">7.2×</h4><p style="font-size:0.78rem;margin:0;">ROAS</p></div>
                         </div>
                     </div>
-                    <div class="glass-card hover-lift" data-reveal class="stagger-3">
-                        <div style="display:inline-block;background:rgba(16,185,129,.2);color:#6ee7b7;padding:5px 18px;border-radius:100px;font-size:.78rem;font-weight:900;margin-bottom:20px;letter-spacing:2px">K-12 SCHOOL CHAIN</div>
-                        <h3 style="font-size:1.5rem;margin-bottom:14px">Premium School Group, Delhi NCR</h3>
-                        <p style="margin-bottom:20px">Local SEO + Google Ads campaign for five campuses. Ranked #1 for "best CBSE school near me" across all locations, cutting paid CPL by 62%.</p>
-                        <div style="display:flex;gap:22px">
-                            <div><h4 style="font-size:1.8rem;color:var(--ed-green)">#1</h4><p style="font-size:.78rem;margin:0">Local Ranking</p></div>
-                            <div><h4 style="font-size:1.8rem;color:var(--ed-blue)">62%</h4><p style="font-size:.78rem;margin:0">CPL Reduction</p></div>
+                    <div class="glass-card hover-lift" data-reveal class="s3">
+                        <div style="display:inline-block;background:rgba(16,185,129,0.2);color:var(--ed-green);padding:6px 18px;border-radius:100px;font-size:0.78rem;font-weight:900;margin-bottom:18px;letter-spacing:2px;">K-12 SCHOOL CHAIN</div>
+                        <h3 style="font-size:1.5rem;margin-bottom:12px;">Admissions Growth, Pan-India</h3>
+                        <p style="margin-bottom:20px;">Local SEO + Google Ads for 22-branch school network. Grew organic inquiries by 290% and achieved first-page ranks for 60+ hyper-local school keywords.</p>
+                        <div style="display:flex;gap:22px;">
+                            <div><h4 style="font-size:1.9rem;color:var(--ed-green);">290%</h4><p style="font-size:0.78rem;margin:0;">Organic Inquiries</p></div>
+                            <div><h4 style="font-size:1.9rem;color:var(--primary);">60+</h4><p style="font-size:0.78rem;margin:0;">Keywords Ranked</p></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 7. CLIENTS + TOOLS -->
-        <section class="section-luxe" style="background:#f8f4ef" data-reveal>
+        <!-- 8. CLIENTS + TOOLS -->
+        <section class="section-luxe" style="background:#f5f3ff;" data-reveal>
             <div class="container">
-                <div style="text-align:center;margin-bottom:80px">
-                    <h4 style="color:var(--primary);margin-bottom:18px;letter-spacing:3px;text-transform:uppercase;font-size:1rem">Sectors We Serve</h4>
-                    <h2 style="font-size:4rem;color:#1a1a1a;margin-bottom:20px">Education Clients <span class="gradient-span">We Serve.</span></h2>
+                <div style="text-align:center;margin-bottom:75px;">
+                    <h4 style="color:var(--primary);margin-bottom:16px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Education Clients</h4>
+                    <h2 style="font-size:4rem;color:#1a1a1a;margin-bottom:16px;">Types of Institutions <span class="gradient-span">We Serve.</span></h2>
                 </div>
-                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:25px;margin-bottom:100px">
-                    <div class="hover-lift" style="background:#fff;border:2px solid #e5e7eb;border-radius:24px;padding:38px;text-align:center" data-reveal class="stagger-1">
-                        <i data-lucide="school" style="color:var(--ed-blue);width:42px;height:42px;margin:0 auto 14px"></i>
-                        <h3 style="color:#111;font-size:1.35rem;margin-bottom:8px">Schools</h3>
-                        <p style="color:#6b7280;font-size:.88rem;margin:0">K-12 admission campaigns & local SEO.</p>
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:90px;">
+                    <div class="hover-lift" style="background:#fff;border:2px solid #ede9fe;border-radius:24px;padding:38px;text-align:center;" data-reveal class="s1">
+                        <i data-lucide="school" style="color:var(--ed-purple);width:42px;height:42px;margin:0 auto 14px;"></i>
+                        <h3 style="color:#111;font-size:1.3rem;margin-bottom:8px;">Schools (K-12)</h3>
+                        <p style="color:#6b7280;font-size:0.88rem;margin:0;">Local SEO, parent-targeted ads & admission funnels.</p>
                     </div>
-                    <div class="hover-lift" style="background:#fff;border:2px solid #e5e7eb;border-radius:24px;padding:38px;text-align:center" data-reveal class="stagger-2">
-                        <i data-lucide="building-2" style="color:var(--ed-purple);width:42px;height:42px;margin:0 auto 14px"></i>
-                        <h3 style="color:#111;font-size:1.35rem;margin-bottom:8px">Colleges & Universities</h3>
-                        <p style="color:#6b7280;font-size:.88rem;margin:0">UG/PG enrollment & brand building.</p>
+                    <div class="hover-lift" style="background:#fff;border:2px solid #ede9fe;border-radius:24px;padding:38px;text-align:center;" data-reveal class="s2">
+                        <i data-lucide="building-2" style="color:var(--ed-blue);width:42px;height:42px;margin:0 auto 14px;"></i>
+                        <h3 style="color:#111;font-size:1.3rem;margin-bottom:8px;">Colleges & Universities</h3>
+                        <p style="color:#6b7280;font-size:0.88rem;margin:0;">Multi-course enrollment campaigns & branding.</p>
                     </div>
-                    <div class="hover-lift" style="background:#fff;border:2px solid #e5e7eb;border-radius:24px;padding:38px;text-align:center" data-reveal class="stagger-3">
-                        <i data-lucide="laptop" style="color:var(--ed-green);width:42px;height:42px;margin:0 auto 14px"></i>
-                        <h3 style="color:#111;font-size:1.35rem;margin-bottom:8px">EdTech Startups</h3>
-                        <p style="color:#6b7280;font-size:.88rem;margin:0">Platform build, launch & learner growth.</p>
+                    <div class="hover-lift" style="background:#fff;border:2px solid #ede9fe;border-radius:24px;padding:38px;text-align:center;" data-reveal class="s3">
+                        <i data-lucide="laptop" style="color:var(--ed-cyan);width:42px;height:42px;margin:0 auto 14px;"></i>
+                        <h3 style="color:#111;font-size:1.3rem;margin-bottom:8px;">EdTech Platforms</h3>
+                        <p style="color:#6b7280;font-size:0.88rem;margin:0;">LMS build + paid user acquisition + scale.</p>
                     </div>
-                    <div class="hover-lift" style="background:#fff;border:2px solid #e5e7eb;border-radius:24px;padding:38px;text-align:center" data-reveal class="stagger-4">
-                        <i data-lucide="book-open" style="color:var(--primary);width:42px;height:42px;margin:0 auto 14px"></i>
-                        <h3 style="color:#111;font-size:1.35rem;margin-bottom:8px">Coaching Institutes</h3>
-                        <p style="color:#6b7280;font-size:.88rem;margin:0">Batch fills, brand authority & LMS.</p>
-                    </div>
-                </div>
-                <div style="text-align:center" data-reveal>
-                    <h4 style="color:var(--primary);margin-bottom:18px;letter-spacing:3px;text-transform:uppercase;font-size:1rem">The EdTech Stack</h4>
-                    <h2 style="font-size:3.8rem;color:#1a1a1a;margin-bottom:50px">Tools & Technologies.</h2>
-                    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
-                        <span class="hover-lift" style="border:2px solid #d1d5db;background:#fff;color:#111;padding:13px 30px;border-radius:100px;font-weight:700">Moodle / Custom LMS</span>
-                        <span class="hover-lift" style="border:2px solid #d1d5db;background:#fff;color:#111;padding:13px 30px;border-radius:100px;font-weight:700">React Native Apps</span>
-                        <span class="hover-lift" style="border:2px solid #d1d5db;background:#fff;color:#111;padding:13px 30px;border-radius:100px;font-weight:700">Google Ads & Search Console</span>
-                        <span class="hover-lift" style="border:2px solid #d1d5db;background:#fff;color:#111;padding:13px 30px;border-radius:100px;font-weight:700">Meta Lead Ads</span>
-                        <span class="hover-lift" style="border:2px solid #d1d5db;background:#fff;color:#111;padding:13px 30px;border-radius:100px;font-weight:700">HubSpot CRM</span>
-                        <span class="hover-lift" style="border:2px solid #d1d5db;background:#fff;color:#111;padding:13px 30px;border-radius:100px;font-weight:700">Razorpay / Stripe</span>
-                        <span class="hover-lift" style="border:2px solid #d1d5db;background:#fff;color:#111;padding:13px 30px;border-radius:100px;font-weight:700">WhatsApp Business API</span>
+                    <div class="hover-lift" style="background:#fff;border:2px solid #ede9fe;border-radius:24px;padding:38px;text-align:center;" data-reveal class="s4">
+                        <i data-lucide="book-open" style="color:var(--ed-green);width:42px;height:42px;margin:0 auto 14px;"></i>
+                        <h3 style="color:#111;font-size:1.3rem;margin-bottom:8px;">Coaching Institutes</h3>
+                        <p style="color:#6b7280;font-size:0.88rem;margin:0;">WhatsApp funnels & hyper-local batch fill.</p>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- 8. PERFORMANCE + ONGOING SUPPORT -->
-        <section class="section-luxe" data-reveal>
-            <div class="container">
-                <div class="split-grid">
-                    <div data-reveal>
-                        <h4 style="color:var(--ed-blue);margin-bottom:15px;letter-spacing:3px;text-transform:uppercase;font-size:1rem">Measurable Outcomes</h4>
-                        <h2 style="font-size:3.8rem;margin-bottom:25px">Performance Tracking <span class="ed-span">& ROI.</span></h2>
-                        <p style="font-size:1.15rem;margin-bottom:30px">Every enrollment campaign is tracked through GA4, Meta Pixel, and custom Looker Studio dashboards — giving you complete visibility on cost per inquiry, cost per enrolled student, campaign ROAS, and channel-level attribution.</p>
-                        <div style="display:flex;flex-direction:column;gap:16px">
-                            <div style="display:flex;align-items:center;gap:18px;padding:20px;border-radius:16px;background:var(--bg-glass);border:1px solid var(--border-glass)">
-                                <i data-lucide="bar-chart-2" style="color:var(--ed-blue);width:36px;height:36px;flex-shrink:0"></i>
-                                <div><h4 style="font-size:1.05rem;margin:0">Monthly Enrollment Dashboards</h4><p style="font-size:.88rem;margin:0">Cost per inquiry, CPE, ROAS, and channel attribution.</p></div>
-                            </div>
-                            <div style="display:flex;align-items:center;gap:18px;padding:20px;border-radius:16px;background:var(--bg-glass);border:1px solid var(--border-glass)">
-                                <i data-lucide="refresh-cw" style="color:var(--ed-green);width:36px;height:36px;flex-shrink:0"></i>
-                                <div><h4 style="font-size:1.05rem;margin:0">Ongoing Campaign Optimization</h4><p style="font-size:.88rem;margin:0">Weekly creative refresh, bid strategy updates & A/B landing page tests.</p></div>
-                            </div>
-                            <div style="display:flex;align-items:center;gap:18px;padding:20px;border-radius:16px;background:var(--bg-glass);border:1px solid var(--border-glass)">
-                                <i data-lucide="phone" style="color:var(--primary);width:36px;height:36px;flex-shrink:0"></i>
-                                <div><h4 style="font-size:1.05rem;margin:0">Monthly Strategy Review Calls</h4><p style="font-size:.88rem;margin:0">Dedicated account manager + monthly KPI walkthrough sessions.</p></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-reveal class="stagger-2">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Education marketing analytics and enrollment performance dashboard" class="img-premium" style="height:500px">
+                <div style="text-align:center;" data-reveal>
+                    <h4 style="color:var(--primary);margin-bottom:16px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">The EdTech Stack</h4>
+                    <h2 style="font-size:3.8rem;color:#1a1a1a;margin-bottom:45px;">Tools & Technologies.</h2>
+                    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:15px;">
+                        <span class="hover-lift" style="border:2px solid #d1d5db;background:#fff;color:#111;padding:13px 30px;border-radius:100px;font-weight:700;">Moodle / Canvas LMS</span>
+                        <span class="hover-lift" style="border:2px solid #d1d5db;background:#fff;color:#111;padding:13px 30px;border-radius:100px;font-weight:700;">React Native (Apps)</span>
+                        <span class="hover-lift" style="border:2px solid #d1d5db;background:#fff;color:#111;padding:13px 30px;border-radius:100px;font-weight:700;">Google Ads & YouTube</span>
+                        <span class="hover-lift" style="border:2px solid #d1d5db;background:#fff;color:#111;padding:13px 30px;border-radius:100px;font-weight:700;">Meta Lead Ads</span>
+                        <span class="hover-lift" style="border:2px solid #d1d5db;background:#fff;color:#111;padding:13px 30px;border-radius:100px;font-weight:700;">Zoho / LeadSquared CRM</span>
+                        <span class="hover-lift" style="border:2px solid #d1d5db;background:#fff;color:#111;padding:13px 30px;border-radius:100px;font-weight:700;">GA4 & Looker Studio</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 9. FAQs -->
-        <section class="section-luxe" style="background:var(--dark-section)" data-reveal>
+        <section class="section-luxe section-dark" data-reveal>
             <div class="container">
-                <div style="text-align:center;margin-bottom:65px">
-                    <h4 style="color:var(--ed-blue);margin-bottom:18px;letter-spacing:3px;text-transform:uppercase;font-size:1rem">Common Questions</h4>
-                    <h2 style="font-size:4rem">Frequently Asked <span class="gradient-span">Questions.</span></h2>
+                <div style="text-align:center;margin-bottom:60px;">
+                    <h4 style="color:#a78bfa;margin-bottom:16px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Common Questions</h4>
+                    <h2 style="font-size:4rem;">Frequently Asked <span class="gradient-span">Questions.</span></h2>
                 </div>
-                <div style="max-width:920px;margin:0 auto">
+                <div style="max-width:920px;margin:0 auto;">
                     <div class="faq-item">
-                        <button class="faq-btn"><span>How quickly can you generate student enrollment leads?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                        <div class="faq-content"><p>Google and Meta paid campaigns typically deliver first qualified admission inquiries within 48–72 hours of launch. SEO-based organic enrollment traffic compounds over 3–6 months. We recommend combining both for immediate and sustained lead flow tied to your admission calendar.</p></div>
+                        <button class="faq-btn"><span>How quickly can you generate student enrollment inquiries?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content"><p>Google and Meta paid campaigns can generate your first qualified student inquiries within 48–72 hours of launch. SEO-driven organic inquiries ramp up over 3–5 months. We recommend a combined strategy especially during peak admission seasons (Jan–March, June–August).</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>Can you build a custom LMS from scratch?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                        <div class="faq-content"><p>Yes — we build fully custom LMS platforms and also customize open-source solutions like Moodle or Teachable. Our LMS builds include course creation tools, video hosting, live session integration, automated certification, payment gateways, and student analytics dashboards.</p></div>
+                        <button class="faq-btn"><span>Can you build a custom LMS for our institution?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content"><p>Yes — we design and develop fully custom LMS platforms as well as configuring and white-labelling established systems like Moodle or Canvas. Our LMS solutions include live classes, course builders, quizzes, progress tracking, certificate generation, and payment integration.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>What is the cost per lead for education marketing campaigns?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                        <div class="faq-content"><p>CPL varies by institution type and course program. K-12 school campaigns typically achieve ₹150–₹400 per inquiry, while professional certification or MBA programs may range ₹500–₹1,500. We always benchmark CPL against your average fee revenue to maintain positive enrollment ROI.</p></div>
+                        <button class="faq-btn"><span>What is the typical cost per admission inquiry?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content"><p>Cost per lead varies by institution type and course level. K-12 school inquiries typically range ₹150–₹400. College and university CPLs range ₹300–₹800. Premium MBA and professional programs can range ₹500–₹1,500 but with much higher ticket values making the economics highly favourable.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>Do you run campaigns specifically for JEE/NEET admission season?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                        <div class="faq-content"><p>Absolutely — we plan campaigns around your specific academic calendar. We scale ad budgets ahead of counseling windows, create urgency-driven landing pages for seat availability, and run retargeting sequences to recapture students who showed interest but haven't yet applied.</p></div>
+                        <button class="faq-btn"><span>Do you handle WhatsApp automation for counselor follow-up?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content"><p>Yes — we set up WhatsApp Business API automation that sends instant acknowledgment messages to every new inquiry, routes leads to the correct counselor based on course interest, and runs scheduled follow-up sequences to keep prospective students engaged through the admission decision process.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>Do you support EdTech startups from pre-launch?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                        <div class="faq-content"><p>Yes — this is one of our strongest specialities. We handle everything from platform development and branding to SEO, paid learner acquisition, content strategy, and student retention automation for EdTech companies from MVP all the way through Series A growth phases.</p></div>
+                        <button class="faq-btn"><span>Can you manage social media for our institution year-round?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content"><p>Absolutely. We offer full social media management including content calendar creation, Reels production, story templates, faculty and student spotlight series, event coverage, and community management across Instagram, Facebook, LinkedIn, and YouTube.</p></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 10. CTA + CONTACT -->
-        <section class="section-luxe" id="contact" style="background:url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1600&q=80') center/cover;position:relative">
-            <div style="position:absolute;inset:0;background:rgba(3,4,8,.93)"></div>
-            <div class="container" style="position:relative;z-index:2;text-align:center">
+        <section class="section-luxe" id="contact" style="background:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80') center/cover;position:relative;">
+            <div style="position:absolute;inset:0;background:rgba(3,4,8,0.93);"></div>
+            <div class="container" style="position:relative;z-index:2;text-align:center;">
                 <div data-reveal>
-                    <h4 style="color:var(--ed-blue);margin-bottom:18px;letter-spacing:3px;text-transform:uppercase;font-size:1rem">Your Enrollment Growth Starts Here</h4>
-                    <h2 style="font-size:4.8rem;margin-bottom:18px">Let's Grow Your <span class="ed-span">Institution Digitally.</span></h2>
-                    <p style="font-size:1.3rem;max-width:640px;margin:0 auto 55px">Get Your Free Education Marketing Strategy. Contact Our Education Experts today — we'll audit your current admissions funnel and present a custom enrollment growth roadmap within 24 hours.</p>
-                    <form id="edContactForm" style="display:grid;gap:18px;max-width:620px;margin:0 auto;text-align:left" onsubmit="handleEdSubmit(event)">
-                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
-                            <input type="text" placeholder="Full Name" required style="padding:18px 22px;border-radius:14px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.55);color:#fff;font-size:1rem;box-sizing:border-box;width:100%">
-                            <input type="tel" placeholder="Phone Number" required style="padding:18px 22px;border-radius:14px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.55);color:#fff;font-size:1rem;box-sizing:border-box;width:100%">
+                    <h4 style="color:#a78bfa;margin-bottom:16px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Your Enrollment Growth Starts Here</h4>
+                    <h2 style="font-size:4.8rem;margin-bottom:16px;">Let's Grow Your Institution <span class="ed-span">Digitally.</span></h2>
+                    <p style="font-size:1.3rem;max-width:640px;margin:0 auto 50px;">Get Your Free Education Marketing Strategy. Contact Our Education Experts today — we'll present a custom enrollment growth roadmap within 24 hours.</p>
+
+                    <form id="edForm" style="display:grid;gap:17px;max-width:620px;margin:0 auto;text-align:left;" onsubmit="handleEdSubmit(event)">
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:17px;">
+                            <input type="text" placeholder="Full Name" required style="padding:18px 22px;border-radius:14px;border:1px solid rgba(255,255,255,0.14);background:rgba(0,0,0,0.55);color:#fff;font-size:1rem;box-sizing:border-box;width:100%;">
+                            <input type="tel" placeholder="Phone Number" style="padding:18px 22px;border-radius:14px;border:1px solid rgba(255,255,255,0.14);background:rgba(0,0,0,0.55);color:#fff;font-size:1rem;box-sizing:border-box;width:100%;">
                         </div>
-                        <input type="email" placeholder="Business Email" required style="padding:18px 22px;border-radius:14px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.55);color:#fff;font-size:1rem;box-sizing:border-box;width:100%">
-                        <select style="padding:18px 22px;border-radius:14px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.8);color:#fff;font-size:1rem;box-sizing:border-box;width:100%">
+                        <input type="email" placeholder="Institutional Email" required style="padding:18px 22px;border-radius:14px;border:1px solid rgba(255,255,255,0.14);background:rgba(0,0,0,0.55);color:#fff;font-size:1rem;box-sizing:border-box;width:100%;">
+                        <select style="padding:18px 22px;border-radius:14px;border:1px solid rgba(255,255,255,0.14);background:rgba(0,0,0,0.8);color:#fff;font-size:1rem;box-sizing:border-box;width:100%;">
                             <option value="">Institution Type</option>
-                            <option>School (K-12)</option>
+                            <option>K-12 School</option>
                             <option>College / University</option>
-                            <option>Coaching Institute</option>
-                            <option>EdTech Startup</option>
-                            <option>Online Course Creator</option>
+                            <option>EdTech / Online Platform</option>
+                            <option>Coaching / Training Institute</option>
                         </select>
-                        <select style="padding:18px 22px;border-radius:14px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.8);color:#fff;font-size:1rem;box-sizing:border-box;width:100%">
+                        <select style="padding:18px 22px;border-radius:14px;border:1px solid rgba(255,255,255,0.14);background:rgba(0,0,0,0.8);color:#fff;font-size:1rem;box-sizing:border-box;width:100%;">
                             <option value="">Primary Service Needed</option>
                             <option>Education Website Design</option>
-                            <option>LMS / E-learning Platform</option>
+                            <option>LMS / E-Learning Platform</option>
                             <option>Education SEO & Local SEO</option>
                             <option>Paid Ads for Enrollment</option>
                             <option>Mobile App Development</option>
-                            <option>Social Media & Content</option>
-                            <option>Full Digital Marketing Strategy</option>
+                            <option>Social Media Marketing</option>
+                            <option>Full Digital Strategy</option>
                         </select>
-                        <button type="submit" class="btn-elite btn-blue" style="width:100%;font-size:1.05rem;padding:22px">GET FREE STRATEGY SESSION →</button>
+                        <button type="submit" class="btn-elite btn-purple" style="width:100%;font-size:1.05rem;padding:22px;">GET FREE ENROLLMENT STRATEGY →</button>
                     </form>
-                    <p id="edFormSuccess" style="display:none;color:#4ade80;font-size:1.1rem;margin-top:22px;font-weight:700">✅ Received! Our education marketing team will contact you within 24 hours.</p>
+                    <p id="edFormSuccess" style="display:none;color:#4ade80;font-size:1.1rem;margin-top:22px;font-weight:700;">✅ Thank you! Our education experts will contact you within 24 hours.</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer style="padding:80px 0;border-top:1px solid rgba(255,255,255,.05);background:#000;text-align:center">
+    <!-- FOOTER -->
+    <footer style="padding:80px 0;border-top:1px solid rgba(255,255,255,0.05);background:#000;text-align:center;">
         <div class="container">
-            <a href="/" style="font-size:2rem;font-weight:900;text-decoration:none;color:#fff">MK<span style="color:var(--primary)">SHOPZONE</span></a>
-            <p style="opacity:.5;margin:24px auto;max-width:520px">Transforming educational institutions through data-driven digital marketing and cutting-edge EdTech solutions.</p>
-            <div style="display:flex;justify-content:center;gap:36px;flex-wrap:wrap;margin-bottom:38px;opacity:.6;font-size:.87rem;font-weight:600;letter-spacing:1px;text-transform:uppercase">
-                <a href="/" style="color:#fff;text-decoration:none">Home</a>
-                <a href="ecommerce.html" style="color:#fff;text-decoration:none">E-Commerce</a>
-                <a href="healthcare.html" style="color:#fff;text-decoration:none">Healthcare</a>
-                <a href="real-estate.html" style="color:#fff;text-decoration:none">Real Estate</a>
-                <a href="seo.html" style="color:#fff;text-decoration:none">SEO</a>
-                <a href="#contact" style="color:#fff;text-decoration:none">Contact</a>
+            <a href="/" style="font-size:2rem;font-weight:900;text-decoration:none;color:#fff;">MK<span style="color:var(--primary);">SHOPZONE</span></a>
+            <p style="opacity:0.5;margin:24px auto;max-width:520px;">Transforming educational institutions through data-driven digital marketing and EdTech development.</p>
+            <div style="display:flex;justify-content:center;gap:36px;flex-wrap:wrap;margin-bottom:38px;opacity:0.6;font-size:0.88rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;">
+                <a href="/" style="color:#fff;text-decoration:none;">Home</a>
+                <a href="ecommerce.html" style="color:#fff;text-decoration:none;">E-Commerce</a>
+                <a href="healthcare.html" style="color:#fff;text-decoration:none;">Healthcare</a>
+                <a href="real-estate.html" style="color:#fff;text-decoration:none;">Real Estate</a>
+                <a href="seo.html" style="color:#fff;text-decoration:none;">SEO</a>
+                <a href="#contact" style="color:#fff;text-decoration:none;">Contact</a>
             </div>
-            <p style="opacity:.3;font-size:.8rem;letter-spacing:2px">© 2026 MK SHOPZONE. All rights reserved.</p>
+            <p style="opacity:0.3;font-size:0.8rem;letter-spacing:2px;">© 2026 MK SHOPZONE. All rights reserved.</p>
         </div>
     </footer>
 
@@ -533,14 +528,19 @@
     <script type="module" src="/src/lead-system.js"></script>
     <script type="module" src="/src/ai-chatbot.js"></script>
     <script type="module" src="/src/main.js"></script>
+
     <script>
         lucide.createIcons();
-        const obs = new IntersectionObserver((entries) => {
+        const obs = new IntersectionObserver(entries => {
             entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); obs.unobserve(e.target); } });
         }, { threshold: 0.08 });
         document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => { navbar.style.background = window.scrollY > 60 ? 'rgba(3,4,8,.99)' : 'rgba(3,4,8,.92)'; });
+        window.addEventListener('scroll', () => {
+            navbar.style.background = window.scrollY > 60 ? 'rgba(3,4,8,0.99)' : 'rgba(3,4,8,0.92)';
+        });
+
         document.querySelectorAll('.faq-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.parentElement;
@@ -549,9 +549,10 @@
                 if (!isActive) item.classList.add('active');
             });
         });
+
         function handleEdSubmit(e) {
             e.preventDefault();
-            document.getElementById('edContactForm').style.display = 'none';
+            document.getElementById('edForm').style.display = 'none';
             document.getElementById('edFormSuccess').style.display = 'block';
         }
     </script>
