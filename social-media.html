@@ -1,493 +1,407 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Social Media Marketing | Growth & Engagement | MK Shopzone</title>
-    <meta name="description"
-        content="Scale your brand authority with MK Shopzone's professional social media marketing services. We specialize in organic growth, content strategy, and viral engagement.">
-    <meta name="keywords"
-        content="social media marketing, SMM services, Instagram growth, Facebook marketing, content strategy, brand engagement, viral marketing, LinkedIn marketing, TikTok marketing">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Social Media Dominance & Brand Authority | MK Shopzone">
-    <meta property="og:description"
-        content="Building high-frequency social engines that drive true community engagement and measurable brand growth.">
-    <meta property="og:image" content="/public/meta 3.jpg">
-
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff8c00'/><text x='50%' y='55%' font-family='Outfit' font-weight='bold' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'>MK</text></svg>">
+    <title>Social Media Marketing Services – Grow Your Brand Online | MK Shopzone</title>
+    <meta name="description" content="Expert social media marketing services – Instagram, Facebook, LinkedIn, YouTube, Meta Ads, influencer marketing, and content creation. Grow your brand with MK Shopzone.">
+    <meta name="keywords" content="social media marketing, SMM services, Instagram marketing, Facebook ads, content marketing, brand growth, audience engagement, LinkedIn marketing, YouTube marketing, influencer marketing, Meta Ads">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff8c00'/><text x='50%' y='55%' font-family='Outfit' font-weight='bold' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'>MK</text></svg>">
     <link rel="stylesheet" href="/src/style.css">
     <link rel="stylesheet" href="/public/chatbot.css">
-
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-
     <style>
-        /* ELITE MIDNIGHT PREMIUM v35.0 - SOCIAL ARCHITECTURE */
-        :root {
-            --white: #ffffff;
-            --off-white: #f8fafc;
-            --text-dim: #94a3b8;
-            --primary: #ff8c00;
-            --primary-glow: rgba(255, 140, 0, 0.4);
-            --bg-ultra: #030408;
-            --bg-glass: rgba(255, 255, 255, 0.03);
-            --border-glass: rgba(255, 255, 255, 0.1);
-            --accent-gradient: linear-gradient(135deg, #ffffff 0%, var(--primary) 100%);
-            --dark-section: #050505;
-            --nav-height: 100px;
-        }
-
-        body {
-            background-color: var(--bg-ultra);
-            color: var(--white);
-            font-family: 'Outfit', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h1, h2, h3, h4 { color: var(--white) !important; font-weight: 800; letter-spacing: -0.02em; }
-        p { color: var(--text-dim); }
-
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
-
-        /* Multi-Stage Reveal */
-        [data-reveal] { opacity: 0; transform: translateY(40px); transition: 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
-        [data-reveal].active { opacity: 1; transform: translateY(0); }
-
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-
-        /* Navbar */
-        .navbar {
-            height: var(--nav-height);
-            display: flex;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: 0.4s;
-            background: rgba(3, 4, 8, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .navbar.scrolled {
-            height: 80px;
-            background: rgba(3, 4, 8, 0.95);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 45px;
-        }
-
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: 0.3s ease;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--primary);
-        }
-
-        /* Hero Social */
-        .hero-social {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: #000;
-            overflow: hidden;
-            padding: 160px 0 100px;
-        }
-        .hero-social video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            opacity: 0.35;
-        }
-
-        /* Glass Cards */
-        .glass-card-premium {
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glass);
-            backdrop-filter: blur(25px);
-            border-radius: 32px;
-            padding: 50px;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        .glass-card-premium:hover {
-            border-color: var(--primary);
-            transform: translateY(-12px);
-            background: rgba(255, 255, 255, 0.06);
-        }
-
-        .gradient-span {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .btn-elite {
-            padding: 22px 55px;
-            background: var(--white);
-            color: #000;
-            border-radius: 100px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border: none;
-            cursor: pointer;
-            transition: 0.4s;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            font-size: 1rem;
-        }
-        .btn-elite:hover {
-            transform: scale(1.05);
-            background: var(--primary);
-            color: #fff;
-        }
-
-        .section-luxe { padding: 140px 0; }
-        .text-center { text-align: center; }
-
-        .platform-box { background: #ffffff; color: #000; padding: 50px; border-radius: 40px; transition: 0.6s; box-shadow: 0 30px 60px rgba(0,0,0,0.05); height: 100%; }
-        .platform-box:hover { transform: translateY(-15px); border-color: var(--primary); }
-
-        /* Process Steps */
-        .process-step { position: relative; padding: 40px; background: #080808; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); text-align: left; }
-        .process-num { position: absolute; top: -25px; left: 40px; width: 50px; height: 50px; background: var(--primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; }
-
-        /* FAQ */
-        .faq-wrapper { max-width: 1000px; margin: 0 auto; }
-        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .faq-btn { width: 100%; padding: 35px 0; display: flex; justify-content: space-between; align-items: center; background: none; border: none; cursor: pointer; color: #fff; font-size: 1.4rem; font-weight: 800; text-align: left; }
-        .faq-content { max-height: 0; overflow: hidden; transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1); color: var(--text-dim); }
-        .faq-item.active .faq-content { max-height: 300px; padding-bottom: 35px; }
-
-
-        @media (max-width: 1024px) {
-            .nav-links { display: none; }
-            .hero-social h1 { font-size: 4.5rem !important; }
-        }
+        :root{--w:#fff;--dim:#94a3b8;--primary:#ff8c00;--pink:#ec4899;--purple:#8b5cf6;--blue:#3b82f6;--cyan:#06b6d4;--bg:#030408;--glass:rgba(255,255,255,0.03);--border:rgba(255,255,255,0.1);--sg:linear-gradient(135deg,#ec4899,#8b5cf6,#3b82f6);--og:linear-gradient(135deg,#fff,#ff8c00);}
+        *{box-sizing:border-box;margin:0;padding:0;}
+        body{background:var(--bg);color:var(--w);font-family:'Outfit',sans-serif;overflow-x:hidden;line-height:1.7;-webkit-font-smoothing:antialiased;}
+        h1,h2,h3,h4{color:var(--w);font-weight:800;letter-spacing:-0.02em;}
+        p{color:var(--dim);}
+        .container{max-width:1400px;margin:0 auto;padding:0 40px;}
+        [data-reveal]{opacity:0;transform:translateY(40px);transition:1.2s cubic-bezier(0.16,1,0.3,1);}
+        [data-reveal].active{opacity:1;transform:translateY(0);}
+        .s1{transition-delay:.1s}.s2{transition-delay:.2s}.s3{transition-delay:.3s}.s4{transition-delay:.4s}
+        .gs{background:var(--og);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+        .ss{background:var(--sg);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+        .btn{padding:18px 46px;border-radius:100px;font-weight:900;text-transform:uppercase;letter-spacing:2px;border:none;cursor:pointer;transition:0.4s;display:inline-flex;align-items:center;justify-content:center;gap:12px;font-size:0.9rem;text-decoration:none;}
+        .btn-social{background:var(--sg);color:#fff;}
+        .btn-social:hover{transform:scale(1.05);filter:brightness(1.1);}
+        .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.2);}
+        .btn-outline:hover{border-color:var(--pink);color:var(--pink);}
+        .navbar{height:96px;display:flex;align-items:center;position:fixed;top:0;width:100%;z-index:1000;background:rgba(3,4,8,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05);}
+        .nav-c{display:flex;justify-content:space-between;align-items:center;width:100%;}
+        .nav-links{display:flex;gap:34px;align-items:center;}
+        .nav-links a{color:var(--w);text-decoration:none;font-weight:700;text-transform:uppercase;font-size:0.85rem;letter-spacing:1.5px;transition:0.3s;}
+        .nav-links a:hover,.nav-links a.active{color:var(--pink);}
+        .hero{min-height:100vh;display:flex;align-items:center;padding:160px 0 100px;position:relative;overflow:hidden;}
+        .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 25% 55%,rgba(236,72,153,0.1) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(139,92,246,0.08) 0%,transparent 50%),var(--bg);}
+        .sec{padding:130px 0;}
+        .sec-dark{background:#050505;}
+        .card{background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(25px);border-radius:28px;padding:42px;transition:all 0.5s cubic-bezier(0.16,1,0.3,1);}
+        .card:hover{border-color:var(--pink);transform:translateY(-10px);background:rgba(255,255,255,0.05);}
+        .img{border-radius:20px;width:100%;display:block;object-fit:cover;box-shadow:0 40px 100px rgba(0,0,0,0.6);transition:transform 0.6s;}
+        .img:hover{transform:scale(1.02);}
+        .hl{transition:transform 0.3s;}
+        .hl:hover{transform:translateY(-10px);}
+        .g2{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+        .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+        .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+        .step{padding:42px 30px;border-radius:28px;background:var(--glass);border:1px solid var(--border);text-align:center;transition:0.5s;}
+        .step:hover{border-color:var(--pink);transform:translateY(-8px);}
+        .sn{width:58px;height:58px;background:var(--sg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.5rem;color:#fff;margin:0 auto 22px;}
+        .tag{display:inline-flex;align-items:center;gap:9px;border:2px solid rgba(236,72,153,0.3);padding:10px 22px;border-radius:100px;font-weight:700;font-size:0.87rem;transition:0.3s;}
+        .tag:hover{border-color:var(--pink);color:var(--pink);background:rgba(236,72,153,0.08);}
+        .chk{display:flex;align-items:flex-start;gap:13px;margin-bottom:14px;font-size:1.02rem;font-weight:600;}
+        .faq-item{border-bottom:1px solid rgba(255,255,255,0.08);}
+        .faq-btn{width:100%;padding:24px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;background:none;border:none;cursor:pointer;color:#fff;font-size:1.15rem;font-weight:700;text-align:left;}
+        .faq-content{max-height:0;overflow:hidden;transition:0.5s;color:var(--dim);}
+        .faq-item.active .faq-content{max-height:400px;padding-bottom:24px;}
+        .fiq{flex-shrink:0;transition:transform 0.3s;}
+        .faq-item.active .fiq{transform:rotate(45deg);}
+        input,select,textarea{background:rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.14);border-radius:14px;padding:18px 22px;color:#fff;font-size:1rem;width:100%;}
+        .platform-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:18px;}
+        @media(max-width:1024px){.nav-links{display:none;}}
+        @media(max-width:768px){.g2,.g3,.g4{grid-template-columns:1fr!important;gap:38px!important;}.hero h1{font-size:3.2rem!important;}.sec{padding:80px 0;}.container{padding:0 20px;}}
     </style>
 </head>
-
 <body>
 
-    <!-- Header -->
-    <header class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="/" class="logo" style="font-size: 2rem; font-weight: 900; letter-spacing: -1px; text-decoration: none; color: #fff;">
-                MK<span style="color: var(--primary);">SHOPZONE</span>
-            </a>
-            <nav class="nav-links">
-                <a href="/">Home</a>
-                <a href="seo.html">SEO</a>
-                <a href="paid-ads.html">Ads</a>
-                <a href="website-design.html">Web</a>
-                <a href="app.html">App</a>
-                <a href="social-media.html" class="active">Social</a>
-                <button class="btn-elite" style="padding: 12px 30px; font-size: 0.85rem;" onclick="document.getElementById('contact').scrollIntoView();">AUDIT</button>
-            </nav>
+<header class="navbar" id="navbar">
+    <div class="container nav-c">
+        <a href="/" style="font-size:2rem;font-weight:900;text-decoration:none;color:#fff;">MK<span style="color:var(--primary);">SHOPZONE</span></a>
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="seo.html">SEO</a>
+            <a href="paid-ads.html">Paid Ads</a>
+            <a href="android-app.html">App Dev</a>
+            <a href="social-media.html" class="active">Social Media</a>
+            <button class="btn btn-social" style="padding:12px 24px;font-size:0.8rem;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">FREE AUDIT</button>
+        </nav>
+    </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container" style="position:relative;z-index:2;">
+        <div class="g2">
+            <div data-reveal>
+                <span style="letter-spacing:4px;font-weight:900;color:var(--pink);text-transform:uppercase;font-size:0.9rem;margin-bottom:20px;display:block;">Results-Driven SMM</span>
+                <h1 style="font-size:5rem;line-height:0.95;margin-bottom:26px;">Social Media <span class="ss">Marketing</span><br>That Converts.</h1>
+                <p style="font-size:1.25rem;max-width:550px;margin-bottom:38px;color:#e2e8f0;">We grow your brand across Instagram, Facebook, LinkedIn, and YouTube with conversion-focused content, precision paid ads, and community management that turns followers into paying customers.</p>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;">
+                    <button class="btn btn-social" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">GET FREE AUDIT <i data-lucide="trending-up"></i></button>
+                    <button class="btn btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});">OUR SERVICES</button>
+                </div>
+                <div style="display:flex;gap:36px;margin-top:48px;flex-wrap:wrap;">
+                    <div><h3 style="font-size:2.2rem;color:var(--pink);margin:0;">500+</h3><p style="margin:0;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;">Brands Grown</p></div>
+                    <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:36px;"><h3 style="font-size:2.2rem;color:var(--pink);margin:0;">2.8B+</h3><p style="margin:0;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;">Total Impressions</p></div>
+                    <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:36px;"><h3 style="font-size:2.2rem;color:var(--pink);margin:0;">6.2×</h3><p style="margin:0;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;">Avg. ROAS</p></div>
+                </div>
+            </div>
+            <div data-reveal class="s2" style="position:relative;">
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=900&q=80" alt="Social media marketing dashboard and analytics" class="img" style="height:580px;">
+                <div style="position:absolute;bottom:-22px;left:-20px;background:rgba(3,4,8,0.95);padding:22px 28px;border-radius:16px;border:1px solid var(--pink);backdrop-filter:blur(12px);">
+                    <h3 class="ss" style="font-size:1.9rem;margin:0;">480%</h3>
+                    <p style="margin:0;font-size:0.78rem;letter-spacing:2px;color:#94a3b8;">AVG. REACH GROWTH</p>
+                </div>
+            </div>
         </div>
-    </header>
+    </div>
+</section>
 
-    <main>
-        <!-- 1. HERO SECTION -->
-        <section class="hero-social">
-            <video autoplay muted loop playsinline>
-                <source src="/public/meta 2.mp4" type="video/mp4">
-            </video>
-            <div class="container" style="position: relative; z-index: 2;">
-                <div data-reveal class="text-center">
-                    <span style="letter-spacing: 6px; font-weight: 900; color: var(--primary); text-transform: uppercase; font-size: 1.1rem; display: block; margin-bottom: 20px;">Omnichannel Brand Dominance</span>
-                    <h1 style="font-size: 7.5rem; line-height: 0.85; margin-bottom: 40px;">Shall we scale <br><span class="gradient-span">your social authority?</span></h1>
-                    <p style="font-size: 1.6rem; max-width: 850px; color: #fff; opacity: 0.95; margin: 0 auto 60px;">I'm MK's Social Strategist. Our creative team and I build high-frequency social engines that drive true engagement and measurable brand growth.</p>
-                    <div class="flex-center" style="gap: 30px; display: flex; justify-content: center;">
-                        <button class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();">CLAIM MY FREE AUDIT <i data-lucide="trending-up"></i></button>
-                        <a href="#services" class="btn-elite btn-outline">EXPLORE OUR SOLUTIONS</a>
-                    </div>
+<!-- WHY SMM + WHO WE ARE -->
+<section class="sec sec-dark" data-reveal>
+    <div class="container">
+        <div class="g2">
+            <div data-reveal class="s1">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Social media growth charts and engagement analytics" class="img" style="height:510px;">
+            </div>
+            <div data-reveal class="s2">
+                <h4 style="color:var(--pink);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">4.9 Billion Social Users</h4>
+                <h2 style="font-size:3.8rem;line-height:1.1;margin-bottom:22px;">Why Social Media is <span class="ss">Critical for Growth.</span></h2>
+                <p style="font-size:1.15rem;margin-bottom:20px;">Your customers spend an average of 2.5 hours per day on social media platforms. Brands that fail to show up with consistent, compelling content are handing their market share directly to competitors who do.</p>
+                <p style="font-size:1.15rem;margin-bottom:34px;">As specialist Social Media Marketing Experts, MK Shopzone builds and manages full-funnel social strategies — from organic content and community building to precision Meta Ads — that compound brand equity and revenue together.</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+                    <div class="card" style="padding:26px;"><i data-lucide="zap" style="color:var(--pink);width:34px;height:34px;margin-bottom:10px;"></i><h3 style="font-size:1.2rem;margin-bottom:6px;">Organic + Paid</h3><p style="font-size:0.88rem;">Full-funnel brand growth strategy.</p></div>
+                    <div class="card" style="padding:26px;"><i data-lucide="bar-chart-2" style="color:var(--purple);width:34px;height:34px;margin-bottom:10px;"></i><h3 style="font-size:1.2rem;margin-bottom:6px;">Data-Driven</h3><p style="font-size:0.88rem;">Every decision backed by analytics.</p></div>
                 </div>
             </div>
-        </section>
-
-        <!-- 2. WHY YOUR BUSINESS NEEDS SOCIAL DOMINANCE -->
-        <section class="section-luxe" data-reveal>
-            <div class="container">
-                <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 100px; align-items: center;">
-                    <div data-reveal>
-                        <h4 style="color: var(--primary) !important; margin-bottom: 20px;">Attention Economics</h4>
-                        <h2 style="font-size: 4.5rem; line-height: 1.1;">Why Your Brand Needs <br><span class="gradient-span">Social Dominance.</span></h2>
-                        <p style="font-size: 1.35rem; margin-top: 40px;">Social media is no longer optional—it's your brand's digital personality. 74% of consumers use social platforms to make purchasing decisions. If you're not leading the conversation, your competitors are.</p>
-                        <div style="margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                            <div class="glass-card-premium" style="padding: 40px; text-align: center;">
-                                <h3 style="font-size: 2.2rem;" class="gradient-span">8x</h3>
-                                <p style="font-size: 0.9rem; color: #fff;">Higher engagement vs standard display ads.</p>
-                            </div>
-                            <div class="glass-card-premium" style="padding: 40px; text-align: center;">
-                                <h3 style="font-size: 2.2rem;" class="gradient-span">91%</h3>
-                                <p style="font-size: 0.9rem; color: #fff;">Consumers want authentic brand connection.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-reveal class="stagger-2">
-                        <img src="/public/meta 3.jpg" alt="Social Media Growth Strategy" style="width: 100%; border-radius: 40px; box-shadow: 0 50px 100px rgba(0,0,0,0.5);">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. OUR SMM EXPERTISE -->
-        <section class="section-luxe" style="background: var(--dark-section);" data-reveal>
-            <div class="container text-center">
-                <h4 style="color: var(--primary) !important; margin-bottom: 20px;">Clinical Execution</h4>
-                <h2 style="font-size: 5rem; margin-bottom: 100px;">Our Social <span class="gradient-span">Expertise.</span></h2>
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
-                    <div class="glass-card-premium" data-reveal class="stagger-1">
-                        <i data-lucide="pen-tool" style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 20px;"></i>
-                        <h3 style="font-size: 1.8rem;">Content Strategy</h3>
-                        <p>High-fidelity visuals and copy that commands attention.</p>
-                    </div>
-                    <div class="glass-card-premium" data-reveal class="stagger-2">
-                        <i data-lucide="command" style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 20px;"></i>
-                        <h3 style="font-size: 1.8rem;">Account Mgmt</h3>
-                        <p>End-to-end stewardship of your platform presence.</p>
-                    </div>
-                    <div class="glass-card-premium" data-reveal class="stagger-3">
-                        <i data-lucide="video" style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 20px;"></i>
-                        <h3 style="font-size: 1.8rem;">Video Production</h3>
-                        <p>Short-form reels and TikToks designed to go viral.</p>
-                    </div>
-                    <div class="glass-card-premium" data-reveal class="stagger-1">
-                        <i data-lucide="bar-chart-3" style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 20px;"></i>
-                        <h3 style="font-size: 1.8rem;">Growth Hacking</h3>
-                        <p>Aggressive organic scaling and follower acquisition.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4 & 5. CORE SOLUTIONS -->
-        <section class="section-luxe" id="services" style="background: #fff; color: #000;" data-reveal>
-            <div class="container">
-                <div class="text-center" style="margin-bottom: 100px;">
-                    <h2 style="font-size: 5rem; color: #000 !important;">Omnichannel Social <span class="gradient-span">Solutions.</span></h2>
-                    <p style="color: #4b5563 !important; font-size: 1.4rem; max-width: 800px; margin: 30px auto;">Specialized strategies for every platform where your audience resides.</p>
-                </div>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
-                    <div class="platform-box" data-reveal>
-                        <i data-lucide="instagram" style="color: var(--primary); width: 50px; height: 50px;"></i>
-                        <h3>Instagram Mastery</h3>
-                        <p>Visual storytelling and community building through elite aesthetics and active engagement.</p>
-                    </div>
-                    <div class="platform-box" style="background: #f8fafc;" data-reveal>
-                        <i data-lucide="linkedin" style="color: var(--primary); width: 50px; height: 50px;"></i>
-                        <h3>LinkedIn Authority</h3>
-                        <p>Establishing professional leadership and B2B lead generation through thought leadership.</p>
-                    </div>
-                    <div class="platform-box" data-reveal>
-                        <i data-lucide="video" style="color: var(--primary); width: 50px; height: 50px;"></i>
-                        <h3>TikTok & YouTube</h3>
-                        <p>Dominating the video landscape with high-retention short and long-form content.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. OUR PROVEN PROCESS -->
-        <section class="section-luxe" data-reveal>
-            <div class="container text-center">
-                <h2 style="font-size: 5rem; margin-bottom: 100px;">The Growth <span class="gradient-span">Blueprint.</span></h2>
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
-                    <div class="process-step" data-reveal>
-                        <div class="process-num">01</div>
-                        <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Audit</h3>
-                        <p>Analyzing competitor sentiment and audience behavior.</p>
-                    </div>
-                    <div class="process-step" data-reveal>
-                        <div class="process-num">02</div>
-                        <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Aesthetic</h3>
-                        <p>Developing a high-end visual DNA for your brand.</p>
-                    </div>
-                    <div class="process-step" data-reveal>
-                        <div class="process-num">03</div>
-                        <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Execute</h3>
-                        <p>Daily posting and proactive community engagement.</p>
-                    </div>
-                    <div class="process-step" data-reveal>
-                        <div class="process-num">04</div>
-                        <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Analyze</h3>
-                        <p>Scaling what works and optimizing for ROI.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7-14. STRATEGY & ADS -->
-        <section class="section-luxe" style="background: var(--dark-section);" data-reveal>
-            <div class="container">
-                <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 120px; align-items: center;">
-                    <div data-reveal>
-                        <img src="/public/team-strategy.jpg" alt="Social Media Strategy" style="width: 100%; border-radius: 40px;">
-                    </div>
-                    <div data-reveal>
-                        <h4 style="color: var(--primary) !important; margin-bottom: 20px;">The Methodology</h4>
-                        <h2 style="font-size: 4rem; line-height: 1.1;">Paid Amplification <br><span class="gradient-span">& Community Trust.</span></h2>
-                        <p style="font-size: 1.3rem; margin-top: 40px;">We blend aggressive organic growth with precision-targeted social advertising to force reach and drive immediate conversions. No vanity metrics, just bottom-line results.</p>
-                        <ul style="list-style: none; padding: 0; margin-top: 50px; display: grid; gap: 20px;">
-                            <li style="display: flex; gap: 15px; align-items: center;"><i data-lucide="check-circle" style="color: var(--primary);"></i> Influencer Collaboration Strategy</li>
-                            <li style="display: flex; gap: 15px; align-items: center;"><i data-lucide="check-circle" style="color: var(--primary);"></i> Precision Social Ad Targeting</li>
-                            <li style="display: flex; gap: 15px; align-items: center;"><i data-lucide="check-circle" style="color: var(--primary);"></i> 24/7 Community Moderation</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 15-20. RESULTS & TOOLS -->
-        <section class="section-luxe" data-reveal>
-            <div class="container text-center">
-                <h2 style="font-size: 5rem; margin-bottom: 100px;">Results <span class="gradient-span">& Tech Stack.</span></h2>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-                    <div class="glass-card-premium" style="text-align: left;">
-                        <h3 style="font-size: 3rem;">+412%</h3>
-                        <p style="color: var(--primary); font-weight: 800; letter-spacing: 2px;">ORGANIC REACH GROWTH</p>
-                        <p style="margin-top: 20px;">Average reach increase for our client partners within 90 days of implementation.</p>
-                    </div>
-                    <div class="glass-card-premium" style="text-align: left;">
-                        <h3 style="font-size: 3rem;">12.5%</h3>
-                        <p style="color: var(--primary); font-weight: 800; letter-spacing: 2px;">AVG. ENGAGEMENT RATE</p>
-                        <p style="margin-top: 20px;">Industry-leading interaction rates that build deep brand loyalty and trust.</p>
-                    </div>
-                </div>
-                <div style="margin-top: 80px; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-                    <span style="border: 2px solid #222; padding: 15px 40px; border-radius: 100px; font-weight: 800;">SPROUT SOCIAL</span>
-                    <span style="border: 2px solid #222; padding: 15px 40px; border-radius: 100px; font-weight: 800;">CANVA PRO</span>
-                    <span style="border: 2px solid #222; padding: 15px 40px; border-radius: 100px; font-weight: 800;">ADOBE SUITE</span>
-                    <span style="border: 2px solid #222; padding: 15px 40px; border-radius: 100px; font-weight: 800;">META BUSINESS</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- 21. FAQ -->
-        <section class="section-luxe" data-reveal>
-            <div class="container">
-                <div class="text-center" style="margin-bottom: 60px;">
-                    <h2 style="font-size: 5rem;">SMM <span class="gradient-span">FAQs.</span></h2>
-                </div>
-                <div class="faq-wrapper">
-                    <div class="faq-item">
-                        <button class="faq-btn"><span>How long until we see results?</span> <i data-lucide="plus"></i></button>
-                        <div class="faq-content">
-                            <p>Organic growth takes time to build momentum, typically 60-90 days for significant reach increases. However, paid campaigns can drive traffic and leads within 48 hours.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-btn"><span>Do you create all the content?</span> <i data-lucide="plus"></i></button>
-                        <div class="faq-content">
-                            <p>Yes. Our in-house creative team handles everything from graphic design and video editing to professional copywriting, ensuring a consistent and elite brand voice.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-btn"><span>Will you respond to comments?</span> <i data-lucide="plus"></i></button>
-                        <div class="faq-content">
-                            <p>Absolutely. Part of our full-service management is proactive community moderation—responding to queries, managing feedback, and fostering conversations.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 22-24. CTA -->
-        <section id="contact" class="section-luxe" style="background: #000;">
-            <div class="container">
-                <div class="glass-card-premium" style="padding: 120px 100px; border-color: rgba(255,255,255,0.2);">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;">
-                        <div data-reveal>
-                            <h2 style="font-size: 6rem; line-height: 0.9; margin-bottom: 50px;">Grow Your Brand <br><span class="gradient-span">Authority.</span></h2>
-                            <p style="font-size: 1.5rem; color: #fff; font-weight: 500;">Claim your free Social Media Audit. We'll identify your brand's engagement gaps and untapped scaling opportunities.</p>
-                        </div>
-                        <div data-reveal>
-                            <form id="contactForm" style="display: grid; gap: 20px;">
-                                <input type="text" placeholder="Full Name" required style="padding: 20px; border-radius: 12px; background: transparent; border: 1px solid #444; color: #fff;">
-                                <input type="email" placeholder="Business Email" required style="padding: 20px; border-radius: 12px; background: transparent; border: 1px solid #444; color: #fff;">
-                                <input type="text" placeholder="Social Handles / Website" style="padding: 20px; border-radius: 12px; background: transparent; border: 1px solid #444; color: #fff;">
-                                <button type="submit" class="btn-elite" style="width: 100%; padding: 25px;">GET MY FREE AUDIT →</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer style="padding: 100px 0; border-top: 1px solid #111; text-align: center;">
-        <div class="container">
-            <a href="/" class="logo" style="font-size: 2rem; text-decoration: none; color: #fff; font-weight: 900;">MK<span style="color: var(--primary);">SHOPZONE</span></a>
-            <p style="margin-top: 40px; opacity: 0.5;">&copy; 2026 MK SHOPZONE. PRECISION ENGINEERED AUTHORITY.</p>
         </div>
-    </footer>
+    </div>
+</section>
 
+<!-- SERVICES + FRAMEWORK -->
+<section class="sec" id="services" data-reveal>
+    <div class="container" style="text-align:center;">
+        <h4 style="color:var(--primary);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Full Social Media Ecosystem</h4>
+        <h2 style="font-size:4.5rem;margin-bottom:18px;">End-to-End <span class="gs">SMM Services.</span></h2>
+        <p style="font-size:1.15rem;max-width:750px;margin:0 auto 60px;">From strategy and content creation through paid ads, influencer partnerships, and analytics reporting — we manage every dimension of your brand's social presence.</p>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:90px;">
+            <span class="tag"><i data-lucide="layout" style="width:14px;height:14px;color:var(--pink);"></i>Content Strategy</span>
+            <span class="tag"><i data-lucide="image" style="width:14px;height:14px;color:var(--pink);"></i>Creative Content</span>
+            <span class="tag"><i data-lucide="video" style="width:14px;height:14px;color:var(--pink);"></i>Reels & Videos</span>
+            <span class="tag"><i data-lucide="instagram" style="width:14px;height:14px;color:var(--pink);"></i>Instagram & Facebook</span>
+            <span class="tag"><i data-lucide="linkedin" style="width:14px;height:14px;color:var(--pink);"></i>LinkedIn B2B</span>
+            <span class="tag"><i data-lucide="youtube" style="width:14px;height:14px;color:var(--pink);"></i>YouTube Marketing</span>
+            <span class="tag"><i data-lucide="trending-up" style="width:14px;height:14px;color:var(--pink);"></i>Meta Ads</span>
+            <span class="tag"><i data-lucide="users" style="width:14px;height:14px;color:var(--pink);"></i>Influencer Marketing</span>
+        </div>
+        <!-- Growth Framework -->
+        <h4 style="color:var(--pink);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">The MK Social Formula</h4>
+        <h2 style="font-size:4rem;margin-bottom:50px;">Plan → Create → <span class="gs">Engage → Scale.</span></h2>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+            <div class="step hl" data-reveal class="s1"><div class="sn">1</div><h3 style="font-size:1.4rem;margin-bottom:10px;">Plan</h3><p style="font-size:0.9rem;">Brand audit, competitor analysis, audience mapping & 90-day content calendar creation.</p></div>
+            <div class="step hl" data-reveal class="s2"><div class="sn">2</div><h3 style="font-size:1.4rem;margin-bottom:10px;">Create</h3><p style="font-size:0.9rem;">Premium graphic design, Reels production, caption copywriting & branded story templates.</p></div>
+            <div class="step hl" data-reveal class="s3"><div class="sn">3</div><h3 style="font-size:1.4rem;margin-bottom:10px;">Engage</h3><p style="font-size:0.9rem;">Community management, DM responses, comment moderation & influencer outreach.</p></div>
+            <div class="step hl" data-reveal class="s4"><div class="sn">4</div><h3 style="font-size:1.4rem;margin-bottom:10px;">Scale</h3><p style="font-size:0.9rem;">Meta Ads acceleration, retargeting sequences & audience lookalike scaling for explosive reach.</p></div>
+        </div>
+    </div>
+</section>
 
-    <!-- AI Automation Scripts -->
-    <script type="module" src="/src/behavior-tracker.js"></script>
-    <script type="module" src="/src/personalization.js"></script>
-    <script type="module" src="/src/lead-system.js"></script>
-    <script type="module" src="/src/ai-chatbot.js"></script>
+<!-- PLATFORM DEEP DIVES -->
+<section class="sec sec-dark" data-reveal>
+    <div class="container">
+        <div style="text-align:center;margin-bottom:70px;">
+            <h4 style="color:var(--pink);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Platform Mastery</h4>
+            <h2 style="font-size:4.5rem;margin-bottom:18px;">Social Media <span class="gs">Marketing Services.</span></h2>
+            <p style="font-size:1.15rem;max-width:700px;margin:0 auto;">We operate at the highest level of every platform your audience uses — with platform-native strategies for maximum algorithmic reach and engagement.</p>
+        </div>
+        <div class="g3">
+            <div class="card hl" data-reveal class="s1">
+                <div class="platform-icon" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">📸</div>
+                <h3 style="font-size:1.7rem;margin-bottom:12px;">Instagram & Facebook Marketing</h3>
+                <p>Feed campaigns, Story sequences, Reels strategy, and Shop integration for Instagram. Facebook Group community building, Event marketing, and Marketplace presence for B2C brands. Algorithm-friendly posting schedules analysed weekly for peak-reach timing.</p>
+            </div>
+            <div class="card hl" data-reveal class="s2">
+                <div class="platform-icon" style="background:#0077b5;">💼</div>
+                <h3 style="font-size:1.7rem;margin-bottom:12px;">LinkedIn Marketing for B2B</h3>
+                <p>Executive thought leadership content, Company page management, LinkedIn Article publishing, and precision LinkedIn Lead Gen Form campaigns targeting decision-makers by job title, company size, and industry for high-ticket B2B client acquisition.</p>
+            </div>
+            <div class="card hl" data-reveal class="s3">
+                <div class="platform-icon" style="background:#ff0000;">▶️</div>
+                <h3 style="font-size:1.7rem;margin-bottom:12px;">YouTube Marketing & Video</h3>
+                <p>YouTube channel strategy, SEO-optimised video scripting, thumbnail A/B testing, end-screen optimisation, and YouTube Ads (TrueView, Bumper) targeting audiences by interest, keyword, and competitor channel placement to drive subscriptions and leads.</p>
+            </div>
+            <div class="card hl" data-reveal class="s1">
+                <div class="platform-icon" style="background:linear-gradient(135deg,#1877f2,#ec4899);">📣</div>
+                <h3 style="font-size:1.7rem;margin-bottom:12px;">Paid Social Advertising (Meta Ads)</h3>
+                <p>Full-funnel Meta Ads architecture — TOFU awareness Reels, MOFU retargeting carousels, and BOFU conversion campaigns with Advantage+ Shopping, dynamic product ads, lead forms, and Messenger automation for immediate pipeline generation.</p>
+            </div>
+            <div class="card hl" data-reveal class="s2">
+                <div class="platform-icon" style="background:linear-gradient(135deg,#f97316,#ec4899);">⭐</div>
+                <h3 style="font-size:1.7rem;margin-bottom:12px;">Influencer Marketing & Collabs</h3>
+                <p>Nano, micro, and macro influencer identification, outreach, contract negotiation, brief creation, content review, and campaign performance tracking — connecting your brand with creators whose audiences match your exact ideal customer profile.</p>
+            </div>
+            <div class="card hl" data-reveal class="s3">
+                <div class="platform-icon" style="background:linear-gradient(135deg,#8b5cf6,#3b82f6);">💬</div>
+                <h3 style="font-size:1.7rem;margin-bottom:12px;">Community Management & Engagement</h3>
+                <p>Daily comment monitoring, DM/inquiry management, brand crisis response protocols, UGC (user-generated content) curation and repurposing, and proactive engagement with trending conversations to keep your brand algorithmically favoured.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <!-- Scripts -->
-    <script type="module" src="/src/main.js"></script>
-    <script>
-        lucide.createIcons();
+<!-- CONTENT CREATION VISUAL + ANALYTICS -->
+<section class="sec" data-reveal>
+    <div class="container">
+        <div class="g2" style="margin-bottom:100px;">
+            <div data-reveal class="s1">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80" alt="Social media content creation team managing campaigns" class="img" style="height:500px;">
+            </div>
+            <div data-reveal class="s2">
+                <h4 style="color:var(--pink);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Premium Creative</h4>
+                <h2 style="font-size:3.8rem;line-height:1.1;margin-bottom:22px;">Content Creation & <span class="ss">Creative Direction.</span></h2>
+                <p style="font-size:1.15rem;margin-bottom:26px;">Scroll-stopping content is the currency of social media. Our creative studio produces on-brand posts, cinematic Reels, educational carousels, and story sequences that outperform industry benchmarks at every metric.</p>
+                <div class="chk"><i data-lucide="check-circle-2" style="color:var(--pink);flex-shrink:0;"></i><span>30 branded posts + 8 Reels per month minimum</span></div>
+                <div class="chk"><i data-lucide="check-circle-2" style="color:var(--pink);flex-shrink:0;"></i><span>Professional caption copywriting with CTA hooks</span></div>
+                <div class="chk"><i data-lucide="check-circle-2" style="color:var(--pink);flex-shrink:0;"></i><span>Brand-consistent visual identity across all formats</span></div>
+                <div class="chk"><i data-lucide="check-circle-2" style="color:var(--pink);flex-shrink:0;"></i><span>Trend-reactive content leveraging viral moments</span></div>
+                <div class="chk"><i data-lucide="check-circle-2" style="color:var(--pink);flex-shrink:0;"></i><span>Hashtag research and optimal scheduling strategy</span></div>
+            </div>
+        </div>
 
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+        <!-- Analytics Banner -->
+        <div class="card" style="background:linear-gradient(135deg,rgba(236,72,153,0.07),rgba(139,92,246,0.05));border-color:rgba(236,72,153,0.4);padding:55px;" data-reveal>
+            <div class="g2" style="gap:60px;">
+                <div>
+                    <i data-lucide="bar-chart-2" style="color:var(--pink);width:52px;height:52px;margin-bottom:20px;"></i>
+                    <h3 style="font-size:2.8rem;margin-bottom:18px;">Performance Tracking <span class="ss">& Analytics.</span></h3>
+                    <p style="font-size:1.1rem;margin-bottom:22px;">Every campaign we run is tracked in real-time through custom Meta Business Suite dashboards, native platform analytics, and monthly executive reports — showing you exactly what's working and where we're scaling next.</p>
+                    <div class="chk"><i data-lucide="check-circle-2" style="color:var(--pink);flex-shrink:0;"></i><span>Monthly KPI report: reach, engagement, CPL, ROAS</span></div>
+                    <div class="chk"><i data-lucide="check-circle-2" style="color:var(--pink);flex-shrink:0;"></i><span>Weekly paid ads performance snapshots</span></div>
+                    <div class="chk"><i data-lucide="check-circle-2" style="color:var(--pink);flex-shrink:0;"></i><span>Bi-weekly strategy review calls with your team</span></div>
+                </div>
+                <div><img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=900&q=80" alt="Social media analytics and growth performance dashboard" class="img" style="height:340px;"></div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        document.querySelectorAll('.faq-btn').forEach(btn => {
-            btn.addEventListener('click', () => btn.parentElement.classList.toggle('active'));
-        });
+<!-- WHY CHOOSE + SUCCESS STORIES -->
+<section class="sec sec-dark" data-reveal>
+    <div class="container" style="text-align:center;">
+        <h4 style="color:var(--pink);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">The Social Authority</h4>
+        <h2 style="font-size:4.5rem;margin-bottom:60px;">Why Choose Our <span class="gs">SMM Agency.</span></h2>
+        <div class="g4" style="margin-bottom:90px;">
+            <div class="card hl" data-reveal class="s1"><i data-lucide="palette" style="color:var(--pink);width:44px;height:44px;margin:0 auto 16px;"></i><h3 style="font-size:1.4rem;margin-bottom:10px;">Creative Excellence</h3><p style="font-size:0.9rem;">In-house design team producing platform-native content that stops the scroll and drives action.</p></div>
+            <div class="card hl" data-reveal class="s2"><i data-lucide="target" style="color:var(--primary);width:44px;height:44px;margin:0 auto 16px;"></i><h3 style="font-size:1.4rem;margin-bottom:10px;">Precision Targeting</h3><p style="font-size:0.9rem;">Audience research and segmentation that puts your content in front of exactly the right people at scale.</p></div>
+            <div class="card hl" data-reveal class="s3"><i data-lucide="pie-chart" style="color:var(--purple);width:44px;height:44px;margin:0 auto 16px;"></i><h3 style="font-size:1.4rem;margin-bottom:10px;">Verified ROI</h3><p style="font-size:0.9rem;">Transparent monthly reporting with clear ROAS, CPL, and follower growth attribution — no vanity metrics.</p></div>
+            <div class="card hl" data-reveal class="s4"><i data-lucide="refresh-cw" style="color:var(--cyan);width:44px;height:44px;margin:0 auto 16px;"></i><h3 style="font-size:1.4rem;margin-bottom:10px;">Algorithm-Adaptive</h3><p style="font-size:0.9rem;">We update strategies weekly based on platform algorithm changes so your content never stops performing.</p></div>
+        </div>
 
-    </script>
+        <!-- Success Stories -->
+        <h4 style="color:var(--primary);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Case Studies</h4>
+        <h2 style="font-size:4rem;margin-bottom:55px;">Campaign <span class="gs">Success Stories.</span></h2>
+        <div class="g3" style="text-align:left;">
+            <div class="card hl" data-reveal class="s1">
+                <div style="display:inline-block;background:var(--sg);color:#fff;padding:5px 16px;border-radius:100px;font-size:0.75rem;font-weight:900;margin-bottom:16px;letter-spacing:2px;">D2C FASHION</div>
+                <h3 style="font-size:1.5rem;margin-bottom:10px;">Instagram Growth, Apparel Brand</h3>
+                <p style="margin-bottom:18px;">Grew Instagram from 2K to 180K followers in 8 months through Reels strategy + influencer campaigns. Generated ₹45L in direct Instagram revenue.</p>
+                <div style="display:flex;gap:20px;"><div><h4 style="font-size:1.8rem;color:var(--pink);">180K</h4><p style="font-size:0.76rem;margin:0;">Followers</p></div><div><h4 style="font-size:1.8rem;color:var(--primary);">₹45L</h4><p style="font-size:0.76rem;margin:0;">Revenue</p></div></div>
+            </div>
+            <div class="card hl" data-reveal class="s2">
+                <div style="display:inline-block;background:rgba(59,130,246,0.2);color:var(--blue);padding:5px 16px;border-radius:100px;font-size:0.75rem;font-weight:900;margin-bottom:16px;letter-spacing:2px;">B2B SAAS</div>
+                <h3 style="font-size:1.5rem;margin-bottom:10px;">LinkedIn Lead Gen, SaaS Company</h3>
+                <p style="margin-bottom:18px;">LinkedIn content + Lead Gen Form campaigns for a B2B SaaS brand. Generated 340 enterprise demo requests at ₹1,800 CPL — 3× cheaper than their previous agency.</p>
+                <div style="display:flex;gap:20px;"><div><h4 style="font-size:1.8rem;color:var(--blue);">340</h4><p style="font-size:0.76rem;margin:0;">Demo Requests</p></div><div><h4 style="font-size:1.8rem;color:var(--primary);">3×</h4><p style="font-size:0.76rem;margin:0;">CPL Improvement</p></div></div>
+            </div>
+            <div class="card hl" data-reveal class="s3">
+                <div style="display:inline-block;background:rgba(255,0,0,0.15);color:#f87171;padding:5px 16px;border-radius:100px;font-size:0.75rem;font-weight:900;margin-bottom:16px;letter-spacing:2px;">FOOD & BEVERAGE</div>
+                <h3 style="font-size:1.5rem;margin-bottom:10px;">YouTube + Meta Ads, F&B Chain</h3>
+                <p style="margin-bottom:18px;">Brand storytelling YouTube series + Meta retargeting for a QSR chain. Achieved 12M video views, 2.4M new accounts reached, and 28% uplift in footfall across locations.</p>
+                <div style="display:flex;gap:20px;"><div><h4 style="font-size:1.8rem;color:#f87171;">12M</h4><p style="font-size:0.76rem;margin:0;">Video Views</p></div><div><h4 style="font-size:1.8rem;color:var(--primary);">28%</h4><p style="font-size:0.76rem;margin:0;">Footfall Lift</p></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INDUSTRIES + TOOLS -->
+<section class="sec" style="background:#fdf4ff;" data-reveal>
+    <div class="container">
+        <div style="text-align:center;margin-bottom:70px;">
+            <h4 style="color:var(--primary);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Sectors We Dominate</h4>
+            <h2 style="font-size:4rem;color:#111;margin-bottom:16px;">Industries We <span class="gs">Serve.</span></h2>
+        </div>
+        <div class="g4" style="margin-bottom:90px;">
+            <div class="hl" style="background:#fff;border:2px solid #fce7f3;border-radius:24px;padding:36px;text-align:center;" data-reveal class="s1">
+                <i data-lucide="shopping-bag" style="color:var(--pink);width:40px;height:40px;margin:0 auto 12px;"></i>
+                <h3 style="color:#111;font-size:1.2rem;">D2C & E-Commerce</h3>
+            </div>
+            <div class="hl" style="background:#fff;border:2px solid #ede9fe;border-radius:24px;padding:36px;text-align:center;" data-reveal class="s2">
+                <i data-lucide="utensils" style="color:var(--purple);width:40px;height:40px;margin:0 auto 12px;"></i>
+                <h3 style="color:#111;font-size:1.2rem;">Food & Hospitality</h3>
+            </div>
+            <div class="hl" style="background:#fff;border:2px solid #dbeafe;border-radius:24px;padding:36px;text-align:center;" data-reveal class="s3">
+                <i data-lucide="briefcase" style="color:var(--blue);width:40px;height:40px;margin:0 auto 12px;"></i>
+                <h3 style="color:#111;font-size:1.2rem;">B2B & SaaS</h3>
+            </div>
+            <div class="hl" style="background:#fff;border:2px solid #dcfce7;border-radius:24px;padding:36px;text-align:center;" data-reveal class="s4">
+                <i data-lucide="heart-pulse" style="color:#10b981;width:40px;height:40px;margin:0 auto 12px;"></i>
+                <h3 style="color:#111;font-size:1.2rem;">Health & Wellness</h3>
+            </div>
+        </div>
+        <div style="text-align:center;" data-reveal>
+            <h4 style="color:var(--primary);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">The SMM Stack</h4>
+            <h2 style="font-size:3.8rem;color:#111;margin-bottom:45px;">Tools & Platforms.</h2>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;">
+                <span class="hl" style="border:2px solid #fce7f3;background:#fff;color:#111;padding:13px 28px;border-radius:100px;font-weight:700;">Meta Business Suite</span>
+                <span class="hl" style="border:2px solid #fce7f3;background:#fff;color:#111;padding:13px 28px;border-radius:100px;font-weight:700;">Instagram Creator Studio</span>
+                <span class="hl" style="border:2px solid #fce7f3;background:#fff;color:#111;padding:13px 28px;border-radius:100px;font-weight:700;">LinkedIn Campaign Manager</span>
+                <span class="hl" style="border:2px solid #fce7f3;background:#fff;color:#111;padding:13px 28px;border-radius:100px;font-weight:700;">YouTube Studio & Ads</span>
+                <span class="hl" style="border:2px solid #fce7f3;background:#fff;color:#111;padding:13px 28px;border-radius:100px;font-weight:700;">Canva Pro & Adobe CC</span>
+                <span class="hl" style="border:2px solid #fce7f3;background:#fff;color:#111;padding:13px 28px;border-radius:100px;font-weight:700;">Hootsuite / Buffer</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQs -->
+<section class="sec sec-dark" data-reveal>
+    <div class="container">
+        <div style="text-align:center;margin-bottom:60px;">
+            <h4 style="color:var(--pink);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Common Questions</h4>
+            <h2 style="font-size:4rem;">Frequently Asked <span class="gs">Questions.</span></h2>
+        </div>
+        <div style="max-width:900px;margin:0 auto;">
+            <div class="faq-item"><button class="faq-btn"><span>How quickly will we see results from social media marketing?</span><i data-lucide="plus" class="fiq"></i></button><div class="faq-content"><p>Paid social campaigns (Meta Ads, YouTube Ads) typically show measurable results within 7–14 days of launch. Organic social growth is a compounding strategy — most brands see significant follower and engagement growth within 60–90 days of consistent, quality content. We recommend a 3-month minimum commitment for organic results.</p></div></div>
+            <div class="faq-item"><button class="faq-btn"><span>Do you create all the content or do we need to provide it?</span><i data-lucide="plus" class="fiq"></i></button><div class="faq-content"><p>We handle everything — graphic design, Reels scripting and editing (using provided footage or stock), caption copywriting, and scheduling. For brands that want to feature real team/product shots, we provide a monthly shot list for your team to capture. No creative burden on your side.</p></div></div>
+            <div class="faq-item"><button class="faq-btn"><span>What budget do I need for Meta Ads?</span><i data-lucide="plus" class="fiq"></i></button><div class="faq-content"><p>We recommend a minimum ad spend of ₹30,000–₹50,000/month for meaningful Meta Ads results for D2C brands. B2B LinkedIn campaigns typically require ₹50,000–₹1,00,000/month. Our management fee is charged separately. We always start with a test-and-learn phase to identify winning ad sets before scaling spend.</p></div></div>
+            <div class="faq-item"><button class="faq-btn"><span>Can you handle influencer identification and outreach?</span><i data-lucide="plus" class="fiq"></i></button><div class="faq-content"><p>Yes — this is a core service we offer. We identify influencers using Heepsy and manual vetting, checking authentic engagement rates, audience demographics, and brand affinity. We handle all outreach, negotiation, brief creation, content review, and post-campaign performance reporting.</p></div></div>
+            <div class="faq-item"><button class="faq-btn"><span>Which platforms do you manage?</span><i data-lucide="plus" class="fiq"></i></button><div class="faq-content"><p>We manage Instagram, Facebook, LinkedIn, YouTube, and X (Twitter). Most clients start with a 2–3 platform focus based on where their ideal customers spend time. We recommend Instagram + LinkedIn for most B2B brands, and Instagram + Facebook + YouTube for D2C/B2C audiences.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA + CONTACT -->
+<section class="sec" id="contact" style="background:url('https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=1600&q=80') center/cover;position:relative;">
+    <div style="position:absolute;inset:0;background:rgba(3,4,8,0.93);"></div>
+    <div class="container" style="position:relative;z-index:2;text-align:center;">
+        <div data-reveal>
+            <h4 style="color:var(--pink);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Your Brand Growth Starts Here</h4>
+            <h2 style="font-size:4.8rem;margin-bottom:16px;">Let's Grow Your Brand <span class="ss">on Social Media.</span></h2>
+            <p style="font-size:1.28rem;max-width:620px;margin:0 auto 48px;">Get Your Free Social Media Audit. Our experts will review your current social presence and deliver a custom growth strategy — completely free, within 24 hours.</p>
+            <form id="smmForm" style="display:grid;gap:16px;max-width:620px;margin:0 auto;text-align:left;" onsubmit="handleSMM(event)">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="tel" placeholder="Phone Number">
+                </div>
+                <input type="email" placeholder="Business Email" required>
+                <input type="url" placeholder="Your Website or Social Profile URL">
+                <select>
+                    <option value="">Primary Platform Goal</option>
+                    <option>Instagram Growth & Reels</option>
+                    <option>Facebook Marketing</option>
+                    <option>LinkedIn B2B Lead Gen</option>
+                    <option>YouTube Channel Growth</option>
+                    <option>Meta Paid Advertising</option>
+                    <option>Influencer Marketing</option>
+                    <option>Full Social Media Management</option>
+                </select>
+                <select>
+                    <option value="">Monthly Budget Range</option>
+                    <option>Under ₹25,000</option>
+                    <option>₹25,000 – ₹75,000</option>
+                    <option>₹75,000 – ₹2,00,000</option>
+                    <option>₹2,00,000+</option>
+                </select>
+                <button type="submit" class="btn btn-social" style="width:100%;font-size:1.05rem;padding:22px;">GET FREE SOCIAL MEDIA AUDIT →</button>
+            </form>
+            <p id="smmSuccess" style="display:none;color:#4ade80;font-size:1.1rem;margin-top:20px;font-weight:700;">✅ Request received! Our SMM team will contact you within 2 hours.</p>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer style="padding:75px 0;border-top:1px solid rgba(255,255,255,0.05);background:#000;text-align:center;">
+    <div class="container">
+        <a href="/" style="font-size:1.9rem;font-weight:900;text-decoration:none;color:#fff;">MK<span style="color:var(--primary);">SHOPZONE</span></a>
+        <p style="opacity:0.5;margin:22px auto;max-width:480px;">Growing brands through premium social media marketing, content creation, and paid social advertising.</p>
+        <div style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:35px;opacity:0.6;font-size:0.85rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;">
+            <a href="/" style="color:#fff;text-decoration:none;">Home</a>
+            <a href="seo.html" style="color:#fff;text-decoration:none;">SEO</a>
+            <a href="paid-ads.html" style="color:#fff;text-decoration:none;">Paid Ads</a>
+            <a href="healthcare.html" style="color:#fff;text-decoration:none;">Healthcare</a>
+            <a href="education.html" style="color:#fff;text-decoration:none;">Education</a>
+            <a href="android-app.html" style="color:#fff;text-decoration:none;">Android Apps</a>
+        </div>
+        <p style="opacity:0.3;font-size:0.78rem;letter-spacing:2px;">© 2026 MK SHOPZONE. All rights reserved.</p>
+    </div>
+</footer>
+
+<script type="module" src="/src/behavior-tracker.js"></script>
+<script type="module" src="/src/personalization.js"></script>
+<script type="module" src="/src/lead-system.js"></script>
+<script type="module" src="/src/ai-chatbot.js"></script>
+<script type="module" src="/src/main.js"></script>
+<script>
+    lucide.createIcons();
+    const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');obs.unobserve(e.target);}}),{threshold:0.08});
+    document.querySelectorAll('[data-reveal]').forEach(el=>obs.observe(el));
+    const nav=document.getElementById('navbar');
+    window.addEventListener('scroll',()=>{nav.style.background=window.scrollY>60?'rgba(3,4,8,0.99)':'rgba(3,4,8,0.92)';});
+    document.querySelectorAll('.faq-btn').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.parentElement;const isA=item.classList.contains('active');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('active'));if(!isA)item.classList.add('active');});});
+    function handleSMM(e){e.preventDefault();document.getElementById('smmForm').style.display='none';document.getElementById('smmSuccess').style.display='block';}
+</script>
 </body>
 </html>
