@@ -1,281 +1,438 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ff8c00">
-    <title>Elite E-commerce Growth & D2C Scaling | MK Shopzone</title>
-    <meta name="description" content="Scale your online store with MK Shopzone's elite e-commerce marketing. High-ROI Meta ads, performance funnels, and automated D2C growth strategies.">
-    <meta name="keywords" content="ecommerce scaling, D2C marketing, Shopify growth, ROI driven ads, MK Shopzone">
+    <title>High-Converting E-commerce Solutions to Scale Your Online Business | MK Shopzone</title>
+    <meta name="description" content="End-to-End E-commerce website development, Shopify design, WooCommerce optimization, E-commerce SEO, and Meta Ads. Complete online sales scaling for modern brands.">
+    <meta name="keywords" content="e-commerce services, online store development, Shopify, WooCommerce, conversion optimization, online sales, E-commerce SEO, Cart Abandonment Recovery, Payment Gateway Setup">
+    
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff8c00'/><text x='50%' y='55%' font-family='Outfit' font-weight='bold' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'>MK</text></svg>">
     <link rel="stylesheet" href="/src/style.css">
     <link rel="stylesheet" href="/public/chatbot.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* ELITE MIDNIGHT PREMIUM - E-COMMERCE EDITION */
+        :root {
+            --white: #ffffff;
+            --text-dim: #94a3b8;
+            --primary: #ff8c00;
+            --primary-glow: rgba(255, 140, 0, 0.4);
+            --bg-ultra: #030408;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --accent-gradient: linear-gradient(135deg, #ffffff 0%, var(--primary) 100%);
+            --dark-section: #050505;
+        }
+
+        body {
+            background-color: var(--bg-ultra);
+            color: var(--white);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { color: var(--white); font-weight: 800; letter-spacing: -0.02em; }
+        p { color: var(--text-dim); }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+
+        /* Animation Classes */
+        [data-reveal] { opacity: 0; transform: translateY(40px); transition: 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        [data-reveal].active { opacity: 1; transform: translateY(0); }
+        
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        .gradient-span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-elite {
+            padding: 22px 55px;
+            background: var(--white);
+            color: #000;
+            border-radius: 100px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            transition: 0.4s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .btn-elite:hover {
+            transform: scale(1.05);
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .hero-ecom {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 160px 0 100px;
+            background: radial-gradient(circle at 50% 50%, rgba(255,140,0,0.1) 0%, var(--bg-ultra) 70%);
+        }
+
+        .section-luxe { padding: 140px 0; position: relative; }
+        
+        .glass-card-premium {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            backdrop-filter: blur(25px);
+            border-radius: 32px;
+            padding: 50px;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card-premium:hover {
+            border-color: var(--primary);
+            transform: translateY(-12px);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        /* FAQ Styling */
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .faq-btn { width: 100%; padding: 30px 0; display: flex; justify-content: space-between; align-items: center; background: none; border: none; cursor: pointer; color: #fff; font-size: 1.3rem; font-weight: 700; text-align: left; }
+        .faq-content { max-height: 0; overflow: hidden; transition: 0.5s; color: var(--text-dim); }
+        .faq-item.active .faq-content { max-height: 500px; padding-bottom: 30px; }
+
+        /* Navigation */
+        .navbar {
+            height: 100px; display: flex; align-items: center; position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(3, 4, 8, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .nav-links { display: flex; gap: 40px; align-items: center; }
+        .nav-links a { color: var(--white); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1.5px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .img-premium {
+            border-radius: 20px; width: 100%; display: block; object-fit: cover;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6); transition: transform 0.6s;
+        }
+        .img-premium:hover { transform: scale(1.02); }
+
+        .hover-lift { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .hover-lift:hover { transform: translateY(-10px); }
+
+        @media (max-width: 1024px) { .nav-links { display: none; } }
+        @media (max-width: 768px) {
+            .hero-ecom h1 { font-size: 3.5rem !important; }
+            .section-luxe { padding: 80px 20px; }
+            .split-grid { grid-template-columns: 1fr !important; gap: 50px !important; }
+        }
+    </style>
 </head>
 <body>
 
-
+    <!-- Header -->
     <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">MK<span>SHOPZONE</span></a>
-            <nav class="nav-links" id="navLinks">
+            <a href="/" class="logo" style="font-size: 2rem; font-weight: 900; letter-spacing: -1px; text-decoration: none; color: #fff;">
+                MK<span style="color: var(--primary);">SHOPZONE</span>
+            </a>
+            <nav class="nav-links">
                 <a href="/">Home</a>
-                <div class="nav-dropdown">
-                    <a href="#services" class="dropdown-trigger">Services</a>
-                    <div class="dropdown-content">
-                        <a href="seo.html">Advanced SEO</a>
-                        <a href="paid-ads.html">Paid Ads & PPC</a>
-                        <a href="website-design.html">Elite Web Design</a>
-                        <a href="app.html">App Development</a>
-                        <a href="social-media.html">Social Media Marketing</a>
-                        <a href="email-marketing.html">Email Marketing</a>
-                        <a href="video-marketing.html">Video Production</a>
-                    </div>
-                </div>
-                <div class="nav-dropdown">
-                    <a href="#why-us" class="dropdown-trigger">Industries</a>
-                    <div class="dropdown-content">
-                        <a href="ecommerce.html">E-commerce</a>
-                        <a href="healthcare.html">Healthcare</a>
-                        <a href="real-estate.html">Real Estate</a>
-                        <a href="education.html">Education</a>
-                    </div>
-                </div>
-                <a href="about.html">About</a>
-                <a href="blog.html">Blog</a>
-                <a href="#contact">Contact</a>
+                <a href="ecommerce.html" class="active" style="color: var(--primary);">E-commerce</a>
+                <a href="seo.html">SEO</a>
+                <a href="paid-ads.html">Paid Ads</a>
+                <a href="website-design.html">Web Design</a>
+                <button class="btn-elite" style="padding: 12px 30px; font-size: 0.85rem;" onclick="document.getElementById('contact').scrollIntoView();">
+                    E-COM AUDIT
+                </button>
             </nav>
-            <div class="nav-actions">
-                <a href="#contact" class="btn btn-secondary btn-magnetic" style="padding: 10px 24px; font-size: 0.82rem;">Free Audit</a>
-            </div>
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
     </header>
 
     <main>
-        <section class="hero" id="hero">
-            <video class="hero-video" autoplay muted loop playsinline poster="/public/hero-bg.png">
-                <source src="/public/home 5.mp4" type="video/mp4">
-            </video>
-            <div class="hero-overlay"></div>
-            
-            <div class="container hero-content" data-reveal>
-                <div class="text-center">
-                    <span class="badge">E-commerce Mastery</span>
-                    <h1 style="font-size: 7rem; line-height: 0.85; margin: 0 auto 40px; max-width: 1000px;">Shall we build <br> <span class="gradient-text">your digital empire?</span></h1>
-                    <p class="lead" style="font-size: 1.6rem; max-width: 850px; margin: 0 auto 60px;">I'm MK's Growth Assistant. Our D2C specialists and I transform online stores into high-performance revenue engines. Master the art of ROI growth with India's premier collective.</p>
-                    <div class="hero-btns" style="display: flex; justify-content: center; gap: 30px;">
-                        <a href="#contact" class="btn btn-primary btn-magnetic">AUDIT MY STORE <i data-lucide="trending-up"></i></a>
-                        <a href="#details" class="btn btn-secondary btn-magnetic">OUR ROI FRAMEWORK</a>
+        <!-- 1. Hero Section -->
+        <section class="hero-ecom">
+            <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                <div data-reveal>
+                    <span style="letter-spacing: 4px; font-weight: 900; color: var(--primary); text-transform: uppercase; font-size: 1rem; margin-bottom: 20px; display: block;">End-to-End Store Growth</span>
+                    <h1 style="font-size: 5.5rem; line-height: 0.95; margin-bottom: 30px;">High-Converting <br><span class="gradient-span">E-commerce Solutions.</span></h1>
+                    <p style="font-size: 1.4rem; max-width: 600px; margin-bottom: 40px; color: #e2e8f0;">We design, build, and aggressively scale transactional online businesses. Discover how MK Shopzone builds high-ROI ecosystems for modern brands.</p>
+                    <button class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();">SCALE YOUR STORE <i data-lucide="shopping-bag"></i></button>
+                </div>
+                <div data-reveal class="stagger-2" style="position: relative;">
+                    <!-- E-commerce UI Visual -->
+                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1000&q=80" alt="E-commerce shopping cart and online purchasing interface" class="img-premium" style="height: 600px;">
+                    <div style="position: absolute; bottom: -30px; left: -40px; background: rgba(3,4,8,0.9); padding: 30px; border-radius: 20px; border: 1px solid var(--primary); backdrop-filter: blur(10px);">
+                        <h3 class="gradient-span" style="font-size: 2.5rem; margin: 0;">214%</h3>
+                        <p style="margin: 0; font-size: 0.9rem; letter-spacing: 2px;">AVG. REVENUE LIFT</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="brand-marquee">
-            <div class="marquee-content">
-                <span>5.2x Average ROAS</span>
-                <span>100Cr+ Client Revenue</span>
-                <span>90% Customer Retention</span>
-                <span>Shopify Plus Experts</span>
-                <span>D2C Scaling Specialists</span>
-                <!-- Duplicate for seamless loop -->
-                <span>5.2x Average ROAS</span>
-                <span>100Cr+ Client Revenue</span>
-                <span>90% Customer Retention</span>
-                <span>Shopify Plus Experts</span>
-                <span>D2C Scaling Specialists</span>
-            </div>
-        </div>
-
-        <section class="section" id="details">
-            <div class="container split-grid">
-                <div class="image-reveal" data-reveal>
-                    <img src="/public/seo-services-performance-marketing-chennai.jpg" alt="E-commerce ROI Engine">
-                </div>
-                <div class="content-wrap" data-reveal>
-                    <h4>Industrial strategy</h4>
-                    <h2>The ROI <span class="gradient-text">Growth Engine.</span></h2>
-                    <p>At MK Shopzone, we treat your store as a laboratory for growth. Every pixel and every ad dollar is optimized for one purpose: sustainable, scalable revenue.</p>
-                    
-                    <div style="margin-top: 40px; border-left: 2px solid var(--primary); padding-left: 30px;">
-                        <h3 style="color: #fff;">Luxe Brands Case Study</h3>
-                        <p style="margin-top: 10px;">Scale from baseline to 15X monthly recurring revenue within 6 months using our proprietary Scaling Engine.</p>
-                        <div class="counter" data-count="15" data-suffix="X" style="font-size: 3rem; font-weight: 900; color: var(--primary); margin-top: 10px;">0X</div>
+        <!-- 2. Why E-commerce & Who We Are -->
+        <section class="section-luxe" style="background: var(--dark-section);" data-reveal>
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; align-items: center;">
+                    <div data-reveal class="stagger-1">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Point of sale and online payment strategy" class="img-premium">
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- STRATEGIC FAQ SECTION -->
-        <section class="section" id="faq" style="background: var(--bg-deep);">
-            <div class="container container-max">
-                <div class="split-grid">
-                    <div data-reveal>
-                        <h4 style="color: var(--primary); text-transform: uppercase; letter-spacing: 2px;">E-COMMERCE ANSWERS</h4>
-                        <h2 style="font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; margin-bottom: 30px; font-weight: 800;">
-                            Frequently Asked <br> <span class="gradient-text">Questions</span>
-                        </h2>
-                        <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 40px; font-size: 1.1rem; max-width: 500px;">
-                            Expert insights on scaling your D2C brand through precision-engineered performance marketing.
-                        </p>
-                        <a href="#contact" class="btn btn-secondary">Audit My Store →</a>
-                    </div>
-                    <div data-reveal>
-                        <div class="faq-container">
-                            <div class="faq-card">
-                                <button class="faq-header">
-                                    <span>How do you guarantee a positive ROAS for E-commerce?</span>
-                                    <span class="faq-icon">+</span>
-                                </button>
-                                <div class="faq-body">
-                                    <p>We use advanced predictive bidding and precision audience segmentation to ensure your budget is spent on high-intent shoppers, maximizing every dollar for revenue.</p>
-                                </div>
-                            </div>
-                            <div class="faq-card">
-                                <button class="faq-header">
-                                    <span>Do you work with Shopify Plus brands?</span>
-                                    <span class="faq-icon">+</span>
-                                </button>
-                                <div class="faq-body">
-                                    <p>Yes, we are Shopify Plus specialists, optimizing checkout flows and backend architectures for massive scale.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="section" id="contact" style="background: var(--bg-deep);">
-            <div class="container contact-container">
-                <div class="split-grid">
-                    <!-- LEFT Content -->
-                    <div data-reveal>
-                        <span class="contact-badge">Direct Agency Access</span>
-                        <h2 style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 30px;">Stop Guessing. <br><span class="gradient-text">Start Growing.</span></h2>
-                        <p style="font-size: 1.25rem; line-height: 1.8; color: var(--text-muted); max-width: 550px;">Our Precision Audits reveal exactly where you're losing revenue. Get a clear roadmap to 10x organic and paid growth.</p>
+                    <div data-reveal class="stagger-2">
+                        <h4 style="color: var(--primary); margin-bottom: 15px; font-size: 1.2rem;">Modern Business Growth</h4>
+                        <h2 style="font-size: 4rem; line-height: 1.1; margin-bottom: 30px;">Why E-commerce <br>is <span class="gradient-span">Essential.</span></h2>
+                        <p style="font-size: 1.2rem; margin-bottom: 20px;">The retail landscape has permanently shifted. To monopolize your market share, an institutional-grade E-commerce presence isn't an option—it's a requirement. We are expert E-commerce Architects helping D2C, B2B, and enterprise vendors dominate the digital shelf.</p>
+                        <p style="font-size: 1.2rem; margin-bottom: 40px;">Our E-commerce Expertise spans across advanced platform deployment, frictionless UI/UX, and psychological conversion rate optimization (CRO).</p>
                         
-                        <div style="margin-top: 50px; display: grid; gap: 30px;">
-                            <div style="display: flex; gap: 20px; align-items: start;">
-                                <div style="color: var(--primary); font-size: 1.5rem; transform: translateY(-5px);">✦</div>
-                                <div>
-                                    <h4 style="color: #fff; text-transform: none; letter-spacing: 0; font-size: 1.3rem; margin-bottom: 6px;">Store IQ Audit</h4>
-                                    <p style="font-size: 1rem; margin: 0;">Comprehensive audit of your current digital visibility.</p>
-                                </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                            <div class="glass-card-premium" style="padding: 30px;">
+                                <i data-lucide="bar-chart-2" style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 15px;"></i>
+                                <h3 style="font-size: 1.5rem;">Data-Driven</h3>
+                                <p style="font-size: 0.9rem;">Decisions backed by analytics.</p>
                             </div>
-                        </div>
-
-                        <!-- Direct Contact Details -->
-                        <div style="margin-top: 50px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; flex-wrap: wrap; gap: 40px;">
-                            <div style="display: flex; gap: 15px; align-items: center;">
-                                <div style="background: rgba(255,140,0,0.1); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem;">📧</div>
-                                <div>
-                                    <h5 style="color: #fff; margin: 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Strategy Desk</h5>
-                                    <p style="margin: 0; font-size: 1rem; color: var(--text-dim);">mkshopzone2@gmail.com</p>
-                                </div>
+                            <div class="glass-card-premium" style="padding: 30px;">
+                                <i data-lucide="zap" style="color: var(--primary); width: 40px; height: 40px; margin-bottom: 15px;"></i>
+                                <h3 style="font-size: 1.5rem;">Fast Execution</h3>
+                                <p style="font-size: 0.9rem;">Rapid deployment and scaling.</p>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- RIGHT Form -->
-                    <div class="contact-form-wrap" data-reveal>
-                        <div class="glass-card">
-                            <h3 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; margin-bottom: 10px; color: #fff;">Request Audit</h3>
-                            <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 40px;">Speak with an Elite Growth Strategist Today.</p>
-                            
-                            <form id="contactForm">
-                                <div class="form-group">
-                                    <input type="text" class="form-input" id="name" placeholder=" " required>
-                                    <label for="name" class="form-label">Full Name</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-input" id="email" placeholder=" " required>
-                                    <label for="email" class="form-label">Email Address</label>
-                                </div>
-                                <div class="form-group">
-                                    <select class="form-input" id="service-select" required>
-                                        <option value="" disabled selected hidden>Select Specialist Service</option>
-                                        <option value="seo">Advanced SEO Optimization</option>
-                                        <option value="web">Elite Web Development</option>
-                                        <option value="ads">Performance Paid Ads</option>
-                                        <option value="social">Social Media Authority</option>
-                                        <option value="all">Full Digital Strategy Audit</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-input" id="message" rows="3" placeholder=" " required></textarea>
-                                    <label for="message" class="form-label">Tell us about your goals...</label>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-magnetic" style="width: 100%; padding: 20px; font-weight: 900; letter-spacing: 1px;">LAUNCH SUCCESS AUDIT →</button>
-                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- 3. Our Proven Growth Strategy & End-to-End Services -->
+        <section class="section-luxe" data-reveal>
+            <div class="container" style="text-align: center;">
+                <h4 style="color: var(--primary); margin-bottom: 15px;">The MK Framework</h4>
+                <h2 style="font-size: 4.5rem; margin-bottom: 80px;">E-commerce <span class="gradient-span">Growth Strategy.</span></h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
+                    <div class="glass-card-premium hover-lift stagger-1" data-reveal>
+                        <div style="width: 50px; height: 50px; background: var(--primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.4rem; margin: 0 auto 30px;">1</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Plan</h3>
+                        <p style="font-size: 1rem;">Market research, architecture mapping, and platform selection (Shopify, WooCommerce).</p>
+                    </div>
+                    <div class="glass-card-premium hover-lift stagger-2" data-reveal>
+                        <div style="width: 50px; height: 50px; background: var(--primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.4rem; margin: 0 auto 30px;">2</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Build</h3>
+                        <p style="font-size: 1rem;">Custom website development, UI/UX optimization, and secure payment gateway integration.</p>
+                    </div>
+                    <div class="glass-card-premium hover-lift stagger-3" data-reveal>
+                        <div style="width: 50px; height: 50px; background: var(--primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.4rem; margin: 0 auto 30px;">3</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Launch</h3>
+                        <p style="font-size: 1rem;">Inventory sync, quality assurance testing, and frictionless cart deployment.</p>
+                    </div>
+                    <div class="glass-card-premium hover-lift stagger-4" data-reveal>
+                        <div style="width: 50px; height: 50px; background: var(--primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.4rem; margin: 0 auto 30px;">4</div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Scale</h3>
+                        <p style="font-size: 1rem;">Aggressive Paid Ads, SEO, and Email Marketing automation to drive continuous revenue.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Platform Expertise & UI/UX -->
+        <section class="section-luxe" style="background: #ffffff;" data-reveal>
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 80px;" data-reveal>
+                    <h2 style="font-size: 4.5rem; color: #000;">Architecture & <span class="gradient-span">UI/UX Design.</span></h2>
+                    <p style="color: #4b5563; font-size: 1.3rem; max-width: 800px; margin: 20px auto;">We specialize in Custom E-commerce Website Development with a focus on psychological conversion cues and fluid user journeys.</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+                    <!-- Platform 1 -->
+                    <div class="glass-card-premium hover-lift" style="background: var(--bg-ultra); border: none;" data-reveal class="stagger-1">
+                        <i data-lucide="shopping-cart" style="color: var(--primary); width: 50px; height: 50px; margin-bottom: 25px;"></i>
+                        <h3 style="font-size: 2rem; margin-bottom: 20px;">Shopify & Woo</h3>
+                        <p>Specialized Platform Expertise across Shopify, WooCommerce, and Custom Enterprise Solutions.</p>
+                    </div>
+                    <!-- CRO 2 -->
+                    <div class="glass-card-premium hover-lift" style="background: var(--bg-ultra); border: none;" data-reveal class="stagger-2">
+                        <i data-lucide="mouse-pointer-click" style="color: var(--primary); width: 50px; height: 50px; margin-bottom: 25px;"></i>
+                        <h3 style="font-size: 2rem; margin-bottom: 20px;">Product Page CRO</h3>
+                        <p>Advanced Conversion Rate Optimization on product detail pages to maximize "Add to Cart" velocity.</p>
+                    </div>
+                    <!-- Payments 3 -->
+                    <div class="glass-card-premium hover-lift" style="background: var(--bg-ultra); border: none;" data-reveal class="stagger-3">
+                        <i data-lucide="credit-card" style="color: var(--primary); width: 50px; height: 50px; margin-bottom: 25px;"></i>
+                        <h3 style="font-size: 2rem; margin-bottom: 20px;">Checkout Optimization</h3>
+                        <p>Flawless Payment Gateway Integration and one-page checkout optimization to prevent drop-offs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Marketing, SEO, and Ads -->
+        <section class="section-luxe" style="background: var(--dark-section);" data-reveal>
+            <div class="container">
+                <div class="split-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+                    <div data-reveal>
+                        <h4 style="color: var(--primary); margin-bottom: 15px;">Traffic & Remarketing</h4>
+                        <h2 style="font-size: 4rem; margin-bottom: 30px;">Traffic & <span class="gradient-span">Acquisition.</span></h2>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 30px;">
+                                <h3 style="color: #fff; font-size: 1.6rem; margin-bottom: 10px;"><i data-lucide="search" style="color: var(--primary); display: inline-block; vertical-align: middle; margin-right: 10px;"></i> E-commerce SEO</h3>
+                                <p>Deep technical structures and content strategies for dominating organic search categories.</p>
+                            </li>
+                            <li style="margin-bottom: 30px;">
+                                <h3 style="color: #fff; font-size: 1.6rem; margin-bottom: 10px;"><i data-lucide="trending-up" style="color: var(--primary); display: inline-block; vertical-align: middle; margin-right: 10px;"></i> Paid Ads Mastery</h3>
+                                <p>High-ROI Google Shopping and Meta Advantage+ campaigns engineered for immediate liquid acquisition.</p>
+                            </li>
+                            <li style="margin-bottom: 30px;">
+                                <h3 style="color: #fff; font-size: 1.6rem; margin-bottom: 10px;"><i data-lucide="mail" style="color: var(--primary); display: inline-block; vertical-align: middle; margin-right: 10px;"></i> Email & Cart Recovery</h3>
+                                <p>Automated flows, targeted campaigns, and sophisticated Cart Abandonment Recovery strategies.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-reveal class="stagger-2">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Sales growth charts and revenue analytics" class="img-premium">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Management & Trust -->
+        <section class="section-luxe" data-reveal>
+            <div class="container" style="text-align: center;">
+                <h4 style="color: var(--primary);">Operational Scale</h4>
+                <h2 style="font-size: 4rem; margin-bottom: 60px;">Inventory & <span class="gradient-span">Tracking.</span></h2>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px;">
+                    <div class="glass-card-premium text-left" data-reveal>
+                        <h3 style="font-size: 2rem; margin-bottom: 20px;">Inventory & Order Management</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 30px;">Complete ERP integration and automated warehouse syncing to ensure you never oversell and orders are perfectly managed.</p>
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8ed7c66364?auto=format&fit=crop&w=800&q=80" alt="Order fulfillment process" class="img-premium" style="height: 250px;">
+                    </div>
+                    <div class="glass-card-premium text-left" data-reveal class="stagger-2">
+                        <h3 style="font-size: 2rem; margin-bottom: 20px;">Performance Analytics</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 30px;">We implement GA4, Facebook CAPI, and custom Looker Studio dashboards for granular ROI Measurement and Ongoing Store Optimization.</p>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Dashboard data analytics" class="img-premium" style="height: 250px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Why Choose Us / Industries / Tools -->
+        <section class="section-luxe" style="background: rgba(255, 140, 0, 0.03); border-top: 1px solid rgba(255,140,0,0.1);" data-reveal>
+            <div class="container text-center">
+                <h2 style="font-size: 4rem; margin-bottom: 60px;">Why Choose Our <span class="gradient-span">E-commerce Agency.</span></h2>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 100px;">
+                    <div>
+                        <h3 style="font-size: 2rem; color: var(--primary);">12+ Years</h3>
+                        <p>Deep expertise building successful stores.</p>
+                    </div>
+                    <div style="border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1);">
+                        <h3 style="font-size: 2rem; color: var(--primary);">250+ Brands</h3>
+                        <p>E-commerce Success Stories & Case Studies.</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2rem; color: var(--primary);">Data First</h3>
+                        <p>Relentless focus on measurable ROI.</p>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 2.5rem; margin-bottom: 30px;">Tools & Technologies We Use</h3>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+                    <span class="hover-lift" style="border: 2px solid #222; padding: 15px 40px; border-radius: 100px; font-weight: 700;">Shopify Plus</span>
+                    <span class="hover-lift" style="border: 2px solid #222; padding: 15px 40px; border-radius: 100px; font-weight: 700;">WooCommerce</span>
+                    <span class="hover-lift" style="border: 2px solid #222; padding: 15px 40px; border-radius: 100px; font-weight: 700;">Stripe / PayPal</span>
+                    <span class="hover-lift" style="border: 2px solid #222; padding: 15px 40px; border-radius: 100px; font-weight: 700;">Klaviyo</span>
+                    <span class="hover-lift" style="border: 2px solid #222; padding: 15px 40px; border-radius: 100px; font-weight: 700;">GA4 & Looker</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. FAQs -->
+        <section class="section-luxe" data-reveal>
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 50px;">
+                    <h2 style="font-size: 4rem;">Frequently Asked <span class="gradient-span">Questions.</span></h2>
+                </div>
+                <div class="faq-wrapper" style="max-width: 900px; margin: 0 auto;">
+                    <div class="faq-item">
+                        <button class="faq-btn"><span>Which platform is best: Shopify or WooCommerce?</span> <i data-lucide="plus"></i></button>
+                        <div class="faq-content"><p>It depends on your business model. Shopify offers incredible speed and dedicated E-commerce hosting, perfect for rapidly scaling D2C brands. WooCommerce provides ultimate flexibility and ownership for content-heavy or highly customized setups.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-btn"><span>Do you handle migrations from old platforms?</span> <i data-lucide="plus"></i></button>
+                        <div class="faq-content"><p>Yes, we execute seamless zero-downtime migrations, preserving your E-commerce SEO rankings and securely transferring all customer and order history data.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-btn"><span>How fast can you launch a new store?</span> <i data-lucide="plus"></i></button>
+                        <div class="faq-content"><p>Standard builds typically take 4-6 weeks from initial architecture to final testing, though highly custom enterprise solutions may take longer to ensure absolute perfection.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. CTA & Contact -->
+        <section class="section-luxe" id="contact" style="background: url('https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=1500&q=80') center/cover; position: relative;">
+            <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(3,4,8,0.9);"></div>
+            <div class="container" style="position: relative; z-index: 2; text-align: center;">
+                <h2 style="font-size: 5rem; margin-bottom: 20px;">Let's Build & Scale Your <br><span class="gradient-span">Online Store.</span></h2>
+                <p style="font-size: 1.5rem; max-width: 700px; margin: 0 auto 50px;">Get Your Free E-commerce Strategy Session. Contact Our E-commerce Experts today and discover your store's true revenue potential.</p>
+                
+                <form id="contactForm" style="display: grid; gap: 20px; max-width: 600px; margin: 0 auto; text-align: left;">
+                    <input type="text" placeholder="Full Name" required style="padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.5); color: #fff;">
+                    <input type="email" placeholder="Business Email" required style="padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.5); color: #fff;">
+                    <input type="url" placeholder="Current Store URL (Optional)" style="padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.5); color: #fff;">
+                    <button type="submit" class="btn-elite" style="width: 100%; font-size: 1.1rem; padding: 24px;">CLAIM STRATEGY SESSION →</button>
+                </form>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer style="padding: 100px 0; border-top: 1px solid rgba(255,255,255,0.05); background: #000; text-align: center;">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="/" class="logo" style="font-size: 1.5rem;">MK<span>SHOPZONE</span></a>
-                    <p style="margin-top: 20px; font-size: 0.9rem;">Building digital legacies for ambitious brands through data-driven performance and elite creative execution.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Solutions</h4>
-                    <ul>
-                        <li><a href="seo.html">Advanced SEO</a></li>
-                        <li><a href="paid-ads.html">Paid Advertisements</a></li>
-                        <li><a href="website-design.html">Web Development</a></li>
-                        <li><a href="social-media.html">Social Content</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>About</h4>
-                    <ul>
-                        <li><a href="/#why-us">Our Story</a></li>
-                        <li><a href="/#process">Our Process</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Twitter/X</a></li>
-                        <li><a href="#">YouTube</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="text-center" style="padding-top: 40px; border-top: 1px solid var(--border-light);">
-                <p style="font-size: 0.8rem; letter-spacing: 1px;">&copy; 2026 MK SHOPZONE. Precision Engineered Growth.</p>
-            </div>
+            <a href="/" class="logo" style="font-size: 2rem; font-weight: 900; text-decoration: none; color: #fff;">MK<span style="color: var(--primary);">SHOPZONE</span></a>
+            <p style="opacity: 0.5; margin: 30px auto; max-width: 500px;">Scaling high-intent digital transactions via institutional e-commerce engineering.</p>
+            <p style="opacity: 0.3; font-size: 0.8rem; letter-spacing: 2px;">&copy; 2026 MK SHOPZONE.</p>
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/917200059453" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-    </a>
-
-    <!-- AI Automation Scripts -->
+    <!-- Scripts -->
     <script type="module" src="/src/behavior-tracker.js"></script>
     <script type="module" src="/src/personalization.js"></script>
     <script type="module" src="/src/lead-system.js"></script>
-    <script type="module" src="/src/ai-chatbot.js"></script>
-
-    <!-- Scripts -->
+    <script type="module" src="/src/ai-chatbot.js"></script>    
     <script type="module" src="/src/main.js"></script>
+    
     <script>
-        // Lucide implementation handled in main.js or here
-        if (typeof lucide !== 'undefined') lucide.createIcons();
+        lucide.createIcons();
+
+        // Reveal animations
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+        // FAQ logic
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>
