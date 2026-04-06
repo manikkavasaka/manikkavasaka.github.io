@@ -25,7 +25,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
-        /* ELITE MIDNIGHT PREMIUM v35.0 - WEB ARCHITECTURE & ALIGNMENT */
+        /* ELITE MIDNIGHT PREMIUM v36.0 - WEB ARCHITECTURE & ALIGNMENT */
         :root {
             --white: #ffffff;
             --off-white: #f8fafc;
@@ -57,6 +57,9 @@
         /* Multi-Stage Reveal */
         [data-reveal] { opacity: 0; transform: translateY(40px); transition: 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
         [data-reveal].active { opacity: 1; transform: translateY(0); }
+
+        [data-reveal="zoom"] { opacity: 0; transform: scale(0.95); transition: 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        [data-reveal="zoom"].active { opacity: 1; transform: scale(1); }
 
         .stagger-1 { transition-delay: 0.1s; }
         .stagger-2 { transition-delay: 0.2s; }
@@ -230,13 +233,14 @@
         }
 
         /* Specific Section Spacing */
-        .section-luxe { padding: 140px 0; }
+        .section-luxe { padding: 140px 0; position: relative; }
         .text-center { text-align: center; }
         .flex-center { display: flex; justify-content: center; align-items: center; }
         .grid-align { display: grid; align-items: center; }
 
         /* Process Steps */
-        .process-step { position: relative; padding: 40px; background: #080808; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); text-align: left; }
+        .process-step { position: relative; padding: 40px; background: #080808; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); text-align: left; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .process-step:hover { transform: translateY(-10px); border-color: var(--primary); }
         .process-num { position: absolute; top: -25px; left: 40px; width: 50px; height: 50px; background: var(--primary); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; box-shadow: 0 10px 20px var(--primary-glow); }
 
         /* Platform Expertise Grid */
@@ -249,10 +253,56 @@
 
         /* FAQ Alignment */
         .faq-wrapper { max-width: 1000px; margin: 0 auto; }
-        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .faq-item:hover { background: rgba(255,255,255,0.02); border-color: var(--primary); }
         .faq-btn { width: 100%; padding: 35px 0; display: flex; justify-content: space-between; align-items: center; background: none; border: none; cursor: pointer; color: #fff; font-size: 1.4rem; font-weight: 800; text-align: left; }
         .faq-content { max-height: 0; overflow: hidden; transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1); color: var(--text-dim); }
         .faq-item.active .faq-content { max-height: 300px; padding-bottom: 35px; }
+
+        /* Custom Visual Styles */
+        .img-premium {
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 60px 150px rgba(0,0,0,0.7);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 100%;
+            display: block;
+        }
+        .img-premium:hover { transform: scale(1.03); }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+
+        .speed-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            margin-top: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .speed-bar-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: var(--primary);
+            width: 0;
+            transition: width 1.5s ease-out;
+        }
+        .speed-bar-container.active .speed-bar-inner { width: 98%; } /* Adjusted selector */
+
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 140, 0, 0.1);
+        }
 
         @media (max-width: 1024px) {
             .nav-links { display: none; }
@@ -319,6 +369,35 @@
             </div>
         </section>
 
+        <!-- UI/UX SHOWCASE SECTION -->
+        <section class="section-luxe" style="padding-bottom: 0;">
+            <div class="container">
+                <div class="text-center" data-reveal="zoom">
+                    <h4 style="color: var(--primary) !important;">The Visual Standard</h4>
+                    <h2 style="font-size: 4rem; margin-bottom: 60px;">Immersive <span class="gradient-span">UI/UX Design Mockups.</span></h2>
+                    <div style="position: relative; max-width: 1100px; margin: 0 auto;">
+                        <img src="/public/web-ui-ux-design-mockups.jpg" alt="Premium UI/UX design mockups showing desktop, tablet, and mobile views" class="img-premium">
+                        <div style="position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%); width: 80%; background: var(--bg-ultra); border: 1px solid var(--border-glass); padding: 30px; border-radius: 24px; backdrop-filter: blur(20px);" class="animate-float">
+                            <div style="display: flex; justify-content: space-around; gap: 20px;">
+                                <div class="text-center">
+                                    <h3 style="font-size: 1.5rem; margin: 0;">Desktop</h3>
+                                    <p style="font-size: 0.8rem; margin: 0;">Full Experience</p>
+                                </div>
+                                <div class="text-center">
+                                    <h3 style="font-size: 1.5rem; margin: 0;">Tablet</h3>
+                                    <p style="font-size: 0.8rem; margin: 0;">Adaptive Flow</p>
+                                </div>
+                                <div class="text-center">
+                                    <h3 style="font-size: 1.5rem; margin: 0;">Mobile</h3>
+                                    <p style="font-size: 0.8rem; margin: 0;">Instant Interaction</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 2. WHY YOUR BUSINESS NEEDS A HIGH-PERFORMANCE WEBSITE -->
         <section class="section-luxe" data-reveal>
             <div class="container">
@@ -329,19 +408,110 @@
                         <p style="font-size: 1.35rem; margin-top: 40px; font-weight: 500;">Your website is no longer just a digital business card—it is your most powerful sales engine. A high-performance website builds immediate trust, captures high-intent leads, and serves as the foundation for all your marketing efforts.</p>
                         <p style="margin-top: 25px;">By focusing on sub-second load times and intuitive user journeys, we ensure your firm projects an institutional-grade image that crushes the competition and drives transactional action.</p>
                         <div style="margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-                            <div class="glass-card-premium" style="padding: 40px; text-align: center;">
+                            <div class="glass-card-premium hover-lift" style="padding: 40px; text-align: center;">
                                 <h3 style="font-size: 2rem;" class="gradient-span">0.8s</h3>
                                 <p style="font-size: 1rem; color: #fff;">Average Load Time for our custom architectures.</p>
                             </div>
-                            <div class="glass-card-premium" style="padding: 40px; text-align: center;">
+                            <div class="glass-card-premium hover-lift" style="padding: 40px; text-align: center;">
                                 <h3 style="font-size: 2rem;" class="gradient-span">312%</h3>
                                 <p style="font-size: 1rem; color: #fff;">Average increase in user engagement post-redesign.</p>
                             </div>
                         </div>
                     </div>
                     <div data-reveal class="stagger-2">
-                        <div style="position: relative; border-radius: 40px; overflow: hidden; box-shadow: 0 60px 150px rgba(0,0,0,0.7);">
+                        <div class="img-premium">
                             <img src="/public/web 2.jpg" alt="High-Performance Website Preview" style="width: 100%; display: block; filter: contrast(1.1);">
+                        </div>
+                        <div class="speed-bar-container" style="margin-top: 40px; padding: 40px; background: rgba(255,255,255,0.03); border-radius: 32px;" data-reveal>
+                            <h4 style="margin-bottom: 20px;">Clinical Performance Audit</h4>
+                            <div style="margin-bottom: 20px;">
+                                <div style="display: flex; justify-content: space-between; font-weight: 800;"><span>Google Core Web Vitals</span><span>99/100</span></div>
+                                <div class="speed-bar"><div class="speed-bar-inner"></div></div>
+                            </div>
+                            <div>
+                                <div style="display: flex; justify-content: space-between; font-weight: 800;"><span>SEO Optimization Score</span><span>100/100</span></div>
+                                <div class="speed-bar"><div class="speed-bar-inner"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DESIGN WORKFLOW VIDEO SECTION -->
+        <section class="section-luxe" style="background: #000; overflow: hidden;">
+            <div class="container">
+                <div class="split-grid grid-align" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px;">
+                    <div data-reveal="zoom">
+                        <video autoplay muted loop playsinline style="width: 100%; border-radius: 40px; box-shadow: 0 40px 100px rgba(0,0,0,0.8);">
+                            <source src="/public/home 3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div data-reveal>
+                        <h4 style="color: var(--primary) !important;">Behind the Craft</h4>
+                        <h2 style="font-size: 4rem;">The Engineering <br><span class="gradient-span">Workflow.</span></h2>
+                        <p style="margin-top: 30px; font-size: 1.2rem;">We combine human creativity with technical rigor. Every pixel is intentional, every line of code is optimized for the global stage.</p>
+                        <div style="margin-top: 50px; display: grid; gap: 30px;">
+                            <div class="hover-lift" style="display: flex; gap: 20px; align-items: flex-start;">
+                                <div style="width: 45px; height: 45px; background: rgba(255,140,0,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i data-lucide="figma" style="color: var(--primary); width: 22px;"></i></div>
+                                <div><h4 style="font-size: 1.1rem; margin-bottom: 5px;">High-Fidelity Prototyping</h4><p style="font-size: 0.9rem;">Interactive Figma prototypes that let you feel the user journey before we write a single line of code.</p></div>
+                            </div>
+                            <div class="hover-lift" style="display: flex; gap: 20px; align-items: flex-start;">
+                                <div style="width: 45px; height: 45px; background: rgba(255,140,0,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i data-lucide="layers" style="color: var(--primary); width: 22px;"></i></div>
+                                <div><h4 style="font-size: 1.1rem; margin-bottom: 5px;">Modular Architecture</h4><p style="font-size: 0.9rem;">Building with reusable, high-performance components that ensure scalability and effortless maintenance.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ENHANCED: NEW DEVELOPER / UI DESIGN WORKFLOW VIDEO SECTION -->
+        <section class="section-luxe" style="position: relative; overflow: hidden; padding: 250px 0; display: flex; align-items: center; justify-content: center;" data-reveal>
+            <!-- Background Video with premium workstation poster -->
+            <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80" style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); z-index: 0; filter: grayscale(0.2) brightness(0.25); object-fit: cover;">
+                <source src="/public/ui-design-workflow.mp4" type="video/mp4">
+            </video>
+            <div class="container" style="position: relative; z-index: 2; text-align: center;">
+                <h4 style="color: var(--primary) !important; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px;" data-reveal="zoom">Pixel-Perfect Engineering</h4>
+                <h2 style="font-size: 5rem; margin-bottom: 40px;" data-reveal>Live <span class="gradient-span">UI/UX Workflow.</span></h2>
+                <p style="font-size: 1.5rem; max-width: 800px; margin: 0 auto; color: #fff; font-weight: 500;" data-reveal>Watch as we translate raw wireframes into visceral, high-conversion digital experiences. Every line of code is meticulously crafted for absolute performance.</p>
+            </div>
+        </section>
+
+        <!-- ENHANCED: BEFORE VS AFTER VISUALS & MOCKUPS -->
+        <section class="section-luxe" style="background: #ffffff; color: #000;" data-reveal>
+            <div class="container">
+                <div class="text-center" data-reveal style="margin-bottom: 80px;">
+                    <h4 style="color: var(--primary) !important; margin-bottom: 20px;">The Transformation</h4>
+                    <h2 style="font-size: 4.5rem; color: #000 !important; line-height: 1;">Before vs After <br><span class="gradient-span">Redesign Architecture.</span></h2>
+                    <p style="color: #4b5563 !important; font-size: 1.3rem; max-width: 800px; margin: 30px auto;">We don't just "refresh" websites. We completely re-engineer the visual hierarchy and psychological flow to multiply your conversion rates.</p>
+                </div>
+                
+                <div class="split-grid grid-align" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px;">
+                    <!-- The "Before" - a wireframe/messy layout concept -->
+                    <div class="glass-card-premium hover-lift" style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 40px;" data-reveal class="stagger-1">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                            <h3 style="color: #000 !important; font-size: 2rem; margin: 0;">The "Before"</h3>
+                            <span style="background: #ef4444; color: #fff; padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.8rem;">32% Bounce Rate</span>
+                        </div>
+                        <p style="color: #4b5563 !important; margin-bottom: 30px;">Cluttered navigation, lacking psychological cues, and generic styling that fails to build trust.</p>
+                        <div class="img-premium" style="box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                            <!-- Wireframe/Blueprint concept image -->
+                            <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?auto=format&fit=crop&w=800&q=80" alt="UI wireframe planning on paper" style="width: 100%; display: block;">
+                        </div>
+                    </div>
+
+                    <!-- The "After" - modern clean UI -->
+                    <div class="glass-card-premium hover-lift" style="background: var(--bg-ultra); border: 2px solid var(--primary); padding: 50px; transform: scale(1.05);" data-reveal class="stagger-2">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                            <h3 style="color: #fff !important; font-size: 2.2rem; margin: 0;" class="gradient-span">The MK Evolution</h3>
+                            <span style="background: #22c55e; color: #fff; padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.8rem;">3.2x Conversion Lift</span>
+                        </div>
+                        <p style="color: var(--text-dim) !important; margin-bottom: 30px; font-size: 1.1rem;">Surgical UI/UX integration, flawless responsive frameworks, and glassmorphic elements engineered to command absolute authority.</p>
+                        <div class="img-premium" style="box-shadow: 0 40px 80px rgba(0,0,0,0.5);">
+                            <!-- Clean modern UI designer workspace image -->
+                            <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=800&q=80" alt="Premium modern UI UX Design on screen" style="width: 100%; display: block;">
                         </div>
                     </div>
                 </div>
@@ -356,22 +526,22 @@
                     <h2 style="font-size: 5rem;">Our Design <span class="gradient-span">Expertise.</span></h2>
                 </div>
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-top: 100px;">
-                    <div class="glass-card-premium" data-reveal class="stagger-1">
+                    <div class="glass-card-premium hover-lift" data-reveal class="stagger-1">
                         <i data-lucide="layout" style="color: var(--primary); width: 40px; height: 40px; margin: 0 auto 20px;"></i>
                         <h3 class="gradient-span" style="font-size: 2.2rem;">UI/UX</h3>
                         <p style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem;">User-Centric Design</p>
                     </div>
-                    <div class="glass-card-premium" data-reveal class="stagger-2">
+                    <div class="glass-card-premium hover-lift" data-reveal class="stagger-2">
                         <i data-lucide="code" style="color: var(--primary); width: 40px; height: 40px; margin: 0 auto 20px;"></i>
                         <h3 class="gradient-span" style="font-size: 2.2rem;">CLEAN</h3>
                         <p style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem;">Optimized Codebase</p>
                     </div>
-                    <div class="glass-card-premium" data-reveal class="stagger-3">
+                    <div class="glass-card-premium hover-lift" data-reveal class="stagger-3">
                         <i data-lucide="phone" style="color: var(--primary); width: 40px; height: 40px; margin: 0 auto 20px;"></i>
                         <h3 class="gradient-span" style="font-size: 2.2rem;">RESPONSIVE</h3>
                         <p style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem;">Mobile-First Flow</p>
                     </div>
-                    <div class="glass-card-premium" data-reveal class="stagger-4">
+                    <div class="glass-card-premium hover-lift" data-reveal class="stagger-4">
                         <i data-lucide="zap" style="color: var(--primary); width: 40px; height: 40px; margin: 0 auto 20px;"></i>
                         <h3 class="gradient-span" style="font-size: 2.2rem;">SPEED</h3>
                         <p style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem;">Performance Engine</p>
@@ -388,7 +558,7 @@
                     <p style="color: #4b5563 !important; font-size: 1.4rem; max-width: 850px; margin: 30px auto;">End-to-end design and development solutions for businesses ready to dominate their digital vertical.</p>
                 </div>
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px;">
-                    <div class="platform-box" data-reveal class="stagger-1">
+                    <div class="platform-box hover-lift" data-reveal class="stagger-1">
                         <i data-lucide="building" style="color: var(--primary); width: 50px; height: 50px;"></i>
                         <h3>Business Elite</h3>
                         <p>Institutional-grade websites for corporate firms, high-growth startups, and established service businesses.</p>
@@ -398,7 +568,7 @@
                             <li><i data-lucide="check" style="color: var(--primary);"></i> CMS Management</li>
                         </ul>
                     </div>
-                    <div class="platform-box" style="background: #f8fafc;" data-reveal class="stagger-2">
+                    <div class="platform-box hover-lift" style="background: #f8fafc;" data-reveal class="stagger-2">
                         <i data-lucide="shopping-bag" style="color: var(--primary); width: 50px; height: 50px;"></i>
                         <h3>E-commerce Pro</h3>
                         <p>High-conversion storefronts built on Shopify or Custom Architectures designed to maximize inventory velocity.</p>
@@ -408,7 +578,7 @@
                             <li><i data-lucide="check" style="color: var(--primary);"></i> Fast Checkout Flow</li>
                         </ul>
                     </div>
-                    <div class="platform-box" data-reveal class="stagger-3">
+                    <div class="platform-box hover-lift" data-reveal class="stagger-3">
                         <i data-lucide="monitor" style="color: var(--primary); width: 50px; height: 50px;"></i>
                         <h3>Authority Portfolios</h3>
                         <p>Cinematic portfolio sites for architects, designers, and luxury brands that need to project absolute excellence.</p>
@@ -430,27 +600,27 @@
                     <h2 style="font-size: 5rem; line-height: 1;">Our Design <span class="gradient-span">Roadmap.</span></h2>
                 </div>
                 <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px;">
-                    <div class="process-step" data-reveal class="stagger-1">
+                    <div class="process-step hover-lift" data-reveal class="stagger-1">
                         <div class="process-num">01</div>
                         <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Research</h3>
                         <p>Auditing competitor landscapes and mapping user psychology.</p>
                     </div>
-                    <div class="process-step" data-reveal class="stagger-2">
+                    <div class="process-step hover-lift" data-reveal class="stagger-2">
                         <div class="process-num">02</div>
                         <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Wireframe</h3>
                         <p>Architecting the logical flow and information hierarchy.</p>
                     </div>
-                    <div class="process-step" data-reveal class="stagger-3">
+                    <div class="process-step hover-lift" data-reveal class="stagger-3">
                         <div class="process-num">03</div>
                         <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Design</h3>
                         <p>Injecting brand soul through high-fidelity visual composition.</p>
                     </div>
-                    <div class="process-step" data-reveal class="stagger-4">
+                    <div class="process-step hover-lift" data-reveal class="stagger-4">
                         <div class="process-num">04</div>
                         <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Develop</h3>
                         <p>Building sub-second, clean-code responsive infrastructures.</p>
                     </div>
-                    <div class="process-step" data-reveal class="stagger-4">
+                    <div class="process-step hover-lift" data-reveal class="stagger-4">
                         <div class="process-num">05</div>
                         <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Launch</h3>
                         <p>Rigorous Q/A testing followed by a seamless global deployment.</p>
@@ -464,8 +634,11 @@
             <div class="container">
                 <div class="split-grid grid-align" style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 120px;">
                     <div data-reveal>
-                        <div style="border-radius: 32px; overflow: hidden; box-shadow: 0 50px 100px rgba(0,0,0,0.8);">
+                        <div class="img-premium">
                             <img src="/public/team-strategy.jpg" alt="Design Strategy Meeting" style="width: 100%; display: block;">
+                        </div>
+                        <div style="margin-top: 40px;" class="animate-float">
+                            <img src="/public/web-responsive-preview.jpg" alt="Responsive design preview showing mobile and desktop screens" class="img-premium">
                         </div>
                     </div>
                     <div data-reveal class="stagger-2">
@@ -473,9 +646,9 @@
                         <h2 style="font-size: 4rem; line-height: 1.1;">UI/UX Design That <br><span class="gradient-span">Drives Conversions.</span></h2>
                         <p style="font-size: 1.3rem; margin-top: 40px;">Beautiful design is useless if it doesn't sell. Our UI/UX philosophy is rooted in direct-response principles—guiding every visitor toward the "Lead" or "Buy" button through subtle psychological cues and logical layouts.</p>
                         <ul style="list-style: none; padding: 0; margin-top: 50px; display: grid; gap: 25px;">
-                            <li style="display: flex; gap: 20px; align-items: center;"><i data-lucide="smartphone" style="color: var(--primary);"></i> <span style="font-weight: 700; font-size: 1.2rem;">Mobile-First Fluidity</span></li>
-                            <li style="display: flex; gap: 20px; align-items: center;"><i data-lucide="search" style="color: var(--primary);"></i> <span style="font-weight: 700; font-size: 1.2rem;">SEO-Integrated Hierarchy</span></li>
-                            <li style="display: flex; gap: 20px; align-items: center;"><i data-lucide="shield-check" style="color: var(--primary);"></i> <span style="font-weight: 700; font-size: 1.2rem;">Secure, Fast-Loading Engine</span></li>
+                            <li class="hover-lift" style="display: flex; gap: 20px; align-items: center;"><i data-lucide="smartphone" style="color: var(--primary);"></i> <span style="font-weight: 700; font-size: 1.2rem;">Mobile-First Fluidity</span></li>
+                            <li class="hover-lift" style="display: flex; gap: 20px; align-items: center;"><i data-lucide="search" style="color: var(--primary);"></i> <span style="font-weight: 700; font-size: 1.2rem;">SEO-Integrated Hierarchy</span></li>
+                            <li class="hover-lift" style="display: flex; gap: 20px; align-items: center;"><i data-lucide="shield-check" style="color: var(--primary);"></i> <span style="font-weight: 700; font-size: 1.2rem;">Secure, Fast-Loading Engine</span></li>
                         </ul>
                     </div>
                 </div>
@@ -491,18 +664,18 @@
                         <h2 style="font-size: 4.5rem; color: #000 !important; line-height: 1;">CMS & Platform <br><span class="gradient-span">Mastery.</span></h2>
                         <p style="color: #4b5563 !important; font-size: 1.4rem; margin-top: 40px; font-weight: 500;">Whether you need the power of Shopify, the flexibility of WordPress, or the absolute performance of a Custom Headless Build—we engineer the right solution for your scale.</p>
                         <div style="margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-                            <div class="platform-box" style="padding: 40px; background: #f8fafc;">
+                            <div class="platform-box hover-lift" style="padding: 40px; background: #f8fafc; transition: 0.4s;">
                                 <h3 style="color: #000 !important;">Shopify Elite</h3>
                                 <p>For high-velocity D2C brands that need aggressive scaling.</p>
                             </div>
-                            <div class="platform-box" style="padding: 40px; background: #f8fafc;">
+                            <div class="platform-box hover-lift" style="padding: 40px; background: #f8fafc; transition: 0.4s;">
                                 <h3 style="color: #000 !important;">WordPress Lux</h3>
                                 <p>Premium content architectures for institutional authority.</p>
                             </div>
                         </div>
                     </div>
                     <div data-reveal class="stagger-2">
-                        <div style="border-radius: 32px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.15);">
+                        <div class="img-premium">
                             <img src="/public/seo-analytics.png" alt="Platform Dashboard Preview" style="width: 100%; display: block;">
                         </div>
                     </div>
@@ -513,7 +686,7 @@
         <!-- 15-16. WHY CHOOSE & PORTFOLIO -->
         <section class="section-luxe" data-reveal>
             <div class="container">
-                <div class="glass-card-premium" style="padding: 120px 80px; border: 2px solid var(--primary); background: rgba(255, 140, 0, 0.05);" data-reveal>
+                <div class="glass-card-premium hover-lift" style="padding: 120px 80px; border: 2px solid var(--primary); background: rgba(255, 140, 0, 0.05);" data-reveal>
                     <div class="split-grid grid-align" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px;">
                         <div data-reveal>
                             <h4 style="color: var(--primary) !important; margin-bottom: 20px;">The Showcase</h4>
@@ -522,7 +695,7 @@
                             <button class="btn-elite" style="margin-top: 60px;">BROWSE PROJECTS <i data-lucide="eye"></i></button>
                         </div>
                         <div data-reveal class="stagger-2">
-                            <div style="border-radius: 24px; overflow: hidden;">
+                            <div class="img-premium">
                                 <img src="/public/seo-performance-marketing-expert-chennai.png" alt="Project Showcase Visual" style="width: 100%; display: block; filter: saturate(1.2) brightness(1.1);">
                             </div>
                         </div>
@@ -538,19 +711,19 @@
                     <h2 style="font-size: 5rem; color: #000 !important;">Industries <span class="gradient-span">We Serve.</span></h2>
                 </div>
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
-                    <div class="platform-box" style="padding: 50px; text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.05);" data-reveal class="stagger-1">
+                    <div class="platform-box hover-lift" style="padding: 50px; text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.05); transition: 0.4s;" data-reveal class="stagger-1">
                         <i data-lucide="home" style="color: var(--primary); margin: 0 auto 20px;"></i>
                         <h4 style="color: #111 !important; font-size: 1.4rem; margin: 0;">Real Estate</h4>
                     </div>
-                    <div class="platform-box" style="padding: 50px; text-align: center; background: #f8fafc; box-shadow: 0 40px 80px rgba(0,0,0,0.05);" data-reveal class="stagger-2">
+                    <div class="platform-box hover-lift" style="padding: 50px; text-align: center; background: #f8fafc; box-shadow: 0 40px 80px rgba(0,0,0,0.05); transition: 0.4s;" data-reveal class="stagger-2">
                         <i data-lucide="shopping-cart" style="color: var(--primary); margin: 0 auto 20px;"></i>
                         <h4 style="color: #111 !important; font-size: 1.4rem; margin: 0;">E-commerce</h4>
                     </div>
-                    <div class="platform-box" style="padding: 50px; text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.05);" data-reveal class="stagger-3">
+                    <div class="platform-box hover-lift" style="padding: 50px; text-align: center; box-shadow: 0 40px 80px rgba(0,0,0,0.05); transition: 0.4s;" data-reveal class="stagger-3">
                         <i data-lucide="activity" style="color: var(--primary); margin: 0 auto 20px;"></i>
                         <h4 style="color: #111 !important; font-size: 1.4rem; margin: 0;">Healthcare</h4>
                     </div>
-                    <div class="platform-box" style="padding: 50px; text-align: center; background: #f8fafc; box-shadow: 0 40px 80px rgba(0,0,0,0.05);" data-reveal class="stagger-4">
+                    <div class="platform-box hover-lift" style="padding: 50px; text-align: center; background: #f8fafc; box-shadow: 0 40px 80px rgba(0,0,0,0.05); transition: 0.4s;" data-reveal class="stagger-4">
                         <i data-lucide="code-2" style="color: var(--primary); margin: 0 auto 20px;"></i>
                         <h4 style="color: #111 !important; font-size: 1.4rem; margin: 0;">SaaS & Tech</h4>
                     </div>
@@ -565,11 +738,11 @@
                     <h4 style="color: var(--primary) !important; margin-bottom: 20px;">The Stack</h4>
                     <h2 style="font-size: 5rem; margin-bottom: 80px;">Technologies & Timelines.</h2>
                     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px;" data-reveal class="stagger-2">
-                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">REACT / NEXT.JS</span>
-                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">HEADLESS CMS</span>
-                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">AWS / VERCEL</span>
-                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">MOTION GRAPHICS</span>
-                        <span style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem;">24/7 MAINTENANCE</span>
+                        <span class="hover-lift" style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s;">REACT / NEXT.JS</span>
+                        <span class="hover-lift" style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s;">HEADLESS CMS</span>
+                        <span class="hover-lift" style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s;">AWS / VERCEL</span>
+                        <span class="hover-lift" style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s;">MOTION GRAPHICS</span>
+                        <span class="hover-lift" style="border: 2px solid #222; padding: 20px 50px; border-radius: 100px; font-weight: 800; letter-spacing: 2px; font-size: 0.9rem; transition: 0.3s;">24/7 MAINTENANCE</span>
                     </div>
                 </div>
             </div>
@@ -583,19 +756,19 @@
                     <h2 style="font-size: 5rem;">Website <span class="gradient-span">FAQs.</span></h2>
                 </div>
                 <div class="faq-wrapper" data-reveal>
-                    <div class="faq-item">
+                    <div class="faq-item hover-lift">
                         <button class="faq-btn"><span>How long does a premium build typically take?</span> <i data-lucide="plus" class="faq-icon"></i></button>
                         <div class="faq-content">
                             <p style="font-size: 1.2rem; line-height: 1.8;">Institutional-grade builds typically range from 6-12 weeks depending on complexity. This includes our rigorous research, design, and sub-second performance engineering phase.</p>
                         </div>
                     </div>
-                    <div class="faq-item">
+                    <div class="faq-item hover-lift">
                         <button class="faq-btn"><span>Will my website be mobile-optimized?</span> <i data-lucide="plus" class="faq-icon"></i></button>
                         <div class="faq-content">
                             <p style="font-size: 1.2rem; line-height: 1.8;">Absolutely. We follow a "Mobile-First" engineering philosophy, ensuring your site looks and performs perfectly across all devices and viewport sizes.</p>
                         </div>
                     </div>
-                    <div class="faq-item">
+                    <div class="faq-item hover-lift">
                         <button class="faq-btn"><span>Do you provide ongoing maintenance?</span> <i data-lucide="plus" class="faq-icon"></i></button>
                         <div class="faq-content">
                             <p style="font-size: 1.2rem; line-height: 1.8;">Yes. We offer continuous concierge maintenance, security updates, and performance monitoring to ensure your digital asset remains at the cutting edge.</p>
@@ -614,9 +787,9 @@
                             <h2 style="font-size: 6rem; line-height: 0.9; margin-bottom: 50px;">Build Your Digital <br><span class="gradient-span">Empire.</span></h2>
                             <p style="font-size: 1.5rem; color: #fff; opacity: 0.9; font-weight: 500;">Claim your free Web Architecture Consultation. We'll audit your current site and map out a 90-day dominance strategy.</p>
                             <div style="margin-top: 70px; display: grid; gap: 35px;">
-                                <div style="display: flex; gap: 20px; align-items: center;"><i data-lucide="check-circle" style="color: var(--primary); width: 35px; height: 35px;"></i> <span style="font-weight: 800; font-size: 1.3rem;">Performance & Speed Audit</span></div>
-                                <div style="display: flex; gap: 20px; align-items: center;"><i data-lucide="check-circle" style="color: var(--primary); width: 35px; height: 35px;"></i> <span style="font-weight: 800; font-size: 1.3rem;">UI/UX Psychological Teardown</span></div>
-                                <div style="display: flex; gap: 20px; align-items: center;"><i data-lucide="check-circle" style="color: var(--primary); width: 35px; height: 35px;"></i> <span style="font-weight: 800; font-size: 1.3rem;">Scalable Growth Roadmap</span></div>
+                                <div class="hover-lift" style="display: flex; gap: 20px; align-items: center;"><i data-lucide="check-circle" style="color: var(--primary); width: 35px; height: 35px;"></i> <span style="font-weight: 800; font-size: 1.3rem;">Performance & Speed Audit</span></div>
+                                <div class="hover-lift" style="display: flex; gap: 20px; align-items: center;"><i data-lucide="check-circle" style="color: var(--primary); width: 35px; height: 35px;"></i> <span style="font-weight: 800; font-size: 1.3rem;">UI/UX Psychological Teardown</span></div>
+                                <div class="hover-lift" style="display: flex; gap: 20px; align-items: center;"><i data-lucide="check-circle" style="color: var(--primary); width: 35px; height: 35px;"></i> <span style="font-weight: 800; font-size: 1.3rem;">Scalable Growth Roadmap</span></div>
                             </div>
                         </div>
                         <div data-reveal class="stagger-2">
@@ -632,6 +805,7 @@
                                     <option value="redesign">Redesign & Optimize</option>
                                     <option value="ecommerce">E-commerce Engine</option>
                                 </select>
+                                <textarea placeholder="Tell us about your project goals..." rows="4" style="padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #fff; font-weight: 700; font-size: 1.1rem;"></textarea>
                                 <button type="submit" class="btn-elite" style="width: 100%; font-size: 1.2rem; padding: 28px;">GET MY FREE CONSULTATION →</button>
                                 <p style="font-size: 0.9rem; text-align: center; opacity: 0.6; margin: 0; font-weight: 600;">*Institutional privacy protocols strictly enforced.</p>
                             </form>
@@ -651,6 +825,7 @@
                 <p style="font-size: 0.9rem; letter-spacing: 4px; opacity: 0.5;">&copy; 2026 MK SHOPZONE. PRECISION ENGINEERED REVENUE.</p>
             </div>
         </div>
+    </div>
     </footer>
 
     <!-- AI Automation Scripts -->
@@ -669,12 +844,20 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                    // Special handling for speed bars
+                    if (entry.target.classList.contains('speed-bar-container')) {
+                        entry.target.querySelectorAll('.speed-bar-inner').forEach(bar => {
+                            bar.style.width = '98%'; // Animate to 98%
+                        });
+                    }
                     revealObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.15 });
 
         document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+        document.querySelectorAll('[data-reveal="zoom"]').forEach(el => revealObserver.observe(el));
+
 
         // FAQ Toggle
         document.querySelectorAll('.faq-btn').forEach(btn => {
