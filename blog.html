@@ -1,0 +1,628 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights, Strategies & Trends in Digital Marketing | MK Shopzone Blog</title>
+    <meta name="description" content="Explore expert insights, digital marketing strategies, SEO trends, social media tips, and actionable growth blueprints from the MK Shopzone team.">
+    <meta name="keywords" content="digital marketing blog, SEO tips, social media strategies, PPC insights, marketing trends, content marketing, growth hacking">
+    
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* "Midnight Premium" Design System */
+        :root {
+            --primary: #ff8c00;
+            --primary-glow: rgba(255, 140, 0, 0.4);
+            --bg-ultra: #030408;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --text-dim: #94a3b8;
+            --white: #ffffff;
+            --accent-gradient: linear-gradient(135deg, #ffffff 0%, var(--primary) 100%);
+            --nav-height: 100px;
+        }
+
+        body {
+            background-color: var(--bg-ultra);
+            color: var(--white);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 { color: var(--white); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 20px;}
+        p { color: var(--text-dim); }
+        a { text-decoration: none; color: inherit; }
+
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 40px; }
+
+        /* Multi-Stage Reveal Animation */
+        [data-reveal] { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        [data-reveal].active { opacity: 1; transform: translateY(0); }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+
+        .gradient-span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Navbar */
+        .navbar {
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: 0.4s;
+            background: rgba(3, 4, 8, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .navbar.scrolled { height: 80px; background: rgba(3, 4, 8, 0.98); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .nav-links { display: flex; gap: 40px; align-items: center; }
+        .nav-links a { color: var(--white); font-weight: 700; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+        /* Buttons */
+        .btn-elite {
+            padding: 18px 45px;
+            background: var(--white);
+            color: #000;
+            border-radius: 100px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            transition: 0.4s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 1rem;
+        }
+        .btn-elite:hover { transform: scale(1.05); background: var(--primary); color: #fff; }
+        .btn-outline { background: transparent; border: 1.5px solid var(--white); color: var(--white); }
+
+        /* Layout & Sections */
+        .section-luxe { padding: 120px 0; position: relative; }
+        
+        .hero-blog {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 150px;
+            background: radial-gradient(circle at center, rgba(255,140,0,0.1) 0%, #030408 70%);
+        }
+
+        /* Glass Cards for Posts */
+        .glass-card-premium {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            backdrop-filter: blur(25px);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .glass-card-premium:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+        }
+
+        .post-img { width: 100%; height: 280px; object-fit: cover; transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1); filter: contrast(1.1); }
+        .glass-card-premium:hover .post-img { transform: scale(1.05); }
+
+        .post-content { padding: 40px; flex-grow: 1; display: flex; flex-direction: column; }
+        .post-tag { background: rgba(255,140,0,0.15); color: var(--primary); padding: 5px 15px; border-radius: 100px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; align-self: flex-start; margin-bottom: 20px; }
+        .post-title { font-size: 1.8rem; line-height: 1.3; margin-bottom: 15px; color: #fff !important; }
+        .post-desc { flex-grow: 1; margin-bottom: 25px; }
+
+        .post-meta { display: flex; align-items: center; gap: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
+        .author-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+        .meta-text { font-size: 0.85rem; color: #718096; font-weight: 500; }
+
+        /* Search & Filter Bar */
+        .hub-search {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 100px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+        .hub-search input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1.1rem;
+            width: 100%;
+            padding: 10px;
+            outline: none;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+        .cat-tab {
+            padding: 12px 30px;
+            border-radius: 100px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 700;
+        }
+        .cat-tab:hover, .cat-tab.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #000;
+        }
+
+        /* Call To Action Box */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(255,140,0,0.15) 0%, rgba(3,4,8,1) 100%);
+            border: 1px solid var(--primary);
+            border-radius: 32px;
+            padding: 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Newsletter Input */
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .newsletter-form input {
+            width: 100%;
+            padding: 20px 30px;
+            border-radius: 100px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+        }
+        .newsletter-form button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            padding: 0 30px;
+            border-radius: 100px;
+            background: var(--primary);
+            border: none;
+            color: #000;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        /* Grids */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+
+        @media (max-width: 1024px) {
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .nav-links { display: none; }
+        }
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .cta-box { padding: 40px 20px; }
+            .hero-blog h1 { font-size: 3.5rem !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+            <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+            <nav class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <div class="nav-dropdown">
+                    <a href="seo.html" class="dropdown-trigger">Services</a>
+                    <div class="dropdown-content">
+                        <a href="seo.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/></svg></span>
+                            Advanced SEO
+                        </a>
+                        <a href="paid-ads.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+                            Paid Ads & PPC
+                        </a>
+                        <a href="website-design.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span>
+                            Elite Web Design
+                        </a>
+                        <a href="app.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+                            App Development
+                        </a>
+                        <a href="social-media.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3ZM6 8a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3ZM12 19a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3Z"/></svg></span>
+                            Social Marketing
+                        </a>
+                        <a href="email-marketing.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span>
+                            Email Marketing
+                        </a>
+                        <a href="video-marketing.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2" ry="2"/></svg></span>
+                            Video Production
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#why-us" class="dropdown-trigger">Industries</a>
+                    <div class="dropdown-content">
+                        <a href="ecommerce.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                            E-commerce
+                        </a>
+                        <a href="healthcare.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>
+                            Healthcare
+                        </a>
+                        <a href="real-estate.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                            Real Estate
+                        </a>
+                        <a href="education.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+                            Education
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="about.html" class="dropdown-trigger">About</a>
+                    <div class="dropdown-content">
+                        <a href="about.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
+                            Our Story
+                        </a>
+                        <a href="about.html#process">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+                            Our Process
+                        </a>
+                        <a href="contact.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 1 1 22 16.92z"/></svg></span>
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="blog.html" class="dropdown-trigger">Blog</a>
+                    <div class="dropdown-content">
+                        <a href="blog.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+                            Latest Articles
+                        </a>
+                        <a href="blog.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg></span>
+                            Digital Trends
+                        </a>
+                    </div>
+                </div>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-nav-audit">FREE AUDIT</a>
+            </div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+
+
+    <!-- 1. HERO SECTION: Insights & Trends -->
+    <section class="hero-blog">
+        <div class="container" style="position: relative; z-index: 2;">
+            <div data-reveal>
+                <span style="letter-spacing: 5px; font-weight: 900; color: var(--primary); text-transform: uppercase;">The Knowledge Hub</span>
+                <h1 style="font-size: 6rem; line-height: 1; margin: 30px auto; max-width: 1000px;">Expert Insights, Strategies & <span class="gradient-span">Trends in Digital Marketing.</span></h1>
+                <p style="font-size: 1.4rem; max-width: 750px; margin: 0 auto; color: #fff; opacity: 0.85;">Master the art of ROI. We break down complex algorithms into actionable guides for SEO, PPC, Social Media, and Web Engineering.</p>
+                
+                <div style="margin-top: 60px;">
+                    <div class="hub-search">
+                        <i data-lucide="search" style="color: var(--text-dim); margin-right: 15px;"></i>
+                        <input type="text" placeholder="Search insights, guides, and tutorials...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. CATEGORIES FILTER -->
+    <section style="padding: 20px 0 60px;">
+        <div class="container">
+            <div class="category-tabs" data-reveal>
+                <button class="cat-tab active">All Topics</button>
+                <button class="cat-tab">Elite SEO</button>
+                <button class="cat-tab">Performance Ads</button>
+                <button class="cat-tab">UI/UX Design</button>
+                <button class="cat-tab">E-Commerce</button>
+                <button class="cat-tab">Content & Social</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. FEATURED / LATEST INSIGHTS (Showcase Grid) -->
+    <section class="section-luxe" style="padding-top: 0;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px;" data-reveal>
+                <div>
+                    <h2 style="font-size: 3.5rem; margin: 0;">Featured <span class="gradient-span">Guides.</span></h2>
+                    <p style="font-size: 1.2rem; margin-top: 10px;">In-depth tutorials and thought-leadership pieces.</p>
+                </div>
+                <a href="#" style="color: var(--primary); font-weight: 700; display: flex; align-items: center; gap: 8px;">View All Series <i data-lucide="arrow-right" style="width: 18px;"></i></a>
+            </div>
+
+            <div class="grid-2">
+                <!-- Highlight Post 1 -->
+                <article class="glass-card-premium" data-reveal class="stagger-1">
+                    <div style="overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Analytics Dashboard Growth" class="post-img">
+                    </div>
+                    <div class="post-content">
+                        <span class="post-tag">Performance Ads</span>
+                        <h3 class="post-title">The 2026 Blueprint for Liquidating Meta Ad Costs at Scale</h3>
+                        <p class="post-desc">Learn how top e-commerce brands are utilizing Advantage+ shopping combined with DCO creative testing to slash acquisition costs by 45%.</p>
+                        <div class="post-meta">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=100&q=80" alt="Author" class="author-img">
+                            <div class="meta-text">
+                                <span style="color: #fff; font-weight: 700;">Performance Team</span> &bull; 8 Min Read
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Highlight Post 2 -->
+                <article class="glass-card-premium" data-reveal class="stagger-2">
+                    <div style="overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="SEO Strategies" class="post-img">
+                    </div>
+                    <div class="post-content">
+                        <span class="post-tag">Elite SEO</span>
+                        <h3 class="post-title">Algorithmic Immunity: How to SEO-Proof Your Organic Traffic</h3>
+                        <p class="post-desc">Core updates are destroying average sites. We break down the semantic clustering and authority architecture needed to dominate AI-organized search.</p>
+                        <div class="post-meta">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=100&q=80" alt="Author" class="author-img">
+                            <div class="meta-text">
+                                <span style="color: #fff; font-weight: 700;">Lead SEO Architect</span> &bull; 12 Min Read
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. TRENDING TOPICS (Grid of 3) -->
+    <section class="section-luxe" style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <div data-reveal style="margin-bottom: 60px;">
+                <h4 style="color: var(--primary) !important;">Stay Ahead</h4>
+                <h2 style="font-size: 3.5rem;">Trending <span class="gradient-span">Now.</span></h2>
+            </div>
+            
+            <div class="grid-3">
+                <article class="glass-card-premium" style="padding: 0;" data-reveal class="stagger-1">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=900&q=80" alt="Social Media Framework" class="post-img" style="height: 220px;">
+                    <div class="post-content" style="padding: 30px;">
+                        <span class="post-tag">Social Media</span>
+                        <h3 class="post-title" style="font-size: 1.4rem;">Creating Viral Hooks: The Psychological Framework</h3>
+                        <p class="post-desc" style="font-size: 0.95rem;">Why some videos get millions of views while others fail. The definitive guide to the 3-second hook.</p>
+                    </div>
+                </article>
+
+                <article class="glass-card-premium" style="padding: 0;" data-reveal class="stagger-2">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80" alt="Web Engineering" class="post-img" style="height: 220px;">
+                    <div class="post-content" style="padding: 30px;">
+                        <span class="post-tag">UI/UX Design</span>
+                        <h3 class="post-title" style="font-size: 1.4rem;">Conversion Rate Optimization (CRO) Secrets</h3>
+                        <p class="post-desc" style="font-size: 0.95rem;">Minor tweaks that yield massive ROI. How to architect a frictionless UI/UX checkout flow.</p>
+                    </div>
+                </article>
+
+                <article class="glass-card-premium" style="padding: 0;" data-reveal class="stagger-3">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80" alt="Digital Marketing Trends" class="post-img" style="height: 220px;">
+                    <div class="post-content" style="padding: 30px;">
+                        <span class="post-tag">Industry News</span>
+                        <h3 class="post-title" style="font-size: 1.4rem;">2026 Marketing Strategy Predictions</h3>
+                        <p class="post-desc" style="font-size: 0.95rem;">Expert opinions on where the attention economy is shifting this year. Adapt or die.</p>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center" style="margin-top: 60px;" data-reveal>
+                <button class="btn-elite btn-outline">LOAD MORE ARTICLES</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CASE STUDIES / RECOMMENDED READS LIST -->
+    <section class="section-luxe">
+        <div class="container">
+            <div data-reveal style="margin-bottom: 60px;">
+                <h4 style="color: var(--primary) !important;">Success Stories</h4>
+                <h2 style="font-size: 3.5rem;">Case Studies & <span class="gradient-span">Reports.</span></h2>
+            </div>
+            
+            <div style="display: grid; gap: 20px;">
+                <div class="glass-card-premium hover-lift" style="flex-direction: row; align-items: center; padding: 25px 40px; border-radius: 16px;" data-reveal>
+                    <div style="color: var(--primary); font-size: 2rem; font-weight: 900; width: 100px;">01</div>
+                    <div style="flex-grow: 1;">
+                        <h3 style="margin-bottom: 5px; font-size: 1.5rem;">Real Estate Firm Achieves 4.5x ROAS via Performance Max</h3>
+                        <p style="margin: 0; font-size: 0.95rem;">Full breakdown of the funnel mechanics and creative testing strategy used.</p>
+                    </div>
+                    <div style="margin-left: 20px;"><button class="btn-elite" style="padding: 10px 25px; font-size: 0.8rem;">READ CASE</button></div>
+                </div>
+
+                <div class="glass-card-premium hover-lift" style="flex-direction: row; align-items: center; padding: 25px 40px; border-radius: 16px;" data-reveal>
+                    <div style="color: var(--primary); font-size: 2rem; font-weight: 900; width: 100px;">02</div>
+                    <div style="flex-grow: 1;">
+                        <h3 style="margin-bottom: 5px; font-size: 1.5rem;">From Page 5 to Position 1: A Technical SEO Masterclass</h3>
+                        <p style="margin: 0; font-size: 0.95rem;">How removing legacy code and applying semantic markup skyrocketed traffic.</p>
+                    </div>
+                    <div style="margin-left: 20px;"><button class="btn-elite" style="padding: 10px 25px; font-size: 0.8rem;">READ CASE</button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. LEAD CAPTURE / NEWSLETTER CTA -->
+    <section class="section-luxe" id="newsletter-scroll">
+        <div class="container">
+            <div class="cta-box" data-reveal="zoom">
+                <!-- Background decoration -->
+                <div style="position: absolute; top: -50%; left: -10%; width: 500px; height: 500px; background: rgba(255,140,0,0.1); filter: blur(100px); z-index: 0; border-radius: 50%;"></div>
+                
+                <div style="position: relative; z-index: 2;">
+                    <i data-lucide="mail-plus" style="width: 50px; height: 50px; color: var(--primary); margin-bottom: 25px;"></i>
+                    <h2 style="font-size: 4rem; line-height: 1;">Get Weekly <span class="gradient-span">Marketing Tips.</span></h2>
+                    <p style="font-size: 1.3rem; max-width: 600px; margin: 20px auto 40px; color: #fff;">Join 15,000+ founders and marketers. Receive exclusive strategies, free templates, and algorithmic updates straight to your inbox.</p>
+                    
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to MK Shopzone Intelligence!');">
+                        <input type="email" placeholder="Enter your business email" required>
+                        <button type="submit">SUBSCRIBE</button>
+                    </form>
+                    <p style="font-size: 0.85rem; opacity: 0.6; margin-top: 20px;">* Includes access to our free E-book: "The 90-Day Scaling Blueprint". We never spam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER -->
+                <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo" style="font-size: 1.5rem;">MK<span>SHOPZONE</span></a>
+                    <p style="margin-top: 20px; font-size: 0.9rem; margin-bottom: 25px;">Building digital legacies for ambitious brands through data-driven performance and elite creative execution.</p>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="tel:+917200059453" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">+91 72000 59453</a>
+                        <a href="mailto:mkshopzone2@gmail.com" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">mkshopzone2@gmail.com</a>
+                        <div style="display: flex; gap: 15px; margin-top: 10px;">
+                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="seo.html">Advanced SEO</a></li>
+                        <li><a href="paid-ads.html">Paid Ads & PPC</a></li>
+                        <li><a href="website-design.html">Elite Web Design</a></li>
+                        <li><a href="app.html">App Development</a></li>
+                        <li><a href="social-media.html">Social Media Marketing</a></li>
+                        <li><a href="email-marketing.html">Email Marketing</a></li>
+                        <li><a href="video-marketing.html">Video Production</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Industries</h4>
+                    <ul>
+                        <li><a href="ecommerce.html">E-commerce</a></li>
+                        <li><a href="healthcare.html">Healthcare</a></li>
+                        <li><a href="real-estate.html">Real Estate</a></li>
+                        <li><a href="education.html">Education</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>About & Blog</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="about.html#process">Our Process</a></li>
+                        <li><a href="blog.html">Latest Articles</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center" style="padding-top: 40px; border-top: 1px solid var(--border-light);">
+                <p style="font-size: 0.8rem; letter-spacing: 1px;">&copy; 2026 MK SHOPZONE. Precision Engineered Growth.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+
+        // Reveal Animation Observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        
+        document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+        document.querySelectorAll('[data-reveal="zoom"]').forEach(el => revealObserver.observe(el));
+
+        // Navbar Scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // Tabs
+        document.querySelectorAll('.cat-tab').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+

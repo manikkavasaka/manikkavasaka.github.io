@@ -114,11 +114,11 @@ class MKAssistant {
             },
             faq: {
                 pricing: { keywords: ['price','cost','pricing','budget','affordable','cheap','expensive','how much','fee','charge','package','plan'],
-                    answer: `Our prices really depend on what you need—there's no one-size-fits-all here! But to give you a rough idea:\n\nIf you need a **website**, those start around ₹15,000.\nFor **SEO**, it's usually from ₹8,000 a month.\nAnd if you want us to handle your **Paid Ads**, our management fee starts at ₹5,000 a month (plus your ad spend).\n\nIf you want an exact number, I'd just need to hear a bit more about your project!` },
+                    answer: `Our prices really depend on what you need—there's no one-size-fits-all here! But to give you a rough idea:\n\nIf you need a **website**, those start around ₹19,999.\nFor **SEO**, it's usually from ₹8,000 a month.\nAnd if you want us to handle your **Paid Ads**, our management fee starts at ₹5,000 a month (plus your ad spend).\n\nIf you want an exact number, I'd just need to hear a bit more about your project!` },
                 timeline: { keywords: ['timeline','how long','when','duration','turnaround','deadline','fast','quick','urgent','rush'],
                     answer: `It honestly depends on the project size, but here's a general idea:\n\n**Websites** usually take us 2 to 4 weeks.\n**SEO** starts showing some movement in 60 to 90 days, with the really good stuff happening around months 4 to 6.\n**App dev** takes anywhere from 6 to 14 weeks.\nAnd **Paid ads** can be up and running in just a few days!\n\nIf you're on a tight deadline, just let us know and we'll see what we can do.` },
                 contact: { keywords: ['contact','reach','call','phone','email','whatsapp','speak','talk','meet','book','schedule','consultation','chat','connect'],
-                    answer: `You can definitely reach out! Here's how to get in touch:\n\n📞 **Give us a call or WhatsApp:** +91 95007 04443\n📧 **Shoot us an email:** strategy@mkshopzone.com\n\nOr you can just fill out the short form at the bottom of the page, and the team will get back to you super fast. Want me to just scroll you down there?` },
+                    answer: `You can definitely reach out! Here's how to get in touch:\n\n📞 **Give us a call or WhatsApp:** +91 72000 59453\n📧 **Shoot us an email:** mkshopzone2@gmail.com\n\nOr you can just fill out the short form at the bottom of the page, and the team will get back to you super fast. Want me to just scroll you down there?` },
                 about: { keywords: ['who are you','about','mk shopzone','your team','experience','agency','background','founded','years','coimbatore'],
                     answer: `MK Shopzone is a digital agency based right out of **Coimbatore, India**. We've been at this for over **10 years** and have worked with over **500 clients**!\n\nWe basically handle everything you need to grow online—SEO, Ads, Web Design, Apps, Social Media, you name it. What can I help you figure out today?` },
                 results: { keywords: ['result','success','case study','proof','roi','growth','revenue','traffic increase','ranking improved','testimonial','client win'],
@@ -230,16 +230,54 @@ class MKAssistant {
                 </div>
             </div>
 
-            <div class="mka-messages" id="mka-messages" role="log" aria-live="polite"></div>
+            <div class="mka-lead-form-container" id="mka-lead-form-container">
+                <form id="mka-prechat-form" class="mka-prechat-form">
+                    <div class="mka-fc"><input type="text" id="mka-form-name" placeholder=" * Name" required></div>
+                    <div class="mka-fc"><input type="email" id="mka-form-email" placeholder=" * Email" required></div>
+                    <div class="mka-fc mka-phone-row">
+                        <div class="mka-form-country">
+                            <div class="mka-flag-icon"></div>
+                            <div class="mka-arrow-down"></div>
+                        </div>
+                        <div class="mka-phone-input">
+                            <span class="mka-phone-code">+ 91</span>
+                            <input type="tel" id="mka-form-phone" required>
+                        </div>
+                    </div>
+                    <div class="mka-fc"><input type="text" id="mka-form-business" placeholder=" Business Name"></div>
+                    <div class="mka-fc"><textarea id="mka-form-message" placeholder=" Message"></textarea></div>
+                    
+                    <div class="mka-form-submit-row">
+                        <div class="mka-form-avatar">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="50" r="50" fill="#e2e8f0"/>
+                                <path d="M50 95C30 95 15 85 15 70C15 55 35 53 50 53C65 53 85 55 85 70C85 85 70 95 50 95Z" fill="#a0aec0"/>
+                                <path d="M43 70 L50 82 L57 70 Z" fill="#e2e8f0"/>
+                                <circle cx="50" cy="40" r="18" fill="#fbd38d"/>
+                                <path d="M50 22C40 22 32 28 32 35C32 40 34 43 34 43C34 43 31 48 36 50C36 50 36 45 37 43C39 44 44 45 50 45C56 45 61 44 63 43C64 45 64 50 64 50C69 48 66 43 66 43C66 43 68 40 68 35C68 28 60 22 50 22Z" fill="#2d3748"/>
+                            </svg>
+                        </div>
+                        <button type="submit" id="mka-form-submit-btn" class="mka-form-submit-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
 
-            <div class="mka-suggestions" id="mka-suggestions">
+            <div class="mka-messages" id="mka-messages" role="log" aria-live="polite" style="display: none;"></div>
+
+            <div class="mka-suggestions" id="mka-suggestions" style="display: none;">
                 <button class="mka-chip" data-msg="I want to improve my Google rankings">📊 Improve SEO</button>
                 <button class="mka-chip" data-msg="Tell me about your paid advertising services">💰 Run Paid Ads</button>
                 <button class="mka-chip" data-msg="I need a new website built">🌐 Build a Website</button>
                 <button class="mka-chip" data-msg="How much do your services cost?">💳 See Pricing</button>
             </div>
 
-            <div class="mka-input-area">
+            <div class="mka-input-area" id="mka-input-area" style="display: none;">
                 <form id="mka-form" class="mka-form" autocomplete="off">
                     <input
                         type="text"
@@ -281,6 +319,50 @@ class MKAssistant {
         document.getElementById('mka-close')?.addEventListener('click',  () => this.close());
         document.getElementById('mka-clear')?.addEventListener('click',  () => this._resetConversation());
         document.getElementById('mka-form')?.addEventListener('submit',  e => this._onSubmit(e));
+
+        // Pre-chat form
+        document.getElementById('mka-prechat-form')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('mka-form-submit-btn');
+            btn.innerHTML = 'Starting...';
+            btn.style.opacity = '0.7';
+            btn.style.pointerEvents = 'none';
+
+            const leadData = {
+                name: document.getElementById('mka-form-name').value,
+                email: document.getElementById('mka-form-email').value,
+                phone: '+91' + document.getElementById('mka-form-phone').value,
+                business: document.getElementById('mka-form-business').value,
+                message: document.getElementById('mka-form-message').value,
+                source: 'AI Chatbot Pre-form'
+            };
+
+            this.userProfile.name = leadData.name;
+            this.userProfile.email = leadData.email;
+            this.userProfile.phone = leadData.phone;
+            this.userProfile.business = leadData.business;
+
+            if (window.leadCaptureSystem) {
+                window.leadCaptureSystem.recordLead(leadData);
+            }
+
+            this.stage = 'lead_sent'; 
+
+            setTimeout(() => {
+                document.getElementById('mka-lead-form-container').style.display = 'none';
+                document.getElementById('mka-messages').style.display = 'flex';
+                document.getElementById('mka-suggestions').style.display = 'flex';
+                document.getElementById('mka-input-area').style.display = 'block';
+
+                const targetName = this.userProfile.name.split(' ')[0];
+                const customGreeting = `Hi ${targetName}! 👋 Thanks for reaching out. How can I help you with ${this.userProfile.business ? 'your business (' + this.userProfile.business + ')' : 'your project'} today?`;
+                this._appendMessage(customGreeting, 'bot');
+
+                if(leadData.message) {
+                    this._sendUserMessage(leadData.message);
+                }
+            }, 800);
+        });
 
         // Suggestion chips
         document.getElementById('mka-suggestions')?.addEventListener('click', e => {
@@ -337,8 +419,11 @@ class MKAssistant {
         if (iconOpen)  iconOpen.style.display  = 'none';
         if (iconClose) iconClose.style.display  = '';
 
-        if (wa) wa.style.opacity = '0';
-        if (wa) wa.style.pointerEvents = 'none';
+        if (wa) {
+            wa.style.opacity = '0';
+            wa.style.pointerEvents = 'none';
+            wa.style.visibility = 'hidden';
+        }
 
         this.isOpen = true;
         this._hideBadge();
@@ -361,8 +446,11 @@ class MKAssistant {
         if (iconOpen)  iconOpen.style.display  = '';
         if (iconClose) iconClose.style.display  = 'none';
 
-        if (wa) wa.style.opacity = '';
-        if (wa) wa.style.pointerEvents = '';
+        if (wa) {
+            wa.style.opacity = '';
+            wa.style.pointerEvents = '';
+            wa.style.visibility = '';
+        }
 
         this.isOpen = false;
     }
@@ -489,7 +577,7 @@ class MKAssistant {
 
         /* 7. Budget / pricing signals */
         if (/budget|afford|invest|spend|money|fund/i.test(lower)) {
-            return `Budget is always a huge factor, I totally get it! So here's the honest answer:\n\nOur prices scale based on what you actually need, so whether you're just starting out or you're a massive brand, we can usually make it work.\n\n**To give you a rough idea:**\n- 🌐 Websites start around ₹15,000\n- 📊 SEO kicks off at ₹8,000/month\n- 💰 PPC management begins at ₹5,000/month (plus your ad spend)\n\nThe better you invest, the faster you see returns. **Did you have a rough budget range in mind?** It really helps me suggest the perfect package for you.`;
+            return `Budget is always a huge factor, I totally get it! So here's the honest answer:\n\nOur prices scale based on what you actually need, so whether you're just starting out or you're a massive brand, we can usually make it work.\n\n**To give you a rough idea:**\n- 🌐 Websites start around ₹19,999\n- 📊 SEO kicks off at ₹8,000/month\n- 💰 PPC management begins at ₹5,000/month (plus your ad spend)\n\nThe better you invest, the faster you see returns. **Did you have a rough budget range in mind?** It really helps me suggest the perfect package for you.`;
         }
 
         /* 8. After enough conversation — nudge toward lead */

@@ -22,7 +22,7 @@
 
 .mka-container {
     position: fixed;
-    bottom: 96px;
+    bottom: 160px;
     right: 24px;
     width: 388px;
     height: 620px;
@@ -397,7 +397,7 @@
 
 .mka-toggle-btn {
     position: fixed;
-    bottom: 26px;
+    bottom: 90px;
     right: 24px;
     width: 60px;
     height: 60px;
@@ -516,7 +516,7 @@
         width: calc(100vw - 16px);
         height: 75vh;
         min-height: 480px;
-        bottom: 86px;
+        bottom: 80px;
         right: 8px;
         border-radius: 16px;
     }

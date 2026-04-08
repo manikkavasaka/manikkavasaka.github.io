@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -63,19 +63,105 @@
     </style>
 </head>
 <body>
-<header class="navbar" id="navbar">
-    <div class="container nav-c">
-        <a href="/" style="font-size:2rem;font-weight:900;text-decoration:none;color:#fff;">MK<span style="color:var(--primary);">SHOPZONE</span></a>
-        <nav class="nav-links">
-            <a href="/">Home</a>
-            <a href="ecommerce.html">E-Commerce</a>
-            <a href="healthcare.html">Healthcare</a>
-            <a href="education.html">Education</a>
-            <a href="android-app.html" class="active">Android Apps</a>
-            <button class="btn btn-green" style="padding:12px 26px;font-size:0.8rem;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">FREE CONSULTATION</button>
-        </nav>
-    </div>
-</header>
+        <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+            <nav class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <div class="nav-dropdown">
+                    <a href="seo.html" class="dropdown-trigger">Services</a>
+                    <div class="dropdown-content">
+                        <a href="seo.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/></svg></span>
+                            Advanced SEO
+                        </a>
+                        <a href="paid-ads.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+                            Paid Ads & PPC
+                        </a>
+                        <a href="website-design.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span>
+                            Elite Web Design
+                        </a>
+                        <a href="app.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+                            App Development
+                        </a>
+                        <a href="social-media.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3ZM6 8a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3ZM12 19a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3Z"/></svg></span>
+                            Social Marketing
+                        </a>
+                        <a href="email-marketing.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span>
+                            Email Marketing
+                        </a>
+                        <a href="video-marketing.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2" ry="2"/></svg></span>
+                            Video Production
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#why-us" class="dropdown-trigger">Industries</a>
+                    <div class="dropdown-content">
+                        <a href="ecommerce.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                            E-commerce
+                        </a>
+                        <a href="healthcare.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>
+                            Healthcare
+                        </a>
+                        <a href="real-estate.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                            Real Estate
+                        </a>
+                        <a href="education.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+                            Education
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="about.html" class="dropdown-trigger">About</a>
+                    <div class="dropdown-content">
+                        <a href="about.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
+                            Our Story
+                        </a>
+                        <a href="about.html#process">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+                            Our Process
+                        </a>
+                        <a href="contact.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 1 1 22 16.92z"/></svg></span>
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="blog.html" class="dropdown-trigger">Blog</a>
+                    <div class="dropdown-content">
+                        <a href="blog.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+                            Latest Articles
+                        </a>
+                        <a href="blog.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg></span>
+                            Digital Trends
+                        </a>
+                    </div>
+                </div>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-nav-audit">FREE AUDIT</a>
+            </div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+
 
 <main>
 <!-- HERO -->
@@ -86,19 +172,19 @@
             <div data-reveal>
                 <span style="letter-spacing:4px;font-weight:900;color:var(--an-green);text-transform:uppercase;font-size:0.9rem;margin-bottom:20px;display:block;">Native Android Development</span>
                 <h1 style="font-size:5rem;line-height:0.95;margin-bottom:28px;">Custom Android <span class="ags">App</span><br>Development.</h1>
-                <p style="font-size:1.25rem;max-width:550px;margin-bottom:38px;color:#e2e8f0;">From idea to Play Store — we build high-performance, pixel-perfect Android apps in Kotlin and Java that scale with your business and delight your users.</p>
+                <p style="font-size:1.25rem;max-width:550px;margin-bottom:38px;color:#e2e8f0;">From idea to Play Store â€” we build high-performance, pixel-perfect Android apps in Kotlin and Java that scale with your business and delight your users.</p>
                 <div style="display:flex;gap:16px;flex-wrap:wrap;">
                     <button class="btn btn-green" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">BUILD MY APP <i data-lucide="smartphone"></i></button>
                     <button class="btn btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});">VIEW SERVICES</button>
                 </div>
                 <div style="display:flex;gap:38px;margin-top:48px;flex-wrap:wrap;">
                     <div><h3 style="font-size:2.2rem;color:var(--an-green);margin:0;">200+</h3><p style="margin:0;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;">Apps Delivered</p></div>
-                    <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:38px;"><h3 style="font-size:2.2rem;color:var(--an-green);margin:0;">4.8★</h3><p style="margin:0;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;">Avg. Play Store Rating</p></div>
+                    <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:38px;"><h3 style="font-size:2.2rem;color:var(--an-green);margin:0;">4.8â˜…</h3><p style="margin:0;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;">Avg. Play Store Rating</p></div>
                     <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:38px;"><h3 style="font-size:2.2rem;color:var(--an-green);margin:0;">10M+</h3><p style="margin:0;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;">Total App Downloads</p></div>
                 </div>
             </div>
             <div data-reveal class="s2" style="position:relative;">
-                <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=900&q=80" alt="Android app UI screens mobile development" class="img" style="height:580px;">
+                <img src="/public/android-app-dev.png" alt="Android app development workspace with Kotlin code and mobile UI" class="img" style="height:580px;">
                 <div style="position:absolute;bottom:-22px;left:-20px;background:rgba(3,4,8,0.95);padding:22px 28px;border-radius:16px;border:1px solid var(--an-green);backdrop-filter:blur(12px);">
                     <h3 class="ags" style="font-size:1.9rem;margin:0;">98%</h3>
                     <p style="margin:0;font-size:0.78rem;letter-spacing:2px;color:#94a3b8;">CLIENT SATISFACTION</p>
@@ -118,7 +204,7 @@
             <div data-reveal class="s2">
                 <h4 style="color:var(--an-green);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">3 Billion+ Devices</h4>
                 <h2 style="font-size:3.8rem;line-height:1.1;margin-bottom:24px;">Why Android is <span class="ags">Essential for Business.</span></h2>
-                <p style="font-size:1.15rem;margin-bottom:20px;">Android commands over 72% of the global smartphone market. A powerful, custom Android app puts your business directly on billions of devices — delivering unmatched reach, engagement, and revenue potential.</p>
+                <p style="font-size:1.15rem;margin-bottom:20px;">Android commands over 72% of the global smartphone market. A powerful, custom Android app puts your business directly on billions of devices â€” delivering unmatched reach, engagement, and revenue potential.</p>
                 <p style="font-size:1.15rem;margin-bottom:35px;">As specialist Android App Development Experts, MK Shopzone engineers native Kotlin/Java applications with cutting-edge UI/UX, backend infrastructure, and deep Play Store optimization to maximize installs and reviews.</p>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
                     <div class="card" style="padding:26px;"><i data-lucide="zap" style="color:var(--an-green);width:34px;height:34px;margin-bottom:10px;"></i><h3 style="font-size:1.2rem;margin-bottom:6px;">High Performance</h3><p style="font-size:0.88rem;">60fps native rendering.</p></div>
@@ -134,7 +220,7 @@
     <div class="container" style="text-align:center;">
         <h4 style="color:var(--primary);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Complete Android Ecosystem</h4>
         <h2 style="font-size:4.5rem;margin-bottom:18px;">End-to-End <span class="gs">Android Services.</span></h2>
-        <p style="font-size:1.15rem;max-width:750px;margin:0 auto 60px;">From design and development through testing and Play Store deployment — we own every phase of your Android app lifecycle.</p>
+        <p style="font-size:1.15rem;max-width:750px;margin:0 auto 60px;">From design and development through testing and Play Store deployment â€” we own every phase of your Android app lifecycle.</p>
 
         <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:13px;margin-bottom:90px;">
             <span class="tag"><i data-lucide="smartphone" style="width:14px;height:14px;color:var(--an-green);"></i> Native Android Dev</span>
@@ -177,7 +263,7 @@
             <div class="card hl" data-reveal class="s2">
                 <i data-lucide="layout" style="color:var(--an-blue);width:46px;height:46px;margin-bottom:20px;"></i>
                 <h3 style="font-size:1.7rem;margin-bottom:12px;">UI/UX for Android</h3>
-                <p>Material Design 3 compliant interfaces with smooth 60fps animations, gesture navigation, adaptive layouts for phones/tablets/foldables, and dark mode support — tested across 200+ device configurations.</p>
+                <p>Material Design 3 compliant interfaces with smooth 60fps animations, gesture navigation, adaptive layouts for phones/tablets/foldables, and dark mode support â€” tested across 200+ device configurations.</p>
             </div>
             <div class="card hl" data-reveal class="s3">
                 <i data-lucide="server" style="color:var(--primary);width:46px;height:46px;margin-bottom:20px;"></i>
@@ -213,7 +299,7 @@
             <div data-reveal class="s2">
                 <h4 style="color:var(--an-green);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Zero-Defect Delivery</h4>
                 <h2 style="font-size:3.8rem;line-height:1.1;margin-bottom:22px;">App Testing & <span class="ags">Quality Assurance.</span></h2>
-                <p style="font-size:1.15rem;margin-bottom:26px;">Every app we ship passes a rigorous 6-layer quality process — from unit testing and UI automation to real-device testing across 50+ Android models, ensuring crash-free experiences at launch.</p>
+                <p style="font-size:1.15rem;margin-bottom:26px;">Every app we ship passes a rigorous 6-layer quality process â€” from unit testing and UI automation to real-device testing across 50+ Android models, ensuring crash-free experiences at launch.</p>
                 <div class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i><span>Unit, integration & UI automation testing (JUnit, Espresso)</span></div>
                 <div class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i><span>Real device testing on 50+ Android versions & OEMs</span></div>
                 <div class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i><span>Performance profiling: CPU, memory, battery & network</span></div>
@@ -228,7 +314,7 @@
                 <div>
                     <i data-lucide="bar-chart-2" style="color:var(--an-green);width:52px;height:52px;margin-bottom:20px;"></i>
                     <h3 style="font-size:2.8rem;margin-bottom:18px;">Analytics & <span class="ags">Post-Launch Support.</span></h3>
-                    <p style="font-size:1.1rem;margin-bottom:22px;">We integrate Firebase Analytics, Crashlytics, Google Analytics 4, and custom event tracking so you see exactly how users interact with your app — and identify growth opportunities continuously.</p>
+                    <p style="font-size:1.1rem;margin-bottom:22px;">We integrate Firebase Analytics, Crashlytics, Google Analytics 4, and custom event tracking so you see exactly how users interact with your app â€” and identify growth opportunities continuously.</p>
                     <div class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i><span>Firebase Crashlytics real-time crash monitoring</span></div>
                     <div class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i><span>User funnel & retention analytics</span></div>
                     <div class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i><span>Monthly app health reports & update sprints</span></div>
@@ -245,8 +331,8 @@
         <h4 style="color:var(--an-green);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">The Android Authority</h4>
         <h2 style="font-size:4.5rem;margin-bottom:60px;">Why Choose Our <span class="gs">App Dev Agency.</span></h2>
         <div class="grid4" style="margin-bottom:90px;">
-            <div class="card hl" data-reveal class="s1"><i data-lucide="code-2" style="color:var(--an-green);width:44px;height:44px;margin:0 auto 16px;"></i><h3 style="font-size:1.4rem;margin-bottom:10px;">Native-First</h3><p style="font-size:0.9rem;">Pure Kotlin/Java — no cross-platform compromises on performance or UX.</p></div>
-            <div class="card hl" data-reveal class="s2"><i data-lucide="clock" style="color:var(--primary);width:44px;height:44px;margin:0 auto 16px;"></i><h3 style="font-size:1.4rem;margin-bottom:10px;">On-Time Delivery</h3><p style="font-size:0.9rem;">Sprint-based Agile development with weekly milestone demos — no deadline surprises.</p></div>
+            <div class="card hl" data-reveal class="s1"><i data-lucide="code-2" style="color:var(--an-green);width:44px;height:44px;margin:0 auto 16px;"></i><h3 style="font-size:1.4rem;margin-bottom:10px;">Native-First</h3><p style="font-size:0.9rem;">Pure Kotlin/Java â€” no cross-platform compromises on performance or UX.</p></div>
+            <div class="card hl" data-reveal class="s2"><i data-lucide="clock" style="color:var(--primary);width:44px;height:44px;margin:0 auto 16px;"></i><h3 style="font-size:1.4rem;margin-bottom:10px;">On-Time Delivery</h3><p style="font-size:0.9rem;">Sprint-based Agile development with weekly milestone demos â€” no deadline surprises.</p></div>
             <div class="card hl" data-reveal class="s3"><i data-lucide="users" style="color:var(--an-blue);width:44px;height:44px;margin:0 auto 16px;"></i><h3 style="font-size:1.4rem;margin-bottom:10px;">Dedicated Team</h3><p style="font-size:0.9rem;">Your own project manager, UI designer, Kotlin engineer, and QA specialist.</p></div>
             <div class="card hl" data-reveal class="s4"><i data-lucide="refresh-cw" style="color:var(--an-green);width:44px;height:44px;margin:0 auto 16px;"></i><h3 style="font-size:1.4rem;margin-bottom:10px;">Lifetime Support</h3><p style="font-size:0.9rem;">Android OS updates, feature additions, and performance tuning beyond day one.</p></div>
         </div>
@@ -259,19 +345,19 @@
                 <div style="display:inline-block;background:var(--ag);color:#000;padding:5px 16px;border-radius:100px;font-size:0.75rem;font-weight:900;margin-bottom:16px;letter-spacing:2px;">FINTECH APP</div>
                 <h3 style="font-size:1.5rem;margin-bottom:10px;">Digital Wallet App</h3>
                 <p style="margin-bottom:18px;">Built a UPI + card payment wallet with biometric auth, split-bill features, and real-time transaction notifications. Achieved 500K downloads in 4 months.</p>
-                <div style="display:flex;gap:20px;"><div><h4 style="font-size:1.8rem;color:var(--an-green);">500K</h4><p style="font-size:0.76rem;margin:0;">Downloads</p></div><div><h4 style="font-size:1.8rem;color:var(--primary);">4.7★</h4><p style="font-size:0.76rem;margin:0;">Play Store</p></div></div>
+                <div style="display:flex;gap:20px;"><div><h4 style="font-size:1.8rem;color:var(--an-green);">500K</h4><p style="font-size:0.76rem;margin:0;">Downloads</p></div><div><h4 style="font-size:1.8rem;color:var(--primary);">4.7â˜…</h4><p style="font-size:0.76rem;margin:0;">Play Store</p></div></div>
             </div>
             <div class="card hl" data-reveal class="s2">
                 <div style="display:inline-block;background:rgba(66,133,244,0.2);color:var(--an-blue);padding:5px 16px;border-radius:100px;font-size:0.75rem;font-weight:900;margin-bottom:16px;letter-spacing:2px;">E-COMMERCE APP</div>
                 <h3 style="font-size:1.5rem;margin-bottom:10px;">Fashion Retail App</h3>
                 <p style="margin-bottom:18px;">Full-feature Shopify-connected Android app with AR try-on, wishlist, loyalty points, and one-tap checkout. Boosted mobile revenue by 180% vs. mobile web.</p>
-                <div style="display:flex;gap:20px;"><div><h4 style="font-size:1.8rem;color:var(--an-green);">180%</h4><p style="font-size:0.76rem;margin:0;">Revenue Lift</p></div><div><h4 style="font-size:1.8rem;color:var(--primary);">4.9★</h4><p style="font-size:0.76rem;margin:0;">Play Store</p></div></div>
+                <div style="display:flex;gap:20px;"><div><h4 style="font-size:1.8rem;color:var(--an-green);">180%</h4><p style="font-size:0.76rem;margin:0;">Revenue Lift</p></div><div><h4 style="font-size:1.8rem;color:var(--primary);">4.9â˜…</h4><p style="font-size:0.76rem;margin:0;">Play Store</p></div></div>
             </div>
             <div class="card hl" data-reveal class="s3">
                 <div style="display:inline-block;background:rgba(255,140,0,0.2);color:var(--primary);padding:5px 16px;border-radius:100px;font-size:0.75rem;font-weight:900;margin-bottom:16px;letter-spacing:2px;">HEALTHTECH APP</div>
                 <h3 style="font-size:1.5rem;margin-bottom:10px;">Patient Care App</h3>
                 <p style="margin-bottom:18px;">HIPAA-aware telemedicine Android app with video consultations, prescription management, lab reports, and appointment booking. 200K+ active monthly users.</p>
-                <div style="display:flex;gap:20px;"><div><h4 style="font-size:1.8rem;color:var(--an-green);">200K</h4><p style="font-size:0.76rem;margin:0;">Monthly Users</p></div><div><h4 style="font-size:1.8rem;color:var(--primary);">4.8★</h4><p style="font-size:0.76rem;margin:0;">Play Store</p></div></div>
+                <div style="display:flex;gap:20px;"><div><h4 style="font-size:1.8rem;color:var(--an-green);">200K</h4><p style="font-size:0.76rem;margin:0;">Monthly Users</p></div><div><h4 style="font-size:1.8rem;color:var(--primary);">4.8â˜…</h4><p style="font-size:0.76rem;margin:0;">Play Store</p></div></div>
             </div>
         </div>
     </div>
@@ -325,8 +411,8 @@
         <div class="grid3">
             <div class="card hl" data-reveal class="s1" style="border-color:rgba(61,220,132,0.3);">
                 <h3 style="color:var(--an-green);font-size:1.8rem;margin-bottom:6px;">Starter App</h3>
-                <h4 style="font-size:2.5rem;margin-bottom:16px;">₹1.5L – ₹3L</h4>
-                <p style="margin-bottom:20px;">Timeline: 6–8 Weeks</p>
+                <h4 style="font-size:2.5rem;margin-bottom:16px;">â‚¹1.5L â€“ â‚¹3L</h4>
+                <p style="margin-bottom:20px;">Timeline: 6â€“8 Weeks</p>
                 <ul style="list-style:none;text-align:left;">
                     <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i>Up to 8 screens</li>
                     <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i>Firebase backend</li>
@@ -336,8 +422,8 @@
             <div class="card hl" data-reveal class="s2" style="border-color:var(--an-green);background:rgba(61,220,132,0.06);">
                 <div style="display:inline-block;background:var(--ag);color:#000;padding:4px 14px;border-radius:100px;font-size:0.75rem;font-weight:900;margin-bottom:14px;">MOST POPULAR</div>
                 <h3 style="color:var(--an-green);font-size:1.8rem;margin-bottom:6px;">Business App</h3>
-                <h4 style="font-size:2.5rem;margin-bottom:16px;">₹3L – ₹8L</h4>
-                <p style="margin-bottom:20px;">Timeline: 10–16 Weeks</p>
+                <h4 style="font-size:2.5rem;margin-bottom:16px;">â‚¹3L â€“ â‚¹8L</h4>
+                <p style="margin-bottom:20px;">Timeline: 10â€“16 Weeks</p>
                 <ul style="list-style:none;text-align:left;">
                     <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i>Full custom design</li>
                     <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-green);flex-shrink:0;"></i>Custom REST API backend</li>
@@ -347,8 +433,8 @@
             </div>
             <div class="card hl" data-reveal class="s3" style="border-color:rgba(66,133,244,0.4);">
                 <h3 style="color:var(--an-blue);font-size:1.8rem;margin-bottom:6px;">Enterprise App</h3>
-                <h4 style="font-size:2.5rem;margin-bottom:16px;">₹8L+</h4>
-                <p style="margin-bottom:20px;">Timeline: 16–28 Weeks</p>
+                <h4 style="font-size:2.5rem;margin-bottom:16px;">â‚¹8L+</h4>
+                <p style="margin-bottom:20px;">Timeline: 16â€“28 Weeks</p>
                 <ul style="list-style:none;text-align:left;">
                     <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-blue);flex-shrink:0;"></i>Complex custom features</li>
                     <li class="chk"><i data-lucide="check-circle-2" style="color:var(--an-blue);flex-shrink:0;"></i>Microservices architecture</li>
@@ -368,9 +454,9 @@
             <h2 style="font-size:4rem;">Frequently Asked <span class="gs">Questions.</span></h2>
         </div>
         <div style="max-width:900px;margin:0 auto;">
-            <div class="faq-item"><button class="faq-btn"><span>How long does it take to develop an Android app?</span><i data-lucide="plus" class="faq-icon"></i></button><div class="faq-content"><p>Timeline depends on complexity: simple apps take 6–8 weeks; medium business apps 10–16 weeks; complex enterprise solutions 16–28 weeks. We provide a detailed sprint plan before project start so you know exactly what's happening at every stage.</p></div></div>
-            <div class="faq-item"><button class="faq-btn"><span>Do you use Kotlin or Java for Android development?</span><i data-lucide="plus" class="faq-icon"></i></button><div class="faq-content"><p>We primarily use Kotlin — Google's official, modern Android language — with Jetpack Compose for UI. For projects requiring it, we maintain Java codebases and can work with hybrid legacy/Kotlin projects. We follow Android best practices including MVVM architecture and Clean Code principles.</p></div></div>
-            <div class="faq-item"><button class="faq-btn"><span>Can you integrate payment gateways like Razorpay or Stripe?</span><i data-lucide="plus" class="faq-icon"></i></button><div class="faq-content"><p>Yes — we integrate all major Indian and international payment gateways including Razorpay, Stripe, PayU, CCAvenue, and PhonePe. We implement native Android SDKs with proper security handling, PCI-DSS considerations, and fallback flows.</p></div></div>
+            <div class="faq-item"><button class="faq-btn"><span>How long does it take to develop an Android app?</span><i data-lucide="plus" class="faq-icon"></i></button><div class="faq-content"><p>Timeline depends on complexity: simple apps take 6â€“8 weeks; medium business apps 10â€“16 weeks; complex enterprise solutions 16â€“28 weeks. We provide a detailed sprint plan before project start so you know exactly what's happening at every stage.</p></div></div>
+            <div class="faq-item"><button class="faq-btn"><span>Do you use Kotlin or Java for Android development?</span><i data-lucide="plus" class="faq-icon"></i></button><div class="faq-content"><p>We primarily use Kotlin â€” Google's official, modern Android language â€” with Jetpack Compose for UI. For projects requiring it, we maintain Java codebases and can work with hybrid legacy/Kotlin projects. We follow Android best practices including MVVM architecture and Clean Code principles.</p></div></div>
+            <div class="faq-item"><button class="faq-btn"><span>Can you integrate payment gateways like Razorpay or Stripe?</span><i data-lucide="plus" class="faq-icon"></i></button><div class="faq-content"><p>Yes â€” we integrate all major Indian and international payment gateways including Razorpay, Stripe, PayU, CCAvenue, and PhonePe. We implement native Android SDKs with proper security handling, PCI-DSS considerations, and fallback flows.</p></div></div>
             <div class="faq-item"><button class="faq-btn"><span>Do you handle Google Play Store submission?</span><i data-lucide="plus" class="faq-icon"></i></button><div class="faq-content"><p>Absolutely. We manage the complete Play Store submission process including app signing, policy compliance review, store listing optimisation (ASO), screenshot production, and staged rollout configuration. We also set up A/B store listing experiments to maximise organic install rates.</p></div></div>
             <div class="faq-item"><button class="faq-btn"><span>What happens after the app is launched?</span><i data-lucide="plus" class="faq-icon"></i></button><div class="faq-content"><p>All projects include a minimum 30-day post-launch warranty covering critical bug fixes at no charge. We offer flexible ongoing maintenance retainers covering Android OS update compatibility, feature additions, performance monitoring, and Play Store policy compliance as Google's policies evolve.</p></div></div>
         </div>
@@ -384,7 +470,7 @@
         <div data-reveal>
             <h4 style="color:var(--an-green);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:0.95rem;">Your App Starts Here</h4>
             <h2 style="font-size:4.8rem;margin-bottom:16px;">Let's Build Your <span class="ags">Android App.</span></h2>
-            <p style="font-size:1.28rem;max-width:620px;margin:0 auto 48px;">Get Your Free App Consultation. Share your idea and our Android experts will deliver a detailed scope, timeline, and quote within 24 hours — at zero cost.</p>
+            <p style="font-size:1.28rem;max-width:620px;margin:0 auto 48px;">Get Your Free App Consultation. Share your idea and our Android experts will deliver a detailed scope, timeline, and quote within 24 hours â€” at zero cost.</p>
             <form id="appForm" style="display:grid;gap:16px;max-width:620px;margin:0 auto;text-align:left;" onsubmit="handleAppSubmit(event)">
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
                     <input type="text" placeholder="Your Name" required>
@@ -394,33 +480,75 @@
                 <input type="text" placeholder="App Idea (Brief Description)" required>
                 <select>
                     <option value="">Estimated Budget</option>
-                    <option>Under ₹1.5 Lakh</option>
-                    <option>₹1.5L – ₹3L (Starter)</option>
-                    <option>₹3L – ₹8L (Business)</option>
-                    <option>₹8L+ (Enterprise)</option>
+                    <option>Under â‚¹1.5 Lakh</option>
+                    <option>â‚¹1.5L â€“ â‚¹3L (Starter)</option>
+                    <option>â‚¹3L â€“ â‚¹8L (Business)</option>
+                    <option>â‚¹8L+ (Enterprise)</option>
                 </select>
-                <button type="submit" class="btn btn-green" style="width:100%;font-size:1.05rem;padding:22px;">GET FREE APP CONSULTATION →</button>
+                <button type="submit" class="btn btn-green" style="width:100%;font-size:1.05rem;padding:22px;">GET FREE APP CONSULTATION â†’</button>
             </form>
-            <p id="appSuccess" style="display:none;color:#4ade80;font-size:1.1rem;margin-top:20px;font-weight:700;">✅ Received! Our Android experts will contact you within 24 hours.</p>
+            <p id="appSuccess" style="display:none;color:#4ade80;font-size:1.1rem;margin-top:20px;font-weight:700;">âœ… Received! Our Android experts will contact you within 24 hours.</p>
         </div>
     </div>
 </section>
 </main>
 
-<footer style="padding:75px 0;border-top:1px solid rgba(255,255,255,0.05);background:#000;text-align:center;">
-    <div class="container">
-        <a href="/" style="font-size:1.9rem;font-weight:900;text-decoration:none;color:#fff;">MK<span style="color:var(--primary);">SHOPZONE</span></a>
-        <p style="opacity:0.5;margin:22px auto;max-width:500px;">Building high-performance Android apps that scale businesses and delight users.</p>
-        <div style="display:flex;justify-content:center;gap:34px;flex-wrap:wrap;margin-bottom:35px;opacity:0.6;font-size:0.86rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;">
-            <a href="/" style="color:#fff;text-decoration:none;">Home</a>
-            <a href="ecommerce.html" style="color:#fff;text-decoration:none;">E-Commerce</a>
-            <a href="healthcare.html" style="color:#fff;text-decoration:none;">Healthcare</a>
-            <a href="education.html" style="color:#fff;text-decoration:none;">Education</a>
-            <a href="real-estate.html" style="color:#fff;text-decoration:none;">Real Estate</a>
+            <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo" style="font-size: 1.5rem;">MK<span>SHOPZONE</span></a>
+                    <p style="margin-top: 20px; font-size: 0.9rem; margin-bottom: 25px;">Building digital legacies for ambitious brands through data-driven performance and elite creative execution.</p>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="tel:+917200059453" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">+91 72000 59453</a>
+                        <a href="mailto:mkshopzone2@gmail.com" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">mkshopzone2@gmail.com</a>
+                        <div style="display: flex; gap: 15px; margin-top: 10px;">
+                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="seo.html">Advanced SEO</a></li>
+                        <li><a href="paid-ads.html">Paid Ads & PPC</a></li>
+                        <li><a href="website-design.html">Elite Web Design</a></li>
+                        <li><a href="app.html">App Development</a></li>
+                        <li><a href="social-media.html">Social Media Marketing</a></li>
+                        <li><a href="email-marketing.html">Email Marketing</a></li>
+                        <li><a href="video-marketing.html">Video Production</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Industries</h4>
+                    <ul>
+                        <li><a href="ecommerce.html">E-commerce</a></li>
+                        <li><a href="healthcare.html">Healthcare</a></li>
+                        <li><a href="real-estate.html">Real Estate</a></li>
+                        <li><a href="education.html">Education</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>About & Blog</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="about.html#process">Our Process</a></li>
+                        <li><a href="blog.html">Latest Articles</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center" style="padding-top: 40px; border-top: 1px solid var(--border-light);">
+                <p style="font-size: 0.8rem; letter-spacing: 1px;">&copy; 2026 MK SHOPZONE. Precision Engineered Growth.</p>
+            </div>
         </div>
-        <p style="opacity:0.3;font-size:0.78rem;letter-spacing:2px;">© 2026 MK SHOPZONE. All rights reserved.</p>
-    </div>
-</footer>
+    </footer>
+
+
+
 
 <script type="module" src="/src/behavior-tracker.js"></script>
 <script type="module" src="/src/personalization.js"></script>
@@ -438,3 +566,7 @@
 </script>
 </body>
 </html>
+
+
+
+

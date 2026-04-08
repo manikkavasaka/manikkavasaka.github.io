@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -103,19 +103,105 @@
 <body>
 
     <!-- NAVIGATION -->
-    <header class="navbar" id="navbar">
+            <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="/" style="font-size:2rem;font-weight:900;letter-spacing:-1px;text-decoration:none;color:#fff;">MK<span style="color:var(--primary);">SHOPZONE</span></a>
-            <nav class="nav-links">
+            <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+            <nav class="nav-links" id="navLinks">
                 <a href="/">Home</a>
-                <a href="ecommerce.html">E-Commerce</a>
-                <a href="healthcare.html">Healthcare</a>
-                <a href="real-estate.html">Real Estate</a>
-                <a href="education.html" class="active">Education</a>
-                <button class="btn-elite btn-purple" style="padding:13px 28px;font-size:0.82rem;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">FREE STRATEGY</button>
+                <div class="nav-dropdown">
+                    <a href="seo.html" class="dropdown-trigger">Services</a>
+                    <div class="dropdown-content">
+                        <a href="seo.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/></svg></span>
+                            Advanced SEO
+                        </a>
+                        <a href="paid-ads.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+                            Paid Ads & PPC
+                        </a>
+                        <a href="website-design.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span>
+                            Elite Web Design
+                        </a>
+                        <a href="app.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+                            App Development
+                        </a>
+                        <a href="social-media.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3ZM6 8a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3ZM12 19a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3Z"/></svg></span>
+                            Social Marketing
+                        </a>
+                        <a href="email-marketing.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span>
+                            Email Marketing
+                        </a>
+                        <a href="video-marketing.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2" ry="2"/></svg></span>
+                            Video Production
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#why-us" class="dropdown-trigger">Industries</a>
+                    <div class="dropdown-content">
+                        <a href="ecommerce.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                            E-commerce
+                        </a>
+                        <a href="healthcare.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>
+                            Healthcare
+                        </a>
+                        <a href="real-estate.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                            Real Estate
+                        </a>
+                        <a href="education.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+                            Education
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="about.html" class="dropdown-trigger">About</a>
+                    <div class="dropdown-content">
+                        <a href="about.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
+                            Our Story
+                        </a>
+                        <a href="about.html#process">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+                            Our Process
+                        </a>
+                        <a href="contact.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 1 1 22 16.92z"/></svg></span>
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="blog.html" class="dropdown-trigger">Blog</a>
+                    <div class="dropdown-content">
+                        <a href="blog.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+                            Latest Articles
+                        </a>
+                        <a href="blog.html">
+                            <span class="dropdown-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg></span>
+                            Digital Trends
+                        </a>
+                    </div>
+                </div>
+                <a href="contact.html">Contact</a>
             </nav>
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-nav-audit">FREE AUDIT</a>
+            </div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
     </header>
+
+
 
     <main>
         <!-- 1. HERO -->
@@ -133,7 +219,7 @@
                         </div>
                         <div style="display:flex;gap:40px;margin-top:50px;flex-wrap:wrap;">
                             <div><h3 style="font-size:2.4rem;color:#a78bfa;margin:0;">350+</h3><p style="margin:0;font-size:0.82rem;letter-spacing:2px;text-transform:uppercase;">Institutions Served</p></div>
-                            <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:40px;"><h3 style="font-size:2.4rem;color:#a78bfa;margin:0;">5×</h3><p style="margin:0;font-size:0.82rem;letter-spacing:2px;text-transform:uppercase;">Avg. Enrollment Growth</p></div>
+                            <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:40px;"><h3 style="font-size:2.4rem;color:#a78bfa;margin:0;">5Ã—</h3><p style="margin:0;font-size:0.82rem;letter-spacing:2px;text-transform:uppercase;">Avg. Enrollment Growth</p></div>
                             <div style="border-left:1px solid rgba(255,255,255,0.15);padding-left:40px;"><h3 style="font-size:2.4rem;color:#a78bfa;margin:0;">1M+</h3><p style="margin:0;font-size:0.82rem;letter-spacing:2px;text-transform:uppercase;">Students Reached</p></div>
                         </div>
                     </div>
@@ -182,7 +268,7 @@
             <div class="container" style="text-align:center;">
                 <h4 style="color:var(--primary);margin-bottom:16px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Full-Spectrum Education Digital</h4>
                 <h2 style="font-size:4.5rem;margin-bottom:18px;">Comprehensive <span class="gradient-span">Education Services.</span></h2>
-                <p style="font-size:1.15rem;max-width:780px;margin:0 auto 65px;">From education website design and SEO to LMS development, paid enrollment campaigns, and student engagement automation — we cover every stage of the student acquisition journey.</p>
+                <p style="font-size:1.15rem;max-width:780px;margin:0 auto 65px;">From education website design and SEO to LMS development, paid enrollment campaigns, and student engagement automation â€” we cover every stage of the student acquisition journey.</p>
 
                 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:13px;margin-bottom:100px;">
                     <span class="service-tag"><i data-lucide="globe" style="width:15px;height:15px;color:#a78bfa;"></i> Education Websites</span>
@@ -257,7 +343,7 @@
                     <div class="glass-card hover-lift" data-reveal class="s2">
                         <i data-lucide="monitor-play" style="color:var(--ed-cyan);width:46px;height:46px;margin-bottom:20px;"></i>
                         <h3 style="font-size:1.7rem;margin-bottom:13px;">LMS & E-Learning Platforms</h3>
-                        <p>Custom Learning Management System development with live classes, recorded content, quizzes, progress tracking, certifications, and student dashboards — white-labelled for your institution or EdTech brand.</p>
+                        <p>Custom Learning Management System development with live classes, recorded content, quizzes, progress tracking, certifications, and student dashboards â€” white-labelled for your institution or EdTech brand.</p>
                     </div>
                     <div class="glass-card hover-lift" data-reveal class="s3">
                         <i data-lucide="smartphone" style="color:var(--ed-green);width:46px;height:46px;margin-bottom:20px;"></i>
@@ -277,7 +363,7 @@
                     <div class="glass-card hover-lift" data-reveal class="s3">
                         <i data-lucide="mail" style="color:var(--ed-cyan);width:46px;height:46px;margin-bottom:20px;"></i>
                         <h3 style="font-size:1.7rem;margin-bottom:13px;">Email & Student Automation</h3>
-                        <p>Automated admission inquiry workflows, course recommendation drips, counselor follow-up sequences, and fee reminder campaigns — keeping prospective students engaged throughout the full decision cycle.</p>
+                        <p>Automated admission inquiry workflows, course recommendation drips, counselor follow-up sequences, and fee reminder campaigns â€” keeping prospective students engaged throughout the full decision cycle.</p>
                     </div>
                 </div>
             </div>
@@ -293,7 +379,7 @@
                     <div data-reveal class="s2">
                         <h4 style="color:var(--ed-cyan);margin-bottom:14px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">EdTech Infrastructure</h4>
                         <h2 style="font-size:3.6rem;line-height:1.1;margin-bottom:24px;">Online Course & E-Learning <span class="ed-span2">Platforms.</span></h2>
-                        <p style="font-size:1.15rem;margin-bottom:28px;">We build production-ready e-learning platforms that scale from 100 to 100,000 students — with intuitive course builders, live streaming, automated grading, payment integration, and affiliate systems.</p>
+                        <p style="font-size:1.15rem;margin-bottom:28px;">We build production-ready e-learning platforms that scale from 100 to 100,000 students â€” with intuitive course builders, live streaming, automated grading, payment integration, and affiliate systems.</p>
                         <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
                             <div class="glass-card" style="padding:24px;">
                                 <h4 style="font-size:1.1rem;color:#a78bfa;margin-bottom:8px;">Scalable Architecture</h4>
@@ -340,12 +426,12 @@
                     <div class="glass-card hover-lift" data-reveal class="s2">
                         <i data-lucide="zap" style="color:var(--primary);width:46px;height:46px;margin:0 auto 18px;"></i>
                         <h3 style="font-size:1.5rem;margin-bottom:10px;">Fast Enrollment</h3>
-                        <p style="font-size:0.93rem;">Automated counselor lead assignment in under 5 minutes — dramatically improving contact and enrollment rates.</p>
+                        <p style="font-size:0.93rem;">Automated counselor lead assignment in under 5 minutes â€” dramatically improving contact and enrollment rates.</p>
                     </div>
                     <div class="glass-card hover-lift" data-reveal class="s3">
                         <i data-lucide="pie-chart" style="color:var(--ed-cyan);width:46px;height:46px;margin:0 auto 18px;"></i>
                         <h3 style="font-size:1.5rem;margin-bottom:10px;">Transparent ROI</h3>
-                        <p style="font-size:0.93rem;">Clear reporting on cost per enrollment, ROAS, and campaign attribution — no vanity metrics.</p>
+                        <p style="font-size:0.93rem;">Clear reporting on cost per enrollment, ROAS, and campaign attribution â€” no vanity metrics.</p>
                     </div>
                     <div class="glass-card hover-lift" data-reveal class="s4">
                         <i data-lucide="refresh-cw" style="color:var(--ed-green);width:46px;height:46px;margin:0 auto 18px;"></i>
@@ -364,7 +450,7 @@
                         <p style="margin-bottom:20px;">Full-funnel Google + Meta + Email campaign for an MBA program. Generated 1,800 qualified inquiries and 420 confirmed enrollments in one admission cycle.</p>
                         <div style="display:flex;gap:22px;">
                             <div><h4 style="font-size:1.9rem;color:#a78bfa;">420</h4><p style="font-size:0.78rem;margin:0;">Enrollments</p></div>
-                            <div><h4 style="font-size:1.9rem;color:var(--primary);">₹310</h4><p style="font-size:0.78rem;margin:0;">Cost per Lead</p></div>
+                            <div><h4 style="font-size:1.9rem;color:var(--primary);">â‚¹310</h4><p style="font-size:0.78rem;margin:0;">Cost per Lead</p></div>
                         </div>
                     </div>
                     <div class="glass-card hover-lift" data-reveal class="s2">
@@ -373,7 +459,7 @@
                         <p style="margin-bottom:20px;">Built a full LMS + ran student acquisition campaigns for a coding EdTech startup. Achieved 15,000 paid course enrollments in 6 months post-launch.</p>
                         <div style="display:flex;gap:22px;">
                             <div><h4 style="font-size:1.9rem;color:var(--ed-cyan);">15K</h4><p style="font-size:0.78rem;margin:0;">Paid Enrollments</p></div>
-                            <div><h4 style="font-size:1.9rem;color:var(--primary);">7.2×</h4><p style="font-size:0.78rem;margin:0;">ROAS</p></div>
+                            <div><h4 style="font-size:1.9rem;color:var(--primary);">7.2Ã—</h4><p style="font-size:0.78rem;margin:0;">ROAS</p></div>
                         </div>
                     </div>
                     <div class="glass-card hover-lift" data-reveal class="s3">
@@ -444,19 +530,19 @@
                 <div style="max-width:920px;margin:0 auto;">
                     <div class="faq-item">
                         <button class="faq-btn"><span>How quickly can you generate student enrollment inquiries?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                        <div class="faq-content"><p>Google and Meta paid campaigns can generate your first qualified student inquiries within 48–72 hours of launch. SEO-driven organic inquiries ramp up over 3–5 months. We recommend a combined strategy especially during peak admission seasons (Jan–March, June–August).</p></div>
+                        <div class="faq-content"><p>Google and Meta paid campaigns can generate your first qualified student inquiries within 48â€“72 hours of launch. SEO-driven organic inquiries ramp up over 3â€“5 months. We recommend a combined strategy especially during peak admission seasons (Janâ€“March, Juneâ€“August).</p></div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-btn"><span>Can you build a custom LMS for our institution?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                        <div class="faq-content"><p>Yes — we design and develop fully custom LMS platforms as well as configuring and white-labelling established systems like Moodle or Canvas. Our LMS solutions include live classes, course builders, quizzes, progress tracking, certificate generation, and payment integration.</p></div>
+                        <div class="faq-content"><p>Yes â€” we design and develop fully custom LMS platforms as well as configuring and white-labelling established systems like Moodle or Canvas. Our LMS solutions include live classes, course builders, quizzes, progress tracking, certificate generation, and payment integration.</p></div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-btn"><span>What is the typical cost per admission inquiry?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                        <div class="faq-content"><p>Cost per lead varies by institution type and course level. K-12 school inquiries typically range ₹150–₹400. College and university CPLs range ₹300–₹800. Premium MBA and professional programs can range ₹500–₹1,500 but with much higher ticket values making the economics highly favourable.</p></div>
+                        <div class="faq-content"><p>Cost per lead varies by institution type and course level. K-12 school inquiries typically range â‚¹150â€“â‚¹400. College and university CPLs range â‚¹300â€“â‚¹800. Premium MBA and professional programs can range â‚¹500â€“â‚¹1,500 but with much higher ticket values making the economics highly favourable.</p></div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-btn"><span>Do you handle WhatsApp automation for counselor follow-up?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                        <div class="faq-content"><p>Yes — we set up WhatsApp Business API automation that sends instant acknowledgment messages to every new inquiry, routes leads to the correct counselor based on course interest, and runs scheduled follow-up sequences to keep prospective students engaged through the admission decision process.</p></div>
+                        <div class="faq-content"><p>Yes â€” we set up WhatsApp Business API automation that sends instant acknowledgment messages to every new inquiry, routes leads to the correct counselor based on course interest, and runs scheduled follow-up sequences to keep prospective students engaged through the admission decision process.</p></div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-btn"><span>Can you manage social media for our institution year-round?</span><i data-lucide="plus" class="faq-icon"></i></button>
@@ -473,7 +559,7 @@
                 <div data-reveal>
                     <h4 style="color:#a78bfa;margin-bottom:16px;letter-spacing:3px;text-transform:uppercase;font-size:1rem;">Your Enrollment Growth Starts Here</h4>
                     <h2 style="font-size:4.8rem;margin-bottom:16px;">Let's Grow Your Institution <span class="ed-span">Digitally.</span></h2>
-                    <p style="font-size:1.3rem;max-width:640px;margin:0 auto 50px;">Get Your Free Education Marketing Strategy. Contact Our Education Experts today — we'll present a custom enrollment growth roadmap within 24 hours.</p>
+                    <p style="font-size:1.3rem;max-width:640px;margin:0 auto 50px;">Get Your Free Education Marketing Strategy. Contact Our Education Experts today â€” we'll present a custom enrollment growth roadmap within 24 hours.</p>
 
                     <form id="edForm" style="display:grid;gap:17px;max-width:620px;margin:0 auto;text-align:left;" onsubmit="handleEdSubmit(event)">
                         <div style="display:grid;grid-template-columns:1fr 1fr;gap:17px;">
@@ -498,30 +584,71 @@
                             <option>Social Media Marketing</option>
                             <option>Full Digital Strategy</option>
                         </select>
-                        <button type="submit" class="btn-elite btn-purple" style="width:100%;font-size:1.05rem;padding:22px;">GET FREE ENROLLMENT STRATEGY →</button>
+                        <button type="submit" class="btn-elite btn-purple" style="width:100%;font-size:1.05rem;padding:22px;">GET FREE ENROLLMENT STRATEGY â†’</button>
                     </form>
-                    <p id="edFormSuccess" style="display:none;color:#4ade80;font-size:1.1rem;margin-top:22px;font-weight:700;">✅ Thank you! Our education experts will contact you within 24 hours.</p>
+                    <p id="edFormSuccess" style="display:none;color:#4ade80;font-size:1.1rem;margin-top:22px;font-weight:700;">âœ… Thank you! Our education experts will contact you within 24 hours.</p>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- FOOTER -->
-    <footer style="padding:80px 0;border-top:1px solid rgba(255,255,255,0.05);background:#000;text-align:center;">
+                <footer class="footer">
         <div class="container">
-            <a href="/" style="font-size:2rem;font-weight:900;text-decoration:none;color:#fff;">MK<span style="color:var(--primary);">SHOPZONE</span></a>
-            <p style="opacity:0.5;margin:24px auto;max-width:520px;">Transforming educational institutions through data-driven digital marketing and EdTech development.</p>
-            <div style="display:flex;justify-content:center;gap:36px;flex-wrap:wrap;margin-bottom:38px;opacity:0.6;font-size:0.88rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;">
-                <a href="/" style="color:#fff;text-decoration:none;">Home</a>
-                <a href="ecommerce.html" style="color:#fff;text-decoration:none;">E-Commerce</a>
-                <a href="healthcare.html" style="color:#fff;text-decoration:none;">Healthcare</a>
-                <a href="real-estate.html" style="color:#fff;text-decoration:none;">Real Estate</a>
-                <a href="seo.html" style="color:#fff;text-decoration:none;">SEO</a>
-                <a href="#contact" style="color:#fff;text-decoration:none;">Contact</a>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo" style="font-size: 1.5rem;">MK<span>SHOPZONE</span></a>
+                    <p style="margin-top: 20px; font-size: 0.9rem; margin-bottom: 25px;">Building digital legacies for ambitious brands through data-driven performance and elite creative execution.</p>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="tel:+917200059453" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">+91 72000 59453</a>
+                        <a href="mailto:mkshopzone2@gmail.com" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">mkshopzone2@gmail.com</a>
+                        <div style="display: flex; gap: 15px; margin-top: 10px;">
+                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="seo.html">Advanced SEO</a></li>
+                        <li><a href="paid-ads.html">Paid Ads & PPC</a></li>
+                        <li><a href="website-design.html">Elite Web Design</a></li>
+                        <li><a href="app.html">App Development</a></li>
+                        <li><a href="social-media.html">Social Media Marketing</a></li>
+                        <li><a href="email-marketing.html">Email Marketing</a></li>
+                        <li><a href="video-marketing.html">Video Production</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Industries</h4>
+                    <ul>
+                        <li><a href="ecommerce.html">E-commerce</a></li>
+                        <li><a href="healthcare.html">Healthcare</a></li>
+                        <li><a href="real-estate.html">Real Estate</a></li>
+                        <li><a href="education.html">Education</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>About & Blog</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="about.html#process">Our Process</a></li>
+                        <li><a href="blog.html">Latest Articles</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
             </div>
-            <p style="opacity:0.3;font-size:0.8rem;letter-spacing:2px;">© 2026 MK SHOPZONE. All rights reserved.</p>
+            <div class="text-center" style="padding-top: 40px; border-top: 1px solid var(--border-light);">
+                <p style="font-size: 0.8rem; letter-spacing: 1px;">&copy; 2026 MK SHOPZONE. Precision Engineered Growth.</p>
+            </div>
         </div>
     </footer>
+
+
+
 
     <script type="module" src="/src/behavior-tracker.js"></script>
     <script type="module" src="/src/personalization.js"></script>
@@ -558,3 +685,7 @@
     </script>
 </body>
 </html>
+
+
+
+
