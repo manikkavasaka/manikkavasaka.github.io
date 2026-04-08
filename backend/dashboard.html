@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MK Shopzone — AI Growth Dashboard</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ════════════════════════════════════════════════════════
+     DESIGN SYSTEM TOKENS
+  ════════════════════════════════════════════════════════ */
+  :root {
+    --bg-base:      #07080f;
+    --bg-card:      #0d0f1c;
+    --bg-card2:     #111326;
+    --border:       rgba(255,255,255,0.07);
+    --border-glow:  rgba(99,102,241,0.4);
+    --primary:      #6366f1;
+    --primary-light:#818cf8;
+    --accent:       #22d3ee;
+    --success:      #22c55e;
+    --warning:      #f59e0b;
+    --danger:       #ef4444;
+    --text-1:       #f1f5f9;
+    --text-2:       #94a3b8;
+    --text-3:       #475569;
+    --radius:       14px;
+    --shadow:       0 4px 32px rgba(0,0,0,0.5);
+    --shadow-glow:  0 0 40px rgba(99,102,241,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg-base);
+    color: var(--text-1);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ── Sidebar ─────────────────────────────────────────── */
+  .layout { display: flex; min-height: 100vh; }
+
+  .sidebar {
+    width: 240px;
+    background: var(--bg-card);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 100;
+  }
+
+  .sidebar-brand {
+    padding: 0 24px 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-brand h1 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-light), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+  }
+  .sidebar-brand span {
+    font-size: 0.72rem;
+    color: var(--text-3);
+    font-weight: 500;
+    display: block;
+    margin-top: 2px;
+  }
+
+  .nav-section { padding: 20px 12px 8px; }
+  .nav-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-3);
+    font-weight: 600;
+    padding: 0 12px;
+    margin-bottom: 6px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-2);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.15s;
+    text-decoration: none;
+    margin-bottom: 2px;
+  }
+  .nav-item:hover  { background: rgba(99,102,241,0.1); color: var(--text-1); }
+  .nav-item.active { background: rgba(99,102,241,0.18); color: var(--primary-light); }
+  .nav-item .icon  { width: 18px; text-align: center; font-size: 1rem; }
+
+  /* ── Status badge in sidebar ─────────────────────────── */
+  .sidebar-status {
+    margin: auto 16px 16px;
+    padding: 12px;
+    background: rgba(34,197,94,0.08);
+    border: 1px solid rgba(34,197,94,0.2);
+    border-radius: var(--radius);
+    font-size: 0.78rem;
+  }
+  .sidebar-status .dot {
+    width: 7px; height: 7px;
+    background: var(--success);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+    box-shadow: 0 0 8px var(--success);
+  }
+  .sidebar-status strong { color: var(--success); }
+
+  /* ── Main Content ─────────────────────────────────────── */
+  .main { margin-left: 240px; flex: 1; }
+
+  .topbar {
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(13,15,28,0.8);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .topbar-title { font-size: 1.25rem; font-weight: 700; }
+  .topbar-right { display: flex; align-items: center; gap: 12px; }
+  .btn-sm {
+    padding: 7px 16px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .btn-primary { background: var(--primary); color: #fff; }
+  .btn-primary:hover { background: #4f46e5; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(99,102,241,0.4); }
+  .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-2); }
+  .btn-outline:hover { border-color: var(--primary); color: var(--primary-light); }
+
+  .content { padding: 32px; }
+
+  /* ── KPI Cards ───────────────────────────────────────── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+
+  .kpi-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--kpi-color, var(--primary));
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .kpi-card:hover { border-color: var(--border-glow); box-shadow: var(--shadow-glow); transform: translateY(-2px); }
+
+  .kpi-label { font-size: 0.78rem; color: var(--text-2); font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+  .kpi-value { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.04em; color: var(--text-1); line-height: 1; }
+  .kpi-sub   { font-size: 0.8rem; color: var(--text-2); margin-top: 8px; }
+  .kpi-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: rgba(34,197,94,0.12);
+    color: var(--success);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .kpi-badge.warn { background: rgba(245,158,11,0.12); color: var(--warning); }
+  .kpi-icon {
+    position: absolute;
+    top: 18px; right: 18px;
+    font-size: 1.6rem;
+    opacity: 0.2;
+  }
+
+  /* ── Grid Layouts ────────────────────────────────────── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; }
+  .three-col { display: grid; grid-template-columns: 1.6fr 1fr; gap: 18px; margin-bottom: 28px; }
+
+  @media (max-width: 1100px) {
+    .two-col, .three-col { grid-template-columns: 1fr; }
+  }
+
+  /* ── Cards ───────────────────────────────────────────── */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .card-header {
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-header h3 { font-size: 0.95rem; font-weight: 700; }
+  .card-header span { font-size: 0.78rem; color: var(--text-2); }
+  .card-body { padding: 22px; }
+
+  /* ── Lead Table ──────────────────────────────────────── */
+  .leads-table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    text-align: left;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-3);
+    font-weight: 600;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody tr {
+    transition: background 0.15s;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  tbody tr:hover { background: rgba(99,102,241,0.05); }
+  tbody td { padding: 12px 14px; font-size: 0.875rem; color: var(--text-2); }
+  tbody td:first-child { color: var(--text-1); font-weight: 500; }
+
+  /* ── Badges ──────────────────────────────────────────── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    gap: 5px;
+  }
+  .badge-new          { background: rgba(99,102,241,0.15); color: var(--primary-light); }
+  .badge-followed_up  { background: rgba(245,158,11,0.15); color: var(--warning); }
+  .badge-converted    { background: rgba(34,197,94,0.15);  color: var(--success); }
+  .badge-lost         { background: rgba(239,68,68,0.15);  color: var(--danger); }
+  .badge-hot          { background: rgba(239,68,68,0.15);  color: var(--danger); }
+  .badge-warm         { background: rgba(245,158,11,0.15); color: var(--warning); }
+  .badge-cold         { background: rgba(99,102,241,0.15); color: var(--primary-light); }
+
+  /* ── Intent color dots ───────────────────────────────── */
+  .intent-dot {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem;
+  }
+  .intent-dot::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--dot-color, var(--primary));
+    flex-shrink: 0;
+  }
+
+  /* ── Bar chart ───────────────────────────────────────── */
+  .bar-chart { display: flex; flex-direction: column; gap: 12px; }
+  .bar-row   { display: flex; align-items: center; gap: 10px; }
+  .bar-label { font-size: 0.8rem; color: var(--text-2); width: 120px; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bar-track { flex: 1; height: 8px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
+  .bar-fill  { height: 100%; border-radius: 10px; transition: width 1s cubic-bezier(.25,.46,.45,.94); }
+  .bar-val   { font-size: 0.78rem; color: var(--text-2); width: 28px; text-align: right; flex-shrink: 0; }
+
+  /* ── Funnel ──────────────────────────────────────────── */
+  .funnel { display: flex; flex-direction: column; gap: 8px; }
+  .funnel-step {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .funnel-step:hover { border-color: var(--border-glow); }
+  .funnel-icon  { font-size: 1.2rem; }
+  .funnel-info  { flex: 1; }
+  .funnel-info strong { font-size: 0.875rem; display: block; }
+  .funnel-info small  { font-size: 0.78rem; color: var(--text-2); }
+  .funnel-count { font-size: 1.4rem; font-weight: 800; color: var(--primary-light); }
+
+  /* ── Activity Feed ───────────────────────────────────── */
+  .activity { display: flex; flex-direction: column; gap: 1px; }
+  .activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .activity-item:last-child { border-bottom: none; }
+  .activity-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(99,102,241,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .activity-text strong { font-size: 0.875rem; display: block; color: var(--text-1); }
+  .activity-text span   { font-size: 0.78rem; color: var(--text-2); }
+  .activity-time { font-size: 0.72rem; color: var(--text-3); margin-left: auto; white-space: nowrap; }
+
+  /* ── Loading / Error states ──────────────────────────── */
+  .spinner {
+    width: 20px; height: 20px;
+    border: 2px solid rgba(255,255,255,0.1);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: inline-block;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .empty-state  { text-align: center; padding: 40px 20px; color: var(--text-3); }
+  .empty-state .icon { font-size: 2.5rem; margin-bottom: 12px; opacity: 0.5; }
+
+  /* ── Score pills ─────────────────────────────────────── */
+  .score-pill {
+    display: inline-flex; align-items: center;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .score-high { background: rgba(34,197,94,0.15);  color: var(--success); }
+  .score-med  { background: rgba(245,158,11,0.15); color: var(--warning); }
+  .score-low  { background: rgba(99,102,241,0.15); color: var(--primary-light); }
+
+  /* ── Tab system ──────────────────────────────────────── */
+  .tabs { display: flex; gap: 4px; margin-bottom: 20px; }
+  .tab-btn {
+    padding: 7px 16px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-2);
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .tab-btn.active { background: rgba(99,102,241,0.15); border-color: var(--border-glow); color: var(--primary-light); }
+
+  /* ── Toast ───────────────────────────────────────────── */
+  .toast {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    padding: 14px 20px;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    box-shadow: var(--shadow);
+    z-index: 9999;
+    animation: slideUp 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 320px;
+  }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } }
+  .toast.success { border-color: rgba(34,197,94,0.3); }
+  .toast.error   { border-color: rgba(239,68,68,0.3); }
+
+  /* ── Follow-up action buttons ─────────────────────────── */
+  .action-btns { display: flex; gap: 6px; }
+  .action-btn {
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-2);
+    font-size: 0.72rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .action-btn:hover { border-color: var(--primary); color: var(--primary-light); background: rgba(99,102,241,0.1); }
+  .action-btn.wa:hover { border-color: var(--success); color: var(--success); background: rgba(34,197,94,0.1); }
+
+  /* ── Refresh indicator ────────────────────────────────── */
+  .refresh-dot {
+    width: 8px; height: 8px;
+    background: var(--success);
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse-dot 2s infinite;
+    margin-right: 6px;
+  }
+  @keyframes pulse-dot {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ── Responsive ─────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .sidebar { width: 100%; height: auto; position: relative; }
+    .main { margin-left: 0; }
+    .content { padding: 16px; }
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .topbar { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ═══════════════════════════════════════════════════
+       SIDEBAR
+  ═══════════════════════════════════════════════════ -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <h1>⚡ MK Shopzone</h1>
+      <span>AI Growth Engine v4.0</span>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Overview</div>
+      <a class="nav-item active" onclick="showSection('dashboard')">
+        <span class="icon">📊</span> Dashboard
+      </a>
+      <a class="nav-item" onclick="showSection('leads')">
+        <span class="icon">👥</span> Leads
+      </a>
+      <a class="nav-item" onclick="showSection('analytics')">
+        <span class="icon">📈</span> Analytics
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">Automation</div>
+      <a class="nav-item" onclick="showSection('followup')">
+        <span class="icon">📱</span> Follow-ups
+      </a>
+      <a class="nav-item" onclick="showSection('retargeting')">
+        <span class="icon">🎯</span> Retargeting
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">System</div>
+      <a class="nav-item" href="/docs" target="_blank">
+        <span class="icon">📖</span> API Docs
+      </a>
+      <a class="nav-item" href="index.html" target="_blank">
+        <span class="icon">🌐</span> Live Site
+      </a>
+    </div>
+
+    <div class="sidebar-status" id="system-status">
+      <span class="dot"></span>
+      <strong>System Online</strong><br>
+      <span style="color: var(--text-3); font-size:0.72rem;">Loading metrics…</span>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════════════════════ -->
+  <main class="main">
+
+    <div class="topbar">
+      <div>
+        <span class="refresh-dot"></span>
+        <span class="topbar-title" id="page-title">Dashboard</span>
+      </div>
+      <div class="topbar-right">
+        <span style="font-size:0.78rem; color:var(--text-3);" id="last-updated">—</span>
+        <button class="btn-sm btn-outline" onclick="loadAll()">↻ Refresh</button>
+        <button class="btn-sm btn-primary" onclick="triggerDailyFollowup()">▶ Run Daily Follow-up</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- ══ DASHBOARD SECTION ══════════════════════════ -->
+      <div id="section-dashboard">
+
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card" style="--kpi-color: var(--primary)">
+            <div class="kpi-icon">👤</div>
+            <div class="kpi-label">Total Sessions</div>
+            <div class="kpi-value" id="kpi-sessions">—</div>
+            <div class="kpi-sub">Unique site visitors tracked</div>
+          </div>
+          <div class="kpi-card" style="--kpi-color: var(--success)">
+            <div class="kpi-icon">🎯</div>
+            <div class="kpi-label">Leads Captured</div>
+            <div class="kpi-value" id="kpi-leads">—</div>
+            <div class="kpi-sub">All channels combined</div>
+          </div>
+          <div class="kpi-card" style="--kpi-color: var(--accent)">
+            <div class="kpi-icon">📈</div>
+            <div class="kpi-label">Conversion Rate</div>
+            <div class="kpi-value" id="kpi-conversion">—</div>
+            <div class="kpi-sub">Visitors → Leads</div>
+          </div>
+          <div class="kpi-card" style="--kpi-color: var(--warning)">
+            <div class="kpi-icon">⭐</div>
+            <div class="kpi-label">Avg Lead Score</div>
+            <div class="kpi-value" id="kpi-score">—</div>
+            <div class="kpi-sub">Out of 100</div>
+          </div>
+        </div>
+
+        <!-- Charts row -->
+        <div class="two-col">
+
+          <!-- Intent breakdown -->
+          <div class="card">
+            <div class="card-header">
+              <h3>Leads by Service Intent</h3>
+              <span id="intent-total">—</span>
+            </div>
+            <div class="card-body">
+              <div class="bar-chart" id="intent-chart">
+                <div class="empty-state"><div class="icon">📊</div>Loading…</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Funnel -->
+          <div class="card">
+            <div class="card-header">
+              <h3>Buying Stage Funnel</h3>
+            </div>
+            <div class="card-body">
+              <div class="funnel" id="funnel-chart">
+                <div class="empty-state"><div class="icon">🔄</div>Loading…</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Status + Recent -->
+        <div class="three-col">
+
+          <!-- Recent leads -->
+          <div class="card">
+            <div class="card-header">
+              <h3>Recent Leads</h3>
+              <a onclick="showSection('leads')" style="font-size:0.78rem; color:var(--primary-light); cursor:pointer;">View all →</a>
+            </div>
+            <div class="leads-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Intent</th>
+                    <th>Score</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="recent-leads-body">
+                  <tr><td colspan="4" style="text-align:center;padding:28px;color:var(--text-3)">Loading…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Lead status breakdown -->
+          <div class="card">
+            <div class="card-header">
+              <h3>Lead Status</h3>
+            </div>
+            <div class="card-body">
+              <div class="bar-chart" id="status-chart">
+                <div class="empty-state"><div class="icon">🔄</div>Loading…</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /dashboard -->
+
+      <!-- ══ LEADS SECTION ══════════════════════════════ -->
+      <div id="section-leads" style="display:none">
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+          <div>
+            <h2 style="font-size:1.2rem; font-weight:700;">All Leads</h2>
+            <p style="font-size:0.82rem; color:var(--text-2); margin-top:4px;">Real-time lead database with AI scoring.</p>
+          </div>
+          <div style="display:flex; gap:10px;">
+            <select id="filter-status" class="btn-sm btn-outline" onchange="loadLeadsTable()" style="font-family:inherit;">
+              <option value="">All Status</option>
+              <option value="new">New</option>
+              <option value="followed_up">Followed Up</option>
+              <option value="converted">Converted</option>
+              <option value="lost">Lost</option>
+            </select>
+            <select id="filter-intent" class="btn-sm btn-outline" onchange="loadLeadsTable()" style="font-family:inherit;">
+              <option value="">All Intents</option>
+              <option value="SEO">SEO</option>
+              <option value="Paid Ads">Paid Ads</option>
+              <option value="Web Design">Web Design</option>
+              <option value="Social Media">Social Media</option>
+              <option value="App Development">App Development</option>
+            </select>
+            <button class="btn-sm btn-primary" onclick="exportLeadsCSV()">⬇ Export CSV</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="leads-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email / Phone</th>
+                  <th>Business</th>
+                  <th>Intent</th>
+                  <th>Stage</th>
+                  <th>Score</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="leads-table-body">
+                <tr><td colspan="8" style="text-align:center;padding:40px;color:var(--text-3)">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div><!-- /leads -->
+
+      <!-- ══ ANALYTICS SECTION ══════════════════════════ -->
+      <div id="section-analytics" style="display:none">
+
+        <div class="tabs">
+          <button class="tab-btn active" onclick="setTab(this, 'analytics-week')" data-target="analytics-week">This Week</button>
+          <button class="tab-btn" onclick="setTab(this, 'analytics-month')" data-target="analytics-month">Monthly</button>
+        </div>
+
+        <div id="analytics-week">
+          <div class="kpi-grid">
+            <div class="kpi-card" style="--kpi-color:var(--primary)">
+              <div class="kpi-label">Total Leads</div>
+              <div class="kpi-value" id="an-total">—</div>
+              <div class="kpi-sub">All time</div>
+            </div>
+            <div class="kpi-card" style="--kpi-color:var(--success)">
+              <div class="kpi-label">Avg Lead Score</div>
+              <div class="kpi-value" id="an-score">—</div>
+              <div class="kpi-sub">AI quality rating</div>
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div class="card">
+              <div class="card-header"><h3>Conversions by Intent</h3></div>
+              <div class="card-body">
+                <div class="bar-chart" id="conv-intent-chart">
+                  <div class="empty-state"><div class="icon">📊</div>Loading…</div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header"><h3>Conversion Rates</h3></div>
+              <div class="card-body" id="conv-rates">
+                <div class="empty-state"><div class="icon">📈</div>Loading…</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /analytics -->
+
+      <!-- ══ FOLLOW-UP SECTION ══════════════════════════ -->
+      <div id="section-followup" style="display:none">
+        <div style="margin-bottom:24px;">
+          <h2 style="font-size:1.2rem; font-weight:700;">Automated Follow-ups</h2>
+          <p style="font-size:0.82rem; color:var(--text-2); margin-top:4px;">Manage and trigger WhatsApp + Email campaigns.</p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card" style="--kpi-color:var(--success)">
+            <div class="kpi-icon">📱</div>
+            <div class="kpi-label">Daily Job</div>
+            <div class="kpi-value" style="font-size:1.4rem;" id="sched-status">Checking…</div>
+            <div class="kpi-sub">Runs at 09:00 IST every day</div>
+          </div>
+          <div class="kpi-card" style="--kpi-color:var(--warning)">
+            <div class="kpi-icon">📧</div>
+            <div class="kpi-label">Pending Follow-ups</div>
+            <div class="kpi-value" id="pending-fu">—</div>
+            <div class="kpi-sub">Leads awaiting next contact</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-header"><h3>Bulk Campaigns</h3></div>
+            <div class="card-body" style="display:flex; flex-direction:column; gap:12px;">
+              <p style="font-size:0.85rem; color:var(--text-2);">Send a campaign to all active leads at once.</p>
+              <button class="btn-sm btn-outline" style="text-align:left;padding:12px 16px;" onclick="sendCampaign('case_study')">
+                📚  Case Study Campaign — Share success stories
+              </button>
+              <button class="btn-sm btn-outline" style="text-align:left;padding:12px 16px;" onclick="sendCampaign('testimonial')">
+                ⭐  Testimonial Campaign — Social proof blast
+              </button>
+              <button class="btn-sm btn-outline" style="text-align:left;padding:12px 16px;border-color:rgba(239,68,68,0.3);color:var(--danger);" onclick="sendCampaign('limited_offer')">
+                🔥  Limited Offer Campaign — Convert fence-sitters
+              </button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Manual Trigger</h3></div>
+            <div class="card-body">
+              <p style="font-size:0.85rem; color:var(--text-2); margin-bottom:16px;">Force-run the daily follow-up job immediately.</p>
+              <button class="btn-sm btn-primary" style="width:100%;padding:12px;" onclick="triggerDailyFollowup()">
+                ▶ Run Daily Follow-up Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div><!-- /followup -->
+
+      <!-- ══ RETARGETING SECTION ════════════════════════ -->
+      <div id="section-retargeting" style="display:none">
+        <div style="margin-bottom:24px;">
+          <h2 style="font-size:1.2rem; font-weight:700;">Retargeting Audiences</h2>
+          <p style="font-size:0.82rem; color:var(--text-2); margin-top:4px;">Export pixel-ready audiences for Facebook & Google Ads.</p>
+        </div>
+
+        <div class="kpi-grid" id="retargeting-kpis">
+          <div class="kpi-card" style="--kpi-color:var(--primary)">
+            <div class="kpi-label">Total Visitors</div>
+            <div class="kpi-value" id="rt-visitors">—</div>
+          </div>
+          <div class="kpi-card" style="--kpi-color:var(--success)">
+            <div class="kpi-label">Warm Leads (Score ≥60)</div>
+            <div class="kpi-value" id="rt-warm">—</div>
+          </div>
+          <div class="kpi-card" style="--kpi-color:var(--accent)">
+            <div class="kpi-label">High Value (Score ≥80)</div>
+            <div class="kpi-value" id="rt-highval">—</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-header"><h3>Audience Segments</h3></div>
+            <div class="card-body">
+              <div class="bar-chart" id="rt-segments">
+                <div class="empty-state"><div class="icon">🎯</div>Loading…</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Export for Ad Platforms</h3></div>
+            <div class="card-body" style="display:flex;flex-direction:column;gap:12px;">
+              <p style="font-size:0.82rem; color:var(--text-2);">Download audience lists for retargeting campaigns.</p>
+              <button class="btn-sm btn-outline" style="text-align:left;padding:12px 16px;" onclick="exportAudience('facebook')">
+                📘  Facebook Custom Audience (email + phone)
+              </button>
+              <button class="btn-sm btn-outline" style="text-align:left;padding:12px 16px;" onclick="exportAudience('google')">
+                🔍  Google Customer Match (email CSV)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h3>AI-Generated Ad Creatives</h3></div>
+          <div class="card-body" id="rt-creatives">
+            <div class="empty-state"><div class="icon">🎨</div>Loading…</div>
+          </div>
+        </div>
+      </div><!-- /retargeting -->
+
+    </div><!-- /content -->
+  </main>
+
+</div><!-- /layout -->
+
+<!-- Toast container -->
+<div id="toast-container"></div>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   CONFIG
+══════════════════════════════════════════════════════ */
+const API = '';   // Empty = same origin (backend running on same host:port)
+// If backend runs separately: const API = 'http://localhost:8000';
+
+const INTENT_COLORS = {
+  SEO:             '#6366f1',
+  'Paid Ads':      '#f59e0b',
+  'Web Design':    '#22d3ee',
+  'Social Media':  '#ec4899',
+  'App Development':'#a78bfa',
+  General:         '#475569',
+};
+
+/* ══════════════════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════════════════ */
+const sections = ['dashboard','leads','analytics','followup','retargeting'];
+
+function showSection(name) {
+  sections.forEach(s => {
+    const el = document.getElementById(`section-${s}`);
+    if (el) el.style.display = s === name ? '' : 'none';
+  });
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  event.currentTarget?.classList.add('active');
+
+  const titles = { dashboard:'Dashboard', leads:'All Leads', analytics:'Analytics',
+                   followup:'Follow-up Automation', retargeting:'Retargeting Audiences' };
+  document.getElementById('page-title').textContent = titles[name] || 'Dashboard';
+
+  if (name === 'leads')      loadLeadsTable();
+  if (name === 'analytics')  loadAnalytics();
+  if (name === 'followup')   loadFollowup();
+  if (name === 'retargeting') loadRetargeting();
+}
+
+function setTab(btn, targetId) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+/* ══════════════════════════════════════════════════════
+   API HELPERS
+══════════════════════════════════════════════════════ */
+async function apiFetch(path, opts = {}) {
+  try {
+    const r = await fetch(API + path, opts);
+    return await r.json();
+  } catch (e) {
+    console.warn('API error:', path, e);
+    return null;
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   DASHBOARD
+══════════════════════════════════════════════════════ */
+async function loadDashboard() {
+  const data = await apiFetch('/api/v1/admin/dashboard');
+  if (!data) return;
+
+  const m = data.metrics || {};
+
+  // KPIs
+  animateValue('kpi-sessions',   0, m.total_sessions || 0, 700);
+  animateValue('kpi-leads',      0, m.total_leads    || 0, 800);
+  setText('kpi-conversion', m.conversion_rate || '0%');
+  animateValue('kpi-score', 0, m.avg_score || 0, 900);
+
+  // Update sidebar status
+  const services = data.scheduler_active ? '✅ Scheduler active' : '⚠ Scheduler inactive';
+  document.getElementById('system-status').innerHTML =
+    `<span class="dot"></span><strong>System Online</strong><br>
+     <span style="color:var(--text-3);font-size:0.72rem;">${services}</span>`;
+
+  // Intent bar chart
+  renderBarChart('intent-chart', m.by_intent || {}, INTENT_COLORS);
+  setText('intent-total', `${m.total_leads || 0} total`);
+
+  // Funnel
+  renderFunnel(m.by_stage || {});
+
+  // Status chart
+  const statusColors = {new:'#6366f1', followed_up:'#f59e0b', converted:'#22c55e', lost:'#ef4444'};
+  renderBarChart('status-chart', m.by_status || {}, statusColors);
+
+  // Recent leads
+  renderRecentLeads(data.recent_leads || []);
+
+  // Last updated
+  document.getElementById('last-updated').textContent =
+    'Updated ' + new Date().toLocaleTimeString();
+}
+
+function renderBarChart(containerId, data, colorMap = {}) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const entries = Object.entries(data).sort((a, b) => b[1] - a[1]);
+  const max = entries[0]?.[1] || 1;
+
+  if (!entries.length) {
+    el.innerHTML = '<div class="empty-state"><div class="icon">📊</div><p>No data yet</p></div>';
+    return;
+  }
+
+  el.innerHTML = entries.map(([k, v]) => {
+    const pct = Math.round((v / max) * 100);
+    const color = colorMap[k] || '#6366f1';
+    return `
+      <div class="bar-row">
+        <div class="bar-label">${k}</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:0%;background:${color}" data-pct="${pct}"></div>
+        </div>
+        <div class="bar-val">${v}</div>
+      </div>`;
+  }).join('');
+
+  // Animate bars
+  requestAnimationFrame(() => {
+    el.querySelectorAll('.bar-fill').forEach(b => {
+      b.style.width = b.dataset.pct + '%';
+    });
+  });
+}
+
+function renderFunnel(stages) {
+  const el = document.getElementById('funnel-chart');
+  if (!el) return;
+  const items = [
+    { icon: '👀', label: 'Awareness',     key: 'awareness',     hint: 'Exploring options' },
+    { icon: '🤔', label: 'Consideration', key: 'consideration', hint: 'Comparing & evaluating' },
+    { icon: '✅', label: 'Decision',      key: 'decision',      hint: 'Ready to convert' },
+  ];
+
+  // Normalize keys (backend may capitalise)
+  const norm = {};
+  for (const [k, v] of Object.entries(stages)) norm[k.toLowerCase()] = v;
+
+  el.innerHTML = items.map(item => `
+    <div class="funnel-step">
+      <div class="funnel-icon">${item.icon}</div>
+      <div class="funnel-info">
+        <strong>${item.label}</strong>
+        <small>${item.hint}</small>
+      </div>
+      <div class="funnel-count">${norm[item.key] || 0}</div>
+    </div>`).join('');
+}
+
+function renderRecentLeads(leads) {
+  const el = document.getElementById('recent-leads-body');
+  if (!el) return;
+  if (!leads.length) {
+    el.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:28px;color:var(--text-3)">No leads yet</td></tr>';
+    return;
+  }
+  el.innerHTML = leads.slice(0, 8).map(l => `
+    <tr>
+      <td>${l.name || '—'}</td>
+      <td>
+        <span class="intent-dot" style="--dot-color:${INTENT_COLORS[l.intent]||'#6366f1'}">${l.intent || 'General'}</span>
+      </td>
+      <td>${scorePill(l.score)}</td>
+      <td><span class="badge badge-${l.status || 'new'}">${l.status || 'new'}</span></td>
+    </tr>`).join('');
+}
+
+/* ══════════════════════════════════════════════════════
+   LEADS TABLE
+══════════════════════════════════════════════════════ */
+async function loadLeadsTable() {
+  const status = document.getElementById('filter-status')?.value || '';
+  const intent = document.getElementById('filter-intent')?.value || '';
+
+  let url = `/api/v1/admin/leads?limit=100`;
+  if (status) url += `&status=${encodeURIComponent(status)}`;
+  if (intent) url += `&intent=${encodeURIComponent(intent)}`;
+
+  const data = await apiFetch(url);
+  const el = document.getElementById('leads-table-body');
+  if (!el) return;
+
+  if (!data?.leads?.length) {
+    el.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:40px;color:var(--text-3)">No leads found</td></tr>';
+    return;
+  }
+
+  el.innerHTML = data.leads.map(l => `
+    <tr>
+      <td>${l.name || '—'}</td>
+      <td>
+        <div style="font-size:0.82rem">${l.email || '—'}</div>
+        <div style="font-size:0.75rem;color:var(--text-3)">${l.phone || ''}</div>
+      </td>
+      <td>${l.business || '—'}</td>
+      <td><span class="intent-dot" style="--dot-color:${INTENT_COLORS[l.intent]||'#6366f1'}">${l.intent || 'General'}</span></td>
+      <td>${l.buyingStage || 'Awareness'}</td>
+      <td>${scorePill(l.score)}</td>
+      <td><span class="badge badge-${l.status || 'new'}">${l.status || 'new'}</span></td>
+      <td>
+        <div class="action-btns">
+          <button class="action-btn wa" onclick="sendFollowup('${l._id||l.id}','whatsapp')" title="Send WhatsApp">📱 WA</button>
+          <button class="action-btn" onclick="sendFollowup('${l._id||l.id}','email')" title="Send Email">📧</button>
+        </div>
+      </td>
+    </tr>`).join('');
+}
+
+/* ══════════════════════════════════════════════════════
+   ANALYTICS
+══════════════════════════════════════════════════════ */
+async function loadAnalytics() {
+  const data = await apiFetch('/api/v1/admin/analytics?period=week');
+  if (!data) return;
+
+  animateValue('an-total', 0, data.total_leads || 0, 700);
+  setText('an-score', data.avg_lead_score || '—');
+
+  // Conversions by intent
+  renderBarChart('conv-intent-chart', data.conversions_by_intent || {}, INTENT_COLORS);
+
+  // Conversion rates table
+  const ratesEl = document.getElementById('conv-rates');
+  if (ratesEl && data.conversion_rates) {
+    const rows = Object.entries(data.conversion_rates);
+    if (!rows.length) {
+      ratesEl.innerHTML = '<div class="empty-state"><p>No conversions yet</p></div>';
+    } else {
+      ratesEl.innerHTML = `<table style="width:100%">
+        <thead><tr><th>Intent</th><th>Conversion Rate</th></tr></thead>
+        <tbody>${rows.map(([k, v]) => `
+          <tr>
+            <td><span class="intent-dot" style="--dot-color:${INTENT_COLORS[k]||'#6366f1'}">${k}</span></td>
+            <td><strong style="color:var(--success)">${v}</strong></td>
+          </tr>`).join('')}
+        </tbody>
+      </table>`;
+    }
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   FOLLOW-UP
+══════════════════════════════════════════════════════ */
+async function loadFollowup() {
+  const health = await apiFetch('/api/v1/health');
+  const el = document.getElementById('sched-status');
+  if (el) el.textContent = 'Scheduler active';
+
+  const leads = await apiFetch('/api/v1/admin/leads?status=new&limit=200');
+  const fuLeads = await apiFetch('/api/v1/admin/leads?status=followed_up&limit=200');
+  const pending = (leads?.total || 0) + (fuLeads?.total || 0);
+  setText('pending-fu', pending);
+}
+
+async function triggerDailyFollowup() {
+  const btn = event.currentTarget;
+  btn.textContent = '⏳ Running…';
+  btn.disabled = true;
+
+  const r = await apiFetch('/api/v1/followup/run-daily', { method: 'POST' });
+  showToast(r?.success ? '✅ Daily follow-up job queued successfully!' : '❌ Error triggering job.', r?.success ? 'success' : 'error');
+
+  btn.textContent = '▶ Run Daily Follow-up';
+  btn.disabled = false;
+}
+
+async function sendCampaign(type) {
+  const labels = { case_study:'Case Study', testimonial:'Testimonial', limited_offer:'Limited Offer' };
+  if (!confirm(`Send ${labels[type]} campaign to all active leads?`)) return;
+
+  const r = await apiFetch(`/api/v1/followup/bulk-campaign?campaign_type=${type}`, { method:'POST' });
+  showToast(r?.success ? `✅ ${labels[type]} campaign sent to ${r.recipients} leads!` : '❌ Campaign failed.', r?.success ? 'success' : 'error');
+}
+
+/* ══════════════════════════════════════════════════════
+   RETARGETING
+══════════════════════════════════════════════════════ */
+async function loadRetargeting() {
+  const data = await apiFetch('/api/v1/retargeting/audience');
+  if (!data) return;
+
+  animateValue('rt-visitors', 0, data.total_visitors || 0, 700);
+  animateValue('rt-warm',     0, data.warm_leads     || 0, 800);
+  animateValue('rt-highval',  0, (data.audiences?.high_value || 0), 900);
+
+  // Segments bar chart
+  renderBarChart('rt-segments', data.audiences || {}, {
+    seo_interested: '#6366f1',
+    ads_interested: '#f59e0b',
+    web_interested: '#22d3ee',
+    high_value:     '#22c55e',
+  });
+
+  // Ad creatives
+  const creative = document.getElementById('rt-creatives');
+  if (creative && data.ad_creatives) {
+    const items = Object.entries(data.ad_creatives);
+    if (!items.length) {
+      creative.innerHTML = '<div class="empty-state"><p>No creatives yet — capture leads first.</p></div>';
+    } else {
+      creative.innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px">
+        ${items.map(([k, v]) => `
+          <div style="padding:16px;background:var(--bg-card2);border:1px solid var(--border);border-radius:10px">
+            <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-3);margin-bottom:8px">
+              ${k} — Audience: ${v.audience_size}
+            </div>
+            <div style="font-weight:700;font-size:0.925rem;margin-bottom:8px">${v.headline}</div>
+            <div style="font-size:0.8rem;color:var(--primary-light)">${v.cta}</div>
+          </div>`).join('')}
+      </div>`;
+    }
+  }
+}
+
+async function exportAudience(platform) {
+  const data = await apiFetch('/api/v1/retargeting/export');
+  if (!data) return;
+
+  let rows, filename;
+  if (platform === 'facebook') {
+    rows = [['email','phone'], ...data.facebook_custom_audience.map(r => [r.email, r.phone])];
+    filename = 'facebook_audience.csv';
+  } else {
+    rows = [['email'], ...data.google_customer_match.map(r => [r.email])];
+    filename = 'google_customer_match.csv';
+  }
+
+  downloadCSV(rows, filename);
+  showToast(`✅ ${filename} downloaded (${rows.length - 1} records)`, 'success');
+}
+
+/* ══════════════════════════════════════════════════════
+   INDIVIDUAL LEAD ACTIONS
+══════════════════════════════════════════════════════ */
+async function sendFollowup(leadId, channel) {
+  const r = await apiFetch(`/api/v1/followup/send?lead_id=${leadId}&channel=${channel}`, { method:'POST' });
+  const icon = channel === 'whatsapp' ? '📱' : '📧';
+  showToast(r?.success ? `${icon} ${channel} sent!` : `❌ Failed to send ${channel}`, r?.success ? 'success' : 'error');
+}
+
+/* ══════════════════════════════════════════════════════
+   CSV EXPORT
+══════════════════════════════════════════════════════ */
+async function exportLeadsCSV() {
+  const data = await apiFetch('/api/v1/admin/leads?limit=1000');
+  if (!data?.leads) return;
+
+  const rows = [
+    ['Name','Email','Phone','Business','Intent','Stage','Score','Status','Created'],
+    ...data.leads.map(l => [
+      l.name, l.email, l.phone, l.business||'',
+      l.intent||'', l.buyingStage||'', l.score||0, l.status||'new',
+      l.createdAt ? new Date(l.createdAt).toLocaleDateString() : ''
+    ])
+  ];
+  downloadCSV(rows, 'mk_leads_export.csv');
+  showToast(`✅ Exported ${data.leads.length} leads`, 'success');
+}
+
+function downloadCSV(rows, filename) {
+  const csv = rows.map(r => r.map(v => `"${String(v||'').replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type:'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = Object.assign(document.createElement('a'), { href:url, download:filename });
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ══════════════════════════════════════════════════════
+   UI HELPERS
+══════════════════════════════════════════════════════ */
+function scorePill(score) {
+  const cls = score >= 70 ? 'high' : score >= 40 ? 'med' : 'low';
+  return `<span class="score-pill score-${cls}">${score || 0}</span>`;
+}
+
+function setText(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+
+function animateValue(id, from, to, dur) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const start = performance.now();
+  const update = (now) => {
+    const t = Math.min((now - start) / dur, 1);
+    el.textContent = Math.round(from + (to - from) * t);
+    if (t < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+function showToast(msg, type = 'info') {
+  const div = document.createElement('div');
+  div.className = `toast ${type}`;
+  div.innerHTML = msg;
+  document.body.appendChild(div);
+  setTimeout(() => div.remove(), 4000);
+}
+
+/* ══════════════════════════════════════════════════════
+   INIT
+══════════════════════════════════════════════════════ */
+function loadAll() {
+  loadDashboard();
+}
+
+// Auto-refresh every 30 seconds
+loadAll();
+setInterval(loadAll, 30_000);
+</script>
+</body>
+</html>

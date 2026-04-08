@@ -1,0 +1,36 @@
+# ════════════════════════════════════════════════════════════
+# MK Shopzone — AI Growth Engine v4.0
+# Backend Dependencies
+# ════════════════════════════════════════════════════════════
+
+# Core Web Framework
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+
+# Data Validation
+pydantic==2.7.4
+pydantic[email]==2.7.4
+
+# Environment
+python-dotenv==1.0.1
+
+# ── AI / ML ──────────────────────────────────────────────
+openai==1.33.0
+
+# ── Database ─────────────────────────────────────────────
+motor==3.4.0          # Async MongoDB driver
+pymongo==4.7.2        # Sync MongoDB utilities + bson
+
+# ── HTTP Client (WhatsApp / Meta API) ────────────────────
+httpx==0.27.0
+
+# ── Email ────────────────────────────────────────────────
+aiosmtplib==3.0.1     # Async SMTP
+jinja2==3.1.4         # Email HTML templates
+sendgrid==6.11.0      # SendGrid SDK
+
+# ── Task Scheduling (Daily Follow-ups) ───────────────────
+apscheduler==3.10.4   # Cron-style background jobs
+
+# ── Utilities ────────────────────────────────────────────
+python-multipart==0.0.9

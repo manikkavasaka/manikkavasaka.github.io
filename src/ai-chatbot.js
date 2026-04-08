@@ -340,6 +340,31 @@ class MKAssistant {
                 window.leadCaptureSystem.recordLead(leadData);
             }
 
+            // ── Submit to FastAPI backend ──────────────────────────────────
+            const chatbotPayload = {
+                ...leadData,
+                intent:      this.userProfile.interestedService
+                                 ? this._intentLabel(this.userProfile.interestedService)
+                                 : 'General',
+                source:      'chatbot_preform',
+                sessionId:   window.behaviorTracker?.session?.id || 'chatbot-' + Date.now(),
+                buyingStage: 'Consideration',
+                score:       55,
+            };
+
+            if (window.backendBridge) {
+                // Use backend bridge (preferred — handles offline queuing too)
+                window.backendBridge.submitLead(chatbotPayload).catch(() => {});
+            } else {
+                // Direct fallback
+                fetch('/api/v1/chatbot/lead', {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body:    JSON.stringify(chatbotPayload),
+                }).catch(() => {});
+            }
+            // ────────────────────────────────────────────────────────────────
+
             this.stage = 'lead_sent'; 
 
             setTimeout(() => {
@@ -624,6 +649,21 @@ class MKAssistant {
             if (hits > bestScore) { bestScore = hits; best = key; }
         }
         return bestScore >= 1 ? best : null;
+    }
+
+    /** Maps chatbot service keys → backend intent strings */
+    _intentLabel(key) {
+        const map = {
+            seo:       'SEO',
+            ads:       'Paid Ads',
+            web:       'Web Design',
+            app:       'App Development',
+            social:    'Social Media',
+            email:     'Email Marketing',
+            video:     'Video Marketing',
+            ecommerce: 'E-commerce',
+        };
+        return map[key] || 'General';
     }
 
     _matchesAny(text, keywords) {

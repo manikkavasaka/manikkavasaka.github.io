@@ -116,8 +116,9 @@ class BehaviorTracker {
         setInterval(() => {
             this._updateCurrentPageTime();
             this._analyzeIntent();
+            this._reportToBackend();
             this._save();
-        }, 5000);
+        }, 10000); // 10s intervals for production stability
     }
 
     _analyzeIntent() {
@@ -145,6 +146,39 @@ class BehaviorTracker {
                 window.personalizationEngine.applyDynamicContent(analysis);
             }
         }, 3000);
+    }
+
+    async _reportToBackend() {
+        try {
+            const data = {
+                sessionId: this.session.id,
+                userAgent: navigator.userAgent,
+                platform: navigator.platform,
+                events: this.session.clicks.map(c => ({
+                    type: 'click',
+                    target: c.text,
+                    path: window.location.pathname,
+                    metadata: c
+                })),
+                scrollDepth: this.session.scrollDepth,
+                duration: this.session.totalTime
+            };
+
+            const response = await fetch('/api/v1/track', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                if (result.personalization && window.personalizationEngine) {
+                    window.personalizationEngine.applyDynamicContent(result.personalization);
+                }
+            }
+        } catch (e) {
+            console.warn('Backend tracking sync failed (Offline/Dev Mode)');
+        }
     }
 
     getIntentAnalysis() {

@@ -202,27 +202,98 @@ function initNavbar() {
     });
 }
 
-// 6. FORM HANDLING & VALIDATION
+// 6. FORM HANDLING & VALIDATION — submits to FastAPI backend
 function initForms() {
     const form = document.getElementById('contactForm') || document.getElementById('auditForm');
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const btn = form.querySelector('button');
-        const originalText = btn.innerText;
-        
-        btn.innerText = 'Analyzing Requirements...';
-        btn.disabled = true;
+        const btn = form.querySelector('button[type="submit"], button');
+        const originalText = btn?.textContent || 'Submit';
 
-        // Simulate data analysis transmission
-        setTimeout(() => {
-            alert('Analysis Complete. Your Strategic Audit has been prioritized. Our Lead Growth strategist will review the data and contact you within 60 minutes.');
+        if (btn) { btn.textContent = '⏳ Sending…'; btn.disabled = true; }
+
+        // Collect form data
+        const leadData = {
+            name:     form.querySelector('[name="name"], #name, #fullName')?.value?.trim()    || '',
+            email:    form.querySelector('[name="email"], #email')?.value?.trim()              || '',
+            phone:    form.querySelector('[name="phone"], #phone, #whatsapp')?.value?.trim()  || '',
+            business: form.querySelector('[name="business"], #business, #company')?.value?.trim() || '',
+            message:  form.querySelector('[name="message"], #message, textarea')?.value?.trim() || '',
+            service:  form.querySelector('[name="service"], #service, select')?.value         || '',
+            source:   'contact_form',
+        };
+
+        if (!leadData.name || !leadData.email) {
+            alert('Please enter your name and email.');
+            if (btn) { btn.textContent = originalText; btn.disabled = false; }
+            return;
+        }
+
+        // Use BackendBridge if available, otherwise direct fetch
+        const bridge = window.backendBridge;
+        const result = bridge
+            ? await bridge.submitLead(leadData)
+            : await directLeadSubmit(leadData);
+
+        if (btn) { btn.textContent = originalText; btn.disabled = false; }
+
+        if (result?.success || result?.leadId) {
+            // Show success state
+            form.innerHTML = `
+              <div style="text-align:center;padding:32px 16px;">
+                <div style="font-size:3rem;margin-bottom:12px">🎉</div>
+                <h3 style="font-size:1.3rem;font-weight:800;color:#f1f5f9">
+                  You're confirmed, ${leadData.name.split(' ')[0]}!
+                </h3>
+                <p style="color:#94a3b8;margin-top:8px">
+                  Our strategist will contact you within 60 minutes via WhatsApp & Email.
+                </p>
+              </div>`;
+
+            // Open chatbot after form submit to keep lead engaged
+            setTimeout(() => {
+                const assistant = window.mkAssistant;
+                if (assistant && !assistant.isOpen) {
+                    assistant.open();
+                    assistant.userProfile.name  = leadData.name;
+                    assistant.userProfile.email = leadData.email;
+                    assistant.userProfile.phone = leadData.phone;
+                    setTimeout(() => {
+                        const firstName = leadData.name.split(' ')[0];
+                        const svcLabels = { seo:'SEO', web:'Elite Web Design', ads:'Paid Ads', social:'Social Media', all:'a Full Digital Strategy' };
+                        const svc = svcLabels[leadData.service] || 'digital growth';
+                        assistant.sendMessage(
+                            `You're all set, ${firstName}! Our senior strategist will reach out within 60 minutes.\n\nWhile you wait, feel free to ask me anything about ${svc} — timelines, pricing, what to prepare. I'm right here!`,
+                            'bot'
+                        );
+                    }, 900);
+                }
+            }, 1300);
+
+        } else {
+            alert('Thank you! Our team will contact you within 60 minutes.');
             form.reset();
-            btn.innerText = originalText;
-            btn.disabled = false;
-        }, 2500);
+        }
     });
+}
+
+async function directLeadSubmit(leadData) {
+    try {
+        const r = await fetch('/api/v1/leads', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({
+                ...leadData,
+                sessionId: 'form-' + Date.now(),
+                intent: leadData.service || 'General',
+                buyingStage: 'Decision',
+                score: 70,
+            })
+        });
+        return r.ok ? await r.json() : null;
+    } catch (_) { return null; }
 }
 
 // 7. VIDEO OPTIMIZATION

@@ -185,28 +185,40 @@ class LeadSystem {
 
     async submitLeadToBackend(lead) {
         try {
-            // Try to submit to backend API
-            const response = await fetch('/api/leads', {
+            // ── Format payload to match FastAPI LeadCapture model ─────────────
+            const sessionId = window.behaviorTracker?.session?.id || 'web-form-' + Date.now();
+            const apiPayload = {
+                name:      lead.name     || '',
+                email:     lead.email    || '',
+                phone:     lead.phone    || '',
+                business:  lead.business  || lead.company || '',
+                message:   lead.message  || '',
+                sessionId: lead.sessionId || sessionId,
+                intent:    lead.intent   || lead.service || 'General',
+                buyingStage: lead.buyingStage || window.behaviorTracker?.session?.buyingStage || 'Awareness',
+                score:     lead.score    || 0,
+                metadata: {
+                    source:      lead.source || 'contact_form',
+                    utmSource:   lead.utmSource   || '',
+                    utmCampaign: lead.utmCampaign || '',
+                    page:        window.location.pathname,
+                    referrer:    document.referrer || '',
+                }
+            };
+
+            const response = await fetch('/api/v1/leads', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-API-Key': import.meta.env.VITE_API_KEY || ''
-                },
-                body: JSON.stringify(lead)
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(apiPayload)
             });
 
             if (response.ok) {
                 const result = await response.json();
-                console.log('Lead submitted successfully:', result);
-
-                // Send immediate follow-up email via backend
-                if (result.success) {
-                    this.triggerFollowUpEmail(lead);
-                }
+                console.log('✅ Lead submitted to backend:', result?.leadId);
+                if (result?.success) this.triggerFollowUpEmail(lead);
             }
         } catch (error) {
-            console.error('Failed to submit lead:', error);
-            // Lead is still saved locally even if backend fails
+            console.warn('Backend submission failed — lead saved locally.', error);
         }
     }
 
@@ -378,14 +390,74 @@ class LeadSystem {
         const csv = [headers, ...rows].map(row => row.join(',')).join('\n');
         return csv;
     }
+
+    /**
+     * recordLead() — alias called by AI chatbot & other modules
+     * Accepts a flat lead object, normalises it, and runs the full
+     * save + backend submit + post-conversion flow.
+     */
+    async recordLead(leadData) {
+        const sessionId = window.behaviorTracker?.session?.id || 'chatbot-' + Date.now();
+        const sessionSummary = window.behaviorTracker?.getSessionSummary?.() || {};
+
+        const lead = {
+            id:        'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
+            timestamp: Date.now(),
+            source:    leadData.source    || 'chatbot',
+            name:      leadData.name      || '',
+            email:     leadData.email     || '',
+            phone:     leadData.phone     || '',
+            business:  leadData.business  || '',
+            message:   leadData.message   || '',
+            intent:    leadData.intent    || leadData.interestedService || 'General',
+            buyingStage: leadData.buyingStage || sessionSummary.buyingStage || 'Consideration',
+            sessionId: leadData.sessionId || sessionId,
+            utmSource:   this.getUTMParam('source'),
+            utmCampaign: this.getUTMParam('campaign'),
+        };
+
+        lead.score   = this.calculateLeadScore(lead, sessionSummary);
+        lead.quality = this.determineLeadQuality(lead.score);
+
+        this.saveLead(lead);
+        await this.submitLeadToBackend(lead);
+        this.executePostConversionActions(lead);
+
+        return lead;
+    }
+
+    /**
+     * monitorLeadReadiness — watches for high-intent signals and auto-triggers
+     * the lead capture popup via the chatbot if conditions are met.
+     */
+    monitorLeadReadiness() {
+        let checked = false;
+        setInterval(() => {
+            if (checked) return;
+            const tracker = window.behaviorTracker;
+            if (!tracker) return;
+            const { totalTime, scrollDepth, buyingStage } = tracker.session || {};
+            if (buyingStage === 'Decision' || (totalTime > 120 && scrollDepth > 60)) {
+                checked = true;
+                // Open chatbot only if lead not already captured
+                const captured = localStorage.getItem('mk_lead_captured');
+                if (!captured && window.mkAssistant && !window.mkAssistant.isOpen) {
+                    setTimeout(() => window.mkAssistant?.open(), 3000);
+                }
+            }
+        }, 5000);
+    }
 }
 
-// Initialize lead system
+// ── Global exports (both aliases needed by different modules) ─────────────────
+function _initLeadSystem() {
+    const ls = new LeadSystem();
+    window.leadSystem       = ls;   // legacy alias
+    window.leadCaptureSystem = ls;  // alias used by ai-chatbot.js
+}
+
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        window.leadSystem = new LeadSystem();
-    });
+    document.addEventListener('DOMContentLoaded', _initLeadSystem);
 } else {
-    window.leadSystem = new LeadSystem();
+    _initLeadSystem();
 }
-
