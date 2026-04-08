@@ -962,23 +962,22 @@ p {
 
 .dropdown-trigger {
     cursor: pointer;
-    padding-right: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.dropdown-trigger::after {
-    content: '▾';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 0.7rem;
+.nav-arrow {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     opacity: 0.6;
-    transition: transform 0.3s ease;
 }
 
-.nav-dropdown:hover .dropdown-trigger::after {
-    transform: translateY(-50%) rotate(180deg);
+.nav-dropdown:hover .nav-arrow {
+    transform: rotate(180deg);
     color: var(--primary);
+    opacity: 1;
 }
 
 .dropdown-content {
@@ -1270,8 +1269,10 @@ select.form-input {
         padding: 10px 20px 30px !important;
     }
 
-    .nav-dropdown.open .dropdown-trigger::after {
-        transform: translateY(-50%) rotate(180deg);
+    .nav-dropdown.open .nav-arrow {
+        transform: rotate(180deg);
+        color: var(--primary);
+        opacity: 1;
     }
 
     .nav-actions {
