@@ -18,9 +18,9 @@ class PersonalizationEngine {
                 benefits: ['3X average ROI on ad spend', '24-hour optimization cycles', 'Multi-platform mastery']
             },
             web: {
-                headline: 'High-Converting Websites That Generate Leads Daily',
-                cta: 'Build Your Dream Website →',
-                benefits: ['Mobile-first design excellence', '5-star conversion optimization', 'Future-proof technology']
+                headline: 'Transform Your Website into a 24/7 Revenue Machine',
+                cta: 'Build Your High-Converting Site →',
+                benefits: ['Stop losing leads to slow, outdated sites', 'Lightning-fast performance infrastructure', 'Conversion-optimized sales funnel']
             },
             social: {
                 headline: 'Build a Legendary Social Presence & Authority',
@@ -304,6 +304,47 @@ class PersonalizationEngine {
         };
 
         return reasons[service] || [];
+    }
+
+    /**
+     * Strategic Assistant Analysis (Real-time)
+     * Generates a full marketing strategy based on current behavior
+     */
+    generateStrategicInsight() {
+        const topService = this.getTopService() || 'general_inquiry';
+        const engagement = window.behaviorTracker?.calculateEngagementScore() || 0;
+        
+        const intentMap = {
+            seo: 'SEO Services',
+            ads: 'Paid Ads',
+            social: 'Social Media Marketing',
+            web: 'Website Design',
+            app: 'App Development',
+            general_inquiry: 'General Inquiry'
+        };
+
+        const stage = engagement > 70 ? 'Decision' : (engagement > 30 ? 'Consideration' : 'Awareness');
+        const intent = intentMap[topService] || 'General Inquiry';
+        const profile = this.serviceProfiles[topService] || {
+            headline: 'Future-Proof Your Digital Growth',
+            cta: 'Start Your Transformation',
+            benefits: ['Elite digital strategy', 'Performance-first mindset', '10+ years of excellence']
+        };
+
+        const strategy = {
+            user_intent: intent,
+            buying_stage: stage,
+            recommended_service: profile.headline.split(' & ')[0],
+            headline: profile.headline,
+            subheading: profile.benefits.join('. ') + '.',
+            cta: profile.cta,
+            popup_strategy: stage === 'Decision' ? 'Show high-conversion popup with direct audit offer' : 'Show helpful guide / infographic offer',
+            whatsapp_message: `Hi 👋 Noticed you're interested in ${intent}. Would you like a free consultation on how we can help you scale?`,
+            email_message: `Hi,\n\nI noticed you were exploring our ${intent} solutions. Based on your interests, I've prepared a custom growth roadmap for you.\n\nWould you be open to a 10-minute chat to discuss your specific goals?\n\nBest,\nMK Shopzone Team`,
+            retargeting_ad: `Still thinking about ${intent}? 🚀 Don't let your competition pull ahead. Claim your FREE growth audit today!`
+        };
+
+        return strategy;
     }
 
     // A/B Testing support
