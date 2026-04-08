@@ -21,7 +21,7 @@ class MKAssistant {
                     label: 'Advanced SEO',
                     url: 'seo.html',
                     keywords: ['seo','ranking','google','organic','search','keywords','backlinks','traffic','visibility','serp','authority'],
-                    pitch: 'We engineer long-term organic dominance on Google through technical SEO, content strategy, and high-authority link building.',
+                    pitch: 'We engineer long-term organic dominance on Google. Our proven SEO strategies boost visibility, drive organic traffic, and convert visitors into qualified leads.',
                     questions: [
                         'What industry are you in? That helps me tailor an SEO strategy for you.',
                         'Are you struggling more with rankings, traffic, or conversions from organic visitors?',
@@ -457,6 +457,20 @@ class MKAssistant {
 
     /* Expose as window method for other scripts */
     openChat() { this.open(); }
+
+    /**
+     * Programmatically send a message as the bot or user
+     */
+    async sendMessage(text, role = 'bot') {
+        if (!this.isOpen) this.open();
+        
+        if (role === 'bot') {
+            await this._streamMessage(text, 'bot');
+            this.history.push({ role: 'bot', content: text });
+        } else {
+            await this._sendUserMessage(text);
+        }
+    }
 
     /* ═══════════════════════════════════════════════
        MESSAGING FLOW

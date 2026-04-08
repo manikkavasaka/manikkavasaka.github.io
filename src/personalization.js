@@ -8,9 +8,9 @@ class PersonalizationEngine {
         this.userProfile = this.loadProfile();
         this.serviceProfiles = {
             seo: {
-                headline: 'Dominate Search Rankings & Crush Your Competition',
-                cta: 'Start Your SEO Transformation →',
-                benefits: ['Rank for 500+ high-value keywords', '3X organic traffic growth', 'Enterprise-grade SEO']
+                headline: 'Dominate Google Rankings & Get More Qualified Leads',
+                cta: 'Get Your Free SEO Audit Now',
+                benefits: ['Boost your visibility and drive organic traffic', 'Convert visitors into customers', 'Proven enterprise SEO strategies']
             },
             ads: {
                 headline: 'Turn Ad Spend Into Unstoppable Revenue',
@@ -40,6 +40,7 @@ class PersonalizationEngine {
         this.personalizeSections();
         this.setupObserver();
         this.trackProfileChanges();
+        this.handlePopupStrategy();
     }
 
     loadProfile() {
@@ -188,7 +189,7 @@ class PersonalizationEngine {
 
         if (profile) {
             ctaButtons.forEach(btn => {
-                if (btn.textContent.includes('Launch')) {
+                if (btn.textContent.includes('Launch') || btn.textContent.includes('Get Your')) {
                     btn.textContent = profile.cta;
                 }
             });
@@ -322,6 +323,64 @@ class PersonalizationEngine {
             testId,
             result
         });
+    }
+
+    handlePopupStrategy() {
+        // Only trigger for SEO-interested users or on SEO page
+        const isSEOPage = window.location.pathname.includes('seo.html');
+        const topService = this.getTopService();
+        
+        if (isSEOPage || topService === 'seo') {
+            setTimeout(() => {
+                this.triggerPersonalizedPopup('seo');
+            }, 12000); // 12 seconds
+        }
+    }
+
+    triggerPersonalizedPopup(service) {
+        if (sessionStorage.getItem('mk_popup_shown')) return;
+
+        const profile = this.serviceProfiles[service];
+        const popup = document.createElement('div');
+        popup.className = 'personal-popup';
+        popup.style.cssText = `
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 380px;
+            background: rgba(10, 11, 16, 0.98);
+            border: 1px solid var(--primary);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            z-index: 10001;
+            backdrop-filter: blur(20px);
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        `;
+
+        popup.innerHTML = `
+            <button class="popup-close" style="position:absolute;top:15px;right:15px;background:none;border:none;color:#fff;cursor:pointer;font-size:1.2rem;">&times;</button>
+            <span style="color:var(--primary);font-weight:900;letter-spacing:2px;font-size:0.75rem;text-transform:uppercase;">Limited Opportunity</span>
+            <h4 style="color:#fff;font-size:1.4rem;margin:15px 0 10px;">${profile.headline}</h4>
+            <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:25px;">${profile.benefits[0]}. Claim your strategic roadmap today.</p>
+            <a href="contact.html" class="btn btn-primary" style="width:100%;text-align:center;">${profile.cta}</a>
+        `;
+
+        document.body.appendChild(popup);
+        sessionStorage.setItem('mk_popup_shown', 'true');
+
+        popup.querySelector('.popup-close').addEventListener('click', () => {
+            popup.style.animation = 'fadeOut 0.3s forwards';
+            setTimeout(() => popup.remove(), 300);
+        });
+
+        // Trigger Chatbot for quick consultation
+        setTimeout(() => {
+            if (window.aiChatbot) {
+                window.aiChatbot.open();
+                window.aiChatbot.sendMessage("Hi 👋 Want to rank higher on Google and get more leads? Let’s do a quick FREE SEO audit for your website.");
+            }
+        }, 2000);
     }
 }
 
