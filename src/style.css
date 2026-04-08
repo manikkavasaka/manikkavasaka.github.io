@@ -997,6 +997,35 @@ p {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+/* Activation */
+.nav-dropdown.open .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.nav-dropdown.open .nav-arrow {
+    transform: rotate(180deg);
+    color: var(--primary);
+}
+
+/* Maintain hover for desktop users without touch if desired, 
+   but ensuring the .open class overrides or co-exists. */
+@media (min-width: 1025px) {
+    .nav-dropdown:hover .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+    }
+    .nav-dropdown:hover .nav-arrow {
+        transform: rotate(180deg);
+        color: var(--primary);
+    }
 }
 
 .dropdown-item-icon {

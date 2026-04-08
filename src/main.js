@@ -89,21 +89,31 @@ function initNavbar() {
         });
     }
 
-    // Handle Mobile Dropdowns
+    // Handle Dropdowns (Mobile + Desktop Click/Touch)
     const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
     dropdownTriggers.forEach(trigger => {
         trigger.addEventListener('click', (e) => {
-            if (window.innerWidth <= 1024) {
-                e.preventDefault();
-                const parent = trigger.parentElement;
-                const isOpen = parent.classList.contains('open');
-                
-                // Close other dropdowns
-                document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-                
-                if (!isOpen) parent.classList.add('open');
-            }
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const parent = trigger.parentElement;
+            const isOpen = parent.classList.contains('open');
+            
+            // Close other dropdowns
+            document.querySelectorAll('.nav-dropdown').forEach(d => {
+                if (d !== parent) d.classList.remove('open');
+            });
+            
+            // Toggle current
+            parent.classList.toggle('open');
         });
+    });
+
+    // Close dropdowns on clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-dropdown')) {
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        }
     });
 
     // Close mobile menu on link click

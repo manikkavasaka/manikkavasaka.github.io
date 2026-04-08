@@ -1,282 +1,234 @@
 /**
- * User Behavior Tracking System
- * Comprehensive analytics for user engagement and personalization
+ * Behavior Tracker v4.0 - Performance & Engagement Analytics
+ * Analyzes real-time user behavior to fuel personalization and lead conversion.
  */
 
 class BehaviorTracker {
     constructor() {
-        this.sessionId = this.generateSessionId();
-        this.events = [];
-        this.sessionData = {
-            sessionId: this.sessionId,
+        this.session = {
+            id: this._generateId(),
             startTime: Date.now(),
-            pageViews: [],
+            pagesVisited: [],
+            totalTime: 0,
             scrollDepth: 0,
-            timeOnPage: 0,
-            interactedServices: [],
-            formInteractions: [],
-            exitIntent: false,
-            isReturning: false
+            clicks: [],
+            events: [],
+            trafficSource: this._getTrafficSource(),
+            intentScore: {
+                seo: 0,
+                ads: 0,
+                social: 0,
+                web: 0,
+                app: 0,
+                general: 0
+            },
+            buyingStage: 'Awareness' // Default
         };
-        this.batchSize = 10;
-        this.uploadInterval = 30000; // 30 seconds
-        this.init();
+
+        this.pageStartTime = Date.now();
+        this._init();
     }
 
-    init() {
-        this.checkReturningVisitor();
-        this.attachEventListeners();
-        this.trackPageView();
-        this.trackScrollDepth();
-        this.setupBatchUpload();
-        this.trackExitIntent();
-        this.trackTimeOnPage();
+    _init() {
+        this._trackPageView();
+        this._bindEvents();
+        this._startHeartbeat();
+        this._syncWithPersonalization();
     }
 
-    generateSessionId() {
-        let sessionId = sessionStorage.getItem('mkshopzone_session');
-        if (!sessionId) {
-            sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-            sessionStorage.setItem('mkshopzone_session', sessionId);
+    _trackPageView() {
+        const path = window.location.pathname;
+        const pageData = {
+            path: path,
+            startTime: Date.now(),
+            timeSpent: 0
+        };
+        this.session.pagesVisited.push(pageData);
+        this._calculateIntent(path);
+        this._save();
+    }
+
+    _calculateIntent(path) {
+        if (path.includes('seo')) this.session.intentScore.seo += 5;
+        else if (path.includes('paid-ads')) this.session.intentScore.ads += 5;
+        else if (path.includes('social-media')) this.session.intentScore.social += 5;
+        else if (path.includes('website-design')) this.session.intentScore.web += 5;
+        else if (path.includes('app')) this.session.intentScore.app += 5;
+        else this.session.intentScore.general += 1;
+
+        // Detect buying stage based on specific high-intent pages
+        if (path.includes('contact') || path.includes('audit')) {
+            this.session.buyingStage = 'Decision';
+        } else if (this.session.pagesVisited.length > 3) {
+            this.session.buyingStage = 'Consideration';
         }
-        return sessionId;
     }
 
-    checkReturningVisitor() {
-        const lastVisit = localStorage.getItem('mkshopzone_last_visit');
-        if (lastVisit) {
-            this.sessionData.isReturning = true;
-            this.sessionData.lastVisitDate = lastVisit;
-        }
-        localStorage.setItem('mkshopzone_last_visit', new Date().toISOString());
-    }
-
-    attachEventListeners() {
-        // Track service card clicks
+    _bindEvents() {
+        // Track Clicks
         document.addEventListener('click', (e) => {
-            const serviceCard = e.target.closest('[data-service]');
-            if (serviceCard) {
-                const service = serviceCard.dataset.service;
-                this.trackEvent('service_viewed', { service });
-                this.sessionData.interactedServices.push(service);
-            }
-
-            // Track form interactions
-            if (e.target.matches('input, select, textarea')) {
-                this.trackEvent('form_interaction', {
-                    field: e.target.name || e.target.id,
-                    type: e.target.type
-                });
-                this.sessionData.formInteractions.push(e.target.name || e.target.id);
-            }
-        });
-
-        // Track video watch
-        document.addEventListener('play', (e) => {
-            if (e.target.tagName === 'VIDEO') {
-                this.trackEvent('video_started', {
-                    src: e.target.src
-                });
-            }
-        }, true);
-
-        // Track form submission
-        document.addEventListener('submit', (e) => {
-            if (e.target.id === 'contactForm' || e.target.id === 'auditForm') {
-                this.trackEvent('form_submitted', {
-                    formId: e.target.id,
-                    fields: Array.from(e.target.elements)
-                        .filter(el => el.name)
-                        .map(el => el.name)
-                });
+            const btn = e.target.closest('button, a, .btn');
+            if (btn) {
+                const clickData = {
+                    text: btn.innerText.trim().substring(0, 30),
+                    id: btn.id || null,
+                    tag: btn.tagName,
+                    time: Date.now()
+                };
+                this.session.clicks.push(clickData);
+                
+                // High intent clicks
+                if (btn.innerText.toLowerCase().includes('consult') || btn.innerText.toLowerCase().includes('audit') || btn.innerText.toLowerCase().includes('start')) {
+                    this.session.buyingStage = 'Decision';
+                }
+                
+                this._save();
             }
         });
 
-        // Track link clicks
-        document.addEventListener('click', (e) => {
-            const link = e.target.closest('a');
-            if (link && link.href) {
-                this.trackEvent('link_clicked', {
-                    href: link.href,
-                    text: link.textContent.slice(0, 100)
-                });
-            }
-        });
-    }
-
-    trackPageView() {
-        this.sessionData.pageViews.push({
-            page: window.location.pathname,
-            timestamp: Date.now(),
-            referrer: document.referrer
-        });
-        this.trackEvent('page_view', {
-            page: window.location.pathname,
-            title: document.title
-        });
-    }
-
-    trackScrollDepth() {
-        let maxScroll = 0;
+        // Track Scroll
         window.addEventListener('scroll', () => {
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            if (scrollPercent > maxScroll) {
-                maxScroll = scrollPercent;
-                this.sessionData.scrollDepth = Math.round(maxScroll);
-
-                // Track milestone scroll depths
-                if ([25, 50, 75, 90].includes(Math.round(scrollPercent))) {
-                    this.trackEvent('scroll_milestone', {
-                        depth: Math.round(scrollPercent)
-                    });
-                }
+            const h = document.documentElement, 
+                  b = document.body,
+                  st = 'scrollTop',
+                  sh = 'scrollHeight';
+            const percent = (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
+            if (percent > this.session.scrollDepth) {
+                this.session.scrollDepth = Math.round(percent);
             }
-        }, { passive: true });
-    }
-
-    trackExitIntent() {
-        document.addEventListener('mouseleave', () => {
-            this.sessionData.exitIntent = true;
-            this.trackEvent('exit_intent', { timestamp: Date.now() });
         });
-    }
 
-    trackTimeOnPage() {
-        setInterval(() => {
-            this.sessionData.timeOnPage += 1;
-        }, 1000);
-    }
-
-    trackEvent(eventName, data = {}) {
-        const event = {
-            name: eventName,
-            timestamp: Date.now(),
-            data: data,
-            sessionId: this.sessionId,
-            url: window.location.href,
-            userAgent: navigator.userAgent.slice(0, 100)
-        };
-
-        this.events.push(event);
-
-        // Send immediately if batch is full
-        if (this.events.length >= this.batchSize) {
-            this.uploadEvents();
-        }
-
-        // Also log to personalization engine
-        if (window.personalizationEngine) {
-            window.personalizationEngine.onBehaviorEvent(event);
-        }
-    }
-
-    setupBatchUpload() {
-        setInterval(() => {
-            if (this.events.length > 0) {
-                this.uploadEvents();
-            }
-        }, this.uploadInterval);
-
-        // Upload on page unload
+        // Track Visibility (End page time)
         window.addEventListener('beforeunload', () => {
-            if (this.events.length > 0) {
-                this.uploadEvents(true); // use sendBeacon for reliability
-            }
+            this._updateCurrentPageTime();
         });
     }
 
-    async uploadEvents(useBeacon = false) {
-        if (this.events.length === 0) return;
-
-        const payload = {
-            sessionId: this.sessionId,
-            sessionData: this.sessionData,
-            events: this.events,
-            timestamp: Date.now(),
-            isReturning: this.sessionData.isReturning,
-            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
-        };
-
-        try {
-            if (useBeacon && navigator.sendBeacon) {
-                navigator.sendBeacon('/api/track', JSON.stringify(payload));
-            } else {
-                // Send to backend or analytics service
-                const response = await fetch('/api/track', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload),
-                    keepalive: true
-                }).catch(() => null);
-
-                if (response?.ok) {
-                    this.events = []; // Clear after successful upload
-                }
-            }
-        } catch (error) {
-            console.error('Failed to upload events:', error);
-            // Events remain in memory for retry
+    _updateCurrentPageTime() {
+        const lastPage = this.session.pagesVisited[this.session.pagesVisited.length - 1];
+        if (lastPage) {
+            lastPage.timeSpent = Math.round((Date.now() - lastPage.startTime) / 1000);
+            this.session.totalTime = Math.round((Date.now() - this.session.startTime) / 1000);
         }
     }
 
-    getSessionSummary() {
+    _startHeartbeat() {
+        setInterval(() => {
+            this._updateCurrentPageTime();
+            this._analyzeIntent();
+            this._save();
+        }, 5000);
+    }
+
+    _analyzeIntent() {
+        // Analyze click patterns
+        this.session.clicks.forEach(c => {
+            const t = c.text.toLowerCase();
+            if (t.includes('seo')) this.session.intentScore.seo += 2;
+            if (t.includes('ads') || t.includes('ppc')) this.session.intentScore.ads += 2;
+            if (t.includes('web') || t.includes('design')) this.session.intentScore.web += 2;
+        });
+
+        // Analyze time spent
+        this.session.pagesVisited.forEach(p => {
+            if (p.timeSpent > 30) {
+                if (p.path.includes('seo')) this.session.intentScore.seo += 3;
+                if (p.path.includes('paid-ads')) this.session.intentScore.ads += 3;
+            }
+        });
+    }
+
+    _syncWithPersonalization() {
+        setInterval(() => {
+            if (window.personalizationEngine) {
+                const analysis = this.getIntentAnalysis();
+                window.personalizationEngine.applyDynamicContent(analysis);
+            }
+        }, 3000);
+    }
+
+    getIntentAnalysis() {
+        const scores = this.session.intentScore;
+        const maxScore = Math.max(...Object.values(scores));
+        let intent = 'General Inquiry';
+        
+        if (maxScore > 0) {
+            if (scores.seo === maxScore) intent = 'SEO Services';
+            else if (scores.ads === maxScore) intent = 'Paid Ads';
+            else if (scores.social === maxScore) intent = 'Social Media Marketing';
+            else if (scores.web === maxScore) intent = 'Website Design';
+            else if (scores.app === maxScore) intent = 'App Development';
+        }
+
+        const buyingStage = this.session.buyingStage;
+        
+        // Dynamic Personalization Logic
+        const content = this._generatePersonalizedContent(intent, buyingStage);
+
         return {
-            sessionId: this.sessionId,
-            duration: Math.round((Date.now() - this.sessionData.startTime) / 1000),
-            scrollDepth: this.sessionData.scrollDepth,
-            pageViews: this.sessionData.pageViews.length,
-            services: this.sessionData.interactedServices,
-            formInteractions: this.sessionData.formInteractions.length,
-            exitIntent: this.sessionData.exitIntent,
-            isReturning: this.sessionData.isReturning
+            user_intent: intent,
+            buying_stage: buyingStage,
+            recommended_service: intent,
+            ...content,
+            popup_strategy: buyingStage === 'Decision' ? 'chatbot' : 'popup',
+            whatsapp_message: this._generateWhatsApp(intent),
+            email_message: this._generateEmail(intent, buyingStage),
+            retargeting_ad: this._generateRetargeting(intent)
         };
     }
 
-    // Calculate engagement score (0-100)
-    calculateEngagementScore() {
-        let score = 0;
+    _generatePersonalizedContent(intent, stage) {
+        const data = {
+            'SEO Services': {
+                Awareness: { h: "Want to Rank #1 on Google?", s: "Discover how our clinical SEO strategies drive organic revenue.", c: "GET FREE SEO AUDIT" },
+                Consideration: { h: "Outrank Your Competitors Today", s: "Our data-driven SEO framework is engineered for aggressive growth.", c: "VIEW OUR SUCCESS STORIES" },
+                Decision: { h: "Ready to Dominate Search?", s: "Let's build your search authority. Claim your custom 90-day roadmap.", c: "START YOUR SEO JOURNEY" }
+            },
+            'Paid Ads': {
+                Awareness: { h: "Stop Wasting Your Ad Budget", s: "We build laser-targeted campaigns that deliver 3-5x ROAS.", c: "GET FREE ADS AUDIT" },
+                Decision: { h: "Scale Your Revenue with PPC", s: "Our media buyers manage ₹12M+ capital with surgical precision.", c: "START SCALING NOW" }
+            },
+            'Website Design': {
+                Awareness: { h: "Build a Digital Empire", s: "Elite web engineering designed to convert visitors into advocates.", c: "SEE OUR WORK" },
+                Decision: { h: "Your Site is Your Best Salesman", s: "Let's re-engineer your digital storefront for maximum performance.", c: "GET A CUSTOM QUOTE" }
+            }
+        };
 
-        // Time on site (max 30 points)
-        score += Math.min(30, this.sessionData.timeOnPage / 10);
+        const fallback = { h: "Grow Your Business Online", s: "Clinical digital marketing and engineering for modern brands.", c: "GET A FREE CONSULTATION" };
+        
+        const intentData = data[intent] || data['SEO Services'];
+        const content = intentData[stage] || intentData['Awareness'] || fallback;
 
-        // Scroll depth (max 25 points)
-        score += (this.sessionData.scrollDepth / 100) * 25;
-
-        // Service interactions (max 25 points)
-        score += Math.min(25, this.sessionData.interactedServices.length * 5);
-
-        // Form interactions (max 20 points)
-        score += Math.min(20, this.sessionData.formInteractions.length * 5);
-
-        return Math.round(score);
+        return {
+            headline: content.h,
+            subheading: content.s,
+            cta: content.c
+        };
     }
 
-    trackIdentity(userInfo) {
-        this.sessionData.userInfo = userInfo;
-        this.trackEvent('identity_set', userInfo);
+    _generateWhatsApp(intent) {
+        return `Hi! I saw you were looking into our ${intent} at MK Shopzone. Would you like a quick 5-min strategy audit for your project?`;
     }
 
-    getSuggestedService() {
-        if (this.sessionData.interactedServices.length === 0) return null;
-
-        // Return most frequently interacted service
-        const serviceCount = {};
-        this.sessionData.interactedServices.forEach(service => {
-            serviceCount[service] = (serviceCount[service] || 0) + 1;
-        });
-
-        return Object.keys(serviceCount).reduce((a, b) =>
-            serviceCount[a] > serviceCount[b] ? a : b
-        );
+    _generateEmail(intent, stage) {
+        return `Subject: Transform your ${intent} Strategy\n\nHi,\n\nI noticed you were exploring our ${intent} solutions. Most of our clients see a 300% growth in the first 6 months. Would you be open to a 10-minute strategy call this week?`;
     }
+
+    _generateRetargeting(intent) {
+        return `Angle: Efficiency & ROAS. Show case study of a client who achieved 5x ROAS using our ${intent} framework.`;
+    }
+
+    _getTrafficSource() {
+        const ref = document.referrer;
+        if (!ref) return 'Direct';
+        if (ref.includes('google')) return 'Google Search';
+        if (ref.includes('facebook')) return 'Facebook Ads';
+        return 'Referral';
+    }
+
+    _generateId() { return 'sess_' + Math.random().toString(36).substr(2, 9); }
+    _save() { localStorage.setItem('mk_behavior_session', JSON.stringify(this.session)); }
 }
 
-// Initialize tracker
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        window.behaviorTracker = new BehaviorTracker();
-    });
-} else {
-    window.behaviorTracker = new BehaviorTracker();
-}
-
+// Global Export
+window.behaviorTracker = new BehaviorTracker();
