@@ -832,6 +832,43 @@ class MKAssistant {
     }
 
     trackChatHistory() {} // compat stub
+
+    /**
+     * Extract lead information from conversation for CRM
+     */
+    extractLeadInfo() {
+        const info = {
+            name: this.userProfile.name || null,
+            email: this.userProfile.email || null,
+            phone: this.userProfile.phone || null,
+            business: this.userProfile.business || null,
+            service: this.userProfile.interestedService || null,
+            industry: this.userProfile.industry || null,
+            conversationHistory: this.history,
+            stage: this.stage
+        };
+        return info;
+    }
+
+    /**
+     * Update user profile from analytics
+     */
+    updateProfile(analyticsData) {
+        if (!analyticsData) return;
+
+        this.userProfile.interestedService = analyticsData.user_intent;
+        this.userProfile.buyingStage = analyticsData.buying_stage;
+
+        // Auto-trigger relevant follow-up
+        if (analyticsData.buying_stage === 'Decision' && !this.decisionOffered) {
+            this.decisionOffered = true;
+            setTimeout(() => {
+                if (this.isOpen) {
+                    this._sendUserMessage(`I'm seriously interested. What's next?`);
+                }
+            }, 3000);
+        }
+    }
 }
 
 /* ── Bootstrap ─────────────────────────────────── */

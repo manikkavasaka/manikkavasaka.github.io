@@ -1001,32 +1001,21 @@ p {
 }
 
 /* Activation */
-.nav-dropdown.open .dropdown-content {
+.nav-dropdown.active .dropdown-content {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
     pointer-events: auto;
 }
 
-.nav-dropdown.open .nav-arrow {
+.nav-dropdown.active .nav-arrow {
     transform: rotate(180deg);
     color: var(--primary);
+    opacity: 1;
 }
 
-/* Maintain hover for desktop users without touch if desired, 
-   but ensuring the .open class overrides or co-exists. */
-@media (min-width: 1025px) {
-    .nav-dropdown:hover .dropdown-content {
-        opacity: 1;
-        visibility: visible;
-        transform: translateX(-50%) translateY(0);
-        pointer-events: auto;
-    }
-    .nav-dropdown:hover .nav-arrow {
-        transform: rotate(180deg);
-        color: var(--primary);
-    }
-}
+/* Remove hover activation to fulfill 'Click to stay open' requirement */
+/* (Hover behavior is now explicitly handled by the active class toggle) */
 
 .dropdown-item-icon {
     width: 24px;
@@ -1287,14 +1276,14 @@ select.form-input {
         transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
 
-    .nav-dropdown.open .dropdown-content {
+    .nav-dropdown.active .dropdown-content {
         max-height: 800px; /* Large enough for content */
         opacity: 1;
         visibility: visible;
         padding: 10px 20px 30px !important;
     }
 
-    .nav-dropdown.open .nav-arrow {
+    .nav-dropdown.active .nav-arrow {
         transform: rotate(180deg);
         color: var(--primary);
         opacity: 1;

@@ -1,18 +1,92 @@
 /**
- * MK Shopzone - Elite Internal Growth Engine v7.0
- * High-performance interactivity and animation framework
+ * MK Shopzone - Elite Internal Growth Engine v8.0
+ * High-performance interactivity, AI analytics, and automated lead conversion
  */
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
+    // AI & Analytics Systems
+    initAIAnalytics();
+
+    // UI & Interactions
     initScrollReveal();
     initCounters();
     initNavbar();
     initForms();
     initVideos();
     initFAQ();
+
+    // Personalization
+    initPersonalization();
 });
+
+/**
+ * Initialize AI Analytics & Behavior Tracking
+ */
+function initAIAnalytics() {
+    // Wait for tracking system to be ready
+    const trackingCheck = setInterval(() => {
+        if (window.behaviorTracker && window.aiAnalyticsEngine) {
+            clearInterval(trackingCheck);
+
+            // Every 10 seconds, run analysis on current user behavior
+            setInterval(() => {
+                const profile = window.behaviorTracker.getProfile();
+                if (profile.sessionDuration > 15000) {
+                    const analysis = window.aiAnalyticsEngine.analyzeUserBehavior(profile);
+
+                    // Trigger conversion opportunities
+                    if (analysis.buying_stage === 'Decision') {
+                        triggerDecisionStageConversion(analysis);
+                    }
+                }
+            }, 10000);
+        }
+    }, 500);
+}
+
+/**
+ * Trigger conversion when user is in decision stage
+ */
+function triggerDecisionStageConversion(analysis) {
+    // Only trigger once per session
+    if (window.decisionTriggered) return;
+    window.decisionTriggered = true;
+
+    // Open chatbot with personalized offer
+    if (window.aiChatbot && !window.aiChatbot.isOpen) {
+        setTimeout(() => {
+            window.aiChatbot.open();
+            const offer = analysis.offer || 'Free Strategy Consultation';
+            window.aiChatbot.sendMessage(
+                `👋 I noticed you're doing some serious research! Based on your behavior, I'm confident we can help with ${analysis.recommended_service}.\n\nHere's what we can offer: **${offer}** – no strings attached.\n\nWant to chat about it? 🚀`,
+                'bot'
+            );
+        }, 2000);
+    }
+}
+
+/**
+ * Initialize Personalization Engine
+ */
+function initPersonalization() {
+    const personalizationCheck = setInterval(() => {
+        if (window.personalizationEngine && window.aiAnalyticsEngine) {
+            clearInterval(personalizationCheck);
+
+            // Monitor for personalization opportunities
+            setInterval(() => {
+                if (window.behaviorTracker) {
+                    const profile = window.behaviorTracker.getProfile();
+                    const analysis = window.aiAnalyticsEngine.analyzeUserBehavior(profile);
+
+                    if (analysis) {
+                        window.personalizationEngine.applyDynamicContent(analysis);
+                    }
+                }
+            }, 15000);
+        }
+    }, 500);
+}
 
 
 
@@ -97,22 +171,21 @@ function initNavbar() {
             e.stopPropagation();
             
             const parent = trigger.parentElement;
-            const isOpen = parent.classList.contains('open');
             
             // Close other dropdowns
             document.querySelectorAll('.nav-dropdown').forEach(d => {
-                if (d !== parent) d.classList.remove('open');
+                if (d !== parent) d.classList.remove('active');
             });
             
             // Toggle current
-            parent.classList.toggle('open');
+            parent.classList.toggle('active');
         });
     });
 
     // Close dropdowns on clicking outside
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.nav-dropdown')) {
-            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('active'));
         }
     });
 
