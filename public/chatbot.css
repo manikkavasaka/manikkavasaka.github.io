@@ -4,18 +4,18 @@
 ═══════════════════════════════════════════════════════════ */
 
 :root {
-    --mka-primary:     #ff8c00;
-    --mka-primary-dim: rgba(255, 140, 0, 0.12);
-    --mka-bg:          #0d0d1a;
-    --mka-bg-2:        #13131f;
-    --mka-bg-3:        #1a1a2e;
-    --mka-border:      rgba(255,255,255,0.08);
-    --mka-text:        #e8e8f0;
-    --mka-text-muted:  #8888aa;
-    --mka-user-bg:     linear-gradient(135deg, #ff8c00, #ff6200);
-    --mka-radius:      20px;
-    --mka-shadow:      0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
-    --mka-z:           9999;
+    --mka-primary:      #ff8c00;
+    --mka-primary-dim:  rgba(255, 140, 0, 0.12);
+    --mka-bg:           rgba(13, 13, 26, 0.94); /* Added translucency for glass effect */
+    --mka-bg-2:         rgba(19, 19, 31, 0.96);
+    --mka-bg-3:         rgba(26, 26, 46, 0.98);
+    --mka-border:       rgba(255, 255, 255, 0.1);
+    --mka-text:         #f8fafc;
+    --mka-text-muted:   #94a3b8;
+    --mka-user-bg:      linear-gradient(135deg, #ff8c00, #ff6200);
+    --mka-radius:       24px;
+    --mka-shadow:       0 32px 100px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    --mka-z:            9999;
 }
 
 /* ── Container ──────────────────────────────────────────── */
@@ -507,9 +507,156 @@
     color: rgba(255,255,255,0.4);
 }
 
+/* ── Lead Form ────────────────────────────────────────── */
+
+.mka-lead-form-container {
+    padding: 30px 24px;
+    height: 100%;
+    overflow-y: auto;
+    background: var(--mka-bg);
+}
+
+.mka-prechat-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mka-fc {
+    position: relative;
+    width: 100%;
+}
+
+.mka-fc input, 
+.mka-fc textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--mka-border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.mka-fc input:focus, 
+.mka-fc textarea:focus {
+    border-color: var(--mka-primary);
+    background: rgba(255, 140, 0, 0.05);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.1);
+}
+
+.mka-fc textarea {
+    min-height: 100px;
+    resize: none;
+}
+
+/* Phone Row Optimization */
+.mka-phone-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.mka-form-country {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--mka-border);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.mka-flag-icon {
+    width: 20px;
+    height: 14px;
+    background: linear-gradient(to bottom, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #128807 66%);
+    border-radius: 2px;
+}
+
+.mka-arrow-down {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid var(--mka-text-muted);
+}
+
+.mka-phone-input {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.mka-phone-code {
+    position: absolute;
+    left: 16px;
+    color: var(--mka-text-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.mka-phone-input input {
+    padding-left: 55px !important;
+}
+
+/* Submit Row */
+.mka-form-submit-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    gap: 20px;
+}
+
+.mka-form-avatar {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+}
+
+.mka-form-avatar svg {
+    width: 100%;
+    height: 100%;
+}
+
+.mka-form-submit-btn {
+    flex: 1;
+    background: linear-gradient(135deg, #ff8c00 0%, #ff5500 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 20px rgba(255, 140, 0, 0.2);
+}
+
+.mka-form-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(255, 140, 0, 0.4);
+}
+
+.mka-form-submit-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
 /* ═══════════════════════════════════════════════════════════
    RESPONSIVE
-═══════════════════════════════════════════════════════════ */
+   ═══════════════════════════════════════════════════════════ */
 
 @media (max-width: 480px) {
     .mka-container {
@@ -533,6 +680,8 @@
     .mka-input { font-size: 16px; /* prevent iOS zoom */ }
 
     .mka-chip { font-size: 0.74rem; padding: 5px 11px; }
+
+    .mka-form-avatar { display: none; } /* Hide avatar on small mobile to save space */
 }
 
 @media (min-width: 600px) {

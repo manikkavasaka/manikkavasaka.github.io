@@ -231,38 +231,32 @@ class MKAssistant {
             </div>
 
             <div class="mka-lead-form-container" id="mka-lead-form-container">
+                <div style="text-align: center; margin-bottom: 25px;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 8px; color: #fff;">Get Started</h3>
+                    <p style="font-size: 0.85rem; color: var(--mka-text-muted);">Fill in your details for a personalized strategy.</p>
+                </div>
                 <form id="mka-prechat-form" class="mka-prechat-form">
-                    <div class="mka-fc"><input type="text" id="mka-form-name" placeholder=" * Name" required></div>
-                    <div class="mka-fc"><input type="email" id="mka-form-email" placeholder=" * Email" required></div>
+                    <div class="mka-fc"><input type="text" id="mka-form-name" placeholder="Name" required></div>
+                    <div class="mka-fc"><input type="email" id="mka-form-email" placeholder="Email Address" required></div>
                     <div class="mka-fc mka-phone-row">
                         <div class="mka-form-country">
                             <div class="mka-flag-icon"></div>
-                            <div class="mka-arrow-down"></div>
                         </div>
                         <div class="mka-phone-input">
-                            <span class="mka-phone-code">+ 91</span>
-                            <input type="tel" id="mka-form-phone" required>
+                            <span class="mka-phone-code">+91</span>
+                            <input type="tel" id="mka-form-phone" placeholder="Phone Number" required>
                         </div>
                     </div>
-                    <div class="mka-fc"><input type="text" id="mka-form-business" placeholder=" Business Name"></div>
-                    <div class="mka-fc"><textarea id="mka-form-message" placeholder=" Message"></textarea></div>
+                    <div class="mka-fc"><input type="text" id="mka-form-business" placeholder="Company Name"></div>
+                    <div class="mka-fc"><textarea id="mka-form-message" placeholder="How can we help you grow?"></textarea></div>
                     
                     <div class="mka-form-submit-row">
-                        <div class="mka-form-avatar">
-                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="50" cy="50" r="50" fill="#e2e8f0"/>
-                                <path d="M50 95C30 95 15 85 15 70C15 55 35 53 50 53C65 53 85 55 85 70C85 85 70 95 50 95Z" fill="#a0aec0"/>
-                                <path d="M43 70 L50 82 L57 70 Z" fill="#e2e8f0"/>
-                                <circle cx="50" cy="40" r="18" fill="#fbd38d"/>
-                                <path d="M50 22C40 22 32 28 32 35C32 40 34 43 34 43C34 43 31 48 36 50C36 50 36 45 37 43C39 44 44 45 50 45C56 45 61 44 63 43C64 45 64 50 64 50C69 48 66 43 66 43C66 43 68 40 68 35C68 28 60 22 50 22Z" fill="#2d3748"/>
-                            </svg>
-                        </div>
                         <button type="submit" id="mka-form-submit-btn" class="mka-form-submit-btn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            Launch Consultation
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="22" y1="2" x2="11" y2="13"></line>
                                 <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                             </svg>
-                            Submit
                         </button>
                     </div>
                 </form>
