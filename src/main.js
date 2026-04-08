@@ -85,8 +85,38 @@ function initNavbar() {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
         });
     }
+
+    // Handle Mobile Dropdowns
+    const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+    dropdownTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024) {
+                e.preventDefault();
+                const parent = trigger.parentElement;
+                const isOpen = parent.classList.contains('open');
+                
+                // Close other dropdowns
+                document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+                
+                if (!isOpen) parent.classList.add('open');
+            }
+        });
+    });
+
+    // Close mobile menu on link click
+    const internalLinks = navLinks.querySelectorAll('a:not(.dropdown-trigger)');
+    internalLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 1024) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    });
 }
 
 // 6. FORM HANDLING & VALIDATION
