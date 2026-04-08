@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -97,13 +97,31 @@
             .section-luxe h2 { font-size: 2.5rem !important; }
         }
     </style>
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "HEALTHCARE",
+      "provider": {
+        "@type": "Organization",
+        "name": "MK Shopzone"
+      },
+      "areaServed": "Global"
+    }
+    </script>
 </head>
 <body>
 
     <!-- NAVIGATION -->
-                        <header class="navbar" id="navbar">
+                                <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+            <a href="/" class="logo" aria-label="MK Shopzone Home" aria-label="MK Shopzone Home">MK<span>SHOPZONE</span></a>
             <nav class="nav-links" id="navLinks">
                 <a href="/">Home</a>
                 <div class="nav-dropdown">
@@ -207,9 +225,14 @@
             <div class="nav-actions">
                 <a href="contact.html" class="btn btn-nav-audit">FREE AUDIT</a>
             </div>
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <div class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu" role="button" aria-label="Toggle Navigation Menu" role="button"><span></span><span></span><span></span></div>
         </div>
     </header>
+
+
+
+
+
 
 
 
@@ -225,14 +248,14 @@
                     <div data-reveal>
                         <span style="letter-spacing: 4px; font-weight: 900; color: var(--accent-teal); text-transform: uppercase; font-size: 0.95rem; margin-bottom: 20px; display: block;">Healthcare Digital Growth</span>
                         <h1 style="font-size: 5.5rem; line-height: 0.95; margin-bottom: 30px;">Advanced <br><span class="health-span">Healthcare</span><br>Solutions.</h1>
-                        <p style="font-size: 1.35rem; max-width: 560px; margin-bottom: 40px; color: #e2e8f0;">We engineer digital ecosystems for clinics, hospitals, and health startups â€” from patient acquisition to telemedicine platforms and HIPAA-compliant web solutions.</p>
+                        <p style="font-size: 1.35rem; max-width: 560px; margin-bottom: 40px; color: #e2e8f0;">We engineer digital ecosystems for clinics, hospitals, and health startups — from patient acquisition to telemedicine platforms and HIPAA-compliant web solutions.</p>
                         <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                            <button class="btn-elite btn-teal" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">GET FREE CONSULTATION <i data-lucide="heart-pulse"></i></button>
-                            <button class="btn-elite" style="background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.2);" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});">VIEW SERVICES</button>
+                            <button aria-label="Submit Action" class="btn-elite btn-teal" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">GET FREE CONSULTATION <i data-lucide="heart-pulse"></i></button>
+                            <button aria-label="Submit Action" class="btn-elite" style="background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.2);" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});">VIEW SERVICES</button>
                         </div>
                     </div>
                     <div data-reveal class="stagger-2" style="position: relative;">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80" alt="Modern healthcare digital consultation interface" class="img-premium" style="height: 580px;">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80" alt="Modern healthcare digital consultation interface" class="img-premium" style="height: 580px;">
                         <div class="stat-badge" style="position: absolute; bottom: -25px; left: -30px; backdrop-filter: blur(12px);">
                             <h3 class="health-span" style="font-size: 2.5rem; margin: 0;">340%</h3>
                             <p style="margin: 0; font-size: 0.85rem; letter-spacing: 2px; color: #94a3b8;">AVG. PATIENT GROWTH</p>
@@ -247,13 +270,13 @@
             <div class="container">
                 <div class="split-grid">
                     <div data-reveal class="stagger-1">
-                        <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=800&q=80" alt="Healthcare data analytics and performance dashboard" class="img-premium">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=800&q=80" alt="Healthcare data analytics and performance dashboard" class="img-premium">
                     </div>
                     <div data-reveal class="stagger-2">
                         <h4 style="color: var(--accent-teal); margin-bottom: 15px; font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase;">The Digital Imperative</h4>
                         <h2 style="font-size: 3.8rem; line-height: 1.1; margin-bottom: 30px;">Why Digital is <span class="health-span">Critical in Healthcare.</span></h2>
                         <p style="font-size: 1.2rem; margin-bottom: 25px;">Patients today research doctors on Google, book appointments on mobile, and expect instant telemedicine access. Providers who fail to digitize are losing patients to competitors in real time.</p>
-                        <p style="font-size: 1.2rem; margin-bottom: 40px;">As dedicated Healthcare Technology & Marketing Experts, MK Shopzone bridges the gap between clinical excellence and digital authority â€” delivering compounding patient acquisition and measurable growth.</p>
+                        <p style="font-size: 1.2rem; margin-bottom: 40px;">As dedicated Healthcare Technology & Marketing Experts, MK Shopzone bridges the gap between clinical excellence and digital authority — delivering compounding patient acquisition and measurable growth.</p>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                             <div class="glass-card glass-card-teal" style="padding: 28px;">
                                 <i data-lucide="users" style="color: var(--accent-teal); width: 38px; height: 38px; margin-bottom: 12px;"></i>
@@ -276,7 +299,7 @@
             <div class="container" style="text-align: center;">
                 <h4 style="color: var(--primary); margin-bottom: 20px; letter-spacing: 3px; text-transform: uppercase; font-size: 1rem;">End-to-End Healthcare Digital</h4>
                 <h2 style="font-size: 4.5rem; margin-bottom: 25px;">Comprehensive <span class="gradient-span">Healthcare Services.</span></h2>
-                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 80px;">From healthcare website design and patient acquisition SEO to telemedicine app development and HIPAA-compliant automation â€” we are your full-spectrum digital growth partner.</p>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 80px;">From healthcare website design and patient acquisition SEO to telemedicine app development and HIPAA-compliant automation — we are your full-spectrum digital growth partner.</p>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 80px;">
                     <span class="service-pill"><i data-lucide="globe" style="width:18px;height:18px;color:var(--accent-teal)"></i> Website Development</span>
                     <span class="service-pill"><i data-lucide="search" style="width:18px;height:18px;color:var(--accent-teal)"></i> Healthcare SEO</span>
@@ -300,7 +323,7 @@
                     <div class="step-card hover-lift" data-reveal class="stagger-2">
                         <div class="step-num">2</div>
                         <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Design</h3>
-                        <p>Engineer a patient-centric architecture â€” websites, apps, and booking funnels purpose-built for trust and conversion.</p>
+                        <p>Engineer a patient-centric architecture — websites, apps, and booking funnels purpose-built for trust and conversion.</p>
                     </div>
                     <div class="step-card hover-lift" data-reveal class="stagger-3">
                         <div class="step-num">3</div>
@@ -332,7 +355,7 @@
                         </ul>
                     </div>
                     <div data-reveal class="stagger-2">
-                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=900&q=80" alt="Healthcare website and patient UI/UX design" class="img-premium" style="height: 500px;">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=900&q=80" alt="Healthcare website and patient UI/UX design" class="img-premium" style="height: 500px;">
                     </div>
                 </div>
             </div>
@@ -371,7 +394,7 @@
                     <div class="glass-card glass-card-teal hover-lift" data-reveal class="stagger-2">
                         <i data-lucide="trending-up" style="color: var(--primary); width: 48px; height: 48px; margin-bottom: 25px;"></i>
                         <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Paid Advertising (Google & Social)</h3>
-                        <p>Precision-targeted campaigns on Google, Meta, and YouTube â€” targeting patients by condition, location, and search intent for maximum CPL efficiency.</p>
+                        <p>Precision-targeted campaigns on Google, Meta, and YouTube — targeting patients by condition, location, and search intent for maximum CPL efficiency.</p>
                     </div>
                     <div class="glass-card hover-lift" data-reveal class="stagger-3">
                         <i data-lucide="mail" style="color: var(--accent-green); width: 48px; height: 48px; margin-bottom: 25px;"></i>
@@ -387,12 +410,12 @@
             <div class="container">
                 <div class="split-grid" style="margin-bottom: 100px;">
                     <div data-reveal class="stagger-1">
-                        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=900&q=80" alt="Telemedicine video consultation and healthcare app" class="img-premium" style="height: 480px;">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=900&q=80" alt="Telemedicine video consultation and healthcare app" class="img-premium" style="height: 480px;">
                     </div>
                     <div data-reveal class="stagger-2">
                         <h4 style="color: var(--accent-teal); margin-bottom: 15px; font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase;">Telemedicine for 2026</h4>
                         <h2 style="font-size: 3.8rem; line-height: 1.1; margin-bottom: 25px;">Online Consultation <span class="health-span">Infrastructure.</span></h2>
-                        <p style="font-size: 1.2rem; margin-bottom: 30px;">We deploy production-ready telemedicine systems that allow your practitioners to consult patients globally via secure, branded video platforms â€” driving revenue without physical location constraints.</p>
+                        <p style="font-size: 1.2rem; margin-bottom: 30px;">We deploy production-ready telemedicine systems that allow your practitioners to consult patients globally via secure, branded video platforms — driving revenue without physical location constraints.</p>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                             <div class="glass-card glass-card-teal" style="padding: 25px;">
                                 <h3 style="font-size: 1.2rem; margin-bottom: 8px; color: var(--accent-teal);">HIPAA Compliant</h3>
@@ -412,7 +435,7 @@
                         <div>
                             <i data-lucide="shield-check" style="color: var(--accent-green); width: 60px; height: 60px; margin-bottom: 25px;"></i>
                             <h3 style="font-size: 3rem; margin-bottom: 20px;">Data Security & <span class="health-span">Compliance.</span></h3>
-                            <p style="font-size: 1.15rem; margin-bottom: 20px;">Every solution we build is architected with HIPAA and GDPR awareness in mind â€” from server configurations and data storage policies to consent mechanisms and audit trails.</p>
+                            <p style="font-size: 1.15rem; margin-bottom: 20px;">Every solution we build is architected with HIPAA and GDPR awareness in mind — from server configurations and data storage policies to consent mechanisms and audit trails.</p>
                             <ul style="list-style: none; padding: 0;">
                                 <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-weight: 700;"><i data-lucide="lock" style="color: var(--accent-green); flex-shrink:0;"></i> SSL/TLS encrypted data pipelines</li>
                                 <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-weight: 700;"><i data-lucide="lock" style="color: var(--accent-green); flex-shrink:0;"></i> Role-based access controls (RBAC)</li>
@@ -420,7 +443,7 @@
                             </ul>
                         </div>
                         <div>
-                            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f3?auto=format&fit=crop&w=800&q=80" alt="Healthcare data security and compliance infrastructure" class="img-premium" style="height: 350px;">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1530026405186-ed1f139313f3?auto=format&fit=crop&w=800&q=80" alt="Healthcare data security and compliance infrastructure" class="img-premium" style="height: 350px;">
                         </div>
                     </div>
                 </div>
@@ -435,8 +458,8 @@
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; margin-bottom: 100px;">
                     <div class="glass-card glass-card-teal hover-lift" data-reveal class="stagger-1">
                         <i data-lucide="stethoscope" style="color: var(--accent-teal); width: 50px; height: 50px; margin: 0 auto 20px;"></i>
-                        <h3 style="font-size: 2rem; margin-bottom: 12px;">Healthcareâ€‘Specific</h3>
-                        <p>We speak both digital and clinical â€” marketing strategies built around patient psychology, not generic business templates.</p>
+                        <h3 style="font-size: 2rem; margin-bottom: 12px;">Healthcare‑Specific</h3>
+                        <p>We speak both digital and clinical — marketing strategies built around patient psychology, not generic business templates.</p>
                     </div>
                     <div class="glass-card hover-lift" data-reveal class="stagger-2">
                         <i data-lucide="rocket" style="color: var(--primary); width: 50px; height: 50px; margin: 0 auto 20px;"></i>
@@ -446,7 +469,7 @@
                     <div class="glass-card glass-card-teal hover-lift" data-reveal class="stagger-3">
                         <i data-lucide="shield" style="color: var(--accent-green); width: 50px; height: 50px; margin: 0 auto 20px;"></i>
                         <h3 style="font-size: 2rem; margin-bottom: 12px;">Compliance First</h3>
-                        <p>Every implementation is reviewed for HIPAA/GDPR alignment â€” protecting your practice, your patients, and your reputation.</p>
+                        <p>Every implementation is reviewed for HIPAA/GDPR alignment — protecting your practice, your patients, and your reputation.</p>
                     </div>
                 </div>
 
@@ -456,9 +479,9 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left;">
                     <div class="glass-card hover-lift" data-reveal>
                         <h3 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--accent-teal);">Multi-Specialty Clinic</h3>
-                        <p style="margin-bottom: 25px;">Implemented SEO + Google Ads + appointment automation for a 7-doctor clinic group. Result: 4Ã— new patient volume in 6 months.</p>
+                        <p style="margin-bottom: 25px;">Implemented SEO + Google Ads + appointment automation for a 7-doctor clinic group. Result: 4× new patient volume in 6 months.</p>
                         <div style="display: flex; gap: 25px;">
-                            <div><h4 style="font-size: 2rem; color: var(--accent-green);">4Ã—</h4><p style="font-size: 0.85rem; margin: 0;">New Patients</p></div>
+                            <div><h4 style="font-size: 2rem; color: var(--accent-green);">4×</h4><p style="font-size: 0.85rem; margin: 0;">New Patients</p></div>
                             <div><h4 style="font-size: 2rem; color: var(--primary);">68%</h4><p style="font-size: 0.85rem; margin: 0;">Booking Rate</p></div>
                             <div><h4 style="font-size: 2rem; color: var(--accent-teal);">#1</h4><p style="font-size: 0.85rem; margin: 0;">Local Google Rank</p></div>
                         </div>
@@ -468,7 +491,7 @@
                         <p style="margin-bottom: 25px;">Built a full telemedicine platform + digital marketing engine for a Series A health startup. Achieved 12,000 registered users in 90 days post-launch.</p>
                         <div style="display: flex; gap: 25px;">
                             <div><h4 style="font-size: 2rem; color: var(--accent-green);">12K</h4><p style="font-size: 0.85rem; margin: 0;">Users (90 Days)</p></div>
-                            <div><h4 style="font-size: 2rem; color: var(--primary);">2.1Ã—</h4><p style="font-size: 0.85rem; margin: 0;">ROAS</p></div>
+                            <div><h4 style="font-size: 2rem; color: var(--primary);">2.1×</h4><p style="font-size: 0.85rem; margin: 0;">ROAS</p></div>
                             <div><h4 style="font-size: 2rem; color: var(--accent-teal);">$0</h4><p style="font-size: 0.85rem; margin: 0;">Compliance Issues</p></div>
                         </div>
                     </div>
@@ -542,7 +565,7 @@
                         </div>
                     </div>
                     <div data-reveal class="stagger-2">
-                        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=900&q=80" alt="Healthcare marketing analytics and ROI dashboard" class="img-premium" style="height: 480px;">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=900&q=80" alt="Healthcare marketing analytics and ROI dashboard" class="img-premium" style="height: 480px;">
                     </div>
                 </div>
             </div>
@@ -557,23 +580,23 @@
                 </div>
                 <div style="max-width: 900px; margin: 0 auto;">
                     <div class="faq-item">
-                        <button class="faq-btn"><span>Is your healthcare digital marketing HIPAA compliant?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                        <div class="faq-content"><p>Yes. All patient data touchpoints we design â€” from contact forms to telemedicine platforms â€” are implemented with HIPAA and GDPR principles in mind, including data encryption, access controls, and consent management.</p></div>
+                        <button aria-label="Submit Action" class="faq-btn"><span>Is your healthcare digital marketing HIPAA compliant?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content"><p>Yes. All patient data touchpoints we design — from contact forms to telemedicine platforms — are implemented with HIPAA and GDPR principles in mind, including data encryption, access controls, and consent management.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>How quickly can you get a clinic ranking on Google?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                        <div class="faq-content"><p>Most clinics see meaningful local SEO improvement within 60â€“90 days. For high-competition specialties, a 4â€“6 month timeline to first-page rankings is typical, depending on domain authority and content volume.</p></div>
+                        <button aria-label="Submit Action" class="faq-btn"><span>How quickly can you get a clinic ranking on Google?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content"><p>Most clinics see meaningful local SEO improvement within 60–90 days. For high-competition specialties, a 4–6 month timeline to first-page rankings is typical, depending on domain authority and content volume.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>Do you build custom appointment booking systems?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <button aria-label="Submit Action" class="faq-btn"><span>Do you build custom appointment booking systems?</span><i data-lucide="plus" class="faq-icon"></i></button>
                         <div class="faq-content"><p>Absolutely. We integrate with leading platforms like Zocdoc and Calendly, and we also build fully custom, branded booking systems for practices that require specialty workflows, multi-provider scheduling, or EHR integration.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>Can you market a telehealth startup from scratch?</span><i data-lucide="plus" class="faq-icon"></i></button>
-                        <div class="faq-content"><p>Yes â€” this is one of our specialties. We handle branding, platform development, SEO, paid user acquisition, and patient retention automation for telehealth businesses from pre-launch to Series A growth phases.</p></div>
+                        <button aria-label="Submit Action" class="faq-btn"><span>Can you market a telehealth startup from scratch?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <div class="faq-content"><p>Yes — this is one of our specialties. We handle branding, platform development, SEO, paid user acquisition, and patient retention automation for telehealth businesses from pre-launch to Series A growth phases.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>What is your pricing model for healthcare marketing?</span><i data-lucide="plus" class="faq-icon"></i></button>
+                        <button aria-label="Submit Action" class="faq-btn"><span>What is your pricing model for healthcare marketing?</span><i data-lucide="plus" class="faq-icon"></i></button>
                         <div class="faq-content"><p>We offer flexible engagement models: project-based (for website builds/app development), monthly retainers (for ongoing SEO, ads, and content), and hybrid growth partnerships. Schedule a free consultation for a custom quote.</p></div>
                     </div>
                 </div>
@@ -593,7 +616,7 @@
                         <input type="text" id="hc-name" placeholder="Full Name / Practice Name" required style="padding: 20px 25px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.5); color: #fff; font-size: 1rem; width: 100%; box-sizing: border-box;">
                         <input type="email" id="hc-email" placeholder="Business Email" required style="padding: 20px 25px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.5); color: #fff; font-size: 1rem; width: 100%; box-sizing: border-box;">
                         <input type="tel" id="hc-phone" placeholder="Phone Number" style="padding: 20px 25px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.5); color: #fff; font-size: 1rem; width: 100%; box-sizing: border-box;">
-                        <select id="hc-service" style="padding: 20px 25px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.8); color: #fff; font-size: 1rem; width: 100%; box-sizing: border-box;">
+                        <select aria-label="Specialist Service Selection" id="hc-service" style="padding: 20px 25px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.8); color: #fff; font-size: 1rem; width: 100%; box-sizing: border-box;">
                             <option value="">Select Primary Service Need</option>
                             <option>Healthcare Website Design</option>
                             <option>Medical SEO & Local SEO</option>
@@ -603,28 +626,29 @@
                             <option>Paid Advertising (Google/Social)</option>
                             <option>Full Digital Strategy</option>
                         </select>
-                        <button type="submit" class="btn-elite btn-teal" style="width: 100%; font-size: 1.1rem; padding: 24px;">CLAIM FREE STRATEGY SESSION â†’</button>
+                        <button aria-label="Submit Action" type="submit" class="btn-elite btn-teal" style="width: 100%; font-size: 1.1rem; padding: 24px;">CLAIM FREE STRATEGY SESSION →</button>
                     </form>
-                    <p id="formSuccess" style="display:none; color: var(--accent-green); font-size: 1.1rem; margin-top: 20px; font-weight: 700;">âœ… Thank you! Our healthcare experts will contact you within 24 hours.</p>
+                    <p id="formSuccess" style="display:none; color: var(--accent-green); font-size: 1.1rem; margin-top: 20px; font-weight: 700;">✅ Thank you! Our healthcare experts will contact you within 24 hours.</p>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- FOOTER -->
-                <footer class="footer">
+                    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="logo" style="font-size: 1.5rem;">MK<span>SHOPZONE</span></a>
-                    <p style="margin-top: 20px; font-size: 0.9rem; margin-bottom: 25px;">Building digital legacies for ambitious brands through data-driven performance and elite creative execution.</p>
-                    <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <a href="tel:+917200059453" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">+91 72000 59453</a>
-                        <a href="mailto:mkshopzone2@gmail.com" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">mkshopzone2@gmail.com</a>
-                        <div style="display: flex; gap: 15px; margin-top: 10px;">
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                    <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+                    <p class="mt-4">India's leading digital marketing agency specialized in rapid growth and high-performance digital infrastructure.</p>
+                    <div class="footer-contact mt-4">
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 1 1 22 16.92z"/></svg>
+                            <span>+91 72000 59453</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>mkshopzone2@gmail.com</span>
                         </div>
                     </div>
                 </div>
@@ -655,7 +679,7 @@
                         <li><a href="about.html">Our Story</a></li>
                         <li><a href="about.html#process">Our Process</a></li>
                         <li><a href="blog.html">Latest Articles</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                         <li><a href="privacy-policy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
@@ -665,6 +689,7 @@
             </div>
         </div>
     </footer>
+
 
 
 
@@ -715,6 +740,12 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 

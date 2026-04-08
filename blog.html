@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -248,13 +248,27 @@
             .hero-blog h1 { font-size: 3.5rem !important; }
         }
     </style>
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "BLOG",
+      "provider": {
+        "@type": "Organization",
+        "name": "MK Shopzone"
+      },
+      "areaServed": "Global"
+    }
+    </script>
 </head>
 <body>
 
     <!-- Navigation -->
-                        <header class="navbar" id="navbar">
+                                <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+            <a href="/" class="logo" aria-label="MK Shopzone Home" aria-label="MK Shopzone Home">MK<span>SHOPZONE</span></a>
             <nav class="nav-links" id="navLinks">
                 <a href="/">Home</a>
                 <div class="nav-dropdown">
@@ -358,9 +372,14 @@
             <div class="nav-actions">
                 <a href="contact.html" class="btn btn-nav-audit">FREE AUDIT</a>
             </div>
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <div class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu" role="button" aria-label="Toggle Navigation Menu" role="button"><span></span><span></span><span></span></div>
         </div>
     </header>
+
+
+
+
+
 
 
 
@@ -389,12 +408,12 @@
     <section style="padding: 20px 0 60px;">
         <div class="container">
             <div class="category-tabs" data-reveal>
-                <button class="cat-tab active">All Topics</button>
-                <button class="cat-tab">Elite SEO</button>
-                <button class="cat-tab">Performance Ads</button>
-                <button class="cat-tab">UI/UX Design</button>
-                <button class="cat-tab">E-Commerce</button>
-                <button class="cat-tab">Content & Social</button>
+                <button aria-label="Submit Action" class="cat-tab active">All Topics</button>
+                <button aria-label="Submit Action" class="cat-tab">Elite SEO</button>
+                <button aria-label="Submit Action" class="cat-tab">Performance Ads</button>
+                <button aria-label="Submit Action" class="cat-tab">UI/UX Design</button>
+                <button aria-label="Submit Action" class="cat-tab">E-Commerce</button>
+                <button aria-label="Submit Action" class="cat-tab">Content & Social</button>
             </div>
         </div>
     </section>
@@ -414,14 +433,14 @@
                 <!-- Highlight Post 1 -->
                 <article class="glass-card-premium" data-reveal class="stagger-1">
                     <div style="overflow: hidden;">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Analytics Dashboard Growth" class="post-img">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Analytics Dashboard Growth" class="post-img">
                     </div>
                     <div class="post-content">
                         <span class="post-tag">Performance Ads</span>
                         <h3 class="post-title">The 2026 Blueprint for Liquidating Meta Ad Costs at Scale</h3>
                         <p class="post-desc">Learn how top e-commerce brands are utilizing Advantage+ shopping combined with DCO creative testing to slash acquisition costs by 45%.</p>
                         <div class="post-meta">
-                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=100&q=80" alt="Author" class="author-img">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=100&q=80" alt="Author" class="author-img">
                             <div class="meta-text">
                                 <span style="color: #fff; font-weight: 700;">Performance Team</span> &bull; 8 Min Read
                             </div>
@@ -432,14 +451,14 @@
                 <!-- Highlight Post 2 -->
                 <article class="glass-card-premium" data-reveal class="stagger-2">
                     <div style="overflow: hidden;">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="SEO Strategies" class="post-img">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="SEO Strategies" class="post-img">
                     </div>
                     <div class="post-content">
                         <span class="post-tag">Elite SEO</span>
                         <h3 class="post-title">Algorithmic Immunity: How to SEO-Proof Your Organic Traffic</h3>
                         <p class="post-desc">Core updates are destroying average sites. We break down the semantic clustering and authority architecture needed to dominate AI-organized search.</p>
                         <div class="post-meta">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=100&q=80" alt="Author" class="author-img">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=100&q=80" alt="Author" class="author-img">
                             <div class="meta-text">
                                 <span style="color: #fff; font-weight: 700;">Lead SEO Architect</span> &bull; 12 Min Read
                             </div>
@@ -460,7 +479,7 @@
             
             <div class="grid-3">
                 <article class="glass-card-premium" style="padding: 0;" data-reveal class="stagger-1">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=900&q=80" alt="Social Media Framework" class="post-img" style="height: 220px;">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=900&q=80" alt="Social Media Framework" class="post-img" style="height: 220px;">
                     <div class="post-content" style="padding: 30px;">
                         <span class="post-tag">Social Media</span>
                         <h3 class="post-title" style="font-size: 1.4rem;">Creating Viral Hooks: The Psychological Framework</h3>
@@ -469,7 +488,7 @@
                 </article>
 
                 <article class="glass-card-premium" style="padding: 0;" data-reveal class="stagger-2">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80" alt="Web Engineering" class="post-img" style="height: 220px;">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80" alt="Web Engineering" class="post-img" style="height: 220px;">
                     <div class="post-content" style="padding: 30px;">
                         <span class="post-tag">UI/UX Design</span>
                         <h3 class="post-title" style="font-size: 1.4rem;">Conversion Rate Optimization (CRO) Secrets</h3>
@@ -478,7 +497,7 @@
                 </article>
 
                 <article class="glass-card-premium" style="padding: 0;" data-reveal class="stagger-3">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80" alt="Digital Marketing Trends" class="post-img" style="height: 220px;">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80" alt="Digital Marketing Trends" class="post-img" style="height: 220px;">
                     <div class="post-content" style="padding: 30px;">
                         <span class="post-tag">Industry News</span>
                         <h3 class="post-title" style="font-size: 1.4rem;">2026 Marketing Strategy Predictions</h3>
@@ -488,7 +507,7 @@
             </div>
             
             <div class="text-center" style="margin-top: 60px;" data-reveal>
-                <button class="btn-elite btn-outline">LOAD MORE ARTICLES</button>
+                <button aria-label="Submit Action" class="btn-elite btn-outline">LOAD MORE ARTICLES</button>
             </div>
         </div>
     </section>
@@ -508,7 +527,7 @@
                         <h3 style="margin-bottom: 5px; font-size: 1.5rem;">Real Estate Firm Achieves 4.5x ROAS via Performance Max</h3>
                         <p style="margin: 0; font-size: 0.95rem;">Full breakdown of the funnel mechanics and creative testing strategy used.</p>
                     </div>
-                    <div style="margin-left: 20px;"><button class="btn-elite" style="padding: 10px 25px; font-size: 0.8rem;">READ CASE</button></div>
+                    <div style="margin-left: 20px;"><button aria-label="Submit Action" class="btn-elite" style="padding: 10px 25px; font-size: 0.8rem;">READ CASE</button></div>
                 </div>
 
                 <div class="glass-card-premium hover-lift" style="flex-direction: row; align-items: center; padding: 25px 40px; border-radius: 16px;" data-reveal>
@@ -517,7 +536,7 @@
                         <h3 style="margin-bottom: 5px; font-size: 1.5rem;">From Page 5 to Position 1: A Technical SEO Masterclass</h3>
                         <p style="margin: 0; font-size: 0.95rem;">How removing legacy code and applying semantic markup skyrocketed traffic.</p>
                     </div>
-                    <div style="margin-left: 20px;"><button class="btn-elite" style="padding: 10px 25px; font-size: 0.8rem;">READ CASE</button></div>
+                    <div style="margin-left: 20px;"><button aria-label="Submit Action" class="btn-elite" style="padding: 10px 25px; font-size: 0.8rem;">READ CASE</button></div>
                 </div>
             </div>
         </div>
@@ -537,7 +556,7 @@
                     
                     <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to MK Shopzone Intelligence!');">
                         <input type="email" placeholder="Enter your business email" required>
-                        <button type="submit">SUBSCRIBE</button>
+                        <button aria-label="Submit Action" type="submit">SUBSCRIBE</button>
                     </form>
                     <p style="font-size: 0.85rem; opacity: 0.6; margin-top: 20px;">* Includes access to our free E-book: "The 90-Day Scaling Blueprint". We never spam.</p>
                 </div>
@@ -546,19 +565,20 @@
     </section>
 
     <!-- 7. FOOTER -->
-                <footer class="footer">
+                    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="logo" style="font-size: 1.5rem;">MK<span>SHOPZONE</span></a>
-                    <p style="margin-top: 20px; font-size: 0.9rem; margin-bottom: 25px;">Building digital legacies for ambitious brands through data-driven performance and elite creative execution.</p>
-                    <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <a href="tel:+917200059453" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">+91 72000 59453</a>
-                        <a href="mailto:mkshopzone2@gmail.com" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">mkshopzone2@gmail.com</a>
-                        <div style="display: flex; gap: 15px; margin-top: 10px;">
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                    <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+                    <p class="mt-4">India's leading digital marketing agency specialized in rapid growth and high-performance digital infrastructure.</p>
+                    <div class="footer-contact mt-4">
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 1 1 22 16.92z"/></svg>
+                            <span>+91 72000 59453</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>mkshopzone2@gmail.com</span>
                         </div>
                     </div>
                 </div>
@@ -589,7 +609,7 @@
                         <li><a href="about.html">Our Story</a></li>
                         <li><a href="about.html#process">Our Process</a></li>
                         <li><a href="blog.html">Latest Articles</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                         <li><a href="privacy-policy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
@@ -599,6 +619,7 @@
             </div>
         </div>
     </footer>
+
 
 
 
@@ -637,6 +658,12 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -203,14 +203,32 @@
             .hero-email h1 { font-size: 4.5rem !important; }
         }
     </style>
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "EMAIL-MARKETING",
+      "provider": {
+        "@type": "Organization",
+        "name": "MK Shopzone"
+      },
+      "areaServed": "Global"
+    }
+    </script>
 </head>
 
 <body>
 
     <!-- Header -->
-                        <header class="navbar" id="navbar">
+                                <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+            <a href="/" class="logo" aria-label="MK Shopzone Home" aria-label="MK Shopzone Home">MK<span>SHOPZONE</span></a>
             <nav class="nav-links" id="navLinks">
                 <a href="/">Home</a>
                 <div class="nav-dropdown">
@@ -314,9 +332,14 @@
             <div class="nav-actions">
                 <a href="contact.html" class="btn btn-nav-audit">FREE AUDIT</a>
             </div>
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <div class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu" role="button" aria-label="Toggle Navigation Menu" role="button"><span></span><span></span><span></span></div>
         </div>
     </header>
+
+
+
+
+
 
 
 
@@ -335,7 +358,7 @@
                     <h1 style="font-size: 7rem; line-height: 0.85; margin-bottom: 40px;">How shall we nurture <br><span class="gradient-span">your list into a legacy?</span></h1>
                     <p style="font-size: 1.6rem; max-width: 850px; color: #fff; opacity: 0.95; margin: 0 auto 60px;">I'm MK's Retention Assistant. Our specialists and I transform your subscriber base into a predictable revenue stream through data-driven automation.</p>
                     <div class="flex-center" style="gap: 30px; display: flex; justify-content: center;">
-                        <button class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();">START OUR CAMPAIGN <i data-lucide="mail"></i></button>
+                        <button aria-label="Submit Action" class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();">START OUR CAMPAIGN <i data-lucide="mail"></i></button>
                         <a href="#services" class="btn-elite btn-outline">VIEW OUR EXPERTISE</a>
                     </div>
                 </div>
@@ -362,7 +385,7 @@
                         </div>
                     </div>
                     <div data-reveal class="stagger-2">
-                        <img src="/public/email-marketing-dashboard.png" alt="Email Marketing ROI Analytics Dashboard" style="width: 100%; border-radius: 40px; box-shadow: 0 50px 100px rgba(0,0,0,0.5);">
+                        <img loading="lazy" decoding="async" src="/public/email-marketing-dashboard.webp" alt="Email Marketing ROI Analytics Dashboard" style="width: 100%; border-radius: 40px; box-shadow: 0 50px 100px rgba(0,0,0,0.5);">
                     </div>
                 </div>
             </div>
@@ -468,13 +491,13 @@
                         </ul>
                     </div>
                     <div data-reveal class="stagger-2">
-                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=900&q=80" alt="Email List Segmentation and Audience Targeting Strategy" style="width: 100%; border-radius: 40px; object-fit:cover; height:420px;">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=900&q=80" alt="Email List Segmentation and Audience Targeting Strategy" style="width: 100%; border-radius: 40px; object-fit:cover; height:420px;">
                     </div>
                 </div>
 
                 <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; margin-bottom: 120px; align-items: center;">
                     <div data-reveal class="stagger-2">
-                        <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=900&q=80" alt="Marketing Automation Drip Campaign Workflow" style="width: 100%; border-radius: 40px; object-fit:cover; height:420px;">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=900&q=80" alt="Marketing Automation Drip Campaign Workflow" style="width: 100%; border-radius: 40px; object-fit:cover; height:420px;">
                     </div>
                     <div data-reveal>
                         <h2 style="font-size: 3.5rem; line-height: 1.1;">Automation & <br><span class="gradient-span">Drip Campaigns.</span></h2>
@@ -498,7 +521,7 @@
                         </ul>
                     </div>
                     <div data-reveal class="stagger-2">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Professional Email Newsletter Design and Copywriting" style="width: 100%; border-radius: 40px; object-fit:cover; height:420px;">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Professional Email Newsletter Design and Copywriting" style="width: 100%; border-radius: 40px; object-fit:cover; height:420px;">
                     </div>
                 </div>
             </div>
@@ -577,19 +600,19 @@
                 </div>
                 <div class="faq-wrapper">
                     <div class="faq-item">
-                        <button class="faq-btn"><span>Do you build the email list from scratch?</span> <i data-lucide="plus"></i></button>
+                        <button aria-label="Submit Action" class="faq-btn"><span>Do you build the email list from scratch?</span> <i data-lucide="plus"></i></button>
                         <div class="faq-content">
                             <p>We implement lead magnets and conversion-optimized pop-ups on your website to organically grow a high-quality, high-intent subscriber list. We do not support buying cold lists as it damages deliverability.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>How often should we send emails?</span> <i data-lucide="plus"></i></button>
+                        <button aria-label="Submit Action" class="faq-btn"><span>How often should we send emails?</span> <i data-lucide="plus"></i></button>
                         <div class="faq-content">
                             <p>Frequency depends on your audience and content quality. For most brands, 1-2 high-value campaigns per week plus behavior-triggered automations provide the best results without causing fatigue.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>What is your deliverability strategy?</span> <i data-lucide="plus"></i></button>
+                        <button aria-label="Submit Action" class="faq-btn"><span>What is your deliverability strategy?</span> <i data-lucide="plus"></i></button>
                         <div class="faq-content">
                             <p>We manage everything from technical setup (SPF, DKIM, DMARC) into list cleansing and engagement-based sending to ensure you stay out of the promotions and spam folders.</p>
                         </div>
@@ -612,7 +635,7 @@
                                 <input type="text" placeholder="Full Name" required style="padding: 20px; border-radius: 12px; background: transparent; border: 1px solid #444; color: #fff;">
                                 <input type="email" placeholder="Business Email" required style="padding: 20px; border-radius: 12px; background: transparent; border: 1px solid #444; color: #fff;">
                                 <input type="text" placeholder="Approx. List Size" style="padding: 20px; border-radius: 12px; background: transparent; border: 1px solid #444; color: #fff;">
-                                <button type="submit" class="btn-elite" style="width: 100%; padding: 25px;">GET MY FREE AUDIT â†’</button>
+                                <button aria-label="Submit Action" type="submit" class="btn-elite" style="width: 100%; padding: 25px;">GET MY FREE AUDIT →</button>
                             </form>
                         </div>
                     </div>
@@ -622,19 +645,20 @@
     </main>
 
     <!-- Footer -->
-                <footer class="footer">
+                    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="logo" style="font-size: 1.5rem;">MK<span>SHOPZONE</span></a>
-                    <p style="margin-top: 20px; font-size: 0.9rem; margin-bottom: 25px;">Building digital legacies for ambitious brands through data-driven performance and elite creative execution.</p>
-                    <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <a href="tel:+917200059453" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">+91 72000 59453</a>
-                        <a href="mailto:mkshopzone2@gmail.com" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">mkshopzone2@gmail.com</a>
-                        <div style="display: flex; gap: 15px; margin-top: 10px;">
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                    <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+                    <p class="mt-4">India's leading digital marketing agency specialized in rapid growth and high-performance digital infrastructure.</p>
+                    <div class="footer-contact mt-4">
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 1 1 22 16.92z"/></svg>
+                            <span>+91 72000 59453</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>mkshopzone2@gmail.com</span>
                         </div>
                     </div>
                 </div>
@@ -665,7 +689,7 @@
                         <li><a href="about.html">Our Story</a></li>
                         <li><a href="about.html#process">Our Process</a></li>
                         <li><a href="blog.html">Latest Articles</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                         <li><a href="privacy-policy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
@@ -675,6 +699,7 @@
             </div>
         </div>
     </footer>
+
 
 
 
@@ -712,6 +737,12 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 

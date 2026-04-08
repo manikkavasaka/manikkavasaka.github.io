@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -137,13 +137,31 @@
             .split-grid { grid-template-columns: 1fr !important; gap: 50px !important; }
         }
     </style>
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "ECOMMERCE",
+      "provider": {
+        "@type": "Organization",
+        "name": "MK Shopzone"
+      },
+      "areaServed": "Global"
+    }
+    </script>
 </head>
 <body>
 
     <!-- Header -->
-                        <header class="navbar" id="navbar">
+                                <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+            <a href="/" class="logo" aria-label="MK Shopzone Home" aria-label="MK Shopzone Home">MK<span>SHOPZONE</span></a>
             <nav class="nav-links" id="navLinks">
                 <a href="/">Home</a>
                 <div class="nav-dropdown">
@@ -247,9 +265,14 @@
             <div class="nav-actions">
                 <a href="contact.html" class="btn btn-nav-audit">FREE AUDIT</a>
             </div>
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <div class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu" role="button" aria-label="Toggle Navigation Menu" role="button"><span></span><span></span><span></span></div>
         </div>
     </header>
+
+
+
+
+
 
 
 
@@ -264,11 +287,11 @@
                     <span style="letter-spacing: 4px; font-weight: 900; color: var(--primary); text-transform: uppercase; font-size: 1rem; margin-bottom: 20px; display: block;">End-to-End Store Growth</span>
                     <h1 style="font-size: 5.5rem; line-height: 0.95; margin-bottom: 30px;">High-Converting <br><span class="gradient-span">E-commerce Solutions.</span></h1>
                     <p style="font-size: 1.4rem; max-width: 600px; margin-bottom: 40px; color: #e2e8f0;">We design, build, and aggressively scale transactional online businesses. Discover how MK Shopzone builds high-ROI ecosystems for modern brands.</p>
-                    <button class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();">SCALE YOUR STORE <i data-lucide="shopping-bag"></i></button>
+                    <button aria-label="Submit Action" class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();">SCALE YOUR STORE <i data-lucide="shopping-bag"></i></button>
                 </div>
                 <div data-reveal class="stagger-2" style="position: relative;">
                     <!-- E-commerce UI Visual -->
-                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1000&q=80" alt="E-commerce shopping cart and online purchasing interface" class="img-premium" style="height: 600px;">
+                    <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1000&q=80" alt="E-commerce shopping cart and online purchasing interface" class="img-premium" style="height: 600px;">
                     <div style="position: absolute; bottom: -30px; left: -40px; background: rgba(3,4,8,0.9); padding: 30px; border-radius: 20px; border: 1px solid var(--primary); backdrop-filter: blur(10px);">
                         <h3 class="gradient-span" style="font-size: 2.5rem; margin: 0;">214%</h3>
                         <p style="margin: 0; font-size: 0.9rem; letter-spacing: 2px;">AVG. REVENUE LIFT</p>
@@ -282,12 +305,12 @@
             <div class="container">
                 <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; align-items: center;">
                     <div data-reveal class="stagger-1">
-                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Point of sale and online payment strategy" class="img-premium">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Point of sale and online payment strategy" class="img-premium">
                     </div>
                     <div data-reveal class="stagger-2">
                         <h4 style="color: var(--primary); margin-bottom: 15px; font-size: 1.2rem;">Modern Business Growth</h4>
                         <h2 style="font-size: 4rem; line-height: 1.1; margin-bottom: 30px;">Why E-commerce <br>is <span class="gradient-span">Essential.</span></h2>
-                        <p style="font-size: 1.2rem; margin-bottom: 20px;">The retail landscape has permanently shifted. To monopolize your market share, an institutional-grade E-commerce presence isn't an optionâ€”it's a requirement. We are expert E-commerce Architects helping D2C, B2B, and enterprise vendors dominate the digital shelf.</p>
+                        <p style="font-size: 1.2rem; margin-bottom: 20px;">The retail landscape has permanently shifted. To monopolize your market share, an institutional-grade E-commerce presence isn't an option—it's a requirement. We are expert E-commerce Architects helping D2C, B2B, and enterprise vendors dominate the digital shelf.</p>
                         <p style="font-size: 1.2rem; margin-bottom: 40px;">Our E-commerce Expertise spans across advanced platform deployment, frictionless UI/UX, and psychological conversion rate optimization (CRO).</p>
                         
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
@@ -392,7 +415,7 @@
                         </ul>
                     </div>
                     <div data-reveal class="stagger-2">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Sales growth charts and revenue analytics" class="img-premium">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Sales growth charts and revenue analytics" class="img-premium">
                     </div>
                 </div>
             </div>
@@ -408,12 +431,12 @@
                     <div class="glass-card-premium text-left" data-reveal>
                         <h3 style="font-size: 2rem; margin-bottom: 20px;">Inventory & Order Management</h3>
                         <p style="font-size: 1.1rem; margin-bottom: 30px;">Complete ERP integration and automated warehouse syncing to ensure you never oversell and orders are perfectly managed.</p>
-                        <img src="https://images.unsplash.com/photo-1586528116311-ad8ed7c66364?auto=format&fit=crop&w=800&q=80" alt="Order fulfillment process" class="img-premium" style="height: 250px;">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1586528116311-ad8ed7c66364?auto=format&fit=crop&w=800&q=80" alt="Order fulfillment process" class="img-premium" style="height: 250px;">
                     </div>
                     <div class="glass-card-premium text-left" data-reveal class="stagger-2">
                         <h3 style="font-size: 2rem; margin-bottom: 20px;">Performance Analytics</h3>
                         <p style="font-size: 1.1rem; margin-bottom: 30px;">We implement GA4, Facebook CAPI, and custom Looker Studio dashboards for granular ROI Measurement and Ongoing Store Optimization.</p>
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Dashboard data analytics" class="img-premium" style="height: 250px;">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Dashboard data analytics" class="img-premium" style="height: 250px;">
                     </div>
                 </div>
             </div>
@@ -459,7 +482,7 @@
                         </ul>
                     </div>
                     <div data-reveal class="stagger-2">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80" alt="E-commerce growth case study and dashboard" class="img-premium">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80" alt="E-commerce growth case study and dashboard" class="img-premium">
                     </div>
                 </div>
             </div>
@@ -511,10 +534,10 @@
                         <div>
                             <h3 style="font-size: 3rem; margin-bottom: 20px;">Ongoing Support & <br><span class="gradient-span">Store Optimization.</span></h3>
                             <p style="font-size: 1.2rem; margin-bottom: 20px;">A store launch is Day 1. We provide rigorous, continuous A/B testing, security patching, and speed optimizations to ensure your digital real estate remains ahead of the curve.</p>
-                            <button class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();" style="padding: 15px 40px; font-size: 1rem;">SECURE RETAINER <i data-lucide="shield"></i></button>
+                            <button aria-label="Submit Action" class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();" style="padding: 15px 40px; font-size: 1rem;">SECURE RETAINER <i data-lucide="shield"></i></button>
                         </div>
                         <div>
-                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Ongoing ecommerce store optimization and support" class="img-premium">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Ongoing ecommerce store optimization and support" class="img-premium">
                         </div>
                     </div>
                 </div>
@@ -529,15 +552,15 @@
                 </div>
                 <div class="faq-wrapper" style="max-width: 900px; margin: 0 auto;">
                     <div class="faq-item">
-                        <button class="faq-btn"><span>Which platform is best: Shopify or WooCommerce?</span> <i data-lucide="plus"></i></button>
+                        <button aria-label="Submit Action" class="faq-btn"><span>Which platform is best: Shopify or WooCommerce?</span> <i data-lucide="plus"></i></button>
                         <div class="faq-content"><p>It depends on your business model. Shopify offers incredible speed and dedicated E-commerce hosting, perfect for rapidly scaling D2C brands. WooCommerce provides ultimate flexibility and ownership for content-heavy or highly customized setups.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>Do you handle migrations from old platforms?</span> <i data-lucide="plus"></i></button>
+                        <button aria-label="Submit Action" class="faq-btn"><span>Do you handle migrations from old platforms?</span> <i data-lucide="plus"></i></button>
                         <div class="faq-content"><p>Yes, we execute seamless zero-downtime migrations, preserving your E-commerce SEO rankings and securely transferring all customer and order history data.</p></div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>How fast can you launch a new store?</span> <i data-lucide="plus"></i></button>
+                        <button aria-label="Submit Action" class="faq-btn"><span>How fast can you launch a new store?</span> <i data-lucide="plus"></i></button>
                         <div class="faq-content"><p>Standard builds typically take 4-6 weeks from initial architecture to final testing, though highly custom enterprise solutions may take longer to ensure absolute perfection.</p></div>
                     </div>
                 </div>
@@ -555,7 +578,7 @@
                     <input type="text" placeholder="Full Name" required style="padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.5); color: #fff;">
                     <input type="email" placeholder="Business Email" required style="padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.5); color: #fff;">
                     <input type="url" placeholder="Current Store URL (Optional)" style="padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.5); color: #fff;">
-                    <button type="submit" class="btn-elite" style="width: 100%; font-size: 1.1rem; padding: 24px;">CLAIM STRATEGY SESSION â†’</button>
+                    <button aria-label="Submit Action" type="submit" class="btn-elite" style="width: 100%; font-size: 1.1rem; padding: 24px;">CLAIM STRATEGY SESSION →</button>
                 </form>
             </div>
         </section>
@@ -563,19 +586,20 @@
     </main>
 
     <!-- Footer -->
-                <footer class="footer">
+                    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="logo" style="font-size: 1.5rem;">MK<span>SHOPZONE</span></a>
-                    <p style="margin-top: 20px; font-size: 0.9rem; margin-bottom: 25px;">Building digital legacies for ambitious brands through data-driven performance and elite creative execution.</p>
-                    <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <a href="tel:+917200059453" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">+91 72000 59453</a>
-                        <a href="mailto:mkshopzone2@gmail.com" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">mkshopzone2@gmail.com</a>
-                        <div style="display: flex; gap: 15px; margin-top: 10px;">
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                    <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+                    <p class="mt-4">India's leading digital marketing agency specialized in rapid growth and high-performance digital infrastructure.</p>
+                    <div class="footer-contact mt-4">
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 1 1 22 16.92z"/></svg>
+                            <span>+91 72000 59453</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>mkshopzone2@gmail.com</span>
                         </div>
                     </div>
                 </div>
@@ -606,7 +630,7 @@
                         <li><a href="about.html">Our Story</a></li>
                         <li><a href="about.html#process">Our Process</a></li>
                         <li><a href="blog.html">Latest Articles</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                         <li><a href="privacy-policy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
@@ -616,6 +640,7 @@
             </div>
         </div>
     </footer>
+
 
 
 
@@ -654,6 +679,12 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -264,12 +264,31 @@
             }
         }
     </style>
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    <meta name="description" content="MK Shopzone - India's leading digital marketing agency specializing in SEO, PPC, and High-Conversion Web Design.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "DASHBOARD",
+      "provider": {
+        "@type": "Organization",
+        "name": "MK Shopzone"
+      },
+      "areaServed": "Global"
+    }
+    </script>
 </head>
 <body>
     <div class="container">
-                            <header class="navbar" id="navbar">
+                                    <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+            <a href="/" class="logo" aria-label="MK Shopzone Home" aria-label="MK Shopzone Home">MK<span>SHOPZONE</span></a>
             <nav class="nav-links" id="navLinks">
                 <a href="/">Home</a>
                 <div class="nav-dropdown">
@@ -373,9 +392,14 @@
             <div class="nav-actions">
                 <a href="contact.html" class="btn btn-nav-audit">FREE AUDIT</a>
             </div>
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <div class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu" role="button" aria-label="Toggle Navigation Menu" role="button"><span></span><span></span><span></span></div>
         </div>
     </header>
+
+
+
+
+
 
 
 
@@ -387,7 +411,7 @@
             <div class="stat-card">
                 <div class="stat-label">Total Leads</div>
                 <div class="stat-value" id="totalLeads">0</div>
-                <div class="stat-change">â†‘ This month</div>
+                <div class="stat-change">↑ This month</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Conversion Rate</div>
@@ -427,16 +451,16 @@
                 </div>
                 <div style="margin-top: 20px;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                        <span>ðŸ”¥ Hot</span> <span id="hotCount">0</span>
+                        <span>🔥 Hot</span> <span id="hotCount">0</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                        <span>â˜€ï¸ Warm</span> <span id="warmCount">0</span>
+                        <span>☀️ Warm</span> <span id="warmCount">0</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                        <span>â„ï¸ Cool</span> <span id="coolCount">0</span>
+                        <span>❄️ Cool</span> <span id="coolCount">0</span>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
-                        <span>â“ Cold</span> <span id="coldCount">0</span>
+                        <span>❓ Cold</span> <span id="coldCount">0</span>
                     </div>
                 </div>
             </div>
@@ -454,7 +478,7 @@
         <div class="chart-card">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <h3>Recent High-Value Leads</h3>
-                <button class="export-btn" onclick="exportLeads('csv')">ðŸ“¥ Export CSV</button>
+                <button aria-label="Submit Action" class="export-btn" onclick="exportLeads('csv')">📥 Export CSV</button>
             </div>
             <div id="leadsContainer" class="loading">
                 <div class="spinner"></div>
@@ -603,6 +627,12 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 

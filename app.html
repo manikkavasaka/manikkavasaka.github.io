@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -195,14 +195,32 @@
             .section-luxe { padding: 100px 20px; }
         }
     </style>
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "APP",
+      "provider": {
+        "@type": "Organization",
+        "name": "MK Shopzone"
+      },
+      "areaServed": "Global"
+    }
+    </script>
 </head>
 
 <body>
 
     <!-- Header / Navbar -->
-                        <header class="navbar" id="navbar">
+                                <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+            <a href="/" class="logo" aria-label="MK Shopzone Home" aria-label="MK Shopzone Home">MK<span>SHOPZONE</span></a>
             <nav class="nav-links" id="navLinks">
                 <a href="/">Home</a>
                 <div class="nav-dropdown">
@@ -306,9 +324,14 @@
             <div class="nav-actions">
                 <a href="contact.html" class="btn btn-nav-audit">FREE AUDIT</a>
             </div>
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <div class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu" role="button" aria-label="Toggle Navigation Menu" role="button"><span></span><span></span><span></span></div>
         </div>
     </header>
+
+
+
+
+
 
 
 
@@ -327,7 +350,7 @@
                     <h1 style="font-size: 7.5rem; line-height: 0.85; margin: 0 auto 40px; max-width: 1200px;">How shall we build <br><span class="gradient-span">your app's legacy?</span></h1>
                     <p style="font-size: 1.6rem; max-width: 850px; color: #fff; opacity: 0.95; margin: 0 auto 60px;">I'm MK's Engineering Assistant. Our lead developers and I engineer high-performance mobile ecosystems designed to drive engagement and growth.</p>
                     <div class="flex-center" style="gap: 30px; flex-wrap: wrap;">
-                        <button class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();">SCALE MY BUSINESS <i data-lucide="smartphone"></i></button>
+                        <button aria-label="Submit Action" class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();">SCALE MY BUSINESS <i data-lucide="smartphone"></i></button>
                         <a href="#services" class="btn-elite btn-outline">VIEW OUR PLATFORMS</a>
                     </div>
                 </div>
@@ -356,7 +379,7 @@
                     </div>
                     <div data-reveal class="stagger-2">
                         <div style="position: relative; border-radius: 40px; overflow: hidden; box-shadow: 0 60px 150px rgba(0,0,0,0.7);">
-                            <img src="/public/seo-analytics.png" alt="App Performance Intelligence" style="width: 100%; display: block; filter: contrast(1.1);">
+                            <img loading="lazy" decoding="async" src="/public/seo-analytics.webp" alt="App Performance Intelligence" style="width: 100%; display: block; filter: contrast(1.1);">
                         </div>
                     </div>
                 </div>
@@ -448,7 +471,7 @@
                 <div class="split-grid grid-align" style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 120px;">
                     <div data-reveal>
                         <div style="border-radius: 40px; overflow: hidden; box-shadow: 0 50px 100px rgba(0,0,0,0.8);">
-                            <img src="/public/con 3.jpg" alt="App Strategy Workshop" style="width: 100%; display: block;">
+                            <img loading="lazy" decoding="async" src="/public/con 3.webp" alt="App Strategy Workshop" style="width: 100%; display: block;">
                         </div>
                     </div>
                     <div data-reveal class="stagger-2">
@@ -477,7 +500,7 @@
                     <div data-reveal profile>
                         <h4 style="color: var(--primary) !important; margin-bottom: 20px;">Specialized Verticals</h4>
                         <h2 style="font-size: 4.2rem; color: #000 !important; line-height: 1;">E-commerce & <br><span class="gradient-span">On-Demand Engines.</span></h2>
-                        <p style="color: #4b5563 !important; font-size: 1.3rem; margin-top: 35px;">From complex logistics for on-demand delivery to high-velocity e-commerce checkouts—we engineering the logic that powers modern commerce.</p>
+                        <p style="color: #4b5563 !important; font-size: 1.3rem; margin-top: 35px;">From complex logistics for on-demand delivery to high-velocity e-commerce checkouts�we engineering the logic that powers modern commerce.</p>
                         <ul style="list-style: none; padding: 0; margin-top: 45px; display: grid; gap: 20px;">
                             <li style="display: flex; gap: 15px; align-items: center; color: #111; font-weight: 700; font-size: 1.2rem;"><i data-lucide="shopping-cart" style="color: var(--primary);"></i> Transactional Security</li>
                             <li style="display: flex; gap: 15px; align-items: center; color: #111; font-weight: 700; font-size: 1.2rem;"><i data-lucide="map-pin" style="color: var(--primary);"></i> Real-time Geolocation</li>
@@ -486,7 +509,7 @@
                     </div>
                     <div data-reveal class="stagger-2">
                         <div style="border-radius: 32px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.15);">
-                            <img src="/public/seo-growth.png" alt="Growth & Analytics" style="width: 100%; display: block;">
+                            <img loading="lazy" decoding="async" src="/public/seo-growth.webp" alt="Growth & Analytics" style="width: 100%; display: block;">
                         </div>
                     </div>
                 </div>
@@ -502,11 +525,11 @@
                             <h4 style="color: var(--primary) !important; margin-bottom: 20px;">The Showcase</h4>
                             <h2 style="font-size: 5rem; line-height: 1;">App Success <br><span class="gradient-span">Stories.</span></h2>
                             <p style="font-size: 1.4rem; margin-top: 40px; font-weight: 500;">See how our engineering legacy helped a healthcare startup scale to 500k active users and secure $10M in Series A funding.</p>
-                            <button class="btn-elite" style="margin-top: 60px;">VIEW CASE STUDIES <i data-lucide="eye"></i></button>
+                            <button aria-label="Submit Action" class="btn-elite" style="margin-top: 60px;">VIEW CASE STUDIES <i data-lucide="eye"></i></button>
                         </div>
                         <div data-reveal class="stagger-2">
                             <div style="border-radius: 24px; overflow: hidden;">
-                                <img src="/public/seo-performance-marketing-expert-chennai.png" alt="Success Visual" style="width: 100%; display: block; filter: saturate(1.2) brightness(1.1);">
+                                <img loading="lazy" decoding="async" src="/public/seo-performance-marketing-expert-chennai.webp" alt="Success Visual" style="width: 100%; display: block; filter: saturate(1.2) brightness(1.1);">
                             </div>
                         </div>
                     </div>
@@ -567,19 +590,19 @@
                 </div>
                 <div class="faq-wrapper" data-reveal>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>Native vs Cross-Platform: Which is better?</span> <i data-lucide="plus" class="faq-icon"></i></button>
+                        <button aria-label="Submit Action" class="faq-btn"><span>Native vs Cross-Platform: Which is better?</span> <i data-lucide="plus" class="faq-icon"></i></button>
                         <div class="faq-content">
                             <p style="font-size: 1.2rem; line-height: 1.8;">Native (Swift/Kotlin) offers absolute peak performance and system access. Cross-Platform (Flutter/React Native) offers 2x speed-to-market and code parity. We recommend based on your scaling complexity and budget roadmap.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>How do you handle post-launch updates?</span> <i data-lucide="plus" class="faq-icon"></i></button>
+                        <button aria-label="Submit Action" class="faq-btn"><span>How do you handle post-launch updates?</span> <i data-lucide="plus" class="faq-icon"></i></button>
                         <div class="faq-content">
                             <p style="font-size: 1.2rem; line-height: 1.8;">We provide 12 months of standard concierge maintenance including OS compatibility updates, performance patching, and priority security monitoring.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>Can you integrate with existing company APIs?</span> <i data-lucide="plus" class="faq-icon"></i></button>
+                        <button aria-label="Submit Action" class="faq-btn"><span>Can you integrate with existing company APIs?</span> <i data-lucide="plus" class="faq-icon"></i></button>
                         <div class="faq-content">
                             <p style="font-size: 1.2rem; line-height: 1.8;">Absolutely. We specialize in building secure gateway layers that interface with legacy CRM, ERP, and custom-built internal infrastructures.</p>
                         </div>
@@ -609,13 +632,13 @@
                                     <input type="email" placeholder="Business Email" required style="padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #fff; font-weight: 700; font-size: 1.1rem;">
                                 </div>
                                 <input type="text" placeholder="App Concept / Focus Industry" required style="padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #fff; font-weight: 700; font-size: 1.1rem;">
-                                <select required style="padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: #000; color: #fff; font-weight: 700; font-size: 1.1rem;">
+                                <select aria-label="Specialist Service Selection" required style="padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: #000; color: #fff; font-weight: 700; font-size: 1.1rem;">
                                     <option value="" disabled selected hidden>Development Phase</option>
                                     <option value="idea">Conceptual / Idea Phase</option>
                                     <option value="mvp">Building MVP</option>
                                     <option value="scaled">Scaling Existing App</option>
                                 </select>
-                                <button type="submit" class="btn-elite" style="width: 100%; font-size: 1.2rem; padding: 28px;">GET MY FREE CONSULTATION →</button>
+                                <button aria-label="Submit Action" type="submit" class="btn-elite" style="width: 100%; font-size: 1.2rem; padding: 28px;">GET MY FREE CONSULTATION ?</button>
                                 <p style="font-size: 0.9rem; text-align: center; opacity: 0.6; margin: 0; font-weight: 600;">*Institutional non-disclosure protocols apply.</p>
                             </form>
                         </div>
@@ -626,19 +649,20 @@
     </main>
 
     <!-- Footer -->
-                <footer class="footer">
+                    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="logo" style="font-size: 1.5rem;">MK<span>SHOPZONE</span></a>
-                    <p style="margin-top: 20px; font-size: 0.9rem; margin-bottom: 25px;">Building digital legacies for ambitious brands through data-driven performance and elite creative execution.</p>
-                    <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <a href="tel:+917200059453" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">+91 72000 59453</a>
-                        <a href="mailto:mkshopzone2@gmail.com" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">mkshopzone2@gmail.com</a>
-                        <div style="display: flex; gap: 15px; margin-top: 10px;">
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                    <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+                    <p class="mt-4">India's leading digital marketing agency specialized in rapid growth and high-performance digital infrastructure.</p>
+                    <div class="footer-contact mt-4">
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 1 1 22 16.92z"/></svg>
+                            <span>+91 72000 59453</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>mkshopzone2@gmail.com</span>
                         </div>
                     </div>
                 </div>
@@ -669,7 +693,7 @@
                         <li><a href="about.html">Our Story</a></li>
                         <li><a href="about.html#process">Our Process</a></li>
                         <li><a href="blog.html">Latest Articles</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                         <li><a href="privacy-policy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
@@ -679,6 +703,7 @@
             </div>
         </div>
     </footer>
+
 
 
 
@@ -727,7 +752,7 @@
                 setTimeout(() => {
                     alert('App Engineering Request Transmitted. Our Lead Architect will follow up within 60 minutes.');
                     form.reset();
-                    btn.innerText = 'GET MY FREE CONSULTATION →';
+                    btn.innerText = 'GET MY FREE CONSULTATION ?';
                     btn.disabled = false;
                 }, 1800);
             });
@@ -745,6 +770,12 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 

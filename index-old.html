@@ -24,6 +24,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/public/style.css">
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "INDEX-OLD",
+      "provider": {
+        "@type": "Organization",
+        "name": "MK Shopzone"
+      },
+      "areaServed": "Global"
+    }
+    </script>
 </head>
 <body>
     <!-- Skip to Content -->
@@ -84,28 +98,28 @@
 
                 <div class="services-grid">
                     <article class="glass-card service-card" data-reveal>
-                        <div class="service-icon"><img src="/seo-icon.png" alt="SEO"></div>
+                        <div class="service-icon"><img loading="lazy" decoding="async" src="/seo-icon.webp" alt="SEO"></div>
                         <h3>Semantic SEO</h3>
                         <p>Dominate intent-based search results with our advanced 360° optimization framework.</p>
                         <a href="seo.html" style="color:var(--primary); font-weight:700; margin-top:20px; display:block; text-transform:uppercase; letter-spacing:1px; font-size:0.85rem;">View Strategy →</a>
                     </article>
 
                     <article class="glass-card service-card" data-reveal>
-                        <div class="service-icon"><img src="/ads-icon.png" alt="Ads"></div>
+                        <div class="service-icon"><img loading="lazy" decoding="async" src="/ads-icon.webp" alt="Ads"></div>
                         <h3>Performance Ads</h3>
                         <p>Aggressive scaling through Google & Meta Ads with a guaranteed focus on ROAS.</p>
                         <a href="paid-ads.html" style="color:var(--primary); font-weight:700; margin-top:20px; display:block; text-transform:uppercase; letter-spacing:1px; font-size:0.85rem;">View Strategy →</a>
                     </article>
 
                     <article class="glass-card service-card" data-reveal>
-                        <div class="service-icon"><img src="/web-dev-icon.png" alt="Dev"></div>
+                        <div class="service-icon"><img loading="lazy" decoding="async" src="/web-dev-icon.webp" alt="Dev"></div>
                         <h3>Elite Development</h3>
                         <p>High-performance web architecture built for 0.4s load times and 100% conversion focus.</p>
                         <a href="website-design.html" style="color:var(--primary); font-weight:700; margin-top:20px; display:block; text-transform:uppercase; letter-spacing:1px; font-size:0.85rem;">View Strategy →</a>
                     </article>
 
                     <article class="glass-card service-card" data-reveal>
-                        <div class="service-icon"><img src="/geo-icon.png" alt="Growth"></div>
+                        <div class="service-icon"><img loading="lazy" decoding="async" src="/geo-icon.webp" alt="Growth"></div>
                         <h3>Scale Operations</h3>
                         <p>Omnichannel automation systems that nurture, convert, and retain customers on autopilot.</p>
                         <a href="email-marketing.html" style="color:var(--primary); font-weight:700; margin-top:20px; display:block; text-transform:uppercase; letter-spacing:1px; font-size:0.85rem;">View Strategy →</a>
@@ -118,7 +132,7 @@
         <section class="section" id="why-us" style="background: rgba(255,140,0,0.01);">
             <div class="container split-grid">
                 <div class="visual-wrap" data-reveal>
-                    <img src="/digital-marketing-agency-seo-strategy-meeting-chennai.jpg" alt="Strategy Team" style="border-radius:var(--radius-lg); border:1px solid var(--border); box-shadow:var(--shadow-glow);">
+                    <img loading="lazy" decoding="async" src="/digital-marketing-agency-seo-strategy-meeting-chennai.webp" alt="Strategy Team" style="border-radius:var(--radius-lg); border:1px solid var(--border); box-shadow:var(--shadow-glow);">
                 </div>
                 <div class="content-wrap" data-reveal>
                     <span style="color:var(--primary); font-weight:800; text-transform:uppercase; letter-spacing:2px; font-size:0.9rem;">Why MK Shopzone?</span>
@@ -215,14 +229,14 @@
                             <input type="text" placeholder="First Name" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:15px; border-radius:10px; color:#fff;">
                             <input type="text" placeholder="Work Email" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:15px; border-radius:10px; color:#fff;">
                         </div>
-                        <select style="width:100%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:15px; border-radius:10px; color:#fff; margin-bottom:20px;">
+                        <select aria-label="Specialist Service Selection" style="width:100%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:15px; border-radius:10px; color:#fff; margin-bottom:20px;">
                             <option value="">Select Target Objective</option>
                             <option value="seo">Revenue Scale (SEO)</option>
                             <option value="ppc">Immediate ROAS (Ads)</option>
                             <option value="web">Platform Modernization</option>
                         </select>
                         <textarea placeholder="Tell us about your 12-month goals..." style="width:100%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:15px; border-radius:10px; color:#fff; height:150px; margin-bottom:20px;"></textarea>
-                        <button type="submit" class="btn btn-primary" style="width:100%;">Request Diagnostic Call</button>
+                        <button aria-label="Submit Action" type="submit" class="btn btn-primary" style="width:100%;">Request Diagnostic Call</button>
                     </form>
                 </div>
             </div>
@@ -273,3 +287,7 @@
     <script type="module" src="/src/main.js"></script>
 </body>
 </html>
+
+
+
+

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -299,14 +299,32 @@
             .container { padding: 0 20px; }
         }
     </style>
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="/src/style.css" as="style">
+    <link rel="preload" href="/src/main.js" as="script">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "PAID-ADS",
+      "provider": {
+        "@type": "Organization",
+        "name": "MK Shopzone"
+      },
+      "areaServed": "Global"
+    }
+    </script>
 </head>
 
 <body>
 
     <!-- Header / Navbar -->
-                        <header class="navbar" id="navbar">
+                                <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+            <a href="/" class="logo" aria-label="MK Shopzone Home" aria-label="MK Shopzone Home">MK<span>SHOPZONE</span></a>
             <nav class="nav-links" id="navLinks">
                 <a href="/">Home</a>
                 <div class="nav-dropdown">
@@ -410,9 +428,14 @@
             <div class="nav-actions">
                 <a href="contact.html" class="btn btn-nav-audit">FREE AUDIT</a>
             </div>
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+            <div class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu" role="button" aria-label="Toggle Navigation Menu" role="button"><span></span><span></span><span></span></div>
         </div>
     </header>
+
+
+
+
+
 
 
 
@@ -431,7 +454,7 @@
                     <h1 style="font-size: 7.5rem; line-height: 0.85; margin: 0 auto 40px; max-width: 1000px;">How much ROI <br><span class="gradient-span">shall we target?</span></h1>
                     <p style="font-size: 1.6rem; max-width: 850px; color: #fff; opacity: 0.95; margin: 0 auto 60px;">I'm MK's PPC Assistant. Our elite media buyers and I build data-driven advertising ecosystems designed to liquidate acquisition costs and drive exponential growth.</p>
                     <div class="flex-center" style="gap: 30px; flex-wrap: wrap;">
-                        <button class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();">LET'S SCALE MY REVENUE <i data-lucide="trending-up"></i></button>
+                        <button aria-label="Submit Action" class="btn-elite" onclick="document.getElementById('contact').scrollIntoView();">LET'S SCALE MY REVENUE <i data-lucide="trending-up"></i></button>
                         <a href="#services" class="btn-elite btn-outline">SHOW ME THE PLATFORMS</a>
                     </div>
                 </div>
@@ -445,7 +468,7 @@
                     <h4 style="color: var(--primary) !important;">Live Intelligence</h4>
                     <h2 style="font-size: 4rem; margin-bottom: 50px;">Real-Time <span class="gradient-span">Performance Monitoring.</span></h2>
                     <div style="position: relative; max-width: 1100px; margin: 0 auto;">
-                        <img src="/public/ads-performance-dashboard.jpg" alt="Live Paid Ads performance dashboard showing conversions and ROI growth" class="img-premium">
+                        <img loading="lazy" decoding="async" src="/public/ads-performance-dashboard.webp" alt="Live Paid Ads performance dashboard showing conversions and ROI growth" class="img-premium">
                         <div class="dashboard-overlay animate-float">
                             <h3 class="gradient-span" style="font-size: 2.5rem; margin: 0;">+320%</h3>
                             <p style="font-size: 0.8rem; margin: 0; letter-spacing: 1px;">AVERAGE ROAS LIFT</p>
@@ -477,10 +500,10 @@
                     </div>
                     <div data-reveal class="stagger-2">
                         <div class="img-premium">
-                            <img src="/public/ads 1.webp" alt="Elite Ads Dashboard Analytics" style="width: 100%; display: block; filter: contrast(1.1);">
+                            <img loading="lazy" decoding="async" src="/public/ads 1.webp" alt="Elite Ads Dashboard Analytics" style="width: 100%; display: block; filter: contrast(1.1);">
                         </div>
                         <div style="margin-top: 40px;" class="animate-float">
-                            <img src="/public/ads-conversion-graph.png" alt="Graph showing conversion growth" style="width: 100%; border-radius: 20px; filter: brightness(1.1);">
+                            <img loading="lazy" decoding="async" src="/public/ads-conversion-graph.webp" alt="Graph showing conversion growth" style="width: 100%; border-radius: 20px; filter: brightness(1.1);">
                         </div>
                     </div>
                 </div>
@@ -518,7 +541,7 @@
                     </div>
                 </div>
                 <div style="margin-top: 100px; text-align: center;" data-reveal="zoom">
-                    <img src="/public/ads-funnel-visualization.jpg" alt="Digital marketing funnel visualization from click to sale" class="img-premium" style="max-width: 900px; margin: 0 auto;">
+                    <img loading="lazy" decoding="async" src="/public/ads-funnel-visualization.webp" alt="Digital marketing funnel visualization from click to sale" class="img-premium" style="max-width: 900px; margin: 0 auto;">
                 </div>
             </div>
         </section>
@@ -633,16 +656,16 @@
             <div class="container">
                 <div class="split-grid grid-align" style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 120px;">
                     <div data-reveal>
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80" alt="Paid ads strategy meeting" class="img-premium" style="width: 100%; display: block; height: 350px; object-fit: cover;">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80" alt="Paid ads strategy meeting" class="img-premium" style="width: 100%; display: block; height: 350px; object-fit: cover;">
                         </div>
                         <div style="margin-top: 40px;" class="animate-float">
-                            <img src="/public/ads-strategy-laptop.jpg" alt="Marketer managing ad campaigns on laptop" class="img-premium">
+                            <img loading="lazy" decoding="async" src="/public/ads-strategy-laptop.webp" alt="Marketer managing ad campaigns on laptop" class="img-premium">
                         </div>
                     </div>
                     <div data-reveal class="stagger-2">
                         <h4 style="color: var(--primary) !important; margin-bottom: 20px;">Market Intelligence</h4>
                         <h2 style="font-size: 4rem; line-height: 1.1;">Targeting & <br><span class="gradient-span">Market Research.</span></h2>
-                        <p style="font-size: 1.3rem; margin-top: 40px;">Success in advertising is won in the research phase. We don't guessâ€”we analyze millions of data points to identify where your audience lives online and what psychological hooks will force them to click.</p>
+                        <p style="font-size: 1.3rem; margin-top: 40px;">Success in advertising is won in the research phase. We don't guess—we analyze millions of data points to identify where your audience lives online and what psychological hooks will force them to click.</p>
                         <ul style="list-style: none; padding: 0; margin-top: 50px; display: grid; gap: 25px;">
                             <li style="display: flex; gap: 20px; align-items: center;"><i data-lucide="crosshair" style="color: var(--primary);"></i> <span style="font-weight: 700; font-size: 1.2rem;">Psychographic Audience Mapping</span></li>
                             <li style="display: flex; gap: 20px; align-items: center;"><i data-lucide="shield-check" style="color: var(--primary);"></i> <span style="font-weight: 700; font-size: 1.2rem;">Competitor Ad Funnel Teardowns</span></li>
@@ -674,7 +697,7 @@
                     </div>
                     <div data-reveal class="stagger-2">
                         <div class="img-premium">
-                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80" alt="Paid Media Campaign Team" style="width: 100%; display: block; height: 500px; object-fit: cover;">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80" alt="Paid Media Campaign Team" style="width: 100%; display: block; height: 500px; object-fit: cover;">
                         </div>
                     </div>
                 </div>
@@ -690,15 +713,15 @@
                 </div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px;">
                     <div class="glass-card-premium hover-lift" data-reveal class="stagger-1" style="text-align: left; padding: 80px 60px; transition: 0.4s;">
-                        <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=900&q=80" alt="Ad Retargeting Strategy" class="img-premium" style="border-radius: 20px; width: 100%; height: 300px; object-fit: cover; margin-bottom: 40px;">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=900&q=80" alt="Ad Retargeting Strategy" class="img-premium" style="border-radius: 20px; width: 100%; height: 300px; object-fit: cover; margin-bottom: 40px;">
                         <h3 style="font-size: 3rem; margin-bottom: 25px;">Surgical Remarketing</h3>
                         <p style="font-size: 1.2rem; line-height: 1.8;">Recapture 98% of lost traffic. We build multi-touch remarketing funnels that follow your prospects with personalized offers until they convert.</p>
                         <div style="margin-top: 30px;">
-                            <img src="/public/ads-remarketing-visual.png" alt="Retargeting and remarketing concept graphic" style="width: 100%; border-radius: 15px; filter: brightness(1.2);">
+                            <img loading="lazy" decoding="async" src="/public/ads-remarketing-visual.webp" alt="Retargeting and remarketing concept graphic" style="width: 100%; border-radius: 15px; filter: brightness(1.2);">
                         </div>
                     </div>
                     <div class="glass-card-premium hover-lift" data-reveal class="stagger-2" style="text-align: left; padding: 80px 60px; transition: 0.4s;">
-                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?auto=format&fit=crop&w=900&q=80" alt="Ecommerce Ads Scaling" class="img-premium" style="border-radius: 20px; width: 100%; height: 300px; object-fit: cover; margin-bottom: 40px;">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?auto=format&fit=crop&w=900&q=80" alt="Ecommerce Ads Scaling" class="img-premium" style="border-radius: 20px; width: 100%; height: 300px; object-fit: cover; margin-bottom: 40px;">
                         <h3 style="font-size: 3rem; margin-bottom: 25px;">D2C Scaling Legacy</h3>
                         <p style="font-size: 1.2rem; line-height: 1.8;">Exponentially scale your transactional revenue. We specialize in Advantage+ and Merchant Center mastery for high-growth e-commerce brands.</p>
                     </div>
@@ -715,11 +738,11 @@
                             <h4 style="color: var(--primary) !important; margin-bottom: 20px;">The MK Legacy</h4>
                             <h2 style="font-size: 4.8rem; line-height: 1;">Performance <span class="gradient-span">Results.</span></h2>
                             <p style="font-size: 1.4rem; margin-top: 40px; font-weight: 500;">We don't settle for "good" results. We target industry-crushing performance. See how we took a premium real estate group from 1x to 4.5x ROAS in 90 days.</p>
-                            <button class="btn-elite" style="margin-top: 60px;">VIEW CASE STUDIES <i data-lucide="eye"></i></button>
+                            <button aria-label="Submit Action" class="btn-elite" style="margin-top: 60px;">VIEW CASE STUDIES <i data-lucide="eye"></i></button>
                         </div>
                         <div data-reveal class="stagger-2">
                             <div class="img-premium">
-                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="ROI Growth Graph" class="img-premium" style="width: 100%; display: block; filter: saturate(1.2) brightness(1.1); height: 400px; object-fit: cover;">
+                                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="ROI Growth Graph" class="img-premium" style="width: 100%; display: block; filter: saturate(1.2) brightness(1.1); height: 400px; object-fit: cover;">
                             </div>
                         </div>
                     </div>
@@ -779,19 +802,19 @@
                 </div>
                 <div class="faq-wrapper" style="max-width: 1000px; margin: 0 auto;" data-reveal>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>How long does it take to see profitable results?</span> <i data-lucide="plus" class="faq-icon"></i></button>
+                        <button aria-label="Submit Action" class="faq-btn"><span>How long does it take to see profitable results?</span> <i data-lucide="plus" class="faq-icon"></i></button>
                         <div class="faq-content">
                             <p style="font-size: 1.2rem; line-height: 1.8;">While traffic is instantaneous, real "Performance Profitability" typically hits its stride within 21-30 days as we clear the algorithmic learning phase and optimize based on real conversion data.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>What managed budget do you require?</span> <i data-lucide="plus" class="faq-icon"></i></button>
+                        <button aria-label="Submit Action" class="faq-btn"><span>What managed budget do you require?</span> <i data-lucide="plus" class="faq-icon"></i></button>
                         <div class="faq-content">
                             <p style="font-size: 1.2rem; line-height: 1.8;">We typically work with brands spending over $2,500/month per platform to ensure we have enough data volume to make statistically significant optimization decisions.</p>
                         </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-btn"><span>Do you handle creative production?</span> <i data-lucide="plus" class="faq-icon"></i></button>
+                        <button aria-label="Submit Action" class="faq-btn"><span>Do you handle creative production?</span> <i data-lucide="plus" class="faq-icon"></i></button>
                         <div class="faq-content">
                             <p style="font-size: 1.2rem; line-height: 1.8;">Yes. We handle hook research, high-voltage copywriting, and creative asset direction. We ensure your ads are visually stopping and psychologically compelling.</p>
                         </div>
@@ -821,13 +844,13 @@
                                     <input type="email" placeholder="Business Email" required style="padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #fff; font-weight: 700; font-size: 1.1rem;">
                                 </div>
                                 <input type="url" placeholder="Your Website URL" required style="padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #fff; font-weight: 700; font-size: 1.1rem;">
-                                <select required style="padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: #000; color: #fff; font-weight: 700; font-size: 1.1rem;">
+                                <select aria-label="Specialist Service Selection" required style="padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: #000; color: #fff; font-weight: 700; font-size: 1.1rem;">
                                     <option value="" disabled selected hidden>Monthly Ad Budget</option>
                                     <option value="1-5k">$1,000 - $5,000</option>
                                     <option value="5-25k">$5,000 - $25,000</option>
                                     <option value="25k+">$25,000+</option>
                                 </select>
-                                <button type="submit" class="btn-elite" style="width: 100%; font-size: 1.2rem; padding: 28px;">SEND AUDIT REQUEST â†’</button>
+                                <button aria-label="Submit Action" type="submit" class="btn-elite" style="width: 100%; font-size: 1.2rem; padding: 28px;">SEND AUDIT REQUEST →</button>
                                 <p style="font-size: 0.9rem; text-align: center; opacity: 0.6; margin: 0; font-weight: 600;">*We respect your privacy. No spam, ever.</p>
                             </form>
                         </div>
@@ -838,19 +861,20 @@
     </main>
 
     <!-- Footer -->
-                <footer class="footer">
+                    <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="logo" style="font-size: 1.5rem;">MK<span>SHOPZONE</span></a>
-                    <p style="margin-top: 20px; font-size: 0.9rem; margin-bottom: 25px;">Building digital legacies for ambitious brands through data-driven performance and elite creative execution.</p>
-                    <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <a href="tel:+917200059453" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">+91 72000 59453</a>
-                        <a href="mailto:mkshopzone2@gmail.com" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">mkshopzone2@gmail.com</a>
-                        <div style="display: flex; gap: 15px; margin-top: 10px;">
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-                            <a href="#" style="color: var(--primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                    <a href="/" class="logo">MK<span>SHOPZONE</span></a>
+                    <p class="mt-4">India's leading digital marketing agency specialized in rapid growth and high-performance digital infrastructure.</p>
+                    <div class="footer-contact mt-4">
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 1 1 22 16.92z"/></svg>
+                            <span>+91 72000 59453</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>mkshopzone2@gmail.com</span>
                         </div>
                     </div>
                 </div>
@@ -881,7 +905,7 @@
                         <li><a href="about.html">Our Story</a></li>
                         <li><a href="about.html#process">Our Process</a></li>
                         <li><a href="blog.html">Latest Articles</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                         <li><a href="privacy-policy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
@@ -891,6 +915,7 @@
             </div>
         </div>
     </footer>
+
 
 
 
@@ -939,7 +964,7 @@
                 setTimeout(() => {
                     alert('Audit Request Received. Our Lead Strategist will follow up within 60 minutes.');
                     form.reset();
-                    btn.innerText = 'SEND AUDIT REQUEST â†’';
+                    btn.innerText = 'SEND AUDIT REQUEST →';
                     btn.disabled = false;
                 }, 1500);
             });
@@ -958,6 +983,12 @@
 
 </body>
 </html>
+
+
+
+
+
+
 
 
 
