@@ -1396,6 +1396,59 @@ html, body {
     overflow-x: hidden;
 }
 
+/* FORM ANIMATIONS */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 6. FORM REFINEMENTS - PREMIUM UI */
+.form-group {
+    position: relative;
+    margin-bottom: 35px !important;
+}
+
+.form-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    padding: 18px 25px !important;
+    border-radius: 12px !important;
+    font-size: 1rem !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.form-input:focus {
+    outline: none !important;
+    border-color: var(--primary) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: 0 0 25px rgba(255, 140, 0, 0.25) !important;
+    transform: translateY(-2px);
+}
+
+.form-label {
+    position: absolute;
+    left: 25px;
+    top: 18px;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+    top: -25px;
+    left: 10px;
+    font-size: 0.8rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
 /* Fix for Safari Mobile viewport height */
 .hero {
     min-height: -webkit-fill-available;

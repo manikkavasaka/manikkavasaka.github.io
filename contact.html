@@ -187,12 +187,209 @@
         </section>
 
         <section class="section" id="contact" style="background: var(--bg-deep);">
-            <div class="container contact-container">
-                <div class="split-grid">
-                    <div data-reveal>
-                        <span class="contact-badge">Direct Agency Access</span>
+            <!-- Added specific styles for this form as requested -->
+             <style>
+                 .premium-contact-grid {
+                     display: grid;
+                     grid-template-columns: 1.1fr 0.9fr;
+                     gap: 80px;
+                     align-items: stretch;
+                     min-height: 600px;
+                     padding: 40px 0;
+                 }
+                 @media (max-width: 900px) {
+                     .premium-contact-grid {
+                         grid-template-columns: 1fr;
+                         gap: 50px;
+                         min-height: auto;
+                         padding: 20px 0;
+                     }
+                 }
+
+                 /* LEFT SIDE IMPROVEMENTS - Better spacing & visuals */
+                 .left-side-content {
+                     display: flex;
+                     flex-direction: column;
+                     justify-content: center;
+                     height: 100%;
+                     line-height: 1.8;
+                 }
+
+                 .left-side-content p {
+                     line-height: 1.95 !important;
+                     margin-bottom: 15px;
+                 }
+
+                 /* Trust badges - Enhanced appearance */
+                 .trust-badges {
+                     display: flex;
+                     flex-wrap: wrap;
+                     gap: 15px;
+                     margin-top: 35px;
+                 }
+                 .trust-badge-item {
+                     display: flex;
+                     align-items: center;
+                     gap: 10px;
+                     background: rgba(255, 140, 0, 0.08);
+                     padding: 14px 20px;
+                     border-radius: 10px;
+                     border: 1px solid rgba(255, 140, 0, 0.2);
+                     font-size: 0.95rem;
+                     color: #fff;
+                     font-weight: 600;
+                     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                     transition: all 0.3s ease;
+                 }
+                 .trust-badge-item:hover {
+                     background: rgba(255, 140, 0, 0.12);
+                     border-color: rgba(255, 140, 0, 0.4);
+                     transform: translateY(-2px);
+                 }
+
+                 /* FORM IMPROVEMENTS */
+                 .form-group {
+                     position: relative;
+                     margin-bottom: 32px; /* Increased spacing */
+                 }
+                 .form-input {
+                     transition: all 0.3s ease;
+                     background: rgba(255, 255, 255, 0.03);
+                     border: 1.5px solid rgba(255, 255, 255, 0.1);
+                 }
+                 .form-input:focus {
+                     box-shadow: 0 0 20px rgba(255, 140, 0, 0.4), inset 0 0 10px rgba(255, 140, 0, 0.1); /* Enhanced glow */
+                     border-color: var(--primary);
+                     outline: none;
+                     background: rgba(255, 255, 255, 0.05);
+                 }
+                 .form-input::placeholder {
+                     color: rgba(255, 255, 255, 0.6) !important;
+                     opacity: 1;
+                     font-weight: 400;
+                 }
+
+                 select.form-input option {
+                     background: var(--bg-dark);
+                     color: #fff;
+                 }
+
+                 /* BUTTON UPGRADES */
+                 .btn-audit {
+                     width: 100%;
+                     padding: 24px 32px; /* Increased button size */
+                     font-weight: 900;
+                     letter-spacing: 1.2px;
+                     font-size: 1.15rem;
+                     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                     border-radius: var(--radius-full);
+                     position: relative;
+                     overflow: hidden;
+                     z-index: 1;
+                     background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 100%);
+                     border: none;
+                     color: white;
+                     cursor: pointer;
+                     box-shadow: 0 8px 20px rgba(255, 140, 0, 0.3);
+                 }
+                 .btn-audit:hover {
+                     transform: scale(1.05); /* Slight scale */
+                     box-shadow: 0 0 30px rgba(255, 140, 0, 0.6), 0 8px 20px rgba(255, 140, 0, 0.4); /* Enhanced glow effect */
+                 }
+                 .btn-audit:active {
+                     transform: scale(0.98);
+                 }
+
+                 /* SUCCESS BOX - SINGLE INSTANCE */
+                 #successBox {
+                     background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.08) 100%);
+                     border: 2px solid rgba(34, 197, 94, 0.4);
+                     padding: 40px 35px;
+                     border-radius: 16px;
+                     margin-top: 0;
+                     text-align: center;
+                     display: none;
+                     animation: slideUp 0.5s ease-out;
+                     box-shadow: 0 8px 30px rgba(34, 197, 94, 0.2);
+                 }
+
+                 @keyframes slideUp {
+                     from {
+                         opacity: 0;
+                         transform: translateY(20px);
+                     }
+                     to {
+                         opacity: 1;
+                         transform: translateY(0);
+                     }
+                 }
+
+                 #successBox svg {
+                     width: 56px;
+                     height: 56px;
+                     margin: 0 auto 15px;
+                     animation: checkmark 0.6s ease-out;
+                 }
+
+                 @keyframes checkmark {
+                     0% {
+                         transform: scale(0) rotate(-45deg);
+                     }
+                     70% {
+                         transform: scale(1.1);
+                     }
+                     100% {
+                         transform: scale(1) rotate(0deg);
+                     }
+                 }
+
+                 #successBox h4 {
+                     color: #22c55e;
+                     margin: 0 0 10px 0;
+                     font-size: 1.3rem;
+                     font-weight: 700;
+                 }
+                 #successBox p {
+                     color: rgba(255,255,255,0.9);
+                     margin: 0;
+                     font-size: 0.95rem;
+                 }
+
+                 /* ALIGNMENT & CENTERING */
+                 .contact-form-wrap {
+                     display: flex;
+                     flex-direction: column;
+                     justify-content: center;
+                     height: 100%;
+                 }
+
+                 .glass-card {
+                     padding: 45px 40px;
+                 }
+             </style>
+
+            <div class="container contact-container" style="background: transparent !important; padding: 60px 0;">
+                <div class="premium-contact-grid">
+                    <!-- LEFT SIDE -->
+                    <div data-reveal style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                        <span class="contact-badge" style="display: inline-flex; align-items: center; gap: 8px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            Direct Agency Access
+                        </span>
                         <h2 style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 30px;">Let's Ignite <br><span class="gradient-text">Your Growth.</span></h2>
-                        <p style="font-size: 1.25rem; line-height: 1.8; color: var(--text-muted); max-width: 550px;">Our Precision Audits reveal exactly where your digital engine is leaking revenue. Get a clear roadmap to 10x organic and paid growth.</p>
+                        <p style="font-size: 1.25rem; line-height: 1.9; color: var(--text-muted); max-width: 550px;">
+                            Our <strong>Precision Audits</strong> reveal exactly where your digital engine is leaking revenue. Get a clear roadmap to <strong style="color: #fff;">10x organic and paid growth</strong>.
+                        </p>
+                        
+                        <!-- Trust Elements Added -->
+                        <div class="trust-badges">
+                            <div class="trust-badge-item">
+                                <span style="font-size: 1.2rem;">🛡️</span> 500+ Clients Served
+                            </div>
+                            <div class="trust-badge-item">
+                                <span style="font-size: 1.2rem;">⚡</span> Response within 60 minutes
+                            </div>
+                        </div>
                         
                         <div style="margin-top: 50px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; flex-wrap: wrap; gap: 40px;">
                             <div style="display: flex; gap: 15px; align-items: center;">
@@ -212,37 +409,55 @@
                         </div>
                     </div>
 
+                    <!-- RIGHT SIDE -->
                     <div class="contact-form-wrap" data-reveal>
-                        <div class="glass-card">
-                            <h3 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; margin-bottom: 10px; color: #fff;">Request Audit</h3>
-                            <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 40px;">Speak with an Elite Growth Strategist Today.</p>
+                        <div class="glass-card" style="padding: 40px 35px;">
+                            <div id="formContainer">
+                                <h3 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; margin-bottom: 10px; color: #fff;">Request Audit</h3>
+                                <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 40px;">Speak with an Elite Growth Strategist Today.</p>
+                                
+                                <form id="contactForm" onsubmit="event.preventDefault(); showSuccess();">
+                                    <div class="form-group">
+                                        <input type="text" class="form-input" id="name" placeholder="E.g. John Doe" required>
+                                        <label for="name" class="form-label" style="display:none;">Full Name</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-input" id="email" placeholder="E.g. john@company.com" required>
+                                        <label for="email" class="form-label" style="display:none;">Email Address</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <select aria-label="Specialist Service Selection" class="form-input" id="service-select" required style="color: #fff; background: var(--bg-dark);">
+                                            <option value="" disabled selected hidden>Select Specialist Service</option>
+                                            <option value="seo">Advanced SEO Optimization</option>
+                                            <option value="web">Elite Web Development</option>
+                                            <option value="ads">Performance Paid Ads</option>
+                                            <option value="social">Social Media Authority</option>
+                                            <option value="all">Full Digital Strategy Audit</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="form-input" id="message" rows="4" placeholder="Tell us about your brand goals..." required></textarea>
+                                        <label for="message" class="form-label" style="display:none;">Message</label>
+                                    </div>
+                                    <button aria-label="Submit Action" type="submit" class="btn btn-primary btn-audit">Get Free Growth Audit 🚀</button>
+                                </form>
+                            </div>
                             
-                            <form id="contactForm">
-                                <div class="form-group">
-                                    <input type="text" class="form-input" id="name" placeholder=" " required>
-                                    <label for="name" class="form-label">Full Name</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-input" id="email" placeholder=" " required>
-                                    <label for="email" class="form-label">Email Address</label>
-                                </div>
-                                <div class="form-group">
-                                    <select aria-label="Specialist Service Selection" class="form-input" id="service-select" required>
-                                        <option value="" disabled selected hidden>Select Specialist Service</option>
-                                        <option value="seo">Advanced SEO Optimization</option>
-                                        <option value="web">Elite Web Development</option>
-                                        <option value="ads">Performance Paid Ads</option>
-                                        <option value="social">Social Media Authority</option>
-                                        <option value="all">Full Digital Strategy Audit</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <textarea class="form-input" id="message" rows="3" placeholder=" " required></textarea>
-                                    <label for="message" class="form-label">Tell us about your brand goals...</label>
-                                </div>
-                                <button aria-label="Submit Action" type="submit" class="btn btn-primary btn-magnetic" style="width: 100%; padding: 20px; font-weight: 900; letter-spacing: 1px;">LAUNCH SUCCESS AUDIT →</button>
-                            </form>
+                            <!-- Unique Success Box -->
+                            <div id="successBox">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto; display: block;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                <h4>Audit Requested Successfully</h4>
+                                <p>Thank you! Our strategy team will be in touch with you shortly.</p>
+                            </div>
                         </div>
+                        
+                        <script>
+                            document.getElementById("successBox").style.display = "none";
+                            function showSuccess() {
+                                document.getElementById("formContainer").style.display = "none";
+                                document.getElementById("successBox").style.display = "block";
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
@@ -314,20 +529,16 @@
     <script type="module" src="/src/lead-system.js"></script>
     <script type="module" src="/src/ai-chatbot.js"></script>
 
+    <!-- Next-Level Automation (v2.0) -->
+    <script type="module" src="/src/premium-success-flow.js"></script>
+    <script type="module" src="/src/enhanced-lead-capture.js"></script>
+
+    <!-- Backend Bridge -->
+    <script type="module" src="/src/backend-bridge.js"></script>
+
     <!-- Scripts -->
     <script type="module" src="/src/main.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
 
 

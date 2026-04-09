@@ -3,71 +3,80 @@ from typing import List, Optional, Dict, Any
 from datetime import datetime
 
 # ════════════════════════════════════════════════════════════════
-# USER BEHAVIOR & TRACKING
+# 1. USERS COLLECTION
 # ════════════════════════════════════════════════════════════════
+class User(BaseModel):
+    """Stores basic user session info"""
+    session_id: str
+    ip_address: Optional[str] = None
+    device: Optional[str] = None  # mobile/desktop
+    source: Optional[str] = None  # google/facebook/direct
+    created_at: datetime = Field(default_factory=datetime.utcnow)
 
-class BehavioralEvent(BaseModel):
-    """Individual user interaction event"""
-    type: str  # click, scroll, form_input, page_view, etc.
-    target: Optional[str] = None  # Element ID or name
-    path: str  # Page path
+# ════════════════════════════════════════════════════════════════
+# 2. USER_BEHAVIOR COLLECTION
+# ════════════════════════════════════════════════════════════════
+class UserBehavior(BaseModel):
+    """Tracks user activity"""
+    session_id: str
+    page_visited: str
+    time_spent: int = 0  # in seconds
+    clicks: List[str] = []
+    scroll_depth: int = 0  # percentage
     timestamp: datetime = Field(default_factory=datetime.utcnow)
-    metadata: Dict[str, Any] = {}  # Additional data
-
-class SessionTelemetry(BaseModel):
-    """Complete session tracking data"""
-    sessionId: str
-    userId: Optional[str] = None
-    userAgent: str
-    platform: str  # mobile, desktop, tablet
-    events: List[BehavioralEvent]
-    scrollDepth: float = 0  # 0-100%
-    duration: int = 0  # seconds
-    pages_visited: Optional[List[str]] = []
-    lastUpdated: datetime = Field(default_factory=datetime.utcnow)
 
 # ════════════════════════════════════════════════════════════════
-# LEAD CAPTURE & MANAGEMENT
+# 3. LEADS COLLECTION
 # ════════════════════════════════════════════════════════════════
-
-class LeadCapture(BaseModel):
-    """Lead information and metadata"""
+class Lead(BaseModel):
+    """Stores captured leads"""
     name: str
     email: EmailStr
     phone: str
     business: Optional[str] = None
-    message: Optional[str] = None
+    interest: Optional[str] = None
+    source: str = "website"
+    created_at: datetime = Field(default_factory=datetime.utcnow)
 
-    # AI-generated fields
-    intent: Optional[str] = "general"  # seo, ads, web, social, etc.
-    buyingStage: Optional[str] = "awareness"  # awareness, consideration, decision
-    score: int = 0  # Lead quality score (0-100)
+# ════════════════════════════════════════════════════════════════
+# 4. AI_ANALYTICS COLLECTION
+# ════════════════════════════════════════════════════════════════
+class AIAnalytics(BaseModel):
+    """Stores AI decisions and insights"""
+    session_id: str
+    detected_intent: str
+    buying_stage: str
+    recommended_service: str
+    generated_cta: str
+    timestamp: datetime = Field(default_factory=datetime.utcnow)
 
-    # Session info
-    sessionId: str
-    metadata: Dict[str, Any] = {}
-
-    # Lead lifecycle
-    createdAt: datetime = Field(default_factory=datetime.utcnow)
-    status: str = "new"  # new, followed_up, converted, lost
-
-    # Follow-up tracking
+# ════════════════════════════════════════════════════════════════
+# 5. FOLLOWUPS COLLECTION
+# ════════════════════════════════════════════════════════════════
+class Followup(BaseModel):
+    """Stores communication logs"""
+    lead_id: str
     whatsapp_sent: bool = False
     email_sent: bool = False
-    followup_count: int = 0
-
-class LeadUpdate(BaseModel):
-    """Update lead status"""
-    leadId: int
-    status: str  # new, followed_up, converted, lost
-    notes: Optional[str] = None
+    last_followup: Optional[datetime] = None
+    next_followup: Optional[datetime] = None
+    status: str = "active"
 
 # ════════════════════════════════════════════════════════════════
-# PERSONALIZATION DATA
+# 6. RETARGETING COLLECTION
 # ════════════════════════════════════════════════════════════════
+class Retargeting(BaseModel):
+    """Stores ad targeting data"""
+    lead_id: str
+    interest: str
+    audience_tag: str
+    ad_platform: List[str] = []
+    created_at: datetime = Field(default_factory=datetime.utcnow)
 
+# ════════════════════════════════════════════════════════════════
+# (Optional) LEGACY / API INTERFACE MODELS (Kept for backward compat)
+# ════════════════════════════════════════════════════════════════
 class PersonalizationPayload(BaseModel):
-    """Personalized content for frontend"""
     intent: str
     stage: str
     score: int
@@ -79,40 +88,7 @@ class PersonalizationPayload(BaseModel):
     show_popup: bool
     popup_message: Optional[str] = None
 
-# ════════════════════════════════════════════════════════════════
-# AUTOMATION & FOLLOW-UP
-# ════════════════════════════════════════════════════════════════
-
-class WhatsAppMessage(BaseModel):
-    """WhatsApp follow-up message"""
-    to: str  # Phone number
-    message: str
-    leadId: int
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
-
-class EmailMessage(BaseModel):
-    """Email follow-up message"""
-    to: str  # Email address
-    subject: str
-    body: str
-    leadId: int
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
-
-class FollowUpSequence(BaseModel):
-    """Automated follow-up sequence"""
-    leadId: int
-    messages: List[Dict[str, Any]]  # Sequence of messages
-    interval_hours: int = 24
-    max_attempts: int = 5
-    last_sent: Optional[datetime] = None
-    attempt_count: int = 0
-
-# ════════════════════════════════════════════════════════════════
-# ANALYTICS & REPORTING
-# ════════════════════════════════════════════════════════════════
-
 class LeadMetrics(BaseModel):
-    """Lead performance metrics"""
     total_leads: int
     leads_by_stage: Dict[str, int]
     leads_by_intent: Dict[str, int]
@@ -120,12 +96,3 @@ class LeadMetrics(BaseModel):
     conversion_rate: float
     avg_lead_score: float
 
-class CampaignAnalytics(BaseModel):
-    """Campaign performance data"""
-    campaign_name: str
-    total_visits: int
-    total_leads: int
-    conversion_rate: float
-    avg_session_duration: int
-    avg_scroll_depth: float
-    top_intent: str

@@ -36,7 +36,7 @@ function initAIAnalytics() {
 
                     // Trigger conversion opportunities
                     if (analysis.buying_stage === 'Decision') {
-                        triggerDecisionStageConversion(analysis);
+                        triggerHighIntentLeadCapture(analysis);
                     }
                 }
             }, 10000);
@@ -47,18 +47,18 @@ function initAIAnalytics() {
 /**
  * Trigger conversion when user is in decision stage
  */
-function triggerDecisionStageConversion(analysis) {
+function triggerHighIntentLeadCapture(analysis) {
     // Only trigger once per session
     if (window.decisionTriggered) return;
     window.decisionTriggered = true;
 
-    // Open chatbot with personalized offer
+    // Force lead capture via proactive AI interaction
     if (window.aiChatbot && !window.aiChatbot.isOpen) {
         setTimeout(() => {
             window.aiChatbot.open();
             const offer = analysis.offer || 'Free Strategy Consultation';
             window.aiChatbot.sendMessage(
-                `👋 I noticed you're doing some serious research! Based on your behavior, I'm confident we can help with ${analysis.recommended_service}.\n\nHere's what we can offer: **${offer}** – no strings attached.\n\nWant to chat about it? 🚀`,
+                `🚀 I've been analyzing your interest in our ${analysis.recommended_service} solutions. To maximize your results, I've unlocked a special offer for you: **${offer}**.\n\nShall we get your roadmap started?`,
                 'bot'
             );
         }, 2000);
@@ -88,6 +88,22 @@ function initPersonalization() {
     }, 500);
 }
 
+/**
+ * Inject Premium Form UI Styles
+ */
+const formStyles = `
+    .form-group, .mka-fc { margin-bottom: 32px !important; }
+    input, select, textarea { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; }
+    input:focus, select:focus, textarea:focus { 
+        outline: none !important;
+        border-color: #ff8c00 !important;
+        box-shadow: 0 0 20px rgba(255, 140, 0, 0.25) !important;
+        transform: translateY(-1px);
+    }
+`;
+const styleSheet = document.createElement("style");
+styleSheet.innerText = formStyles;
+document.head.appendChild(styleSheet);
 
 
 // 3. INTERSECTION OBSERVER REVEAL
@@ -169,14 +185,14 @@ function initNavbar() {
         trigger.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            
+
             const parent = trigger.parentElement;
-            
+
             // Close other dropdowns
             document.querySelectorAll('.nav-dropdown').forEach(d => {
                 if (d !== parent) d.classList.remove('active');
             });
-            
+
             // Toggle current
             parent.classList.toggle('active');
         });
@@ -212,79 +228,59 @@ function initForms() {
         const btn = form.querySelector('button[type="submit"], button');
         const originalText = btn?.textContent || 'Submit';
 
-        if (btn) { btn.textContent = '⏳ Sending…'; btn.disabled = true; }
+        if (btn) {
+            btn.textContent = 'Analyzing...';
+            btn.disabled = true;
+        }
+
+        // Show premium loading state
+        if (window.premiumSuccessFlow) {
+            window.premiumSuccessFlow.showLoading("Analyzing your requirements...");
+        }
 
         // Collect form data
         const leadData = {
-            name:     form.querySelector('[name="name"], #name, #fullName')?.value?.trim()    || '',
-            email:    form.querySelector('[name="email"], #email')?.value?.trim()              || '',
-            phone:    form.querySelector('[name="phone"], #phone, #whatsapp')?.value?.trim()  || '',
+            name: form.querySelector('[name="name"], #name, #fullName')?.value?.trim() || '',
+            email: form.querySelector('[name="email"], #email')?.value?.trim() || '',
+            phone: form.querySelector('[name="phone"], #phone, #whatsapp')?.value?.trim() || '',
             business: form.querySelector('[name="business"], #business, #company')?.value?.trim() || '',
-            message:  form.querySelector('[name="message"], #message, textarea')?.value?.trim() || '',
-            service:  form.querySelector('[name="service"], #service, select')?.value         || '',
-            source:   'contact_form',
+            message: form.querySelector('[name="message"], #message, textarea')?.value?.trim() || '',
+            service: form.querySelector('[name="service"], #service, select')?.value || 'General Inquiry',
+            source: 'contact_form',
         };
 
         if (!leadData.name || !leadData.email) {
-            alert('Please enter your name and email.');
+            if (window.premiumSuccessFlow) window.premiumSuccessFlow.showError('Please enter your name and email.');
             if (btn) { btn.textContent = originalText; btn.disabled = false; }
             return;
         }
 
-        // Use BackendBridge if available, otherwise direct fetch
+        // Submit to backend
         const bridge = window.backendBridge;
-        const result = bridge
-            ? await bridge.submitLead(leadData)
-            : await directLeadSubmit(leadData);
+        const result = await (bridge ? bridge.submitLead(leadData) : directLeadSubmit(leadData));
 
-        if (btn) { btn.textContent = originalText; btn.disabled = false; }
+        // Add premium delay for analysis feel
+        setTimeout(() => {
+            if (btn) { btn.textContent = originalText; btn.disabled = false; }
 
-        if (result?.success || result?.leadId) {
-            // Show success state
-            form.innerHTML = `
-              <div style="text-align:center;padding:32px 16px;">
-                <div style="font-size:3rem;margin-bottom:12px">🎉</div>
-                <h3 style="font-size:1.3rem;font-weight:800;color:#f1f5f9">
-                  You're confirmed, ${leadData.name.split(' ')[0]}!
-                </h3>
-                <p style="color:#94a3b8;margin-top:8px">
-                  Our strategist will contact you within 60 minutes via WhatsApp & Email.
-                </p>
-              </div>`;
-
-            // Open chatbot after form submit to keep lead engaged
-            setTimeout(() => {
-                const assistant = window.mkAssistant;
-                if (assistant && !assistant.isOpen) {
-                    assistant.open();
-                    assistant.userProfile.name  = leadData.name;
-                    assistant.userProfile.email = leadData.email;
-                    assistant.userProfile.phone = leadData.phone;
-                    setTimeout(() => {
-                        const firstName = leadData.name.split(' ')[0];
-                        const svcLabels = { seo:'SEO', web:'Elite Web Design', ads:'Paid Ads', social:'Social Media', all:'a Full Digital Strategy' };
-                        const svc = svcLabels[leadData.service] || 'digital growth';
-                        assistant.sendMessage(
-                            `You're all set, ${firstName}! Our senior strategist will reach out within 60 minutes.\n\nWhile you wait, feel free to ask me anything about ${svc} — timelines, pricing, what to prepare. I'm right here!`,
-                            'bot'
-                        );
-                    }, 900);
+            if (result?.success || result?.leadId) {
+                if (window.premiumSuccessFlow) {
+                    window.premiumSuccessFlow.showSuccess(leadData);
                 }
-            }, 1300);
-
-        } else {
-            alert('Thank you! Our team will contact you within 60 minutes.');
-            form.reset();
-        }
+                form.reset();
+            } else {
+                if (window.premiumSuccessFlow) window.premiumSuccessFlow.showError();
+            }
+        }, 2500);
     });
 }
 
 async function directLeadSubmit(leadData) {
     try {
         const r = await fetch('/api/v1/leads', {
-            method:  'POST',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body:    JSON.stringify({
+            body: JSON.stringify({
                 ...leadData,
                 sessionId: 'form-' + Date.now(),
                 intent: leadData.service || 'General',
@@ -309,7 +305,7 @@ function initFAQ() {
     faqCards.forEach(card => {
         const header = card.querySelector('.faq-header');
         if (!header) return;
-        
+
         header.addEventListener('click', () => {
             const isActive = card.classList.contains('active');
             faqCards.forEach(c => c.classList.remove('active'));

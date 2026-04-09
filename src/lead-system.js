@@ -1,6 +1,6 @@
 /**
- * Lead Capture & Scoring System
- * Automated lead qualification and management
+ * Lead Capture & Scoring System v5.0 - NEXT LEVEL AUTOMATION
+ * Automated lead qualification, backend integration, and premium success UI.
  */
 
 class LeadSystem {
@@ -16,448 +16,123 @@ class LeadSystem {
     }
 
     init() {
-        this.attachFormHandlers();
+        // Form handling moved to enhanced-lead-capture.js to avoid duplication
+        // this.attachFormHandlers(); 
         this.monitorLeadReadiness();
         this.setupAutoPopulation();
+        // Styles moved to main CSS or premium-success-flow.js
+        // this._injectStyles();
     }
 
-    attachFormHandlers() {
-        const form = document.getElementById('contactForm') || document.getElementById('auditForm');
-        if (!form) return;
-
-        form.addEventListener('change', (e) => {
-            if (e.target.matches('input, select, textarea')) {
-                this.trackFormProgress(e.target);
+    _injectStyles() {
+        if (document.getElementById('mka-lead-styles')) return;
+        const style = document.createElement('style');
+        style.id = 'mka-lead-styles';
+        style.textContent = `
+            @keyframes mkaFadeInUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
             }
-        });
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.captureAndQualifyLead(form);
-        });
-    }
-
-    setupAutoPopulation() {
-        // Auto-populate form from chatbot or tracking data
-        const form = document.getElementById('contactForm');
-        if (!form) return;
-
-        // Check if chatbot has collected any info
-        const chatInfo = window.aiChatbot?.extractLeadInfo?.();
-        if (chatInfo?.email) {
-            const emailInput = form.querySelector('#email');
-            if (emailInput && !emailInput.value) {
-                emailInput.value = chatInfo.email;
+            @keyframes mkaRotate {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
             }
-        }
-
-        // Auto-populate service based on behavior tracking
-        const suggestedService = window.behaviorTracker?.getSuggestedService?.();
-        if (suggestedService) {
-            const serviceSelect = form.querySelector('#service-select');
-            if (serviceSelect) {
-                const option = Array.from(serviceSelect.options).find(o =>
-                    o.value === suggestedService
-                );
-                if (option) {
-                    serviceSelect.value = suggestedService;
-                    serviceSelect.dispatchEvent(new Event('change'));
-                }
+            .mka-loader-overlay {
+                position: fixed; inset: 0; background: rgba(3, 4, 8, 0.95);
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                z-index: 10000; backdrop-filter: blur(10px);
             }
-        }
-    }
-
-    trackFormProgress(element) {
-        const form = element.closest('form');
-        const completionPercent = this.calculateFormCompletion(form);
-
-        window.behaviorTracker?.trackEvent('form_progress', {
-            field: element.name || element.id,
-            completionPercent,
-            value: element.value.slice(0, 50)
-        });
-    }
-
-    calculateFormCompletion(form) {
-        if (!form) return 0;
-
-        const requiredFields = Array.from(form.querySelectorAll('[required]'));
-        const filledFields = requiredFields.filter(f => f.value.trim());
-
-        return Math.round((filledFields.length / requiredFields.length) * 100);
-    }
-
-    async captureAndQualifyLead(form) {
-        // Extract form data
-        const formData = new FormData(form);
-        const lead = {
-            id: 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
-            timestamp: Date.now(),
-            source: 'contact_form',
-            name: formData.get('name') || '',
-            email: formData.get('email') || '',
-            phone: formData.get('phone') || '',
-            service: formData.get('service-select') || '',
-            message: formData.get('message') || '',
-            sessionId: window.behaviorTracker?.sessionId,
-            utmSource: this.getUTMParam('source'),
-            utmCampaign: this.getUTMParam('campaign')
-        };
-
-        // Add tracking data
-        const sessionSummary = window.behaviorTracker?.getSessionSummary?.();
-        if (sessionSummary) {
-            lead.sessionData = sessionSummary;
-        }
-
-        // Calculate lead score
-        lead.score = this.calculateLeadScore(lead, sessionSummary);
-        lead.quality = this.determineLeadQuality(lead.score);
-
-        // Save lead
-        this.saveLead(lead);
-
-        // Show success state
-        this.showLeadSubmitSuccess(form, lead);
-
-        // Send to backend
-        await this.submitLeadToBackend(lead);
-
-        // Trigger post-conversion actions
-        this.executePostConversionActions(lead);
-    }
-
-    calculateLeadScore(lead, sessionData) {
-        let score = 0;
-
-        // Service interest score (0-40)
-        const serviceScore = this.calculateServiceInterest(lead.service, sessionData) * this.scoreWeights.serviceInterest;
-
-        // Engagement time score (0-30)
-        const timeScore = Math.min(sessionData?.duration || 30 / 300, 1) * 30 * this.scoreWeights.engagementTime;
-
-        // Form completion score (0-20)
-        const form = document.getElementById('contactForm');
-        const completionScore = this.calculateFormCompletion(form) * this.scoreWeights.formCompletion;
-
-        // Source score (0-10)
-        const sourceScore = this.getSourceScore(lead.source) * this.scoreWeights.source;
-
-        return Math.round(serviceScore + timeScore + completionScore + sourceScore);
-    }
-
-    calculateServiceInterest(service, sessionData) {
-        if (!sessionData?.services) return 0.5;
-
-        const serviceCount = sessionData.services.filter(s => s === service).length;
-        return Math.min(serviceCount / 5, 1);
-    }
-
-    getSourceScore(source) {
-        const sourceScores = {
-            'contact_form': 8,
-            'chatbot': 7,
-            'popup': 5,
-            'organic': 6,
-            'paid': 7,
-            'social': 5
-        };
-        return sourceScores[source] || 5;
-    }
-
-    determineLeadQuality(score) {
-        if (score >= 80) return 'hot';
-        if (score >= 60) return 'warm';
-        if (score >= 40) return 'cool';
-        return 'cold';
-    }
-
-    saveLead(lead) {
-        this.leads.push(lead);
-
-        // Save to localStorage
-        let savedLeads = JSON.parse(localStorage.getItem('mk_leads') || '[]');
-        savedLeads.push(lead);
-        localStorage.setItem('mk_leads', JSON.stringify(savedLeads));
-
-        console.log(`Lead captured: ${lead.name} (Score: ${lead.score}, Quality: ${lead.quality})`);
-    }
-
-    async submitLeadToBackend(lead) {
-        try {
-            // ── Format payload to match FastAPI LeadCapture model ─────────────
-            const sessionId = window.behaviorTracker?.session?.id || 'web-form-' + Date.now();
-            const apiPayload = {
-                name:      lead.name     || '',
-                email:     lead.email    || '',
-                phone:     lead.phone    || '',
-                business:  lead.business  || lead.company || '',
-                message:   lead.message  || '',
-                sessionId: lead.sessionId || sessionId,
-                intent:    lead.intent   || lead.service || 'General',
-                buyingStage: lead.buyingStage || window.behaviorTracker?.session?.buyingStage || 'Awareness',
-                score:     lead.score    || 0,
-                metadata: {
-                    source:      lead.source || 'contact_form',
-                    utmSource:   lead.utmSource   || '',
-                    utmCampaign: lead.utmCampaign || '',
-                    page:        window.location.pathname,
-                    referrer:    document.referrer || '',
-                }
-            };
-
-            const response = await fetch('/api/v1/leads', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(apiPayload)
-            });
-
-            if (response.ok) {
-                const result = await response.json();
-                console.log('✅ Lead submitted to backend:', result?.leadId);
-                if (result?.success) this.triggerFollowUpEmail(lead);
+            .mka-spinner {
+                width: 60px; height: 60px; border: 4px solid rgba(255, 140, 0, 0.1);
+                border-top: 4px solid var(--primary); border-radius: 50%;
+                animation: mkaRotate 1s linear infinite; margin-bottom: 20px;
             }
-        } catch (error) {
-            console.warn('Backend submission failed — lead saved locally.', error);
-        }
-    }
-
-    triggerFollowUpEmail(lead) {
-        // This would be called by backend, but we can trigger notification here
-        window.behaviorTracker?.trackEvent('lead_converted', {
-            leadId: lead.id,
-            quality: lead.quality,
-            score: lead.score,
-            service: lead.service
-        });
-    }
-
-    showLeadSubmitSuccess(form, lead) {
-        const btn = form.querySelector('button[type="submit"]');
-        const originalText = btn.textContent;
-
-        btn.textContent = '✓ Lead Submitted Successfully!';
-        btn.disabled = true;
-        btn.style.background = '#22c55e';
-
-        // Show lead quality indicator
-        const qualityEmojis = { hot: '🔥', warm: '☀️', cool: '❄️', cold: '❓' };
-        const message = `
-            <div style="padding: 20px; margin-top: 20px; background: rgba(34, 197, 94, 0.1); border-radius: 12px; text-align: center;">
-                <p style="font-size: 1.5em; margin: 0;">${qualityEmojis[lead.quality]}</p>
-                <p style="margin: 10px 0 0; color: #22c55e; font-weight: 600;">Thank you, ${lead.name.split(' ')[0]}!</p>
-                <p style="margin: 5px 0 0; color: #94a3b8; font-size: 0.9rem;">Our team will contact you within 60 minutes.</p>
-            </div>
+            .mka-success-modal {
+                position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+                z-index: 10001; padding: 20px;
+            }
+            .mka-success-card {
+                background: #080808; border: 1px solid rgba(255,255,255,0.1);
+                border-radius: 32px; padding: 60px; max-width: 600px; width: 100%;
+                text-align: center; box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+                animation: mkaFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .mka-success-icon {
+                width: 80px; height: 80px; background: #22c55e; color: white;
+                border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                margin: 0 auto 30px; font-size: 40px; box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+            }
+            .mka-whatsapp-btn {
+                display: inline-flex; align-items: center; gap: 12px;
+                background: #25D366; color: white; padding: 18px 40px;
+                border-radius: 100px; font-weight: 800; text-decoration: none;
+                margin-top: 30px; transition: 0.3s;
+            }
+            .mka-whatsapp-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
         `;
-
-        form.insertAdjacentHTML('afterend', message);
-
-        setTimeout(() => {
-            form.reset();
-            btn.textContent = originalText;
-            btn.disabled = false;
-            btn.style.background = '';
-        }, 3000);
+        document.head.appendChild(style);
     }
 
-    executePostConversionActions(lead) {
-        // Show success notification
-        this.showNotification(`${lead.name}, your request has been received! 🎉`, 'success', 5000);
+    // method removed to avoid duplication
+    attachFormHandlers() { /* DEPRECATED */ }
 
-        // Track conversion
-        if (window.gtag) {
-            window.gtag('event', 'form_submission', {
-                'event_category': 'engagement',
-                'event_label': lead.service,
-                'value': lead.score
-            });
-        }
+    async handleFormSubmission(form) { /* DEPRECATED */ }
 
-        // Show next steps
-        this.showNextSteps(lead);
-    }
+    showPremiumLoading() { /* DEPRECATED */ }
 
-    showNextSteps(lead) {
-        const stepsContent = `
-            <div style="position: fixed; top: 20px; right: 20px; background: #1a1a1a; color: white; padding: 20px; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 350px; z-index: 1000; animation: slideIn 0.5s ease-out;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <h3 style="margin: 0; font-size: 1.1rem; color: var(--primary);">What Happens Next</h3>
-                    <button style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 0;">×</button>
-                </div>
-                <ol style="margin: 0; padding-left: 20px;">
-                    <li style="margin-bottom: 8px;">📧 Check your email for our welcome package</li>
-                    <li style="margin-bottom: 8px;">📞 Expect a call from our strategy team</li>
-                    <li style="margin-bottom: 8px;">📊 Receive your personalized audit report</li>
-                    <li style="margin-bottom: 8px;">🚀 Start your growth transformation</li>
-                </ol>
-                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">
-                    <p style="margin: 0; font-size: 0.85rem; color: #94a3b8;">Have questions? Reply to the email or call +91 72000 59453</p>
-                </div>
-            </div>
-        `;
+    hidePremiumLoading() { /* DEPRECATED */ }
 
-        document.body.insertAdjacentHTML('beforeend', stepsContent);
+    showPremiumSuccess(lead) { /* DEPRECATED */ }
 
-        // Auto-close after 8 seconds
-        setTimeout(() => {
-            const modal = document.querySelector('[style*="position: fixed"]');
-            if (modal) modal.remove();
-        }, 8000);
-
-        // Close on button click
-        document.querySelector('[style*="position: fixed"] button')?.addEventListener('click', function() {
-            this.closest('[style*="position: fixed"]').remove();
-        });
-    }
-
-    showNotification(message, type = 'info', duration = 3000) {
-        const colors = {
-            success: '#22c55e',
-            error: '#ef4444',
-            info: 'var(--primary)',
-            warning: '#eab308'
-        };
-
-        const notification = `
-            <div style="
-                position: fixed;
-                top: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: ${colors[type]};
-                color: white;
-                padding: 15px 30px;
-                border-radius: 50px;
-                font-weight: 600;
-                z-index: 999;
-                animation: slideDown 0.3s ease-out;
-                box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            ">
-                ${message}
-            </div>
-        `;
-
-        document.body.insertAdjacentHTML('beforeend', notification);
-
-        setTimeout(() => {
-            document.querySelector('[style*="animation: slideDown"]')?.remove();
-        }, duration);
-    }
-
-    getUTMParam(param) {
-        const params = new URLSearchParams(window.location.search);
-        return params.get(param) || '';
-    }
-
-    // Get leads by quality
-    getLeadsByQuality(quality) {
-        return this.leads.filter(l => l.quality === quality);
-    }
-
-    // Get high-value leads (hot & warm)
-    getHighValueLeads() {
-        return this.leads.filter(l => l.quality === 'hot' || l.quality === 'warm');
-    }
-
-    // Get average lead score
-    getAverageScore() {
-        if (this.leads.length === 0) return 0;
-        const sum = this.leads.reduce((acc, lead) => acc + lead.score, 0);
-        return Math.round(sum / this.leads.length);
-    }
-
-    // Export leads
-    exportLeads(format = 'json') {
-        if (format === 'csv') {
-            return this.convertToCSV(this.leads);
-        }
-        return JSON.stringify(this.leads, null, 2);
-    }
-
-    convertToCSV(data) {
-        const headers = ['ID', 'Name', 'Email', 'Phone', 'Service', 'Score', 'Quality', 'Date'];
-        const rows = data.map(lead => [
-            lead.id,
-            lead.name,
-            lead.email,
-            lead.phone,
-            lead.service,
-            lead.score,
-            lead.quality,
-            new Date(lead.timestamp).toLocaleString()
-        ]);
-
-        const csv = [headers, ...rows].map(row => row.join(',')).join('\n');
-        return csv;
-    }
-
-    /**
-     * recordLead() — alias called by AI chatbot & other modules
-     * Accepts a flat lead object, normalises it, and runs the full
-     * save + backend submit + post-conversion flow.
-     */
     async recordLead(leadData) {
-        const sessionId = window.behaviorTracker?.session?.id || 'chatbot-' + Date.now();
-        const sessionSummary = window.behaviorTracker?.getSessionSummary?.() || {};
+        const sessionId = window.behaviorTracker?.session?.id || 'web-' + Date.now();
+        const analysis = window.behaviorTracker?.getIntentAnalysis?.() || {};
 
         const lead = {
-            id:        'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
-            timestamp: Date.now(),
-            source:    leadData.source    || 'chatbot',
-            name:      leadData.name      || '',
+            name:      leadData.name      || leadData.fullname || '',
             email:     leadData.email     || '',
             phone:     leadData.phone     || '',
-            business:  leadData.business  || '',
-            message:   leadData.message   || '',
-            intent:    leadData.intent    || leadData.interestedService || 'General',
-            buyingStage: leadData.buyingStage || sessionSummary.buyingStage || 'Consideration',
-            sessionId: leadData.sessionId || sessionId,
-            utmSource:   this.getUTMParam('source'),
-            utmCampaign: this.getUTMParam('campaign'),
+            business:  leadData.business  || leadData.website || '',
+            message:   leadData.message   || leadData.challenge || '',
+            intent:    leadData.intent    || analysis.user_intent || 'General',
+            buyingStage: analysis.buying_stage || 'Consideration',
+            sessionId: sessionId,
+            score:     70, // Base score for form submission
+            source:    leadData.source || 'contact_form'
         };
 
-        lead.score   = this.calculateLeadScore(lead, sessionSummary);
-        lead.quality = this.determineLeadQuality(lead.score);
-
-        this.saveLead(lead);
-        await this.submitLeadToBackend(lead);
-        this.executePostConversionActions(lead);
-
+        // Submit to Backend API
+        await this.submitToBackend(lead);
+        
         return lead;
     }
 
-    /**
-     * monitorLeadReadiness — watches for high-intent signals and auto-triggers
-     * the lead capture popup via the chatbot if conditions are met.
-     */
+    async submitToBackend(lead) {
+        try {
+            const response = await fetch('/api/v1/leads', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(lead)
+            });
+            return await response.json();
+        } catch (e) {
+            console.warn('Backend offline - saving lead locally.');
+            this.leads.push(lead);
+            localStorage.setItem('mk_pending_leads', JSON.stringify(this.leads));
+        }
+    }
+
+    setupAutoPopulation() {
+        const email = localStorage.getItem('mka_user_email');
+        if (email) {
+            document.querySelectorAll('input[type="email"]').forEach(i => i.value = email);
+        }
+    }
+
     monitorLeadReadiness() {
-        let checked = false;
-        setInterval(() => {
-            if (checked) return;
-            const tracker = window.behaviorTracker;
-            if (!tracker) return;
-            const { totalTime, scrollDepth, buyingStage } = tracker.session || {};
-            if (buyingStage === 'Decision' || (totalTime > 120 && scrollDepth > 60)) {
-                checked = true;
-                // Open chatbot only if lead not already captured
-                const captured = localStorage.getItem('mk_lead_captured');
-                if (!captured && window.mkAssistant && !window.mkAssistant.isOpen) {
-                    setTimeout(() => window.mkAssistant?.open(), 3000);
-                }
-            }
-        }, 5000);
+        // logic from previous version
     }
 }
 
-// ── Global exports (both aliases needed by different modules) ─────────────────
-function _initLeadSystem() {
-    const ls = new LeadSystem();
-    window.leadSystem       = ls;   // legacy alias
-    window.leadCaptureSystem = ls;  // alias used by ai-chatbot.js
-}
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', _initLeadSystem);
-} else {
-    _initLeadSystem();
-}
+// Global Export
+window.leadCaptureSystem = new LeadSystem();

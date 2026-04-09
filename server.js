@@ -149,36 +149,14 @@ async function sendConfirmationEmail(lead) {
         const mailOptions = {
             from: process.env.GMAIL_USER,
             to: lead.email,
-            subject: '✓ Your Request Received - MK Shopzone',
+            subject: 'Your Audit Request Received 🚀',
             html: `
-                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                    <div style="background: linear-gradient(135deg, #ff8c00, #ff6b35); padding: 30px; text-align: center; color: white; border-radius: 8px 8px 0 0;">
-                        <h1 style="margin: 0; font-size: 28px;">Welcome, ${lead.name.split(' ')[0]}! 🚀</h1>
-                    </div>
-                    
-                    <div style="background: #f8f8f8; padding: 30px; border-radius: 0 0 8px 8px;">
-                        <p style="color: #333; font-size: 16px; line-height: 1.6;">
-                            Thank you for requesting our <strong>${lead.service || 'digital marketing'}</strong> services. We're thrilled to help you achieve your growth goals!
-                        </p>
-
-                        <h3 style="color: #ff8c00; margin-top: 25px;">What Happens Next:</h3>
-                        <ol style="color: #333; line-height: 1.8;">
-                            <li>📞 Our strategy team will call you within <strong>60 minutes</strong></li>
-                            <li>📊 We'll discuss your goals and audit your current strategy</li>
-                            <li>🎯 Create a personalized growth roadmap for your business</li>
-                            <li>🚀 Launch your transformation journey</li>
-                        </ol>
-
-                        <div style="background: white; border-left: 4px solid #ff8c00; padding: 15px; margin: 25px 0;">
-                            <p style="margin: 0; color: #333;">
-                                <strong>Questions?</strong> Reply to this email or call us at <strong>+91 95007 04443</strong>
-                            </p>
-                        </div>
-
-                        <p style="color: #666; font-size: 14px; text-align: center; margin-top: 30px;">
-                            © MK Shopzone - Precision-Guided Market Dominance
-                        </p>
-                    </div>
+                <div style="font-family: sans-serif; padding: 20px;">
+                    <h2>Hi ${lead.name.split(' ')[0]},</h2>
+                    <p>We have received your request. Our expert will contact you within 60 minutes.</p>
+                    <p>In the meantime, feel free to reach out to us directly via WhatsApp for an even faster response.</p>
+                    <br>
+                    <p>Best regards,<br><strong>MK Shopzone Team</strong></p>
                 </div>
             `
         };
@@ -289,4 +267,3 @@ app.listen(PORT, () => {
 });
 
 export default app;
-
