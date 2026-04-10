@@ -768,7 +768,7 @@
         </section>
 
         <script>
-        function handleAuditSubmit(e) {
+        async function handleAuditSubmit(e) {
             e.preventDefault();
             const form   = document.getElementById('contactForm');
             const btn    = document.getElementById('auditSubmitBtn');
@@ -790,38 +790,48 @@
                 document.getElementById('auditProgress').style.width = '100%';
             }, 100);
 
-            // 3. After 2s → hide loader, show success
-            setTimeout(() => {
-                loader.style.display  = 'none';
-                success.style.display = 'block';
+            const lead = {
+                name:    document.getElementById('name').value,
+                email:   document.getElementById('email').value,
+                phone:   phone,
+                service: document.getElementById('service-select').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
 
-                // 4. Save lead locally (backend call is separate)
-                const lead = {
-                    name:    document.getElementById('name').value,
-                    email:   document.getElementById('email').value,
-                    phone:   phone,
-                    service: document.getElementById('service-select').value,
-                    message: document.getElementById('message').value,
-                    timestamp: new Date().toISOString()
-                };
-                localStorage.setItem('mk_last_lead', JSON.stringify(lead));
-
-                // Try backend silently
-                fetch('/api/v1/leads', {
+            try {
+                // Minimum 2-second delay for premium loader feel
+                const delayPromise = new Promise(r => setTimeout(r, 2000));
+                // Real backend call
+                const fetchPromise = fetch('/api/v1/leads', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(lead)
-                }).catch(() => {}); // Silently ignore if offline
+                });
 
-            }, 2000);
+                const [_, res] = await Promise.all([delayPromise, fetchPromise]);
 
-            // 5. Auto WhatsApp after 3s
-            const cleaned = phone.replace(/\D/g, '');
-            const waPhone = cleaned.length === 10 ? '91' + cleaned : cleaned;
-            const waMsg   = encodeURIComponent('Hi, I just submitted my website audit request on MKShopzone. Please get in touch!');
-            setTimeout(() => {
-                window.open(`https://wa.me/${waPhone}?text=${waMsg}`, '_blank');
-            }, 3000);
+                if (res.ok) {
+                    // Show success only if backend response is OK
+                    loader.style.display  = 'none';
+                    success.style.display = 'block';
+
+                    // Save locally just in case
+                    localStorage.setItem('mk_last_lead', JSON.stringify(lead));
+                } else {
+                    // Throw if response is not 200-299
+                    throw new Error('Backend failed to process lead');
+                }
+
+            } catch (err) {
+                // Handle error properly in frontend
+                loader.style.display = 'none';
+                form.style.display   = 'block';
+                btn.innerHTML = 'LAUNCH SUCCESS AUDIT →';
+                btn.disabled  = false;
+                btn.style.opacity = '1';
+                alert('An error occurred submitting your request. Please try again.');
+            }
         }
         </script>
 
