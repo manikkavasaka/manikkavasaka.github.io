@@ -211,6 +211,40 @@ class BehaviorTracker {
         };
     }
 
+    /**
+     * Public API for custom event tracking
+     */
+    trackEvent(name, metadata = {}) {
+        const eventData = {
+            type: name,
+            timestamp: new Date().toISOString(),
+            path: window.location.pathname,
+            ...metadata
+        };
+        this.session.events.push(eventData);
+        this._save();
+        console.log(`📊 Lead System Event: ${name}`, metadata);
+    }
+
+    /**
+     * Public API to get current engagement profile
+     */
+    getProfile() {
+        const now = Date.now();
+        const duration = now - this.session.startTime;
+        
+        return {
+            sessionId: this.session.id,
+            sessionDuration: duration, // millisecond timestamp used by main.js
+            scrollDepth: this.session.scrollDepth,
+            buyingStage: this.session.buyingStage,
+            intentScore: this.session.intentScore,
+            clicks: this.session.clicks.length,
+            pagesVisited: this.session.pagesVisited.length,
+            trafficSource: this.session.trafficSource
+        };
+    }
+
     _generatePersonalizedContent(intent, stage) {
         const data = {
             'SEO Services': {

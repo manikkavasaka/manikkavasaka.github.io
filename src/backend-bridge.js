@@ -76,7 +76,8 @@ class BackendBridge {
                 }))
             };
 
-            const res = await fetch('/api/v1/track', {
+            console.log('📡 Syncing telemetry to http://localhost:8000/lead');
+            const res = await fetch('http://localhost:8000/lead', {
                 method:  'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body:    JSON.stringify(payload)
@@ -324,7 +325,11 @@ class BackendBridge {
             const biz   = document.getElementById('bb-biz')?.value?.trim();
 
             if (!name || !email) {
-                alert('Please enter your name and email.');
+                if (window.premiumSuccessFlow) {
+                    window.premiumSuccessFlow.showError('Please enter your name and email.');
+                } else {
+                    console.error('Validation failed: Please enter your name and email.');
+                }
                 return;
             }
 

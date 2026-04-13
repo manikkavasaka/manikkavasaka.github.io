@@ -130,45 +130,80 @@ class AutomationService:
 
     @staticmethod
     async def send_whatsapp(phone: str, name: str, intent: str):
-        """Send WhatsApp message via Twilio or Meta API"""
+        """Send WhatsApp message via Meta/Facebook Graph API"""
+        import requests
 
         # Get template
         template = AutomationService.WHATSAPP_TEMPLATES.get(
             intent,
             AutomationService.WHATSAPP_TEMPLATES["General"]
         )
-        message = template.format(name=name)
+        message_body = template.format(name=name)
 
         try:
-            # Check for Twilio API key
-            twilio_sid = os.getenv("TWILIO_ACCOUNT_SID")
-            twilio_token = os.getenv("TWILIO_AUTH_TOKEN")
-            from_number = os.getenv("TWILIO_PHONE_NUMBER")
+            phone_id = os.getenv("META_PHONE_ID")
+            token = os.getenv("META_ACCESS_TOKEN")
 
-            if twilio_sid and twilio_token:
-                # Send via Twilio
-                auth = (twilio_sid, twilio_token)
-                url = f"https://api.twilio.com/2010-04-01/Accounts/{twilio_sid}/Messages.json"
-
-                data = {
-                    "From": from_number,
-                    "To": phone,
-                    "Body": message
+            if phone_id and token and phone:
+                url = f"https://graph.facebook.com/v18.0/{phone_id}/messages"
+                headers = {
+                    "Authorization": f"Bearer {token}",
+                    "Content-Type": "application/json"
                 }
 
-                async with httpx.AsyncClient() as client:
-                    response = await client.post(url, data=data, auth=auth)
+                # Meta requires number without + character usually
+                cleaned_phone = phone.replace("+", "").replace("-", "").replace(" ", "")
 
-                    if response.status_code == 201:
-                        print(f"✅ WhatsApp sent to {phone}")
-                        return True
+                data = {
+                    "messaging_product": "whatsapp",
+                    "to": cleaned_phone,
+                    "type": "text",
+                    "text": {
+                        "body": message_body
+                    }
+                }
+
+                res = requests.post(url, json=data, headers=headers)
+                if res.status_code in [200, 201]:
+                    print(f"✅ WhatsApp sent to {phone}")
+                else:
+                    print(f"⚠️ WhatsApp error: {res.text}")
+                return True
 
             # Fallback: Log message
-            print(f"📱 [WhatsApp to {phone}]: {message}")
+            print(f"📱 [WhatsApp to {phone}]: {message_body}")
             return True
 
         except Exception as e:
             print(f"❌ WhatsApp error: {e}")
+            return False
+
+    @staticmethod
+    async def send_sms(phone: str):
+        """Send SMS securely via Twilio"""
+        try:
+            from twilio.rest import Client
+            twilio_sid = os.getenv("TWILIO_ACCOUNT_SID")
+            twilio_token = os.getenv("TWILIO_AUTH_TOKEN")
+            from_number = os.getenv("TWILIO_PHONE_NUMBER")
+
+            if twilio_sid and twilio_token and phone:
+                client = Client(twilio_sid, twilio_token)
+
+                message = client.messages.create(
+                    body="Your audit request has been received. Our team will contact you shortly.",
+                    from_=from_number,
+                    to=phone
+                )
+                print(f"✅ SMS sent to {phone}")
+                return True
+
+            # Fallback: Log message
+            print(f"💬 [SMS to {phone}]: Your audit request has been received. Our team will contact you shortly.")
+            return True
+
+        except Exception as e:
+            print(f"❌ SMS error: {e}")
             return False
 
     @staticmethod
@@ -237,12 +272,13 @@ class AutomationService:
     @staticmethod
     async def trigger_lead_sequence(lead_data: Dict, lead_id: int):
         """
-        Starts the automated follow-up workflow.
+        Starts the automated follow-up workflow invisibly.
 
         Sequence:
         1. Instant WhatsApp confirmation
-        2. Instant welcome email
-        3. Schedule daily follow-ups
+        2. Instant SMS confirmation
+        3. Instant welcome email
+        4. Schedule daily follow-ups
         """
 
         name = lead_data.get("name", "Friend").split()[0]
@@ -255,14 +291,21 @@ class AutomationService:
         print(f"   Intent: {intent} | Stage: {lead_data.get('buyingStage')}")
 
         # Step 1: WhatsApp
-        print(f"   → Sending WhatsApp...")
-        await AutomationService.send_whatsapp(phone, name, intent)
+        if phone:
+            print(f"   → Sending WhatsApp...")
+            await AutomationService.send_whatsapp(phone, name, intent)
 
-        # Step 2: Email
-        print(f"   → Sending welcome email...")
-        await AutomationService.send_email(email, name, intent, business)
+        # Step 2: SMS
+        if phone:
+            print(f"   → Sending SMS...")
+            await AutomationService.send_sms(phone)
 
-        # Step 3: Schedule daily follow-ups
+        # Step 3: Email
+        if email:
+            print(f"   → Sending welcome email...")
+            await AutomationService.send_email(email, name, intent, business)
+
+        # Step 4: Schedule daily follow-ups
         print(f"   → Scheduling daily follow-ups...")
         await AutomationService.schedule_daily_followups(lead_id, email, phone, name, intent)
 

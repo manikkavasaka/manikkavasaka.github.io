@@ -277,7 +277,8 @@ function initForms() {
 
 async function directLeadSubmit(leadData) {
     try {
-        const r = await fetch('/api/v1/leads', {
+        console.log('Direct submission fallback:', leadData);
+        const r = await fetch('http://localhost:8000/lead', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -288,9 +289,15 @@ async function directLeadSubmit(leadData) {
                 score: 70,
             })
         });
-        return r.ok ? await r.json() : null;
-    } catch (_) { return null; }
+        const result = r.ok ? await r.json() : null;
+        console.log('Direct submission result:', result);
+        return result;
+    } catch (e) { 
+        console.error('Direct submission error:', e);
+        return null; 
+    }
 }
+
 
 // 7. VIDEO OPTIMIZATION
 function initVideos() {

@@ -632,7 +632,7 @@
               <option value="Social Media">Social Media</option>
               <option value="App Development">App Development</option>
             </select>
-            <button class="btn-sm btn-primary" onclick="exportLeadsCSV()">⬇ Export CSV</button>
+            <button class="btn-sm btn-primary" onclick="window.location.href='/api/v1/export/leads'">⬇ Export Excel</button>
           </div>
         </div>
 
@@ -1157,24 +1157,9 @@ async function sendFollowup(leadId, channel) {
 }
 
 /* ══════════════════════════════════════════════════════
-   CSV EXPORT
+   EXCEL EXPORT (Handled via backend route)
 ══════════════════════════════════════════════════════ */
-async function exportLeadsCSV() {
-  const data = await apiFetch('/api/v1/admin/leads?limit=1000');
-  if (!data?.leads) return;
-
-  const rows = [
-    ['Name','Email','Phone','Business','Intent','Stage','Score','Status','Created'],
-    ...data.leads.map(l => [
-      l.name, l.email, l.phone, l.business||'',
-      l.intent||'', l.buyingStage||'', l.score||0, l.status||'new',
-      l.createdAt ? new Date(l.createdAt).toLocaleDateString() : ''
-    ])
-  ];
-  downloadCSV(rows, 'mk_leads_export.csv');
-  showToast(`✅ Exported ${data.leads.length} leads`, 'success');
-}
-
+// exportLeadsCSV uses the new Excel route via the button directly.
 function downloadCSV(rows, filename) {
   const csv = rows.map(r => r.map(v => `"${String(v||'').replace(/"/g,'""')}"`).join(',')).join('\n');
   const blob = new Blob([csv], { type:'text/csv' });

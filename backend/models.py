@@ -96,3 +96,38 @@ class LeadMetrics(BaseModel):
     conversion_rate: float
     avg_lead_score: float
 
+# ════════════════════════════════════════════════════════════════
+# 7. NEW API MODELS (v4.0)
+# ════════════════════════════════════════════════════════════════
+
+class BehavioralEvent(BaseModel):
+    type: str
+    target: str
+    path: str
+    timestamp: str
+    metadata: Optional[Dict[str, Any]] = None
+
+class SessionTelemetry(BaseModel):
+    sessionId: str
+    userAgent: Optional[str] = None
+    platform: Optional[str] = None
+    scrollDepth: float = 0
+    duration: int = 0
+    pages_visited: List[str] = []
+    events: List[BehavioralEvent] = []
+
+class LeadCapture(BaseModel):
+    name: str
+    email: str
+    phone: str
+    business: Optional[str] = None
+    message: Optional[str] = None
+    sessionId: str
+    intent: Optional[str] = "General"
+    buyingStage: Optional[str] = "Awareness"
+    score: Optional[int] = 50
+    metadata: Optional[Dict[str, Any]] = None
+
+class LeadUpdate(BaseModel):
+    status: str
+    notes: Optional[str] = None

@@ -416,7 +416,7 @@
                                 <h3 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; margin-bottom: 10px; color: #fff;">Request Audit</h3>
                                 <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 40px;">Speak with an Elite Growth Strategist Today.</p>
                                 
-                                <form id="contactForm" onsubmit="event.preventDefault(); showSuccess();">
+                                <form id="contactForm">
                                     <div class="form-group">
                                         <input type="text" class="form-input" id="name" placeholder="E.g. John Doe" required>
                                         <label for="name" class="form-label" style="display:none;">Full Name</label>
@@ -443,21 +443,7 @@
                                 </form>
                             </div>
                             
-                            <!-- Unique Success Box -->
-                            <div id="successBox">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto; display: block;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                <h4>Audit Requested Successfully</h4>
-                                <p>Thank you! Our strategy team will be in touch with you shortly.</p>
-                            </div>
-                        </div>
-                        
-                        <script>
-                            document.getElementById("successBox").style.display = "none";
-                            function showSuccess() {
-                                document.getElementById("formContainer").style.display = "none";
-                                document.getElementById("successBox").style.display = "block";
-                            }
-                        </script>
+
                     </div>
                 </div>
             </div>

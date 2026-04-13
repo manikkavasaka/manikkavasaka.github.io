@@ -109,14 +109,17 @@ class LeadSystem {
 
     async submitToBackend(lead) {
         try {
-            const response = await fetch('/api/v1/leads', {
+            console.log('Attempting to submit lead to backend:', lead);
+            const response = await fetch('http://localhost:8000/lead', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(lead)
             });
-            return await response.json();
+            const result = await response.json();
+            console.log('Lead submitted successfully:', result);
+            return result;
         } catch (e) {
-            console.warn('Backend offline - saving lead locally.');
+            console.error('Backend submission failed:', e);
             this.leads.push(lead);
             localStorage.setItem('mk_pending_leads', JSON.stringify(this.leads));
         }

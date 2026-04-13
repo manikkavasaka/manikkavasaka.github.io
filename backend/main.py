@@ -40,6 +40,13 @@ except ImportError:
     _scheduler = None
     _SCHEDULER_AVAILABLE = False
 
+# ── Pandas for Export (optional)  ────────────────────────────────────────────
+try:
+    import pandas as pd
+    _PANDAS_AVAILABLE = True
+except ImportError:
+    _PANDAS_AVAILABLE = False
+
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SCHEDULER JOBS
@@ -323,6 +330,7 @@ async def get_personalization(session_id: str = Query(...)):
 # 3. SMART LEAD CAPTURE
 # ═══════════════════════════════════════════════════════════════════════════════
 
+@app.post("/lead", tags=["Leads"])
 @app.post("/api/v1/leads", tags=["Leads"])
 async def capture_lead(lead: LeadCapture, background_tasks: BackgroundTasks):
     """
@@ -390,6 +398,43 @@ async def update_lead(lead_id: str, update: LeadUpdate):
     """Update lead status (new → followed_up → converted / lost)."""
     await update_lead_status(lead_id, update.status, update.notes or "")
     return {"success": True, "leadId": lead_id, "newStatus": update.status}
+
+
+@app.get("/api/v1/export/leads", tags=["Leads"])
+async def export_leads_excel():
+    """Export all leads to an Excel file."""
+    if not _PANDAS_AVAILABLE:
+        raise HTTPException(status_code=500, detail="Pandas/openpyxl not installed. Please run: pip install pandas openpyxl")
+    
+    # get_all_leads returns (leads_list, total_count)
+    leads, total = await get_all_leads(limit=10000)
+    
+    if not leads:
+        raise HTTPException(status_code=404, detail="No leads found to export")
+        
+    export_data = []
+    for lead in leads:
+        export_data.append({
+            "Name": lead.get("name", ""),
+            "Email": lead.get("email", ""),
+            "Phone": lead.get("phone", ""),
+            "Business": lead.get("business", ""),
+            "Service": lead.get("service", lead.get("intent", "")),
+            "Message": lead.get("message", ""),
+            "Date": lead.get("createdAt", ""),
+            "Score": lead.get("score", ""),
+            "Status": lead.get("status", "")
+        })
+        
+    df = pd.DataFrame(export_data)
+    file_path = "leads_export.xlsx"
+    df.to_excel(file_path, index=False)
+    
+    return FileResponse(
+        path=file_path,
+        filename=file_path,
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

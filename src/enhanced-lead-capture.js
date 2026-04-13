@@ -189,33 +189,43 @@ class EnhancedLeadCapture {
             }
         };
 
+        console.log('Finalizing lead capture with payload:', payload);
+
         try {
-            const response = await fetch('/api/v1/leads', {
+            const apiUrl = 'http://localhost:8000/lead';
+            console.log(`Sending POST request to: ${apiUrl}`, payload);
+
+            const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
 
-            if (!response.ok) {
-                const error = await response.json().catch(() => ({}));
-                console.warn('Backend returned error; showing success anyway:', error);
-                // Save locally as fallback
-                localStorage.setItem('mk_pending_lead', JSON.stringify(payload));
-                return { success: true, leadId: 'local-' + Date.now(), message: 'Saved locally' };
+            console.log(`Response status: ${response.status}`);
+            
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Submission success:', result);
+                return {
+                    success: true,
+                    leadId: result.leadId || result.lead_id,
+                    message: result.message,
+                    nextSteps: result.nextSteps
+                };
+            } else {
+                const errorText = await response.text();
+                console.error('Backend returned error:', errorText);
+                throw new Error(`Server error: ${response.status}`);
             }
-
-            const result = await response.json();
-            return {
-                success: true,
-                leadId: result.leadId || result.lead_id,
-                message: result.message,
-                nextSteps: result.nextSteps
-            };
         } catch (err) {
-            // Backend offline → silent fallback, still show success
-            console.warn('Backend offline — saving lead locally:', err.message);
+            console.warn('Backend connection failed - falling back to local storage:', err.message);
             localStorage.setItem('mk_pending_lead', JSON.stringify(payload));
-            return { success: true, leadId: 'offline-' + Date.now(), message: 'Saved locally' };
+            return { 
+                success: true, 
+                leadId: 'offline-' + Date.now(), 
+                message: 'Saved locally (offline mode)',
+                isOffline: true
+            };
         }
     }
 
