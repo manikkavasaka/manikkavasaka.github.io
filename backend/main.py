@@ -24,11 +24,10 @@ from typing import List, Optional
 from .models        import SessionTelemetry, LeadCapture, LeadUpdate, BehavioralEvent
 from .ai_engine     import AIEngine
 from .automations_v2 import AutomationService
-from .database      import (
-    connect_db, close_db,
-    save_session, get_session, get_all_sessions,
+from .db_manager import (
+    connect_db, close_db, save_session, get_session, 
     save_lead, get_lead, get_all_leads, update_lead_status,
-    get_lead_count, get_dashboard_metrics
+    get_all_sessions, get_dashboard_metrics, get_lead_count
 )
 
 # ── APScheduler (optional) ────────────────────────────────────────────────────
