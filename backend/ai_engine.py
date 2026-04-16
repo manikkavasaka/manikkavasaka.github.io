@@ -1,13 +1,32 @@
 import os
 import json
 import re
-from openai import OpenAI
+from openai import OpenAI, AsyncOpenAI
 from dotenv import load_dotenv
 from typing import Dict, List, Optional
+import httpx
 
 load_dotenv()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY", ""))
+# Determine AI Provider
+PREFERRED_PROVIDER = os.getenv("PREFERRED_AI_PROVIDER", "openai").lower()
+
+def get_async_client():
+    """Initializes the appropriate AsyncOpenAI client based on provider."""
+    if PREFERRED_PROVIDER == "ollama":
+        return AsyncOpenAI(
+            base_url=f"{os.getenv('OLLAMA_BASE_URL', 'http://localhost:11434')}/v1",
+            api_key="ollama"
+        )
+    elif PREFERRED_PROVIDER == "openrouter":
+        return AsyncOpenAI(
+            base_url="https://openrouter.ai/api/v1",
+            api_key=os.getenv("OPENROUTER_API_KEY")
+        )
+    else:
+        return AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY", ""))
+
+async_client = get_async_client()
 
 class AIEngine:
     """
@@ -131,18 +150,43 @@ class AIEngine:
         """
 
         try:
-            response = client.chat.completions.create(
-                model="gpt-4o",
+            model = "gpt-4o"
+            if PREFERRED_PROVIDER == "ollama":
+                model = os.getenv("OLLAMA_MODEL", "codellama")
+            elif PREFERRED_PROVIDER == "openrouter":
+                model = os.getenv("AI_MODEL", "anthropic/claude-3.5-sonnet")
+
+            response = await async_client.chat.completions.create(
+                model=model,
                 messages=[
-                    {"role": "system", "content": "You are an elite marketing AI analyst."},
+                    {"role": "system", "content": "You are an elite marketing AI analyst. You MUST return ONLY valid JSON. No conversational text, no markdown code blocks, just raw JSON."},
                     {"role": "user", "content": prompt}
                 ],
-                response_format={"type": "json_object"}
+                response_format={"type": "json_object"} if PREFERRED_PROVIDER != "ollama" else None
             )
-            return json.loads(response.choices[0].message.content)
+            
+            content = response.choices[0].message.content
+            
+            # Ollama/Local models sometimes don't respect response_format strictly, so we ensure parsing
+            try:
+                # Look for JSON block in case it returned text + json
+                match = re.search(r"\{.*\}", content, re.DOTALL)
+                if match:
+                    result = json.loads(match.group())
+                    result["ai_provider"] = PREFERRED_PROVIDER
+                    return result
+            except Exception as json_err:
+                print(f"JSON Parsing Error: {json_err} | Content: {content[:100]}...")
+            
+            # Final attempt if regex didn't return or was valid but first parse failed
+            result = json.loads(content)
+            result["ai_provider"] = PREFERRED_PROVIDER
+            return result
         except Exception as e:
-            print(f"AI Analysis Error: {e}")
-            return AIEngine._fallback_analysis(events, duration, scroll_depth)
+            print(f"AI Analysis Error ({PREFERRED_PROVIDER}): {e}")
+            fallback = AIEngine._fallback_analysis(events, duration, scroll_depth)
+            fallback["ai_provider"] = "fallback"
+            return fallback
 
     @staticmethod
     def _fallback_analysis(events: list, duration: int, scroll_depth: float) -> Dict:
