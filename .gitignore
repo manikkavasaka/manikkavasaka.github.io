@@ -36,3 +36,13 @@ backend/*.pyc
 **/*.pyc
 *.pyd
 .Python
+.ace-tool/
+
+# Test directories
+backend/tests/
+tests/
+test_*.py
+*_test.py
+
+# Unrelated/temporary projects
+G0DM0D3/

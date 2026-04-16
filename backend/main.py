@@ -23,7 +23,7 @@ from typing import List, Optional
 # ── Local imports ─────────────────────────────────────────────────────────────
 from .models        import SessionTelemetry, LeadCapture, LeadUpdate, BehavioralEvent
 from .ai_engine     import AIEngine
-from .automations_v2 import AutomationService
+from .automations import AutomationService
 from .db_manager import (
     connect_db, close_db, save_session, get_session, 
     save_lead, get_lead, get_all_leads, update_lead_status,
