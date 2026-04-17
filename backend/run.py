@@ -10,31 +10,36 @@ Usage:
 import sys
 import os
 import argparse
+import io
 
 # Make sure the parent directory is on sys.path so relative imports work
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# Fix stdout encoding for Windows
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
 BANNER = """
-╔══════════════════════════════════════════════════════════╗
-║   MK SHOPZONE  —  AI Growth Engine  v4.0                ║
-║   Autonomous Lead Generation & Conversion System         ║
-╠══════════════════════════════════════════════════════════╣
-║  Features:                                               ║
-║   ✅  Real-time behavior tracking                        ║
-║   ✅  AI intent detection (OpenAI GPT-4o)               ║
-║   ✅  Dynamic content personalization                    ║
-║   ✅  Smart lead capture & scoring                       ║
-║   ✅  Automated WhatsApp follow-ups (Twilio)             ║
-║   ✅  Automated Email sequences (SendGrid / SMTP)        ║
-║   ✅  Daily nurture scheduler (APScheduler)              ║
-║   ✅  Retargeting audience builder                       ║
-║   ✅  Admin dashboard & analytics                        ║
-╠══════════════════════════════════════════════════════════╣
-║  Endpoints:                                              ║
-║   API Docs  →  http://localhost:8000/docs                ║
-║   Health    →  http://localhost:8000/api/v1/health       ║
-║   Dashboard →  http://localhost:8000/admin               ║
-╚══════════════════════════════════════════════════════════╝
+========================================================
+   MK SHOPZONE -- AI Growth Engine v4.0
+   Autonomous Lead Generation & Conversion System
+========================================================
+Features:
+   [OK] Real-time behavior tracking
+   [OK] AI intent detection (OpenAI GPT-4o)
+   [OK] Dynamic content personalization
+   [OK] Smart lead capture & scoring
+   [OK] Automated WhatsApp follow-ups (Twilio)
+   [OK] Automated Email sequences (SendGrid / SMTP)
+   [OK] Daily nurture scheduler (APScheduler)
+   [OK] Retargeting audience builder
+   [OK] Admin dashboard & analytics
+========================================================
+Endpoints:
+   API Docs  ->  http://localhost:8000/docs
+   Health    ->  http://localhost:8000/api/v1/health
+   Dashboard ->  http://localhost:8000/admin
+========================================================
 """
 
 if __name__ == "__main__":
@@ -45,8 +50,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     print(BANNER)
-    print(f"  🚀  Starting on http://{args.host}:{args.port}")
-    print(f"  🔄  Hot-reload: {'ON' if args.reload else 'OFF'}\n")
+    print(f"  Starting on http://{args.host}:{args.port}")
+    print(f"  Hot-reload: {'ON' if args.reload else 'OFF'}\n")
 
     import uvicorn
     uvicorn.run(

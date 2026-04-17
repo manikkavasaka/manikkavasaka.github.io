@@ -1,0 +1,21 @@
+/* MK SHOPZONE - MODULAR CSS ARCHITECTURE v6.0
+   Import all CSS modules in correct order
+*/
+
+/* 1. Global Variables, Resets, Typography */
+@import url('./globals.css');
+
+/* 2. Layout Utilities (Grid, Flexbox, Spacing) */
+@import url('./layout.css');
+
+/* 3. Component Styles (Buttons, Cards, Forms, Modals) */
+@import url('./components.css');
+
+/* 4. Animations & Transitions */
+@import url('./animations.css');
+
+/* 5. Responsive Design (Media Queries, Breakpoints) */
+@import url('./responsive.css');
+
+/* 6. Utility Classes (Tailwind-style helpers) */
+@import url('./utilities.css');

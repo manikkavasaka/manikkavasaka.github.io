@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -25,6 +25,19 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
+        /* Image Premium - Consistent brand image style */
+        .img-premium {
+            border-radius: 20px !important;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35) !important;
+            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s ease !important;
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+        .img-premium:hover {
+            transform: scale(1.03) translateY(-5px) !important;
+            box-shadow: 0 35px 80px rgba(255,140,0,0.2) !important;
+        }
         /* ELITE MIDNIGHT PREMIUM v36.0 - WEB ARCHITECTURE & ALIGNMENT */
         :root {
             --white: #ffffff;
@@ -459,7 +472,7 @@
     <main>
         <!-- 1. HERO SECTION -->
         <section class="hero-web">
-            <video autoplay muted loop playsinline poster="/public/hero-bg.png">
+            <video autoplay muted loop playsinline poster="/public/assets/images/heroes/hero-agency-poster.png">
                 <source src="/public/home 2.mp4" type="video/mp4">
             </video>
             <div class="container" style="position: relative; z-index: 2;">
@@ -483,7 +496,7 @@
                     <h2 style="font-size: 4rem; margin-bottom: 60px;">Immersive <span class="gradient-span">UI/UX Design.</span></h2>
                     
                     <div style="position: relative; max-width: 1100px; margin: 0 auto; margin-bottom: 60px;">
-                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Premium UI/UX design workspace with clean layouts" class="img-premium" style="width: 100%; min-height: 300px; object-fit: cover;">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85" alt="Premium UI/UX design workspace with clean layouts" class="img-premium" style="width: 100%; min-height: 300px; object-fit: cover;">
                     </div>
                     
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto;">
@@ -529,7 +542,7 @@
                     </div>
                     <div data-reveal class="stagger-2">
                         <div class="img-premium">
-                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=900&q=80" alt="High-Performance Website Preview" style="width: 100%; display: block; filter: contrast(1.1); height: 500px; object-fit: cover;">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=85" alt="High-Performance Website Preview" style="width: 100%; display: block; filter: contrast(1.1); height: 500px; object-fit: cover;">
                         </div>
                         <div class="speed-bar-container" style="margin-top: 40px; padding: 40px; background: rgba(255,255,255,0.03); border-radius: 32px;" data-reveal>
                             <h4 style="margin-bottom: 20px;">Clinical Performance Audit</h4>
@@ -578,8 +591,8 @@
         <!-- ENHANCED: NEW DEVELOPER / UI DESIGN WORKFLOW VIDEO SECTION -->
         <section class="section-luxe" style="position: relative; overflow: hidden; padding: 250px 0; display: flex; align-items: center; justify-content: center;" data-reveal>
             <!-- Background Video with premium workstation poster -->
-            <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80" style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); z-index: 0; filter: grayscale(0.2) brightness(0.25); object-fit: cover;">
-                <source src="/public/ui-design-workflow.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85" style="position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); z-index: 0; filter: grayscale(0.2) brightness(0.25); object-fit: cover;">
+                <source src="https://images.unsplash.com/photo-1581291518857-4d27a810d3c6?auto=format&fit=crop&w=1200&q=85" type="video/mp4">
             </video>
             <div class="container" style="position: relative; z-index: 2; text-align: center;">
                 <h4 style="color: var(--primary) !important; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px;" data-reveal="zoom">Pixel-Perfect Engineering</h4>
@@ -607,7 +620,7 @@
                         <p style="color: #4b5563 !important; margin-bottom: 30px;">Cluttered navigation, lacking psychological cues, and generic styling that fails to build trust.</p>
                         <div class="img-premium" style="box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
                             <!-- Wireframe/Blueprint concept image -->
-                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?auto=format&fit=crop&w=800&q=80" alt="UI wireframe planning on paper" style="width: 100%; display: block;">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1581291518857-4d27a810d3c6?auto=format&fit=crop&w=1200&q=85" alt="UI wireframe planning on paper" style="width: 100%; display: block;">
                         </div>
                     </div>
 
@@ -620,7 +633,7 @@
                         <p style="color: var(--text-dim) !important; margin-bottom: 30px; font-size: 1.1rem;">Surgical UI/UX integration, flawless responsive frameworks, and glassmorphic elements engineered to command absolute authority.</p>
                         <div class="img-premium" style="box-shadow: 0 40px 80px rgba(0,0,0,0.5);">
                             <!-- Clean modern UI designer workspace image -->
-                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=800&q=80" alt="Premium modern UI UX Design on screen" style="width: 100%; display: block;">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&w=1200&q=85" alt="Premium modern UI UX Design on screen" style="width: 100%; display: block;">
                         </div>
                     </div>
                 </div>
@@ -744,10 +757,10 @@
                 <div class="split-grid grid-align" style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 120px;">
                     <div data-reveal>
                         <div class="img-premium">
-                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80" alt="Design Strategy Meeting" style="width: 100%; display: block; height: 500px; object-fit: cover;">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=85" alt="Design Strategy Meeting" style="width: 100%; display: block; height: 500px; object-fit: cover;">
                         </div>
                         <div style="margin-top: 40px;" class="animate-float">
-                            <img loading="lazy" decoding="async" src="/public/web-responsive-preview.webp" alt="Responsive design preview showing mobile and desktop screens" class="img-premium">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85" alt="Responsive design preview showing mobile and desktop screens" class="img-premium">
                         </div>
                     </div>
                     <div data-reveal class="stagger-2">
@@ -785,7 +798,7 @@
                     </div>
                     <div data-reveal class="stagger-2">
                         <div class="img-premium">
-                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=900&q=80" alt="Platform Dashboard Preview" style="width: 100%; display: block; height: 400px; object-fit: cover;">
+                            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=85" alt="Platform Dashboard Preview" style="width: 100%; display: block; height: 400px; object-fit: cover;">
                         </div>
                     </div>
                 </div>
@@ -805,7 +818,7 @@
                         </div>
                         <div data-reveal class="stagger-2">
                             <div class="img-premium">
-                                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=900&q=80" alt="Project Showcase Visual" style="width: 100%; display: block; filter: saturate(1.2) brightness(1.1); height: 400px; object-fit: cover;">
+                                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=1200&q=85" alt="Project Showcase Visual" style="width: 100%; display: block; filter: saturate(1.2) brightness(1.1); height: 400px; object-fit: cover;">
                             </div>
                         </div>
                     </div>
@@ -1056,6 +1069,13 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 

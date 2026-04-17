@@ -1,0 +1,91 @@
+version: '3.8'
+
+services:
+  # MongoDB database
+  mongo:
+    image: mongo:latest
+    container_name: mkshopzone-mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok'
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend FastAPI service
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mkshopzone-backend
+    ports:
+      - "8000:8000"
+    environment:
+      # Database
+      MONGO_URI: mongodb://root:rootpassword@mongo:27017
+      MONGO_DB: mkshopzone_ai
+
+      # AI Provider (use Ollama for local dev)
+      PREFERRED_AI_PROVIDER: ollama
+      OLLAMA_BASE_URL: http://ollama:11434
+
+      # Email (disable for local dev)
+      LOG_LEVEL: INFO
+
+      # Security
+      ADMIN_SECRET_KEY: dev-secret-change-in-production
+      ALLOWED_ORIGINS: http://localhost:5173,http://localhost:3001
+
+      # Scheduler
+      SCHEDULER_HOUR: 9
+      SCHEDULER_MINUTE: 0
+    depends_on:
+      mongo:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - ./logs:/app/logs
+    command: python run.py
+    healthcheck:
+      test: curl -f http://localhost:8000/api/v1/health || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Optional: Ollama for local LLM (uncomment if using local AI)
+  # ollama:
+  #   image: ollama/ollama:latest
+  #   container_name: mkshopzone-ollama
+  #   ports:
+  #     - "11434:11434"
+  #   volumes:
+  #     - ollama_data:/root/.ollama
+  #   command: serve
+
+  # Frontend service (optional)
+  frontend:
+    image: node:18-slim
+    container_name: mkshopzone-frontend
+    ports:
+      - "5173:5173"
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "npm install && npm run dev"
+    environment:
+      VITE_API_URL: http://localhost:8000
+
+volumes:
+  mongo_data:
+  # ollama_data:
+
+networks:
+  default:
+    name: mkshopzone-network

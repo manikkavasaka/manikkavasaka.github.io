@@ -34,3 +34,6 @@ apscheduler==3.10.4   # Cron-style background jobs
 
 # ── Utilities ────────────────────────────────────────────
 python-multipart==0.0.9
+
+# ── Rate Limiting ────────────────────────────────────────
+slowapi==0.1.9         # FastAPI rate limiting

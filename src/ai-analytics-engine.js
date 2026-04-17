@@ -364,7 +364,7 @@ class AIAnalyticsEngine {
             let score = 0;
 
             // Check visited pages
-            if (behaviorData.pagesVisited) {
+            if (Array.isArray(behaviorData.pagesVisited) && behaviorData.pagesVisited.length > 0) {
                 data.pages.forEach(page => {
                     if (behaviorData.pagesVisited.some(p => p.includes(page))) {
                         score += 30;

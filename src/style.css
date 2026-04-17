@@ -1,4 +1,4 @@
-/* 
+﻿/* 
   MK SHOPZONE - ELITE AGENCY DESIGN SYSTEM v6.0
   Premium Digital Marketing Excellence
   Colors: #ff8c00 (Primary), #050505 (Deep Black), #d4af37 (Gold Accents)
@@ -439,6 +439,24 @@ p {
     color: var(--primary);
 }
 
+/* INDUSTRY GRID - Alignment Fixed */
+.industry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+    align-items: stretch;
+}
+
+.industry-card {
+    height: 100%;
+    justify-content: center;
+}
+
+.industry-card > div {
+    width: 100%;
+}
+
 /* 4.7 FAQ ACCORDION */
 .faq-container {
     display: flex;
@@ -532,6 +550,38 @@ p {
 .grid-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .grid-four { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
 
+/* BENEFITS GRID - Alignment Fixed */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 50px auto 60px;
+    max-width: 1200px;
+    align-items: stretch;
+}
+
+.benefits-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.benefits-card img {
+    height: 140px;
+    object-fit: cover;
+}
+
+.benefits-card > div {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.benefits-card p {
+    flex-grow: 1;
+}
+
+/* GRID UTILITIES - Fixed */
 @media (max-width: 1024px) {
     .grid-four { grid-template-columns: repeat(2, 1fr); }
     .grid-three { grid-template-columns: repeat(2, 1fr); }
@@ -660,9 +710,57 @@ p {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     padding-top: 100px;
     overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-title {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-subtitle {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-btns {
+    justify-content: center;
+}
+
+/* HERO VIDEO - Proper coverage */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* HERO OVERLAY - Proper z-index */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .hero-video {
@@ -737,12 +835,36 @@ p {
     margin-top: 3rem;
 }
 
-/* SERVICE CARDS GRID */
+/* SERVICE CARDS GRID - Alignment Fixed */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
     margin-top: 60px;
+    align-items: stretch;
+}
+
+.service-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.service-card > div {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.service-card p {
+    flex-grow: 1;
 }
 
 @media (max-width: 500px) {
@@ -845,7 +967,7 @@ p {
     }
 }
 
-/* NAVBAR */
+/* NAVBAR - Alignment Fixed */
 .navbar {
     position: fixed;
     top: 0;
@@ -854,6 +976,48 @@ p {
     padding: 25px 0;
     transition: var(--transition);
     background: transparent;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 24px;
+    }
+}
+
+/* LOGO - Proper alignment */
+.logo {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* NAV LINKS - Alignment */
+.nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.nav-links > a {
+    display: flex;
+    align-items: center;
+}
+
+/* NAV ACTIONS - Proper spacing */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
 }
 
 .navbar.scrolled {
@@ -1156,7 +1320,7 @@ select.form-input {
     transform: translateX(60px);
 }
 
-/* FOOTER */
+/* FOOTER - Alignment Fixed */
 .footer {
     background: var(--bg-deep);
     padding: 160px 0 80px;
@@ -1168,6 +1332,37 @@ select.form-input {
     grid-template-columns: repeat(4, 1fr);
     gap: 60px;
     margin-bottom: 80px;
+    align-items: start;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-brand {
+        align-items: center;
+    }
+
+    .footer h4::after {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
 }
 
 .footer h4 {
@@ -1396,6 +1591,94 @@ html, body {
     overflow-x: hidden;
 }
 
+/* IMAGE PLACEMENT - Universal Fixes */
+.service-card img,
+.benefits-card img,
+.industry-card {
+    width: 100%;
+}
+
+/* IMAGE CONTAINERS - Proper aspect ratios */
+.image-reveal {
+    position: relative;
+    width: 100%;
+}
+
+.image-reveal img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+}
+
+/* SECTION ALIGNMENT - Consistent spacing */
+.section {
+    position: relative;
+}
+
+.section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* SPLIT GRID - Consistent alignment */
+.split-grid {
+    align-items: center;
+}
+
+.split-grid.align-center {
+    align-items: center;
+}
+
+.split-grid .image-reveal,
+.split-grid .content-wrap {
+    width: 100%;
+}
+
+/* PILL CONTAINER - Proper wrapping */
+.pills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* CONTACT BADGE & LABEL - Proper display */
+.contact-badge {
+    display: block;
+    width: fit-content;
+}
+
+/* DISPLAY-1 CLASS - Hero text */
+.display-1 {
+    line-height: 1.1;
+    word-wrap: break-word;
+}
+
+/* GRADIENT TEXT - Proper clipping */
+.gradient-text {
+    display: inline-block;
+}
+
+/* GLASS CARD - Consistent heights */
+.glass-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* STATS - Center alignment */
+.stats-grid {
+    align-items: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* FORM ANIMATIONS */
 @keyframes spin {
     to { transform: rotate(360deg); }
@@ -1452,4 +1735,468 @@ html, body {
 /* Fix for Safari Mobile viewport height */
 .hero {
     min-height: -webkit-fill-available;
+}
+
+/* ============================================================
+   MISSING COMPONENT & UTILITY CLASSES
+   ============================================================ */
+
+/* Container width variant */
+.container-max {
+    max-width: 1200px;
+}
+
+/* Hero heading display class */
+.display-1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+/* Hamburger — hidden on desktop, shown via media query */
+.hamburger {
+    display: none;
+}
+
+/* Spacing utilities (Tailwind-style) */
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-5 { margin-top: 1.5rem; }
+.mt-6 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+
+/* Align-center grid modifier */
+.align-center {
+    align-items: center;
+}
+
+/* Content wrapper column */
+.content-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Animated border box base */
+.animated-border-box {
+    position: relative;
+}
+
+/* ── Hero Section Components ─────────────────────────────── */
+
+/* Hero content — centered text, above overlay */
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+/* Prevent hero overlay from blocking pointer events */
+.hero-overlay {
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Hero badge pill */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 140, 0, 0.15);
+    padding: 8px 18px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 140, 0, 0.3);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.hero-badge span {
+    color: var(--primary);
+}
+
+/* Hero title */
+.hero-title {
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+/* Hero subtitle / lead */
+.hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Smart inquiry search bar */
+.smart-inquiry-box {
+    margin-top: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.inquiry-icon {
+    padding: 0 20px;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.smart-inquiry-box input {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding: 15px 10px;
+    outline: none;
+    font-size: 1rem;
+    font-family: 'Outfit', sans-serif;
+}
+
+.smart-inquiry-box input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.smart-inquiry-box button {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.smart-inquiry-box button:hover {
+    background: var(--primary-dark);
+    transform: scale(1.03);
+}
+
+/* ── Floating Stat Cards (SEO Section) ───────────────────── */
+
+.floating-card {
+    z-index: 5;
+    transition: var(--transition);
+}
+
+/* ── Contact / Audit Card ────────────────────────────────── */
+
+.unified-audit-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.audit-branding {
+    display: flex;
+    flex-direction: column;
+}
+
+.audit-form-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.contact-item svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    stroke: var(--primary);
+}
+
+.contact-item span {
+    color: var(--text-muted);
+}
+
+.footer-links h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* ── Partnership Section Experience Badge ────────────────── */
+
+.experience-badge {
+    position: absolute;
+    top: 40px;
+    right: -20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 140, 0, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 5;
+}
+
+.experience-badge > div:first-child {
+    font-size: 2.5rem;
+    color: var(--primary);
+    font-weight: 900;
+    line-height: 1;
+}
+
+.experience-badge > div:first-child span {
+    font-size: 1.5rem;
+}
+
+.experience-badge > div:last-child {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* ── Web Guide Score Badge ───────────────────────────────── */
+
+.score-badge-wrap {
+    overflow: visible;
+}
+
+.score-badge {
+    z-index: 5;
+}
+
+/* ============================================================
+   RESPONSIVE OVERFLOW & MOBILE FIXES
+   ============================================================ */
+
+@media (max-width: 1100px) {
+    /* Pull floating stats inside viewport */
+    .floating-card[style*="left: -20px"],
+    .floating-card[style*="left:-20px"] {
+        left: 10px !important;
+    }
+
+    .floating-card[style*="right: -20px"],
+    .floating-card[style*="right:-20px"] {
+        right: 10px !important;
+    }
+
+    /* Keep experience badge inside viewport */
+    .experience-badge {
+        right: 10px;
+    }
+
+    /* Keep score badge inside viewport */
+    .score-badge {
+        right: 10px !important;
+        bottom: 10px !important;
+    }
+}
+
+/* FLOATING ELEMENTS - Overflow Prevention */
+.floating-card {
+    max-width: calc(100% - 40px);
+}
+
+/* CONTACT/AUDIT FORM - Alignment Fixed */
+.unified-audit-card {
+    padding: 60px;
+}
+
+.unified-audit-card .split-grid {
+    align-items: flex-start;
+}
+
+.audit-branding {
+    max-width: 100%;
+}
+
+.audit-form-col {
+    max-width: 100%;
+}
+
+#contactForm {
+    width: 100%;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-input {
+    width: 100%;
+}
+
+/* FORM LOADER & SUCCESS - Centered */
+#auditLoader,
+#auditSuccess {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    /* Audit card — stack columns vertically */
+    .unified-audit-card {
+        padding: 30px 20px;
+    }
+
+    .unified-audit-card .split-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+
+    /* Smart inquiry full width */
+    .smart-inquiry-box {
+        max-width: 100% !important;
+        margin-top: 40px !important;
+    }
+
+    /* SEO section — remove padding that creates overflow */
+    .image-reveal[style*="padding: 40px"],
+    .image-reveal[style*="padding:40px"] {
+        padding: 0 !important;
+    }
+
+    /* Hide floating stat cards to prevent overflow */
+    .floating-card {
+        display: none !important;
+    }
+
+    /* Experience badge in-flow on mobile */
+    .experience-badge {
+        position: relative;
+        right: auto;
+        top: auto;
+        margin-top: 20px;
+        width: fit-content;
+    }
+
+    /* Score badge in-flow on mobile */
+    .score-badge {
+        position: relative !important;
+        bottom: auto !important;
+        right: auto !important;
+        margin-top: 20px;
+        display: inline-block;
+        width: 160px;
+    }
+
+    /* Hero buttons stack on mobile */
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    /* Hero badge wraps gracefully */
+    .hero-badge {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Stats grid 2-column on tablet */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .unified-audit-card {
+        padding: 24px 16px;
+        border-radius: var(--radius-md);
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 9vw, 3rem);
+    }
+}
+/* ─── Global Image Consistency Layer ─── */
+.img-premium {
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), box-shadow 0.6s ease;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+.img-premium:hover {
+    transform: scale(1.03) translateY(-4px);
+    box-shadow: 0 30px 80px rgba(255,140,0,0.2);
+}
+.img-frame {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255,140,0,0.15);
+}
+.img-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,140,0,0.05) 0%, transparent 60%);
+    pointer-events: none;
 }

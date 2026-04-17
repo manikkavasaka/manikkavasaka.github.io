@@ -11,24 +11,38 @@ FastAPI backend powering:
 """
 
 import os
+import logging
+import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
 from fastapi import FastAPI, BackgroundTasks, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.exceptions import RequestValidationError
 from datetime import datetime, timedelta
-from typing import List, Optional
+from typing import List, Optional, Any, Dict
 
 # ── Local imports ─────────────────────────────────────────────────────────────
 from .models        import SessionTelemetry, LeadCapture, LeadUpdate, BehavioralEvent
 from .ai_engine     import AIEngine
 from .automations import AutomationService
 from .db_manager import (
-    connect_db, close_db, save_session, get_session, 
+    connect_db, close_db, save_session, get_session,
     save_lead, get_lead, get_all_leads, update_lead_status,
-    get_all_sessions, get_dashboard_metrics, get_lead_count
+    get_all_sessions, get_dashboard_metrics, get_lead_count, create_indexes
 )
+from .logging_config import setup_logging, get_logger, RequestLogger
+from .exceptions import (
+    APIException, ResourceNotFoundException, ValidationException,
+    ExternalServiceException, DatabaseException
+)
+from .schemas import (
+    SuccessResponse, ErrorResponse, ErrorDetail, PaginatedResponse,
+    HealthResponse, LeadResponse, SessionResponse, PersonalizationResponse,
+    AnalyticsResponse, PaginationMetadata
+)
+from .rate_limiting import limiter, rate_limit_exceeded_handler, RATE_LIMITS
 
 # ── APScheduler (optional) ────────────────────────────────────────────────────
 try:
@@ -53,11 +67,15 @@ except ImportError:
 
 async def _daily_followup_job():
     """Runs every day at 09:00 IST — sends nurture messages to pending leads."""
-    print("⏰  Daily follow-up job triggered")
+    logger = get_logger(__name__)
+    logger.info("Daily follow-up job triggered")
+
     try:
         leads, total = await get_all_leads(limit=500, status="new")
         leads_fu, _ = await get_all_leads(limit=500, status="followed_up")
         all_active = leads + leads_fu
+
+        logger.info(f"Processing {len(all_active)} active leads", extra={"extra_fields": {"lead_count": len(all_active)}})
 
         for lead in all_active:
             # Respect 24-hour throttle
@@ -71,7 +89,7 @@ async def _daily_followup_job():
                     pass
 
             count = lead.get("followup_count", 0)
-            name  = lead.get("name", "Friend").split()[0]
+            name = lead.get("name", "Friend").split()[0]
             intent = lead.get("intent", "General")
             phone = lead.get("phone", "")
             email = lead.get("email", "")
@@ -86,7 +104,18 @@ async def _daily_followup_job():
             else:
                 variant = "generic"
 
-            print(f"  → Sending day-{count+1} follow-up to {name} [{intent}]")
+            logger.info(
+                f"Sending day-{count+1} follow-up",
+                extra={
+                    "extra_fields": {
+                        "lead_name": name,
+                        "intent": intent,
+                        "day": count + 1,
+                        "variant": variant,
+                    }
+                },
+            )
+
             await AutomationService.send_whatsapp(phone, name, intent)
             await AutomationService.send_email(email, name, intent)
 
@@ -97,10 +126,10 @@ async def _daily_followup_job():
                 f"Follow-up #{count+1} sent at {datetime.utcnow().isoformat()}"
             )
 
-        print(f"✅  Daily job done. Processed {len(all_active)} leads.")
+        logger.info(f"Daily job completed successfully", extra={"extra_fields": {"processed": len(all_active)}})
 
     except Exception as exc:
-        print(f"❌  Daily follow-up error: {exc}")
+        logger.error(f"Daily follow-up job failed: {str(exc)}", exc_info=True)
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -110,8 +139,18 @@ async def _daily_followup_job():
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # ── Start-up ──────────────────────────────────────────────────────────────
-    await connect_db()
+    # Initialize logging
+    setup_logging()
+    logger = get_logger(__name__)
 
+    # Connect to database
+    await connect_db()
+    logger.info("Database connected")
+
+    # Create database indexes (TTL, unique constraints, etc.)
+    await create_indexes()
+
+    # Initialize scheduler
     if _SCHEDULER_AVAILABLE and _scheduler:
         _scheduler.add_job(
             _daily_followup_job,
@@ -121,16 +160,19 @@ async def lifespan(app: FastAPI):
             replace_existing=True
         )
         _scheduler.start()
-        print("⏰  APScheduler started — daily follow-up at 09:00 IST")
+        logger.info("APScheduler started", extra={"extra_fields": {"schedule": "09:00 IST"}})
     else:
-        print("⚠️   APScheduler not installed.  pip install apscheduler")
+        logger.warning("APScheduler not available - daily follow-up jobs disabled")
 
     yield
 
     # ── Shutdown ──────────────────────────────────────────────────────────────
     if _SCHEDULER_AVAILABLE and _scheduler and _scheduler.running:
         _scheduler.shutdown()
+        logger.info("APScheduler shutdown")
+
     await close_db()
+    logger.info("Database connection closed")
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -144,13 +186,149 @@ app = FastAPI(
     lifespan    = lifespan,
 )
 
+# ── Middleware ───────────────────────────────────────────────────────────────
+
+# CORS Configuration: Use environment whitelist instead of "*" (CRITICAL SECURITY FIX)
+from .config import settings
+
+# Parse CORS origins from environment
+cors_origins = settings.get_cors_origins()
+
+# Validate: reject if contains "*"
+if "*" in cors_origins:
+    logger = get_logger(__name__)
+    logger.error("CORS configuration error: wildcard '*' not allowed. Set ALLOWED_ORIGINS to specific domains.")
+    raise ValueError("CORS: wildcard '*' not allowed for security.")
+
+logger = get_logger(__name__)
+logger.info(f"CORS enabled for origins: {cors_origins}", extra={"extra_fields": {"origins": cors_origins}})
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins  = ["*"],
-    allow_methods  = ["*"],
-    allow_headers  = ["*"],
+    allow_origins  = cors_origins,
+    allow_methods  = ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers  = ["Content-Type", "Authorization", "X-Request-ID"],
     allow_credentials = True,
+    max_age = 3600,  # Cache CORS preflight for 1 hour
 )
+
+
+@app.middleware("http")
+async def add_correlation_id_middleware(request: Request, call_next):
+    """Add correlation ID to all requests for tracing."""
+    request_id = request.headers.get("X-Request-ID", str(uuid.uuid4()))
+    request.state.request_id = request_id
+
+    logger = get_logger(__name__)
+    logger.info(
+        f"{request.method} {request.url.path}",
+        extra={"extra_fields": {"request_id": request_id, "method": request.method}}
+    )
+
+    response = await call_next(request)
+    response.headers["X-Request-ID"] = request_id
+    return response
+
+
+@app.exception_handler(APIException)
+async def api_exception_handler(request: Request, exc: APIException):
+    """Handle custom API exceptions."""
+    request_id = getattr(request.state, "request_id", None)
+    logger = get_logger(__name__)
+
+    logger.error(
+        f"API Error: {exc.error_code}",
+        extra={
+            "extra_fields": {
+                "request_id": request_id,
+                "error_code": exc.error_code,
+                "status_code": exc.status_code,
+            }
+        },
+    )
+
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={
+            "success": False,
+            "error": {
+                "code": exc.error_code,
+                "message": exc.message,
+                "details": exc.details,
+            },
+            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "request_id": request_id,
+        },
+    )
+
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    """Handle Pydantic validation errors."""
+    request_id = getattr(request.state, "request_id", None)
+    logger = get_logger(__name__)
+
+    errors = [
+        {"field": str(error["loc"][-1]), "message": error["msg"]}
+        for error in exc.errors()
+    ]
+
+    logger.warning(
+        "Validation error",
+        extra={
+            "extra_fields": {
+                "request_id": request_id,
+                "error_count": len(errors),
+            }
+        },
+    )
+
+    return JSONResponse(
+        status_code=422,
+        content={
+            "success": False,
+            "error": {
+                "code": "VALIDATION_ERROR",
+                "message": "Request validation failed",
+                "details": {"errors": errors},
+            },
+            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "request_id": request_id,
+        },
+    )
+
+
+@app.exception_handler(Exception)
+async def generic_exception_handler(request: Request, exc: Exception):
+    """Handle unhandled exceptions."""
+    request_id = getattr(request.state, "request_id", None)
+    logger = get_logger(__name__)
+
+    logger.error(
+        f"Unhandled exception: {str(exc)}",
+        exc_info=True,
+        extra={"extra_fields": {"request_id": request_id}},
+    )
+
+    return JSONResponse(
+        status_code=500,
+        content={
+            "success": False,
+            "error": {
+                "code": "INTERNAL_ERROR",
+                "message": "An internal server error occurred",
+                "details": {} if os.getenv("ENV") == "production" else {"error": str(exc)},
+            },
+            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "request_id": request_id,
+        },
+    )
+
+
+# ── Rate Limiting (CRITICAL SECURITY LAYER) ──────────────────────────────────
+from slowapi.errors import RateLimitExceeded
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, rate_limit_exceeded_handler)
 
 # ── Admin Dashboard ───────────────────────────────────────────────────────────
 _DASHBOARD_HTML = Path(__file__).parent / "dashboard.html"
@@ -167,41 +345,69 @@ async def admin_panel():
 # HEALTH & DIAGNOSTICS
 # ═══════════════════════════════════════════════════════════════════════════════
 
-@app.get("/", tags=["Health"])
-async def root():
-    total_leads    = await get_lead_count()
-    total_sessions = len(await get_all_sessions())
-    return {
-        "status":    "operational",
-        "engine":    "AI-Kinetic Growth v4.0",
-        "timestamp": datetime.utcnow().isoformat(),
-        "stats": {
-            "sessions": total_sessions,
-            "leads":    total_leads,
-            "conversion_rate": f"{(total_leads / max(total_sessions, 1) * 100):.2f}%"
-        },
-        "services": {
-            "scheduler": "active" if (_SCHEDULER_AVAILABLE and _scheduler and _scheduler.running) else "inactive",
-            "database":  "mongodb" if os.getenv("MONGO_URI") else "in-memory",
-            "whatsapp":  "active" if os.getenv("TWILIO_ACCOUNT_SID") else "log-only",
-            "email":     "sendgrid" if os.getenv("SENDGRID_API_KEY") else ("smtp" if os.getenv("SMTP_SERVER") else "log-only"),
-        }
-    }
+@app.get("/", tags=["Health"], response_model=SuccessResponse[HealthResponse])
+async def root() -> SuccessResponse[HealthResponse]:
+    """Health check endpoint with system status and statistics."""
+    logger = get_logger(__name__)
+
+    try:
+        total_leads = await get_lead_count()
+        total_sessions = len(await get_all_sessions())
+
+        health_data = HealthResponse(
+            status="operational",
+            engine="AI-Kinetic Growth v4.0",
+            timestamp=datetime.utcnow(),
+            stats={
+                "sessions": total_sessions,
+                "leads": total_leads,
+                "conversion_rate": f"{(total_leads / max(total_sessions, 1) * 100):.2f}%"
+            },
+            services={
+                "scheduler": "active" if (_SCHEDULER_AVAILABLE and _scheduler and _scheduler.running) else "inactive",
+                "database": "mongodb" if os.getenv("MONGO_URI") else "in-memory",
+                "whatsapp": "active" if os.getenv("TWILIO_ACCOUNT_SID") else "log-only",
+                "email": "sendgrid" if os.getenv("SENDGRID_API_KEY") else ("smtp" if os.getenv("SMTP_SERVER") else "log-only"),
+            }
+        )
+
+        logger.info("Health check passed")
+        return SuccessResponse(data=health_data, message="System operational")
+
+    except Exception as exc:
+        logger.error(f"Health check failed: {str(exc)}", exc_info=True)
+        raise ExternalServiceException("Health check failed", details={"error": str(exc)})
 
 
-@app.get("/api/v1/health", tags=["Health"])
-async def health():
-    total_leads    = await get_lead_count()
-    total_sessions = len(await get_all_sessions())
-    return {
-        "status":  "healthy",
-        "version": "4.0.0",
-        "metrics": {
-            "total_sessions": total_sessions,
-            "total_leads":    total_leads,
-            "conversion_rate": f"{(total_leads / max(total_sessions, 1) * 100):.2f}%"
-        }
-    }
+@app.get("/api/v1/health", tags=["Health"], response_model=SuccessResponse[HealthResponse])
+async def health() -> SuccessResponse[HealthResponse]:
+    """API v1 health check endpoint."""
+    logger = get_logger(__name__)
+
+    try:
+        total_leads = await get_lead_count()
+        total_sessions = len(await get_all_sessions())
+
+        health_data = HealthResponse(
+            status="healthy",
+            engine="AI-Kinetic Growth v4.0",
+            timestamp=datetime.utcnow(),
+            stats={
+                "total_sessions": total_sessions,
+                "total_leads": total_leads,
+                "conversion_rate": f"{(total_leads / max(total_sessions, 1) * 100):.2f}%"
+            },
+            services={
+                "scheduler": "active" if (_SCHEDULER_AVAILABLE and _scheduler and _scheduler.running) else "inactive",
+                "database": "mongodb" if os.getenv("MONGO_URI") else "in-memory",
+            }
+        )
+
+        return SuccessResponse(data=health_data)
+
+    except Exception as exc:
+        logger.error(f"Health check failed: {str(exc)}", exc_info=True)
+        raise
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -209,7 +415,8 @@ async def health():
 # ═══════════════════════════════════════════════════════════════════════════════
 
 @app.post("/api/v1/track", tags=["Tracking"])
-async def track_behavior(telemetry: SessionTelemetry):
+@limiter.limit(RATE_LIMITS["tracking"])  # Rate limit: 100 requests/min per IP
+async def track_behavior(request: Request, telemetry: SessionTelemetry):
     """
     Ingest real-time session telemetry from the frontend tracker.
     Returns AI-personalized content and lead-capture trigger signal.
@@ -255,7 +462,8 @@ async def track_behavior(telemetry: SessionTelemetry):
 
 
 @app.post("/api/v1/track/event", tags=["Tracking"])
-async def track_single_event(event: BehavioralEvent, session_id: str = Query(...)):
+@limiter.limit(RATE_LIMITS["tracking"])  # Rate limit: 100 requests/min per IP
+async def track_single_event(request: Request, event: BehavioralEvent, session_id: str = Query(...)):
     """Track a single user event against an existing session."""
     try:
         session = await get_session(session_id)
@@ -331,7 +539,8 @@ async def get_personalization(session_id: str = Query(...)):
 
 @app.post("/lead", tags=["Leads"])
 @app.post("/api/v1/leads", tags=["Leads"])
-async def capture_lead(lead: LeadCapture, background_tasks: BackgroundTasks):
+@limiter.limit(RATE_LIMITS["lead_capture"])  # Rate limit: 5 leads/min per IP
+async def capture_lead(request: Request, lead: LeadCapture, background_tasks: BackgroundTasks):
     """
     Capture and qualify a new lead.
     Enriches with session data, scores with AI, then fires automation sequence.
@@ -505,7 +714,8 @@ async def bulk_campaign(
 # ═══════════════════════════════════════════════════════════════════════════════
 
 @app.post("/api/v1/chatbot/lead", tags=["Chatbot"])
-async def chatbot_lead(data: dict, background_tasks: BackgroundTasks):
+@limiter.limit(RATE_LIMITS["chatbot"])
+async def chatbot_lead(request: Request, data: dict, background_tasks: BackgroundTasks):
     """
     Receives leads captured by the frontend AI chatbot.
     Accepts partial data; enriches and fires automation.

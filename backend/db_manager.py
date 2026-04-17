@@ -4,79 +4,156 @@ Used by main.py for all persistent storage operations.
 """
 
 import os
+import logging
 
 from datetime import datetime
-from typing import Optional, List, Dict, Any
+from typing import Optional, List, Dict, Any, Tuple
 from dotenv import load_dotenv
 
 load_dotenv()
 
-MONGO_URI = os.getenv("MONGO_URI", "")
-DB_NAME   = os.getenv("MONGO_DB", "mkshopzone_ai")
+MONGO_URI: str = os.getenv("MONGO_URI", "")
+DB_NAME: str = os.getenv("MONGO_DB", "mkshopzone_ai")
 
 # ── Try to import Motor (async MongoDB driver) ────────────────────────────────
 try:
     from motor.motor_asyncio import AsyncIOMotorClient
-    _MOTOR_AVAILABLE = True
+    _MOTOR_AVAILABLE: bool = True
 except ImportError:
     _MOTOR_AVAILABLE = False
 
 _client: Optional[Any] = None
-_db: Optional[Any]     = None
+_db: Optional[Any] = None
 
 # ── In-memory fallback stores ─────────────────────────────────────────────────
-_mem_sessions: Dict[str, Any] = {}
-_mem_leads:    List[Any]      = []
-_mem_followups: List[Any]     = []
+_mem_sessions: Dict[str, Dict[str, Any]] = {}
+_mem_leads: List[Dict[str, Any]] = []
+_mem_followups: List[Dict[str, Any]] = []
+
+logger = logging.getLogger(__name__)
 
 
-async def log_communication(lead_id: str, channel: str, status: str, details: str):
-    """Logs an automated communication attempt (WhatsApp/SMS/Email)"""
-    log_data = {
+async def log_communication(
+    lead_id: str, channel: str, status: str, details: str
+) -> None:
+    """
+    Log an automated communication attempt (WhatsApp/SMS/Email).
+
+    Args:
+        lead_id: Lead identifier
+        channel: Communication channel (whatsapp, sms, email)
+        status: Send status (success, failed, pending)
+        details: Additional details
+    """
+    log_data: Dict[str, Any] = {
         "leadId": lead_id,
         "channel": channel,
         "status": status,
         "details": details,
-        "timestamp": datetime.utcnow()
+        "timestamp": datetime.utcnow(),
     }
     if _use_mongo() and _db is not None:
         await _db["communication_logs"].insert_one(log_data)
     else:
         _mem_followups.append(log_data)
-    print(f"[LOG] {channel.upper()} for Lead {lead_id}: {status}")
 
+    logger.info(
+        f"{channel.upper()} for Lead {lead_id}: {status}",
+        extra={"extra_fields": {"lead_id": lead_id, "channel": channel, "status": status}},
+    )
 
 
 def _use_mongo() -> bool:
-
+    """Check if MongoDB is available and configured."""
     return _MOTOR_AVAILABLE and bool(MONGO_URI)
 
-async def get_db():
+
+async def get_db() -> Optional[Any]:
+    """Get the database instance."""
     return _db
 
 
-
-async def connect_db():
-    """Call on FastAPI startup."""
+async def connect_db() -> None:
+    """Initialize database connection on FastAPI startup."""
     global _client, _db
 
     if _use_mongo():
-        _client = AsyncIOMotorClient(MONGO_URI)
+        _client = AsyncIOMotorClient(
+            MONGO_URI,
+            maxPoolSize=50,          # Max connections in pool
+            minPoolSize=10,          # Min connections to maintain
+            maxIdleTimeMS=45000,     # Close idle connections after 45s
+            serverSelectionTimeoutMS=5000,  # Timeout for server selection
+        )
         _db = _client[DB_NAME]
-        print("✅ MongoDB connected:", DB_NAME)
+        logger.info(
+            "MongoDB connected with connection pooling",
+            extra={
+                "extra_fields": {
+                    "database": DB_NAME,
+                    "max_pool_size": 50,
+                    "min_pool_size": 10,
+                }
+            },
+        )
     else:
-        print("⚠️  MongoDB not configured — using in-memory store (dev mode).")
+        logger.warning("MongoDB not configured — using in-memory store (dev mode)")
 
 
-async def close_db():
-    """Call on FastAPI shutdown."""
+async def close_db() -> None:
+    """Close database connection on FastAPI shutdown."""
     if _client:
         _client.close()
+        logger.info("Database connection closed")
+
+
+async def create_indexes() -> None:
+    """Create all necessary database indexes and TTL policies."""
+    if not _use_mongo() or _db is None:
+        logger.info("Skipping index creation (not using MongoDB)")
+        return
+
+    try:
+        # SESSIONS Collection indexes
+        await _db["sessions"].create_index("sessionId", unique=True)
+        await _db["sessions"].create_index(
+            "createdAt", expireAfterSeconds=2592000  # 30 days TTL
+        )
+
+        # LEADS Collection indexes
+        await _db["leads"].create_index("email", unique=True, sparse=True)
+        await _db["leads"].create_index("phone", sparse=True)
+        await _db["leads"].create_index("status")
+        await _db["leads"].create_index("intent")
+        await _db["leads"].create_index([("status", 1), ("intent", 1)])
+        await _db["leads"].create_index("createdAt", direction=-1)
+        await _db["leads"].create_index(
+            "createdAt", expireAfterSeconds=7776000  # 90 days TTL
+        )
+
+        # COMMUNICATION_LOGS Collection indexes
+        await _db["communication_logs"].create_index("leadId")
+        await _db["communication_logs"].create_index("timestamp")
+        await _db["communication_logs"].create_index([
+            ("leadId", 1),
+            ("timestamp", -1)
+        ])
+        await _db["communication_logs"].create_index(
+            "timestamp", expireAfterSeconds=15552000  # 180 days TTL
+        )
+
+        logger.info("Database indexes created successfully")
+    except Exception as e:
+        logger.warning(
+            f"Error creating indexes (may already exist): {str(e)}",
+            extra={"extra_fields": {"error": str(e)}}
+        )
 
 
 # ── Session helpers ───────────────────────────────────────────────────────────
 
-async def save_session(session_id: str, data: dict):
+async def save_session(session_id: str, data: Dict[str, Any]) -> None:
+    """Save or update a session."""
     if _use_mongo():
         await _db["sessions"].update_one(
             {"sessionId": session_id},
@@ -87,14 +164,16 @@ async def save_session(session_id: str, data: dict):
         _mem_sessions[session_id] = {**data, "updatedAt": datetime.utcnow()}
 
 
-async def get_session(session_id: str) -> Optional[dict]:
+async def get_session(session_id: str) -> Optional[Dict[str, Any]]:
+    """Get a session by ID."""
     if _use_mongo():
         doc = await _db["sessions"].find_one({"sessionId": session_id})
         return doc
     return _mem_sessions.get(session_id)
 
 
-async def get_all_sessions() -> List[dict]:
+async def get_all_sessions() -> List[Dict[str, Any]]:
+    """Get all sessions (max 500)."""
     if _use_mongo():
         cursor = _db["sessions"].find({}).limit(500)
         return await cursor.to_list(length=500)
@@ -103,7 +182,9 @@ async def get_all_sessions() -> List[dict]:
 
 # ── Lead helpers ──────────────────────────────────────────────────────────────
 
-async def save_lead(lead_data: dict) -> str:
+
+async def save_lead(lead_data: Dict[str, Any]) -> str:
+    """Save a new lead and return its ID."""
     if _use_mongo():
         result = await _db["leads"].insert_one({
             **lead_data,
@@ -116,7 +197,8 @@ async def save_lead(lead_data: dict) -> str:
         return str(lead_data["_id"])
 
 
-async def get_lead(lead_id: Any) -> Optional[dict]:
+async def get_lead(lead_id: str) -> Optional[Dict[str, Any]]:
+    """Get a lead by ID."""
     if _use_mongo():
         from bson import ObjectId
         try:
@@ -137,7 +219,7 @@ async def get_all_leads(
     limit: int = 50,
     status: Optional[str] = None,
     intent: Optional[str] = None
-) -> tuple[List[dict], int]:
+) -> Tuple[List[Dict[str, Any]], int]:
     """Returns (leads, total_count)"""
     if _use_mongo():
         query: Dict[str, Any] = {}
@@ -159,7 +241,10 @@ async def get_all_leads(
     return filtered[skip: skip + limit], len(filtered)
 
 
-async def update_lead_status(lead_id: Any, status: str, notes: str = ""):
+async def update_lead_status(
+    lead_id: str, status: str, notes: str = ""
+) -> None:
+    """Update lead status and notes."""
     if _use_mongo():
         from bson import ObjectId
         await _db["leads"].update_one(
@@ -174,6 +259,7 @@ async def update_lead_status(lead_id: Any, status: str, notes: str = ""):
 
 
 async def get_lead_count() -> int:
+    """Get total count of leads."""
     if _use_mongo():
         return await _db["leads"].count_documents({})
     return len(_mem_leads)
@@ -181,7 +267,8 @@ async def get_lead_count() -> int:
 
 # ── Dashboard analytics helpers ───────────────────────────────────────────────
 
-async def get_dashboard_metrics() -> dict:
+
+async def get_dashboard_metrics() -> Dict[str, Any]:
     if _use_mongo():
         pipeline_stage = [
             {"$group": {"_id": "$buyingStage", "count": {"$sum": 1}}}

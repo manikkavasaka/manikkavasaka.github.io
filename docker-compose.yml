@@ -1,0 +1,98 @@
+version: "3.9"
+
+services:
+  # MongoDB Service
+  mongodb:
+    image: mongo:latest
+    container_name: mkshopzone-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+      MONGO_INITDB_DATABASE: mkshopzone_ai
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - mongodb_config:/data/configdb
+    networks:
+      - mkshopzone-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # FastAPI Backend Service
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mkshopzone-backend
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    environment:
+      MONGO_URI: mongodb://root:rootpassword@mongodb:27017/mkshopzone_ai?authSource=admin
+      MONGO_DB: mkshopzone_ai
+      PREFERRED_AI_PROVIDER: openai
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-sk-test}
+      ALLOWED_ORIGINS: http://localhost:5173,http://localhost:3000
+      LOG_LEVEL: INFO
+      LOG_DIR: /app/logs
+      ADMIN_SECRET_KEY: dev-secret-change-in-production
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - backend_logs:/app/logs
+    networks:
+      - mkshopzone-network
+    healthcheck:
+      test: curl -f http://localhost:8000/api/v1/health || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    command: python run.py
+
+  # Frontend Service (Vite)
+  frontend:
+    image: node:18-slim
+    container_name: mkshopzone-frontend
+    working_dir: /app
+    environment:
+      VITE_API_URL: http://localhost:8000
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - mkshopzone-network
+    command: sh -c "npm install && npm run dev"
+
+  # Optional: Ollama for local LLM (commented out by default)
+  # ollama:
+  #   image: ollama/ollama:latest
+  #   container_name: mkshopzone-ollama
+  #   ports:
+  #     - "11434:11434"
+  #   volumes:
+  #     - ollama_data:/root/.ollama
+  #   networks:
+  #     - mkshopzone-network
+  #   environment:
+  #     OLLAMA_HOST: 0.0.0.0:11434
+  #   command: serve
+  #   # Run this command to pull a model:
+  #   # docker exec mkshopzone-ollama ollama pull codellama
+
+networks:
+  mkshopzone-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+  mongodb_config:
+  backend_logs:
+  # ollama_data:
