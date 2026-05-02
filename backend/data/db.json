@@ -9,6 +9,18 @@
   ],
   "leads": [
     {
+      "id": 23,
+      "name": "manikkam",
+      "email": "mkshopzone2@gmail.com",
+      "phone": "8754737192",
+      "business": "",
+      "budget": "",
+      "message": "New contact form submission",
+      "service": "Social Media Marketing",
+      "status": "new",
+      "created_at": "2026-05-02T08:13:28.191Z"
+    },
+    {
       "id": 22,
       "name": "MANIIKKA",
       "email": "mkshopzone2@gmail.com",

@@ -194,7 +194,7 @@ export default function Contact({ selectedService, onNotificationsSent }: Contac
                     </div>
                   </div>
                   <button type="submit"
-                    className="w-full group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-indigo-200 transition-all hover:shadow-indigo-300 hover:scale-[1.01]">
+                    className="w-full group btn-animate inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-indigo-200 transition-all hover:shadow-indigo-300">
                     Submit & Get Free Consultation
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </button>

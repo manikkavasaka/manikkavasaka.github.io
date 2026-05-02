@@ -58,14 +58,14 @@ export default function Hero({ onGetStarted, onExploreServices }: HeroProps) {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <button
                 onClick={onGetStarted}
-                className="group inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-8 py-4 text-base font-bold text-white shadow-xl shadow-indigo-500/30 hover:bg-indigo-500 hover:shadow-indigo-500/50 hover:scale-[1.02] transition-all"
+                className="group btn-animate inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-8 py-4 text-base font-bold text-white shadow-xl shadow-indigo-500/30 hover:bg-indigo-500 hover:shadow-indigo-500/50"
               >
                 Get Free Marketing Audit
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </button>
               <button
                 onClick={onExploreServices}
-                className="group inline-flex items-center gap-3 rounded-2xl border border-slate-600 bg-white/5 backdrop-blur-sm px-8 py-4 text-base font-semibold text-slate-200 hover:bg-white/10 hover:border-slate-500 transition-all"
+                className="group btn-animate inline-flex items-center gap-3 rounded-2xl border border-slate-600 bg-white/5 backdrop-blur-sm px-8 py-4 text-base font-semibold text-slate-200 hover:bg-white/10 hover:border-slate-500"
               >
                 <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition">
                   <Play className="h-4 w-4 ml-0.5" />

@@ -35,42 +35,41 @@ type ServiceConfig = {
 
 const services: Record<string, ServiceConfig> = {
   seo: {
-    title: 'SEO Optimization',
-    metaDescription: 'Rank #1 on Google with SEO services covering on-page, off-page, technical SEO, local SEO, e-commerce SEO, Core Web Vitals, schema markup, and monthly reporting.',
-    hero: 'Rank #1 on Google & Drive Organic Traffic',
-    subhero: 'On-page SEO, Off-page SEO, Technical SEO, Local SEO, and E-commerce SEO campaigns built for long-term organic growth.',
-    whatIsIt: 'SEO is the long-term growth engine that helps your business rank higher on Google, attract qualified traffic, and generate leads without paying for every click. We combine technical SEO, keyword strategy, content planning, local visibility, and authority building to improve rankings and revenue.',
+    title: 'SEO Optimization Services | Rank #1 on Google',
+    metaDescription: 'Boost your business with the best SEO agency. We provide expert SEO optimization, technical audits, backlink building, and local SEO services to drive organic traffic and revenue.',
+    hero: 'Rank #1 on Google & Drive Massive Organic Traffic',
+    subhero: 'Our expert SEO optimization services include technical audits, keyword research, on-page SEO, high-authority link building, and local SEO campaigns designed for long-term ROI.',
+    whatIsIt: 'SEO (Search Engine Optimization) is the most powerful long-term growth engine for any business. As a top-rated SEO agency, we help you dominate search results, attract qualified buyers, and reduce your dependence on paid ads. Our data-driven approach ensures your website ranks for high-intent keywords that actually lead to sales.',
     whatWeDo: [
-      'On-page SEO optimization',
-      'Off-page SEO and link building',
-      'Technical SEO fixes',
-      'Local SEO',
-      'E-commerce SEO',
-      'Core Web Vitals optimization',
-      'Schema markup setup',
-      'Competitor gap analysis',
-      'Content gap reporting',
-      'Google Business Profile optimization'
+      'Comprehensive Technical SEO Audit',
+      'Advanced Keyword Research & Mapping',
+      'On-page SEO & Content Optimization',
+      'High-Authority Backlink Building',
+      'Local SEO & Google Maps Ranking',
+      'E-commerce SEO for Shopify/WooCommerce',
+      'Core Web Vitals & Speed Optimization',
+      'Schema Markup & Rich Snippets',
+      'Competitor SEO Gap Analysis',
+      'Monthly Ranking & Traffic Reporting'
     ],
-    process: ['Site Audit', 'Keyword Research', 'On-page Fix', 'Link Building', 'Monthly Reporting'],
-    highlightsTitle: 'Tools used',
-    highlights: ['Ahrefs', 'SEMrush', 'Screaming Frog', 'Google Search Console', 'Moz'],
-    visualTitle: 'What you’ll see',
-    visualItems: ['Keyword opportunity map', 'Core Web Vitals fixes', 'Competitor gap report', 'Monthly SEO growth dashboard'],
-    resultStory: 'Organic traffic increased 3x in 6 months and the client achieved page 1 ranking for 50+ keywords after a structured SEO roadmap and technical cleanup.',
-    stats: [{ label: 'Organic traffic', value: '3x' }, { label: 'Page 1 keywords', value: '50+' }, { label: 'Lead growth', value: '+210%' }],
+    process: ['Site Audit', 'Keyword Strategy', 'Content Fixes', 'Authority Building', 'Performance Tracking'],
+    highlightsTitle: 'SEO Tools & Tech',
+    highlights: ['Ahrefs', 'SEMrush', 'Screaming Frog', 'Search Console', 'Google Analytics 4'],
+    visualTitle: 'Measurable SEO Deliverables',
+    visualItems: ['Keyword Opportunity Roadmap', 'Technical SEO Health Score', 'Backlink Profile Growth', 'Monthly Organic Lead Dashboard'],
+    resultStory: 'We helped a local client increase organic traffic by 350% and secure top 3 rankings for 25+ competitive keywords within just 6 months through technical cleanup and content authority.',
+    stats: [{ label: 'Traffic Growth', value: '350%' }, { label: 'Top 3 Keywords', value: '25+' }, { label: 'ROI Improvement', value: '4.5x' }],
     pricing: [
-      { name: 'Basic', price: '$999/mo', note: 'Foundational SEO + local visibility' },
-      { name: 'Growth', price: '$1,799/mo', note: 'Technical SEO + content + links' },
-      { name: 'Dominate', price: '$3,499/mo', note: 'Aggressive organic growth system' }
+      { name: 'Starter SEO', price: '₹15,000/mo', note: 'Perfect for small local businesses' },
+      { name: 'Growth SEO', price: '₹35,000/mo', note: 'Technical + content + link building' },
+      { name: 'Dominate SEO', price: '₹75,000/mo', note: 'Aggressive nationwide organic growth' }
     ],
     faq: [
-      { q: 'How long does SEO take to show results?', a: 'Usually 3–6 months for meaningful movement depending on competition, website health, and content velocity.' },
-      { q: 'Do you guarantee first page ranking?', a: 'No ethical agency can guarantee exact rankings. We guarantee execution quality, transparent reporting, and best-practice SEO work.' },
-      { q: 'What is included in monthly reporting?', a: 'Keyword movement, traffic, technical fixes completed, authority growth, content performance, and next-step actions.' },
-      { q: 'Will you work on our existing website?', a: 'Yes. We can optimize your current website, whether it is WordPress, Shopify, custom, or headless.' }
+      { q: 'How long does SEO take to show results?', a: 'SEO is a marathon, not a sprint. Most businesses see significant movement in 3–6 months, depending on competition and website health.' },
+      { q: 'Is Local SEO included?', a: 'Yes! Our Growth and Dominate packages include full Google Business Profile optimization and local citation building.' },
+      { q: 'Do you provide monthly reports?', a: 'Absolutely. We provide transparent dashboards showing keyword rankings, traffic growth, and conversion data.' }
     ],
-    cta: 'Get Free SEO Audit',
+    cta: 'Get Your Free SEO Audit',
     image: '/images/seo-service.jpg',
     accent: 'text-blue-600',
     bgAccent: 'bg-blue-50',
@@ -79,42 +78,41 @@ const services: Record<string, ServiceConfig> = {
     caseCategory: 'SEO'
   },
   'social-media': {
-    title: 'Social Media Marketing',
-    metaDescription: 'Grow followers, engagement, and brand love with Instagram, Facebook, LinkedIn, YouTube, X, Pinterest, and Threads content + strategy.',
-    hero: 'Build a Brand That People Love & Follow',
-    subhero: 'Instagram, Facebook, LinkedIn, YouTube, X, Pinterest, and Threads strategies with content creation, engagement, and analytics.',
-    whatIsIt: 'Social media marketing helps your brand earn attention, trust, and community. We create platform-specific content and manage publishing, engagement, storytelling, and reporting to grow reach, relevance, and conversions.',
+    title: 'Social Media Marketing Agency | Build Your Brand',
+    metaDescription: 'Scale your brand with expert social media marketing. We handle content creation, Instagram growth, Facebook ads, and LinkedIn marketing to build a community that converts.',
+    hero: 'Build a Viral Brand That Customers Trust & Follow',
+    subhero: 'Instagram reels, Facebook community building, LinkedIn thought leadership, and multi-platform content strategies that drive massive engagement.',
+    whatIsIt: 'Social Media Marketing is about more than just posting; it is about building a community. Our social media experts create platform-specific strategies that capture attention, build trust, and turn followers into loyal customers through storytelling and high-quality creative content.',
     whatWeDo: [
-      'Reels, posts, stories, and carousel content creation',
-      'Profile optimization',
-      'Community management & engagement',
-      'Hashtag research & strategy',
-      'Influencer collaboration',
-      'Monthly analytics reporting',
-      'Story and highlight design',
-      'Reel scripting & editing',
-      'Platform-specific strategy',
-      'Competitor benchmarking'
+      'Viral Reel & Video Creation',
+      'Professional Content Calendar Planning',
+      'Instagram & Facebook Management',
+      'LinkedIn Thought Leadership',
+      'Community Engagement & DM Handling',
+      'Influencer Outreach & Management',
+      'Social Media Ad Campaigns',
+      'Brand Voice & Aesthetic Design',
+      'Hashtag & SEO Strategy for Social',
+      'Detailed Monthly Analytics'
     ],
-    process: ['Strategy', 'Content Planning', 'Creative Production', 'Publishing', 'Community Management', 'Analytics'],
-    highlightsTitle: 'Platforms',
-    highlights: ['Instagram', 'Facebook', 'LinkedIn', 'YouTube', 'X (Twitter)', 'Pinterest', 'Threads'],
-    visualTitle: 'Show section',
-    visualItems: ['Before/after engagement stats', 'Sample content calendar', 'Sample reel and post designs', 'Monthly post approvals'],
-    resultStory: 'One client grew from 500 to 50,000 followers in 4 months while improving engagement rate from 1% to 8% using reels, content pillars, and audience-specific creative.',
-    stats: [{ label: 'Follower growth', value: '500 → 50K' }, { label: 'Engagement rate', value: '1% → 8%' }, { label: 'Content assets', value: '30+/mo' }],
+    process: ['Brand Audit', 'Content Strategy', 'Creative Production', 'Daily Management', 'Growth Review'],
+    highlightsTitle: 'Platforms We Master',
+    highlights: ['Instagram', 'Facebook', 'LinkedIn', 'YouTube', 'TikTok', 'Threads'],
+    visualTitle: 'Social Growth Assets',
+    visualItems: ['Monthly Content Calendar', 'Custom Reel Scripts', 'Engagement Heatmaps', 'Influencer Partnership Map'],
+    resultStory: 'Generated 2M+ organic impressions for a lifestyle brand and grew their Instagram following from 1K to 25K in less than 90 days using strategic reels and community pillars.',
+    stats: [{ label: 'Impression Growth', value: '2M+' }, { label: 'Follower Growth', value: '2400%' }, { label: 'Engagement Rate', value: '7.2%' }],
     pricing: [
-      { name: 'Starter', price: '$899/mo', note: '12 posts per month' },
-      { name: 'Growth', price: '$1,499/mo', note: '20 posts per month + reels' },
-      { name: 'Premium', price: '$2,499/mo', note: '30+ assets + multi-platform management' }
+      { name: 'Social Starter', price: '₹12,000/mo', note: '12 high-quality posts/month' },
+      { name: 'Social Growth', price: '₹28,000/mo', note: '20 posts + 8 reels + management' },
+      { name: 'Social Power', price: '₹55,000/mo', note: 'Multi-platform + viral reel strategy' }
     ],
     faq: [
-      { q: 'How many posts per month?', a: 'Depending on the package, we create 12, 20, or 30+ monthly content assets.' },
-      { q: 'Who creates the content?', a: 'Our in-house strategists, designers, editors, and copywriters handle the creative process.' },
-      { q: 'Can we approve before publishing?', a: 'Yes. We share a structured content calendar and approval workflow before scheduling.' },
-      { q: 'Do you manage comments and DMs?', a: 'Yes, community engagement and DM handling can be included based on your package.' }
+      { q: 'Do you create the content or do we?', a: 'We handle everything! Our team of designers and editors create all images, videos, and captions for your approval.' },
+      { q: 'How do you measure success?', a: 'We track reach, engagement rate, follower growth, and most importantly, click-throughs to your website.' },
+      { q: 'Can we approve posts before they go live?', a: 'Yes. We use a content calendar where you can review and approve all assets 1 week in advance.' }
     ],
-    cta: 'Get Free Social Media Audit',
+    cta: 'Get Free Social Audit',
     image: '/images/social-media.jpg',
     accent: 'text-pink-600',
     bgAccent: 'bg-pink-50',
@@ -123,43 +121,41 @@ const services: Record<string, ServiceConfig> = {
     caseCategory: 'Social'
   },
   ppc: {
-    title: 'Google Ads / PPC Management',
-    metaDescription: 'Drive measurable revenue through Search, Display, Shopping, YouTube, Remarketing, and Performance Max campaigns.',
-    hero: 'Turn Every Rupee Into Measurable Revenue',
-    subhero: 'Search Ads, Display Ads, Shopping Ads, YouTube Ads, Remarketing, and Performance Max campaigns with full-funnel reporting.',
-    whatIsIt: 'PPC is the fastest way to generate traffic and conversions when your targeting, ad copy, tracking, and landing pages are aligned. We build performance campaigns around ROI, not just clicks.',
+    title: 'Google Ads Management | High ROI PPC Agency',
+    metaDescription: 'Get instant leads with Google Ads and PPC management. We specialize in search ads, display, shopping, and remarketing to maximize your ROAS and lower CPL.',
+    hero: 'Turn Ad Spend Into Predictable Revenue Streams',
+    subhero: 'Expert Google Ads, Search Engine Marketing (SEM), and PPC management focused on high conversions, low CPC, and maximum ROAS.',
+    whatIsIt: 'Pay-Per-Click (PPC) advertising is the fastest way to get in front of customers ready to buy. We manage your Google Ads accounts with a focus on profitability, ensuring every rupee spent contributes to your bottom line through precise targeting and continuous optimization.',
     whatWeDo: [
-      'Keyword research & negative keyword setup',
-      'Ad copywriting & creative direction',
-      'Bid strategy & budget management',
-      'Landing page optimization',
-      'A/B split testing',
-      'Weekly & monthly reporting',
-      'Google Merchant Center setup',
-      'Google Tag Manager & conversion tracking',
-      'Competitor ad analysis',
-      'Call tracking integration',
-      'Custom Google Looker Studio dashboard'
+      'High-Intent Keyword Targeting',
+      'Compelling Ad Copywriting',
+      'Landing Page Design & Optimization',
+      'A/B Testing of Ads & Creatives',
+      'Google Shopping & E-commerce Ads',
+      'Remarketing & Retargeting Setup',
+      'Conversion Tracking & GA4 Integration',
+      'Bid Management & Budget Control',
+      'Competitor Ad Analysis',
+      'Performance Max (PMax) Campaigns'
     ],
-    process: ['Audit', 'Structure', 'Launch', 'Testing', 'Optimization', 'Reporting'],
-    highlightsTitle: 'Ad types',
-    highlights: ['Search Ads', 'Display Ads', 'Shopping Ads', 'YouTube Ads', 'Remarketing', 'Performance Max'],
-    visualTitle: 'Key metrics we track',
-    visualItems: ['CTR', 'CPC', 'CPL', 'ROAS', 'Conversion Rate', 'Impression Share', 'Quality Score'],
-    resultStory: 'Generated ₹2.5L revenue with ₹50K ad spend and reduced CPC by 40% in 3 months through better structure, landing page alignment, and negative keyword cleanup.',
-    stats: [{ label: 'Revenue', value: '₹2.5L' }, { label: 'Ad spend', value: '₹50K' }, { label: 'CPC reduction', value: '-40%' }],
+    process: ['Setup Audit', 'Campaign Structure', 'Creative Launch', 'Daily Optimization', 'Scaling'],
+    highlightsTitle: 'Ad Performance Tools',
+    highlights: ['Google Keyword Planner', 'Tag Manager', 'Looker Studio', 'Optmyzr', 'SpyFu'],
+    visualTitle: 'PPC Data Insights',
+    visualItems: ['Conversion Path Analysis', 'Cost Per Lead (CPL) Report', 'Ad Copy Performance Matrix', 'ROAS Growth Chart'],
+    resultStory: 'Achieved a 6x Return on Ad Spend (ROAS) for an e-commerce client while reducing their average Cost Per Click (CPC) by 45% through strict negative keyword management.',
+    stats: [{ label: 'ROAS Achieved', value: '6x' }, { label: 'CPC Reduction', value: '45%' }, { label: 'Lead Volume', value: '+180%' }],
     pricing: [
-      { name: 'Setup Fee', price: '$499 one-time', note: 'Tracking, structure, and launch setup' },
-      { name: 'Monthly Management', price: '$1,250/mo', note: 'Optimization + reporting + testing' },
-      { name: 'Scale Program', price: 'Custom', note: 'For higher spend / multi-campaign brands' }
+      { name: 'Ad Setup', price: '₹9,999 once', note: 'Tracking, structure & first launch' },
+      { name: 'Monthly Management', price: '₹15,000/mo', note: 'Daily optimization + reporting' },
+      { name: 'Performance Plan', price: '15% of spend', note: 'For ad budgets over ₹1L/month' }
     ],
     faq: [
-      { q: 'What is the minimum ad budget?', a: 'A practical test budget usually starts at $1,000–$2,000/month depending on your industry and goals.' },
-      { q: 'Who owns the ad account?', a: 'You own the ad account. We manage it with full transparency and reporting.' },
-      { q: 'How do you track conversions?', a: 'We use GA4, Google Tag Manager, form tracking, calls, and purchase/conversion events.' },
-      { q: 'Do you handle creatives too?', a: 'Yes. We support ad copy, creative direction, and creative testing recommendations.' }
+      { q: 'What is the minimum ad budget?', a: 'We recommend starting with at least ₹30,000/month to gather enough data for effective optimization.' },
+      { q: 'Who owns the ad account?', a: 'You do! We manage the account, but you have 100% ownership and access at all times.' },
+      { q: 'How soon will I get leads?', a: 'Google Ads can generate leads within the first 24-48 hours of your campaign going live.' }
     ],
-    cta: 'Get Free Ads Account Audit',
+    cta: 'Get Free Ads Audit',
     image: '/images/google-ads.jpg',
     accent: 'text-amber-600',
     bgAccent: 'bg-amber-50',
@@ -168,43 +164,41 @@ const services: Record<string, ServiceConfig> = {
     caseCategory: 'Google Ads'
   },
   'web-dev': {
-    title: 'Website Design & Development',
-    metaDescription: 'Build fast, mobile-first, SEO-ready websites, e-commerce stores, landing pages, booking websites, and custom web apps.',
-    hero: 'Websites That Look Great & Convert Visitors',
-    subhero: 'Business websites, e-commerce stores, landing pages, portfolio sites, booking systems, membership sites, and custom web apps.',
-    whatIsIt: 'A modern website is your digital sales engine. It should load fast, look great on mobile, rank on search, and convert visitors into leads or customers.',
+    title: 'Website Design & Development | High-Converting Sites',
+    metaDescription: 'Custom website design and development for businesses. We build fast, mobile-responsive, SEO-friendly websites using React, WordPress, and Shopify.',
+    hero: 'Websites That Look Stunning & Convert Like Magic',
+    subhero: 'From high-converting landing pages to complex e-commerce stores, we build digital experiences that drive sales and brand authority.',
+    whatIsIt: 'Your website is your 24/7 salesperson. We don’t just build "pretty" sites; we build high-performance conversion machines that are SEO-optimized, mobile-first, and lightning-fast. Whether it is a custom React app or a robust Shopify store, we ensure your digital home is built for growth.',
     whatWeDo: [
-      'Mobile-first responsive design',
-      'SEO-ready site structure',
-      'Fast loading optimization (under 3 seconds goal)',
-      'CMS for easy content editing',
-      'Contact forms & lead capture',
-      'Google Analytics integration',
-      '1 year free support',
-      'Logo & branding add-on',
-      'Copywriting for all pages',
-      'Multilingual website support',
-      'Ongoing maintenance plan'
+      'Custom React & Next.js Development',
+      'High-Conversion Landing Pages',
+      'Shopify & E-commerce Development',
+      'WordPress CMS Setup & Customization',
+      'Mobile-First Responsive Design',
+      'SEO-Friendly Site Architecture',
+      'Speed & Core Web Vitals Fixes',
+      'UI/UX Design & Prototyping',
+      'API & Third-Party Integrations',
+      'Ongoing Website Maintenance'
     ],
-    process: ['Discovery', 'Wireframe', 'Design', 'Development', 'Testing', 'Launch'],
-    highlightsTitle: 'Tech stack',
-    highlights: ['WordPress', 'Webflow', 'React', 'Next.js', 'Shopify', 'WooCommerce'],
-    visualTitle: 'Portfolio proof',
-    visualItems: ['Live portfolio screenshots & links', 'Before/after redesign examples', 'Performance score screenshots', 'Conversion-focused page structure'],
-    resultStory: 'Landing pages can be delivered in 3–5 days, business sites in 1–2 weeks, and e-commerce in 2–4 weeks depending on scope and content readiness.',
-    stats: [{ label: 'Landing Page', value: '3–5 days' }, { label: 'Business Site', value: '1–2 weeks' }, { label: 'E-commerce', value: '2–4 weeks' }],
+    process: ['Discovery', 'Design Mockup', 'Agile Development', 'QA & Testing', 'Launch & Support'],
+    highlightsTitle: 'Modern Tech Stack',
+    highlights: ['React', 'TypeScript', 'Tailwind CSS', 'Shopify', 'WordPress', 'Next.js'],
+    visualTitle: 'Development Proof',
+    visualItems: ['UI/UX Design Prototypes', 'Page Speed Scorecard', 'Responsive Layout Demos', 'SEO Structure Map'],
+    resultStory: 'Redesigned a legacy business site resulting in a 400% increase in lead conversion rate and a jump from 25 to 98 on Google PageSpeed Insights.',
+    stats: [{ label: 'Conv. Rate', value: '400%' }, { label: 'Speed Score', value: '98/100' }, { label: 'Mobile Traffic', value: '+65%' }],
     pricing: [
-      { name: 'Landing Page', price: '$1,499', note: 'Lead-gen single page' },
-      { name: 'Business Site', price: '$2,999', note: '5–10 pages + CMS' },
-      { name: 'E-commerce', price: '$5,999+', note: 'Storefront + cart + checkout strategy' }
+      { name: 'Landing Page', price: '₹12,000', note: 'Single page lead generator' },
+      { name: 'Business Website', price: '₹35,000', note: '5-8 pages + CMS + SEO' },
+      { name: 'E-commerce Store', price: '₹65,000+', note: 'Shopify/WooCommerce + Payments' }
     ],
     faq: [
-      { q: 'Is domain & hosting included?', a: 'Optional. We can set them up for you or work with your existing provider.' },
-      { q: 'Can we edit content ourselves after delivery?', a: 'Yes. We build with editable CMS options where needed.' },
-      { q: 'Do you redesign existing websites?', a: 'Yes. Redesign, migration, and performance improvement projects are supported.' },
-      { q: 'What happens after 1 year support ends?', a: 'You can continue with a maintenance retainer or request support on demand.' }
+      { q: 'Is SEO included in development?', a: 'Yes. Every site we build follows strict SEO-friendly architecture, including clean code, meta tags, and schema readiness.' },
+      { q: 'Can I update the content myself?', a: 'Absolutely. We provide a CMS (Content Management System) that makes it easy for you to edit text and images without coding.' },
+      { q: 'Do you provide hosting and domain?', a: 'We assist with the setup of your hosting and domain to ensure you have full ownership of your digital assets.' }
     ],
-    cta: 'Get Free Website Mockup',
+    cta: 'Get Your Free Website Quote',
     image: '/images/web-dev.jpg',
     accent: 'text-violet-600',
     bgAccent: 'bg-violet-50',
@@ -568,13 +562,13 @@ export default function ServiceDetailPage() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <button
                   onClick={() => navigate('contact')}
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-indigo-200 hover:bg-indigo-500"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-indigo-200 hover:bg-indigo-500 btn-animate"
                 >
                   {service.cta} <ArrowRight className="h-4 w-4" />
                 </button>
                 <button
                   onClick={() => navigate('portfolio')}
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 px-6 py-3.5 text-sm font-bold text-slate-700 hover:bg-slate-50"
+                  className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 px-6 py-3.5 text-sm font-bold text-slate-700 hover:bg-slate-50 btn-animate"
                 >
                   View results
                 </button>
@@ -710,7 +704,7 @@ export default function ServiceDetailPage() {
                   <h3 className="text-lg font-black text-slate-900">{pkg.name}</h3>
                   <p className="mt-3 text-3xl font-black text-slate-900">{pkg.price.replace(/\$/g, '₹')}</p>
                   <p className="mt-2 text-sm text-slate-500">{pkg.note}</p>
-                  <button onClick={() => navigate('contact')} className="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-bold text-white hover:bg-slate-800">
+                  <button onClick={() => navigate('contact')} className="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-bold text-white hover:bg-slate-800 btn-animate">
                     Get a Quote
                   </button>
                 </div>

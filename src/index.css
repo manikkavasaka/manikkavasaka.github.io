@@ -248,3 +248,46 @@ html { scroll-behavior: smooth; }
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* ==================== BUTTON ANIMATIONS ==================== */
+.btn-animate {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-animate:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 20px -10px rgba(99, 102, 241, 0.5);
+}
+
+.btn-animate:active {
+  transform: scale(0.95);
+}
+
+.btn-premium {
+  @apply btn-animate px-8 py-4 rounded-2xl font-bold tracking-tight text-white;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-premium:hover {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+}
+
+/* Add magnetic-like pull effect on hover */
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: inherit;
+}
+
+.btn-glow:hover::after {
+  opacity: 0.5;
+  filter: blur(8px);
+}

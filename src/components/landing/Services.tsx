@@ -115,7 +115,7 @@ export default function Services({ onSelectService }: ServicesProps) {
                   ))}
                 </ul>
 
-                <button className={`inline-flex items-center gap-1.5 text-sm font-bold ${service.text} group-hover:gap-2.5 transition-all`}>
+                <button className={`inline-flex items-center gap-1.5 text-sm font-bold ${service.text} group-hover:gap-2.5 transition-all btn-animate`}>
                   Learn More <ArrowRight className="h-4 w-4" />
                 </button>
               </div>

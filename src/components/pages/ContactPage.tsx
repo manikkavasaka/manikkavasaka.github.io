@@ -138,7 +138,7 @@ export default function ContactPage() {
                       </div>
                     </div>
 
-                    <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-indigo-200 transition-all hover:shadow-indigo-300">
+                    <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-indigo-200 transition-all hover:shadow-indigo-300 btn-animate">
                       <Send className="h-4 w-4" /> Send request
                     </button>
                     {status && <p className="text-center text-xs font-semibold text-slate-500">{status}</p>}
