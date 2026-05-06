@@ -17,7 +17,7 @@ import WhatsAppAndPopup from './components/landing/WhatsAppAndPopup';
 import SEOAudit from './components/landing/SEOAudit';
 import LandingLayout from './components/landing/LandingLayout';
 import SocialProofBar from './components/landing/SocialProofBar';
-import { getJson } from './utils/api';
+import { getJson, postJson } from './utils/api';
 
 import ServicesPage from './components/pages/ServicesPage';
 import AboutPage from './components/pages/AboutPage';

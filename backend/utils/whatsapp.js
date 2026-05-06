@@ -6,8 +6,10 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const fromNumber = process.env.TWILIO_WHATSAPP_FROM;
 
 let client = null;
-if (accountSid && authToken) {
+if (accountSid && authToken && accountSid.startsWith('AC')) {
   client = twilio(accountSid, authToken);
+} else {
+  console.warn('⚠️ Twilio client not initialized. Invalid or missing TWILIO_ACCOUNT_SID.');
 }
 
 const sendWhatsApp = async (to, message) => {
