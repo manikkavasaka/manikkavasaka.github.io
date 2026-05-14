@@ -8,7 +8,7 @@ interface AdminLoginProps {
 
 export default function AdminLogin({ onLoginSuccess }: AdminLoginProps) {
   const [email, setEmail] = useState('mkshopzone2@gmail.com');
-  const [password, setPassword] = useState('Admin@123');
+  const [password, setPassword] = useState('Admin@2024');
   const [error, setError] = useState('');
 
   const [loading, setLoading] = useState(false);

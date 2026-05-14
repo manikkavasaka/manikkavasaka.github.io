@@ -2,12 +2,169 @@
   "users": [
     {
       "id": 1,
+      "name": "Admin",
       "email": "mkshopzone2@gmail.com",
-      "password_hash": "$2b$10$k6L/oGb1WYVwkYer1w5yNO39QZrpYTf2K.kJqaK5XWaN2uCplDCQG",
+      "password_hash": "$2b$10$rfhpe5/TFU5WRPcAK3tTs.0i2yq1YDwaPPLOnC5nQQxlLsve2sJSO",
       "role": "admin"
     }
   ],
   "leads": [
+    {
+      "id": 36,
+      "name": "𝐌𝐊 𝐒𝐡𝐨𝐩𝐙𝐨𝐧𝐞",
+      "email": "mkshopzone2@gmail.com",
+      "phone": "8754737192",
+      "business": "MK ShopZone",
+      "budget": "",
+      "message": "",
+      "service": "fe",
+      "status": "new",
+      "created_at": "2026-05-06T06:03:22.299Z"
+    },
+    {
+      "id": 35,
+      "name": "𝐌𝐊 𝐒𝐡𝐨𝐩𝐙𝐨𝐧𝐞",
+      "email": "mkshopzone2@gmail.com",
+      "phone": "8754737192",
+      "business": "MK ShopZone",
+      "budget": "",
+      "message": "",
+      "service": "fe",
+      "status": "new",
+      "created_at": "2026-05-06T06:03:21.485Z"
+    },
+    {
+      "id": 34,
+      "name": "𝐌𝐊 𝐒𝐡𝐨𝐩𝐙𝐨𝐧𝐞",
+      "email": "mkshopzone2@gmail.com",
+      "phone": "8754737192",
+      "business": "MK ShopZone",
+      "budget": "",
+      "message": "",
+      "service": "fe",
+      "status": "new",
+      "created_at": "2026-05-06T06:03:18.894Z"
+    },
+    {
+      "id": 33,
+      "name": "𝐌𝐊 𝐒𝐡𝐨𝐩𝐙𝐨𝐧𝐞",
+      "email": "mkshopzone2@gmail.com",
+      "phone": "8754737192",
+      "business": "MK ShopZone",
+      "budget": "",
+      "message": "",
+      "service": "fe",
+      "status": "new",
+      "created_at": "2026-05-06T06:03:18.713Z"
+    },
+    {
+      "id": 32,
+      "name": "𝐌𝐊 𝐒𝐡𝐨𝐩𝐙𝐨𝐧𝐞",
+      "email": "mkshopzone2@gmail.com",
+      "phone": "8754737192",
+      "business": "MK ShopZone",
+      "budget": "",
+      "message": "",
+      "service": "fe",
+      "status": "new",
+      "created_at": "2026-05-06T06:03:18.518Z"
+    },
+    {
+      "id": 31,
+      "name": "𝐌𝐊 𝐒𝐡𝐨𝐩𝐙𝐨𝐧𝐞",
+      "email": "mkshopzone2@gmail.com",
+      "phone": "8754737192",
+      "business": "MK ShopZone",
+      "budget": "",
+      "message": "",
+      "service": "fe",
+      "status": "new",
+      "created_at": "2026-05-06T06:03:18.232Z"
+    },
+    {
+      "id": 30,
+      "name": "𝐌𝐊 𝐒𝐡𝐨𝐩𝐙𝐨𝐧𝐞",
+      "email": "mkshopzone2@gmail.com",
+      "phone": "8754737192",
+      "business": "MK ShopZone",
+      "budget": "",
+      "message": "",
+      "service": "fe",
+      "status": "new",
+      "created_at": "2026-05-06T06:03:18.009Z"
+    },
+    {
+      "id": 29,
+      "name": "𝐌𝐊 𝐒𝐡𝐨𝐩𝐙𝐨𝐧𝐞",
+      "email": "mkshopzone2@gmail.com",
+      "phone": "8754737192",
+      "business": "MK ShopZone",
+      "budget": "",
+      "message": "",
+      "service": "fe",
+      "status": "new",
+      "created_at": "2026-05-06T06:03:16.967Z"
+    },
+    {
+      "id": 28,
+      "name": "m",
+      "email": "mkshopzone2@gmail.com",
+      "phone": "8754737192",
+      "business": "",
+      "budget": "",
+      "message": "New contact form submission",
+      "service": "Google Ads (PPC)",
+      "status": "new",
+      "created_at": "2026-05-06T05:55:22.068Z"
+    },
+    {
+      "id": 27,
+      "name": "manikka",
+      "email": "mkshopzone2@gmail.com",
+      "phone": "8754737192",
+      "business": "",
+      "budget": "",
+      "message": "cdsc",
+      "service": "Starter Plan",
+      "status": "new",
+      "created_at": "2026-05-06T05:53:38.330Z"
+    },
+    {
+      "id": 26,
+      "name": "manikka",
+      "email": "mkshopzone2@gmail.com",
+      "phone": "8754737192",
+      "business": "",
+      "budget": "",
+      "message": "New contact form submission",
+      "service": "Website Development",
+      "status": "new",
+      "created_at": "2026-05-06T05:36:32.403Z"
+    },
+    {
+      "id": 25,
+      "name": "manikkam",
+      "email": "mkshopzone2@gmail.com",
+      "phone": "8754737192",
+      "business": "",
+      "budget": "",
+      "message": "hi",
+      "service": "Google Ads (PPC)",
+      "status": "new",
+      "created_at": "2026-05-06T05:25:19.567Z"
+    },
+    {
+      "id": 24,
+      "name": "manikkam",
+      "email": "mkshopzone2@gmail.com",
+      "phone": "8754737192",
+      "business": "",
+      "budget": "",
+      "message": "dc",
+      "service": "Social Media Marketing",
+      "status": "new",
+      "created_at": "2026-05-06T05:16:57.092Z"
+    },
     {
       "id": 23,
       "name": "manikkam",
@@ -89,20 +246,8 @@
       "budget": "₹3,000 - ₹5,000",
       "message": "",
       "service": "",
-      "status": "new",
+      "status": "Converted",
       "created_at": "2026-05-02T07:08:10.603Z"
-    },
-    {
-      "id": 16,
-      "name": "MK shopzone",
-      "email": "mkshopzone2@gmail.com",
-      "phone": "",
-      "business": "",
-      "budget": "₹3,000 - ₹5,000",
-      "message": "",
-      "service": "",
-      "status": "new",
-      "created_at": "2026-05-02T07:08:09.775Z"
     },
     {
       "id": 15,

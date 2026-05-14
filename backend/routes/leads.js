@@ -47,24 +47,31 @@ router.post('/', async (req, res) => {
     `;
 
     const clientHtml = `
-      <h1>Thanks for contacting MK ShopZone ✅</h1>
-      <p>Hi ${name},</p>
-      <p>We received your inquiry successfully.</p>
-      <p>Our team will get back to you within 24 hours.</p>
-      <ul>
-        <li><strong>Email:</strong> ${email}</li>
-        <li><strong>Business:</strong> ${business || 'N/A'}</li>
-        <li><strong>Service:</strong> ${service || subject || 'N/A'}</li>
-        <li><strong>Budget:</strong> ${budget || 'N/A'}</li>
-      </ul>
-      <p>Regards,<br/>MK ShopZone</p>
+      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <p>Hi ${name},</p>
+        <p>Thank you for reaching out to MK ShopZone!</p>
+        <p>We received your inquiry about <strong>${service || subject || 'our'}</strong> services. Our team will review your requirements and get back to you within 24 hours.</p>
+        
+        <p>Here's a summary of your request:</p>
+        <ul>
+          <li><strong>Service:</strong> ${service || subject || 'N/A'}</li>
+          <li><strong>Phone:</strong> ${phone || 'N/A'}</li>
+        </ul>
+        
+        <p>Meanwhile, feel free to WhatsApp us directly for a faster response:<br/>
+        📱 <a href="https://wa.me/917200059453">+91 7200059453</a></p>
+        
+        <p>Best Regards,<br/>
+        <strong>MK ShopZone Team</strong><br/>
+        <a href="https://mkshopzone.me">mkshopzone.me</a></p>
+      </div>
     `;
 
     const { sendWhatsApp, sendRegistrationMessage } = require('../utils/whatsapp');
     const ADMIN_WHATSAPP = process.env.ADMIN_WHATSAPP || '+918220042457';
 
-    const adminResult = await sendEmail(ADMIN_EMAIL, `New Lead: ${name}`, adminHtml);
-    const clientResult = await sendEmail(email, 'We received your inquiry - MK ShopZone', clientHtml);
+    // const adminResult = await sendEmail(ADMIN_EMAIL, `New Lead: ${name}`, adminHtml);
+    const clientResult = await sendEmail(email, 'Thank You for Contacting MK ShopZone! 🚀', clientHtml);
 
     // Send WhatsApp to Admin
     await sendWhatsApp(ADMIN_WHATSAPP, `🚀 New Lead on MK ShopZone!\nName: ${name}\nPhone: ${phone || 'N/A'}\nService: ${service || subject || 'N/A'}\nMessage: ${message || 'N/A'}`);
@@ -74,14 +81,13 @@ router.post('/', async (req, res) => {
       await sendRegistrationMessage(name, phone);
     }
 
-    if (!adminResult || !clientResult) {
+    if (!clientResult) {
       throw new Error('Email send failed');
     }
 
     res.status(201).json({
       ok: true,
       data: lead,
-      adminMessageId: adminResult.messageId,
       clientMessageId: clientResult.messageId
     });
   } catch (error) {

@@ -19,6 +19,7 @@ const portfolioRoutes = require('./backend/routes/portfolio');
 const testimonialRoutes = require('./backend/routes/testimonials');
 const subscriberRoutes = require('./backend/routes/subscribers');
 const paymentRoutes = require('./backend/routes/payments');
+const registerRoutes = require('./backend/routes/register.js');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -28,6 +29,7 @@ app.use(express.json());
 
 // API Endpoints
 app.use('/api/auth', authRoutes);
+app.use('/api/register', registerRoutes);
 app.use('/api/leads', leadRoutes);
 app.use('/api/contact', leadRoutes);
 app.use('/api/blog-posts', blogRoutes);

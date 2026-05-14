@@ -59,6 +59,11 @@ export default function App() {
   const [selectedService] = useState('');
   const [isAdminAuthed, setIsAdminAuthed] = useState(false);
 
+  // Gate: website is hidden until user registers (or already registered)
+  const [isGateCleared, setIsGateCleared] = useState(
+    () => !!localStorage.getItem('mks_registered')
+  );
+
   const [leads, setLeads] = useState<Lead[]>([]);
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [services, setServices] = useState<Service[]>([]);
@@ -232,22 +237,28 @@ export default function App() {
             <NewsletterSection />
             <Contact selectedService={selectedService} onNotificationsSent={handleNotificationsSent} />
           </LandingLayout>
-          <WhatsAppAndPopup
-            onSubmit={async (data) => {
-              try {
-                await postJson('/api/leads', {
-                  ...data,
-                  company: 'Lead Magnet',
-                  serviceInterested: 'Lead Magnet Download',
-                  message: 'Downloaded the 2026 Digital Growth Checklist.',
-                  budget: 0,
-                });
-                fetchData();
-              } catch (err) {
-                console.error('Failed to submit popup lead:', err);
-              }
-            }}
-          />
+          {/* Registration Gate – shown only for unregistered visitors */}
+          {!isGateCleared && (
+            <WhatsAppAndPopup
+              onRegistered={() => setIsGateCleared(true)}
+              onSubmit={async (data) => {
+                try {
+                  await postJson('/api/register', {
+                    name: data.name,
+                    email: data.email,
+                    phone: data.phone,
+                    company: 'Lead Magnet',
+                    serviceInterested: 'Lead Magnet Download',
+                    message: 'Downloaded the 2026 Digital Growth Checklist.',
+                    budget: 0,
+                  });
+                  fetchData();
+                } catch (err) {
+                  console.error('Failed to submit popup lead:', err);
+                }
+              }}
+            />
+          )}
         </>
       );
       break;

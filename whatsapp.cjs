@@ -1,19 +1,43 @@
-const { sendWhatsApp } = require('./backend/utils/whatsapp.js');
+const twilio = require('twilio');
 require('dotenv').config();
 
-// Simple test script for WhatsApp
-const testWhatsApp = async () => {
-    const testNumber = process.env.TEST_PHONE_NUMBER || '+1234567890'; // Replace with a real number in .env
-    const message = "Hello from MK ShopZone! This is a test WhatsApp message.";
-    
-    console.log(`🚀 Sending test WhatsApp to ${testNumber}...`);
-    const result = await sendWhatsApp(testNumber, message);
-    
-    if (result) {
-        console.log("✅ Test message sent successfully!");
-    } else {
-        console.log("❌ Test message failed. Check your Twilio credentials in .env");
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const fromNumber = process.env.TWILIO_WHATSAPP_FROM;
+
+let client = null;
+if (accountSid && authToken && accountSid.startsWith('AC')) {
+  client = twilio(accountSid, authToken);
+} else {
+  console.warn('⚠️ Twilio client not initialized. Check .env');
+}
+
+const sendWhatsAppMessage = async (phone, name) => {
+  if (!client) {
+    console.warn('⚠️ Twilio client not initialized. Cannot send WhatsApp.');
+    return null;
+  }
+
+  try {
+    let formattedPhone = phone.trim();
+    if (!formattedPhone.startsWith('+')) {
+      formattedPhone = `+91${formattedPhone}`;
     }
+
+    const message = `Hi ${name}! 👋\n\nThank you for contacting MK ShopZone! 🙏\n\n✅ Free Consultation - Confirmed!\n✅ Our team will call you within 2 hours!\n\nVisit us: mkshopzone.me\n\n— MK ShopZone Team 🚀`;
+
+    const formattedTo = formattedPhone.startsWith('whatsapp:') ? formattedPhone : `whatsapp:${formattedPhone}`;
+    const result = await client.messages.create({
+      body: message,
+      from: fromNumber,
+      to: formattedTo
+    });
+    console.log(`✅ WhatsApp sent to ${formattedPhone}: ${result.sid}`);
+    return result;
+  } catch (err) {
+    console.error(`❌ Failed to send WhatsApp to ${phone}:`, err.message);
+    return null; // Skip if invalid, but don't crash
+  }
 };
 
-testWhatsApp();
+module.exports = { sendWhatsAppMessage };

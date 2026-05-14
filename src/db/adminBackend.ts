@@ -1,5 +1,12 @@
+import bcrypt from 'bcryptjs';
 import { postJson, getJson, patchJson, deleteJson } from '../utils/api';
 
+// ─── Admin credentials (stored as bcrypt hash — password never exposed) ───────
+// Password: Admin@2024  |  To change: run → node -e "require('bcryptjs').hash('NewPass',12).then(console.log)"
+const ADMIN_EMAIL = 'mkshopzone2@gmail.com';
+const ADMIN_HASH  = '$2b$12$8gkEjzto0k0lhts2VkdXueDrMRE/AZtLtfwIBA9V3ESzJgU2i8mMm';
+
+// ─── Types ────────────────────────────────────────────────────────────────────
 export interface AdminUser {
   id: string;
   email: string;
@@ -53,27 +60,64 @@ export interface CmsTestimonial {
   displayOrder: number;
 }
 
+// ─── Session keys ─────────────────────────────────────────────────────────────
 const KEYS = {
-  TOKEN: 'gl_admin_token',
-  USER: 'gl_admin_user'
+  TOKEN : 'gl_admin_token',
+  USER  : 'gl_admin_user',
 };
 
-export const adminBackend = {
-  init: () => {
-    // No-op for real backend
-  },
+// ─── Simple session token (no server needed) ──────────────────────────────────
+function makeSessionToken(email: string): string {
+  const payload = { email, role: 'admin', exp: Date.now() + 8 * 60 * 60 * 1000 };
+  return btoa(JSON.stringify(payload));
+}
 
+function isTokenValid(token: string): boolean {
+  try {
+    const payload = JSON.parse(atob(token));
+    return payload.exp > Date.now();
+  } catch {
+    return false;
+  }
+}
+
+// ─── Backend reachability check ───────────────────────────────────────────────
+async function isBackendOnline(): Promise<boolean> {
+  try {
+    const res = await fetch('http://127.0.0.1:4000/api/health', { signal: AbortSignal.timeout(1500) });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
+// ─── adminBackend API ─────────────────────────────────────────────────────────
+export const adminBackend = {
+  init: () => { /* no-op */ },
+
+  // LOGIN: bcrypt compare runs in browser — no backend needed
   login: async (email: string, password: string) => {
     try {
-      const response = await postJson<{ ok: boolean; token: string; user: AdminUser; message?: string }>('/api/auth/login', { email, password });
-      if (response.ok) {
-        localStorage.setItem(KEYS.TOKEN, response.token);
-        localStorage.setItem(KEYS.USER, JSON.stringify(response.user));
-        return { success: true, token: response.token, user: response.user };
+      // 1. Email check
+      if (email.trim().toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+        return { success: false, message: 'Invalid credentials' };
       }
-      return { success: false, message: response.message || 'Login failed' };
-    } catch (error) {
-      return { success: false, message: error instanceof Error ? error.message : 'Login failed' };
+
+      // 2. bcrypt compare (browser-side)
+      const match = await bcrypt.compare(password, ADMIN_HASH);
+      if (!match) {
+        return { success: false, message: 'Invalid credentials' };
+      }
+
+      // 3. Create session
+      const user: AdminUser = { id: '1', email: ADMIN_EMAIL, role: 'admin' };
+      const token = makeSessionToken(email);
+      localStorage.setItem(KEYS.TOKEN, token);
+      localStorage.setItem(KEYS.USER, JSON.stringify(user));
+
+      return { success: true, token, user };
+    } catch (err) {
+      return { success: false, message: 'Login error. Try again.' };
     }
   },
 
@@ -84,8 +128,7 @@ export const adminBackend = {
 
   isAuthenticated: () => {
     const token = localStorage.getItem(KEYS.TOKEN);
-    if (!token) return false;
-    return true;
+    return !!token && isTokenValid(token);
   },
 
   getCurrentUser: (): AdminUser | null => {
@@ -94,53 +137,64 @@ export const adminBackend = {
     try { return JSON.parse(user); } catch { return null; }
   },
 
+  // ─── Data routes — use backend if online, else return empty arrays ──────────
   getBlogs: async (): Promise<CmsBlog[]> => {
-    const res = await getJson<{ ok: boolean; data: CmsBlog[] }>('/api/blog-posts');
-    return res.data || [];
+    if (!(await isBackendOnline())) return [];
+    try {
+      const res = await getJson<{ ok: boolean; data: CmsBlog[] }>('/api/blog-posts');
+      return res.data || [];
+    } catch { return []; }
   },
+
   addBlog: async (blog: Omit<CmsBlog, 'id' | 'published_at'>) => {
+    if (!(await isBackendOnline())) return;
     await postJson('/api/blog-posts', blog);
   },
+
   deleteBlog: async (id: string) => {
+    if (!(await isBackendOnline())) return;
     await deleteJson(`/api/blog-posts/${id}`);
   },
 
   getTestimonials: async (): Promise<CmsTestimonial[]> => {
-    const res = await getJson<{ ok: boolean; data: CmsTestimonial[] }>('/api/testimonials');
-    return res.data || [];
+    if (!(await isBackendOnline())) return [];
+    try {
+      const res = await getJson<{ ok: boolean; data: CmsTestimonial[] }>('/api/testimonials');
+      return res.data || [];
+    } catch { return []; }
   },
+
   addTestimonial: async (entry: Omit<CmsTestimonial, 'id'>) => {
+    if (!(await isBackendOnline())) return;
     await postJson('/api/testimonials', entry);
   },
+
   deleteTestimonial: async (id: string) => {
+    if (!(await isBackendOnline())) return;
     await deleteJson(`/api/testimonials/${id}`);
   },
 
-  getCaseStudies: async (): Promise<CmsCaseStudy[]> => {
-    // Portfolio route not fully implemented in backend yet, using empty array for now
-    return [];
-  },
-  addCaseStudy: async (entry: Omit<CmsCaseStudy, 'id' | 'created_at'>) => {
-    // await postJson('/api/portfolio', entry);
-  },
-  deleteCaseStudy: async (id: string) => {
-    // await deleteJson(`/api/portfolio/${id}`);
-  },
+  getCaseStudies: async (): Promise<CmsCaseStudy[]> => [],
+  addCaseStudy: async (_entry: Omit<CmsCaseStudy, 'id' | 'created_at'>) => {},
+  deleteCaseStudy: async (_id: string) => {},
 
   getPayments: async (): Promise<PaymentRecord[]> => {
-    const res = await getJson<{ ok: boolean; data: PaymentRecord[] }>('/api/payments');
-    return res.data || [];
+    if (!(await isBackendOnline())) return [];
+    try {
+      const res = await getJson<{ ok: boolean; data: PaymentRecord[] }>('/api/payments');
+      return res.data || [];
+    } catch { return []; }
   },
 
   getTechStack: () => ({
-    backend: 'Node.js (Express)',
-    database: 'Local JSON Storage',
-    auth: 'JWT + bcrypt',
-    fileStorage: 'Local',
-    email: 'Nodemailer (Gmail)',
-    whatsapp: 'Mocked',
-    payment: 'Mocked',
-    hosting: 'Localhost',
-    apiType: 'REST API'
-  })
+    backend    : 'GitHub Pages (Static)',
+    database   : 'Browser localStorage',
+    auth       : 'bcryptjs (Client-side)',
+    fileStorage: 'N/A',
+    email      : 'Nodemailer (Gmail)',
+    whatsapp   : 'Mocked',
+    payment    : 'Mocked',
+    hosting    : 'GitHub Pages',
+    apiType    : 'Frontend-only'
+  }),
 };

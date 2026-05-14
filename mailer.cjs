@@ -58,6 +58,42 @@ const sendEmail = async (to, subject, html) => {
   }
 };
 
+/**
+ * Welcome email sent to the user after registration.
+ * @param {string} name
+ * @param {string} email
+ * @param {string} phone
+ */
+const sendWelcomeEmail = async (name, email, phone) => {
+  const html = `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+      <p>Hi ${name},</p>
+      <p>Thank you for reaching out to MK ShopZone! 🙏</p>
+      <p>✅ <strong>Free Consultation - Confirmed!</strong></p>
+      <p>✅ Our team will call you within 2 hours!</p>
+      <p>Your registered phone number is: <strong>${phone}</strong></p>
+      <p>Meanwhile, feel free to visit our website:<br/>
+         <a href="https://mkshopzone.me">mkshopzone.me</a></p>
+      <p>Best Regards,<br/>
+         <strong>MK ShopZone Team 🚀</strong></p>
+    </div>
+  `;
+
+  try {
+    const info = await transporter.sendMail({
+      from: `"MK ShopZone" <${smtpUser}>`,
+      to: email,
+      subject: 'Thank You for Contacting MK ShopZone! 🚀',
+      html,
+    });
+    console.log(`✅ Welcome email sent to ${email}: ${info.messageId}`);
+    return info;
+  } catch (err) {
+    console.error(`❌ Welcome email failed for ${email}:`, err.message);
+    throw err;
+  }
+};
+
 if (require.main === module) {
   (async () => {
     const ok = await verifyConnection();
@@ -72,4 +108,4 @@ if (require.main === module) {
   })();
 }
 
-module.exports = { sendEmail, verifyConnection };
+module.exports = { sendEmail, sendWelcomeEmail, verifyConnection };
