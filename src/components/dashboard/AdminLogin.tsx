@@ -7,8 +7,8 @@ interface AdminLoginProps {
 }
 
 export default function AdminLogin({ onLoginSuccess }: AdminLoginProps) {
-  const [email, setEmail] = useState('mkshopzone2@gmail.com');
-  const [password, setPassword] = useState('Admin@2024');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const [loading, setLoading] = useState(false);
@@ -66,7 +66,6 @@ export default function AdminLogin({ onLoginSuccess }: AdminLoginProps) {
           >
             {loading ? 'Signing in...' : 'Sign in to admin panel'}
           </button>
-          <p className="text-center text-[11px] text-slate-500">Demo credentials prefilled for review.</p>
         </form>
       </div>
     </div>
