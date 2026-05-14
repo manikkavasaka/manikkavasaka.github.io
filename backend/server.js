@@ -10,6 +10,7 @@ const portfolioRoutes = require('./routes/portfolio');
 const testimonialRoutes = require('./routes/testimonials');
 const subscriberRoutes = require('./routes/subscribers');
 const paymentRoutes = require('./routes/payments');
+const uploadRoutes = require('./routes/upload');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -57,6 +58,7 @@ app.use('/api/testimonials', testimonialRoutes);
 app.use('/api/subscribers', subscriberRoutes);
 app.use('/api/newsletter', subscriberRoutes);
 app.use('/api/payments', paymentRoutes);
+app.use('/api/upload', uploadRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ ok: false, message: `Route not found: ${req.method} ${req.originalUrl}` });
