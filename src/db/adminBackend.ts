@@ -62,8 +62,8 @@ export interface CmsTestimonial {
 
 // ─── Session keys ─────────────────────────────────────────────────────────────
 const KEYS = {
-  TOKEN : 'gl_admin_token',
-  USER  : 'gl_admin_user',
+  TOKEN : 'mk_admin_token_v5',
+  USER  : 'mk_admin_user_v5',
 };
 
 // ─── Simple session token (no server needed) ──────────────────────────────────
