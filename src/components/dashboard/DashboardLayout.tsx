@@ -34,7 +34,6 @@ export default function DashboardLayout({
     { id: 'leads', label: 'CRM Leads', icon: Users },
     { id: 'services', label: 'Offerings', icon: Briefcase },
     { id: 'cms', label: 'Blog / CMS', icon: FileText },
-    { id: 'payments', label: 'Payments & Lists', icon: CreditCard },
     { id: 'backend', label: 'Backend Stack', icon: Database },
     { id: 'notifications', label: 'Notification Log', icon: BellRing, badge: notificationCount },
     { id: 'automation', label: 'Automation', icon: Settings }
