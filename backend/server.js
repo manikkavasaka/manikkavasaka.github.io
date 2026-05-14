@@ -16,7 +16,16 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || process.env.SMTP_USER || 'mkshopzone2@gmail.com';
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://mkshopzone.me',
+    'https://manikkavasaka.github.io',
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'http://localhost:4000',
+  ],
+  credentials: true,
+}));
 app.use(express.json());
 
 app.use((req, res, next) => {
