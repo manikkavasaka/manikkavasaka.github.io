@@ -20,21 +20,18 @@ export default function BackendStackPanel() {
 
   useEffect(() => {
     const fetchCounts = async () => {
-      const blogs = await adminBackend.getBlogs();
-      const testimonials = await adminBackend.getTestimonials();
-      const payments = await adminBackend.getPayments();
-      // For leads, we can use the mockDB for now or fetch from API if we want to be consistent
-      // But App.tsx already fetches leads, so we could pass them down or just fetch again
-      
-      setCounts({
-        leads: mockDB.getLeads().length,
-        blog_posts: blogs.length,
-        portfolio: enhancedDB.getCaseStudies().length,
-        testimonials: testimonials.length,
-        subscribers: enhancedDB.getNewsletterSubscribers().length,
-        users: 1, 
-        payments: payments.length
-      });
+      try {
+        const response = await fetch('http://localhost:4000/api/stats');
+        const data = await response.json();
+        if (data.ok) {
+          setCounts(prev => ({
+            ...prev,
+            ...data.counts
+          }));
+        }
+      } catch (err) {
+        console.error('Failed to fetch stats:', err);
+      }
     };
     fetchCounts();
   }, []);

@@ -60,6 +60,31 @@ app.use('/api/newsletter', subscriberRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/upload', uploadRoutes);
 
+app.get('/api/stats', async (req, res) => {
+  try {
+    const pool = require('./db.cjs');
+    const leads = await pool.query('SELECT COUNT(*) FROM leads');
+    const blogs = await pool.query('SELECT COUNT(*) FROM blog_posts');
+    const testimonials = await pool.query('SELECT COUNT(*) FROM testimonials');
+    const subscribers = await pool.query('SELECT COUNT(*) FROM subscribers');
+    const users = await pool.query('SELECT COUNT(*) FROM users');
+
+    res.json({
+      ok: true,
+      counts: {
+        leads: parseInt(leads.rows[0].count),
+        blog_posts: parseInt(blogs.rows[0].count),
+        testimonials: parseInt(testimonials.rows[0].count),
+        subscribers: parseInt(subscribers.rows[0].count),
+        users: parseInt(users.rows[0].count),
+      }
+    });
+  } catch (error) {
+    console.error('Stats Error:', error);
+    res.status(500).json({ ok: false });
+  }
+});
+
 app.use((req, res) => {
   res.status(404).json({ ok: false, message: `Route not found: ${req.method} ${req.originalUrl}` });
 });
