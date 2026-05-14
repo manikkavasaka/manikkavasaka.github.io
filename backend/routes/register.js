@@ -1,7 +1,7 @@
 const express = require('express');
 const pool = require('../db.cjs');
 const { sendWelcomeEmail, sendAdminNotification } = require('../../mailer.cjs');
-const { sendWhatsAppMessage } = require('../../whatsapp.cjs');
+const { sendWhatsApp } = require('../utils/whatsapp');
 
 const router = express.Router();
 
@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
 
     // 2. Send WhatsApp Message to User
     try {
-      await sendWhatsAppMessage(phone, name);
+      await sendWhatsApp(`+91${phone.replace(/^\+91/, '')}`, `👋 Hi ${name}! Your free consultation is confirmed. MK ShopZone team will call you soon. 🚀`);
     } catch (err) {
       console.error('Failed to send WhatsApp message to user:', err);
     }
@@ -50,7 +50,7 @@ router.post('/', async (req, res) => {
     // 3. 🚨 Notify ADMIN (You)
     try {
       await sendAdminNotification(lead);
-      await sendWhatsAppMessage(process.env.ADMIN_WHATSAPP || '+917200059453', `🚀 New Lead: ${name}\n📧 ${email}\n📱 ${phone}\n💼 ${lead.business}`);
+      await sendWhatsApp(process.env.ADMIN_WHATSAPP || '+917200059453', `🚀 New Lead: ${name}\n📧 ${email}\n📱 ${phone}\n💼 ${lead.business_name || 'N/A'}`);
     } catch (err) {
       console.error('Failed to notify admin:', err);
     }
