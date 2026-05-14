@@ -1,5 +1,5 @@
 const express = require('express');
-const { readDb, writeDb, nextId } = require('../../backend/data/store');
+const pool = require('../db.cjs');
 const { sendWelcomeEmail, sendAdminNotification } = require('../../mailer.cjs');
 const { sendWhatsAppMessage } = require('../../whatsapp.cjs');
 
@@ -13,22 +13,25 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ ok: false, message: 'Name, email, and phone are required' });
     }
 
-    // 0. Save lead to database
-    const db = readDb();
-    const lead = {
-      id: nextId(db.leads),
-      name,
-      email,
-      phone,
-      business: company || 'Lead Magnet',
-      budget: budget || 0,
-      message: message || 'Downloaded the 2026 Digital Growth Checklist.',
-      service: serviceInterested || 'Lead Magnet Download',
-      status: 'new',
-      created_at: new Date().toISOString()
-    };
-    db.leads.unshift(lead);
-    writeDb(db);
+    // 0. Save lead to PostgreSQL Database
+    const query = `
+      INSERT INTO leads (name, email, phone, business_name, service_interested, budget_range, message, status)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+      RETURNING *
+    `;
+    const values = [
+      name, 
+      email, 
+      phone, 
+      company || 'Lead Magnet', 
+      serviceInterested || 'Lead Magnet Download', 
+      budget || '0', 
+      message || 'Downloaded the 2026 Digital Growth Checklist.',
+      'new'
+    ];
+
+    const result = await pool.query(query, values);
+    const lead = result.rows[0];
 
     // 1. Send Welcome Email to User
     try {
