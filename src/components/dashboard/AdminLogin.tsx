@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LockKeyhole, ShieldCheck, UserCircle2 } from 'lucide-react';
+import { LockKeyhole, ShieldCheck, UserCircle2, Eye, EyeOff } from 'lucide-react';
 import { adminBackend } from '../../db/adminBackend';
 
 interface AdminLoginProps {
@@ -9,6 +9,7 @@ interface AdminLoginProps {
 export default function AdminLogin({ onLoginSuccess }: AdminLoginProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
 
   const [loading, setLoading] = useState(false);
@@ -55,7 +56,21 @@ export default function AdminLogin({ onLoginSuccess }: AdminLoginProps) {
             <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-500">Password</label>
             <div className="relative">
               <LockKeyhole className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="block w-full rounded-xl border border-slate-800 bg-slate-950 py-3 pl-10 pr-4 text-sm text-white outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20" />
+              <input
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="block w-full rounded-xl border border-slate-800 bg-slate-950 py-3 pl-10 pr-12 text-sm text-white outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((v) => !v)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-indigo-400 transition-colors"
+                tabIndex={-1}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+              </button>
             </div>
           </div>
           {error && <p className="rounded-xl bg-red-500/10 px-4 py-3 text-sm font-semibold text-red-400">{error}</p>}
