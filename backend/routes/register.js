@@ -1,6 +1,6 @@
 const express = require('express');
 const { readDb, writeDb, nextId } = require('../../backend/data/store');
-const { sendWelcomeEmail } = require('../../mailer.cjs');
+const { sendWelcomeEmail, sendAdminNotification } = require('../../mailer.cjs');
 const { sendWhatsAppMessage } = require('../../whatsapp.cjs');
 
 const router = express.Router();
@@ -30,19 +30,26 @@ router.post('/', async (req, res) => {
     db.leads.unshift(lead);
     writeDb(db);
 
-    // 1. Send Welcome Email
+    // 1. Send Welcome Email to User
     try {
       await sendWelcomeEmail(name, email);
     } catch (err) {
       console.error('Failed to send welcome email:', err);
-      // We could return error here, or continue to save lead
     }
 
-    // 2. Send WhatsApp Message
+    // 2. Send WhatsApp Message to User
     try {
       await sendWhatsAppMessage(phone, name);
     } catch (err) {
-      console.error('Failed to send WhatsApp message:', err);
+      console.error('Failed to send WhatsApp message to user:', err);
+    }
+
+    // 3. 🚨 Notify ADMIN (You)
+    try {
+      await sendAdminNotification(lead);
+      await sendWhatsAppMessage(process.env.ADMIN_WHATSAPP || '+917200059453', `🚀 New Lead: ${name}\n📧 ${email}\n📱 ${phone}\n💼 ${lead.business}`);
+    } catch (err) {
+      console.error('Failed to notify admin:', err);
     }
 
     res.status(200).json({ ok: true, message: 'Registration successful' });

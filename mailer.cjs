@@ -94,6 +94,39 @@ const sendWelcomeEmail = async (name, email, phone) => {
   }
 };
 
+/**
+ * Notify Admin about a new lead
+ */
+const sendAdminNotification = async (leadDetails) => {
+  const html = `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
+      <h2 style="color: #4F46E5;">🚀 New Lead Captured!</h2>
+      <p>A new lead just registered through the website popup.</p>
+      <hr/>
+      <p><strong>👤 Name:</strong> ${leadDetails.name}</p>
+      <p><strong>📧 Email:</strong> ${leadDetails.email}</p>
+      <p><strong>📱 Phone:</strong> ${leadDetails.phone}</p>
+      <p><strong>💼 Business:</strong> ${leadDetails.business || 'N/A'}</p>
+      <p><strong>💬 Message:</strong> ${leadDetails.message || 'N/A'}</p>
+      <hr/>
+      <p>Please follow up as soon as possible.</p>
+    </div>
+  `;
+
+  try {
+    const info = await transporter.sendMail({
+      from: `"MK ShopZone Alert" <${smtpUser}>`,
+      to: process.env.ADMIN_EMAIL || 'mkshopzone2@gmail.com',
+      subject: `🔥 New Lead Alert: ${leadDetails.name}`,
+      html,
+    });
+    console.log(`✅ Admin notification sent: ${info.messageId}`);
+    return info;
+  } catch (err) {
+    console.error(`❌ Admin notification failed:`, err.message);
+  }
+};
+
 if (require.main === module) {
   (async () => {
     const ok = await verifyConnection();
@@ -108,4 +141,4 @@ if (require.main === module) {
   })();
 }
 
-module.exports = { sendEmail, sendWelcomeEmail, verifyConnection };
+module.exports = { sendEmail, sendWelcomeEmail, sendAdminNotification, verifyConnection };

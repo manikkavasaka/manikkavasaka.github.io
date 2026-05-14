@@ -44,7 +44,7 @@ export default function WhatsAppAndPopup({ onSubmit, onRegistered }: LeadPopupPr
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-indigo-900/95 to-violet-900/95 p-4 backdrop-blur-md">
-      <div className="w-full max-w-md overflow-hidden rounded-3xl bg-white shadow-2xl">
+      <div className="w-full max-w-md overflow-hidden rounded-3xl bg-white shadow-2xl animate-in zoom-in-95 fade-in duration-500 ease-out">
 
         {/* Header */}
         <div className="relative bg-gradient-to-r from-indigo-600 to-violet-600 p-6 text-white text-center">
