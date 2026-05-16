@@ -21,7 +21,7 @@ export default function BackendStackPanel() {
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/stats');
+        const response = await fetch('/api/stats');
         const data = await response.json();
         if (data.ok) {
           setCounts(prev => ({

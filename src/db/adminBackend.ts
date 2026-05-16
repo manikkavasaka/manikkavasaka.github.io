@@ -84,7 +84,7 @@ function isTokenValid(token: string): boolean {
 // ─── Backend reachability check ───────────────────────────────────────────────
 async function isBackendOnline(): Promise<boolean> {
   try {
-    const res = await fetch('http://127.0.0.1:4000/api/health', { signal: AbortSignal.timeout(1500) });
+    const res = await fetch('/api/health', { signal: AbortSignal.timeout(1500) });
     return res.ok;
   } catch {
     return false;
