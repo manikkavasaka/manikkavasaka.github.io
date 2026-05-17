@@ -70,25 +70,32 @@ router.post('/', async (req, res) => {
     const { sendWhatsApp, sendRegistrationMessage } = require('../utils/whatsapp');
     const ADMIN_WHATSAPP = process.env.ADMIN_WHATSAPP || '+918220042457';
 
-    // const adminResult = await sendEmail(ADMIN_EMAIL, `New Lead: ${name}`, adminHtml);
-    const clientResult = await sendEmail(email, 'Thank You for Contacting MK ShopZone! 🚀', clientHtml);
+    // Trigger all email and WhatsApp notifications asynchronously in the background
+    (async () => {
+      try {
+        await sendEmail(email, 'Thank You for Contacting MK ShopZone! 🚀', clientHtml);
+      } catch (err) {
+        console.error('⚠️ Failed to send client welcome email:', err.message || err);
+      }
 
-    // Send WhatsApp to Admin
-    await sendWhatsApp(ADMIN_WHATSAPP, `🚀 New Lead on MK ShopZone!\nName: ${name}\nPhone: ${phone || 'N/A'}\nService: ${service || subject || 'N/A'}\nMessage: ${message || 'N/A'}`);
+      try {
+        await sendWhatsApp(ADMIN_WHATSAPP, `🚀 New Lead on MK ShopZone!\nName: ${name}\nPhone: ${phone || 'N/A'}\nService: ${service || subject || 'N/A'}\nMessage: ${message || 'N/A'}`);
+      } catch (err) {
+        console.error('⚠️ Failed to send WhatsApp to Admin:', err.message || err);
+      }
 
-    // Send WhatsApp to Client if phone provided
-    if (phone) {
-      await sendRegistrationMessage(name, phone);
-    }
-
-    if (!clientResult) {
-      throw new Error('Email send failed');
-    }
+      try {
+        if (phone) {
+          await sendRegistrationMessage(name, phone);
+        }
+      } catch (err) {
+        console.error('⚠️ Failed to send WhatsApp to Client:', err.message || err);
+      }
+    })();
 
     res.status(201).json({
       ok: true,
-      data: lead,
-      clientMessageId: clientResult.messageId
+      data: lead
     });
   } catch (error) {
     res.status(500).json({ ok: false, message: error.message || 'Lead create failed' });

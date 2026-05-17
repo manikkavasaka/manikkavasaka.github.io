@@ -33,27 +33,32 @@ router.post('/', async (req, res) => {
     const result = await pool.query(query, values);
     const lead = result.rows[0];
 
-    // 1. Send Welcome Email to User
-    try {
-      await sendWelcomeEmail(name, email);
-    } catch (err) {
-      console.error('Failed to send welcome email:', err);
-    }
+    // Trigger all email and WhatsApp notifications asynchronously in the background
+    (async () => {
+      try {
+        await sendWelcomeEmail(name, email);
+      } catch (err) {
+        console.error('Failed to send welcome email:', err);
+      }
 
-    // 2. Send WhatsApp Message to User
-    try {
-      await sendWhatsApp(`+91${phone.replace(/^\+91/, '')}`, `👋 Hi ${name}! Your free consultation is confirmed. MK ShopZone team will call you soon. 🚀`);
-    } catch (err) {
-      console.error('Failed to send WhatsApp message to user:', err);
-    }
+      try {
+        await sendWhatsApp(`+91${phone.replace(/^\+91/, '')}`, `👋 Hi ${name}! Your free consultation is confirmed. MK ShopZone team will call you soon. 🚀`);
+      } catch (err) {
+        console.error('Failed to send WhatsApp message to user:', err);
+      }
 
-    // 3. 🚨 Notify ADMIN (You)
-    try {
-      await sendAdminNotification(lead);
-      await sendWhatsApp(process.env.ADMIN_WHATSAPP || '+917200059453', `🚀 New Lead: ${name}\n📧 ${email}\n📱 ${phone}\n💼 ${lead.business_name || 'N/A'}`);
-    } catch (err) {
-      console.error('Failed to notify admin:', err);
-    }
+      try {
+        await sendAdminNotification(lead);
+      } catch (err) {
+        console.error('Failed to send admin email notification:', err);
+      }
+
+      try {
+        await sendWhatsApp(process.env.ADMIN_WHATSAPP || '+917200059453', `🚀 New Lead: ${name}\n📧 ${email}\n📱 ${phone}\n💼 ${lead.business_name || 'N/A'}`);
+      } catch (err) {
+        console.error('Failed to notify admin via WhatsApp:', err);
+      }
+    })();
 
     res.status(200).json({ ok: true, message: 'Registration successful' });
   } catch (error) {
