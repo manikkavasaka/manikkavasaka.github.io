@@ -14,6 +14,19 @@ const getApiBaseUrl = () => {
 
 export const apiBaseUrl = getApiBaseUrl();
 
+const handleFetchError = (error: unknown) => {
+  if (error instanceof TypeError) {
+    const isLocal = typeof window !== 'undefined' && 
+      (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+    throw new Error(
+      isLocal 
+        ? 'Backend not reachable. Run: node backend/server.js' 
+        : 'Backend server is currently unreachable. Please try again later.'
+    );
+  }
+  throw error;
+};
+
 export async function getJson<T>(path: string): Promise<T> {
   try {
     const response = await fetch(`${apiBaseUrl}${path}`, {
@@ -38,10 +51,7 @@ export async function getJson<T>(path: string): Promise<T> {
 
     return data as T;
   } catch (error) {
-    if (error instanceof TypeError) {
-      throw new Error('Backend not reachable. Run: node backend/server.js');
-    }
-    throw error;
+    handleFetchError(error);
   }
 }
 
@@ -71,10 +81,7 @@ export async function postJson<T>(path: string, body: unknown): Promise<T> {
 
     return data as T;
   } catch (error) {
-    if (error instanceof TypeError) {
-      throw new Error('Backend not reachable. Run: node backend/server.js');
-    }
-    throw error;
+    handleFetchError(error);
   }
 }
 
@@ -104,10 +111,7 @@ export async function patchJson<T>(path: string, body: unknown): Promise<T> {
 
     return data as T;
   } catch (error) {
-    if (error instanceof TypeError) {
-      throw new Error('Backend not reachable. Run: node backend/server.js');
-    }
-    throw error;
+    handleFetchError(error);
   }
 }
 
@@ -136,10 +140,7 @@ export async function deleteJson<T>(path: string): Promise<T> {
 
     return data as T;
   } catch (error) {
-    if (error instanceof TypeError) {
-      throw new Error('Backend not reachable. Run: node backend/server.js');
-    }
-    throw error;
+    handleFetchError(error);
   }
 }
 
