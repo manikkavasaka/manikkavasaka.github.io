@@ -11,7 +11,6 @@ import Services from './components/landing/Services';
 import AboutAndStats from './components/landing/AboutAndStats';
 import Portfolio from './components/landing/Portfolio';
 import Testimonials from './components/landing/Testimonials';
-import Pricing from './components/landing/Pricing';
 import Contact from './components/landing/Contact';
 import WhatsAppAndPopup from './components/landing/WhatsAppAndPopup';
 import SEOAudit from './components/landing/SEOAudit';
@@ -233,7 +232,6 @@ export default function App() {
             <Portfolio />
             <Testimonials />
             <SEOAudit />
-            <Pricing onSelectTier={() => navigate('pricing')} />
             <NewsletterSection />
             <Contact selectedService={selectedService} onNotificationsSent={handleNotificationsSent} />
           </LandingLayout>

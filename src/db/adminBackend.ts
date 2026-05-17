@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import { postJson, getJson, patchJson, deleteJson } from '../utils/api';
+import { postJson, getJson, patchJson, deleteJson, apiBaseUrl } from '../utils/api';
 
 // ─── Admin credentials (stored as bcrypt hash — password never exposed) ───────
 // Password: Admin@2024  |  To change: run → node -e "require('bcryptjs').hash('NewPass',12).then(console.log)"
@@ -84,7 +84,7 @@ function isTokenValid(token: string): boolean {
 // ─── Backend reachability check ───────────────────────────────────────────────
 async function isBackendOnline(): Promise<boolean> {
   try {
-    const res = await fetch('/api/health', { signal: AbortSignal.timeout(1500) });
+    const res = await fetch(`${apiBaseUrl}/api/health`, { signal: AbortSignal.timeout(1500) });
     return res.ok;
   } catch {
     return false;

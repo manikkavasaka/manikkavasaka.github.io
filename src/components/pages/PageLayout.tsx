@@ -37,7 +37,6 @@ export default function PageLayout({ children, title, description }: PageLayoutP
     { name: 'About', page: 'about' as const },
     { name: 'Portfolio', page: 'portfolio' as const },
     { name: 'Blog', page: 'blog' as const },
-    { name: 'Pricing', page: 'pricing' as const },
     { name: 'Contact', page: 'contact' as const },
   ];
 
@@ -135,7 +134,7 @@ export default function PageLayout({ children, title, description }: PageLayoutP
               <h4 className="mb-5 text-sm font-bold uppercase tracking-wider text-white">Quick Links</h4>
               <ul className="space-y-3 text-sm">
                 {[
-                  ['Home', 'home'], ['Services', 'services'], ['About Us', 'about'], ['Portfolio', 'portfolio'], ['Blog', 'blog'], ['Pricing', 'pricing'], ['Contact', 'contact'], ['Free SEO Audit', 'free-audit']
+                  ['Home', 'home'], ['Services', 'services'], ['About Us', 'about'], ['Portfolio', 'portfolio'], ['Blog', 'blog'], ['Contact', 'contact'], ['Free SEO Audit', 'free-audit']
                 ].map(([label, page]) => (
                   <li key={label}><button onClick={() => goTo(page)} className="flex items-center gap-1.5 transition hover:text-indigo-400"><span className="h-1 w-1 rounded-full bg-indigo-500" />{label}</button></li>
                 ))}

@@ -2,9 +2,14 @@ const getApiBaseUrl = () => {
   const envUrl = (import.meta as ImportMeta & { env?: Record<string, string> }).env?.VITE_API_BASE_URL;
   if (envUrl) return envUrl;
   
-  // Use relative paths by default for Unified Deployment.
-  // This works both in production (on Render/Railway) and locally with Vite Proxy.
-  return '';
+  // If running locally, use relative path (Vite proxy redirects to port 4000)
+  if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+    return '';
+  }
+  
+  // Production Backend URL (Render/Railway)
+  // By default, points to your unified Render service URL.
+  return 'https://mkshopzone-unified.onrender.com';
 };
 
 export const apiBaseUrl = getApiBaseUrl();

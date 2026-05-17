@@ -24,7 +24,6 @@ export default function LandingLayout({ children, onNavigateToDashboard }: Landi
     { name: 'About', page: 'about' as const },
     { name: 'Portfolio', page: 'portfolio' as const },
     { name: 'Blog', page: 'blog' as const },
-    { name: 'Pricing', page: 'pricing' as const },
     { name: 'Contact', page: 'contact' as const },
   ];
 
@@ -128,7 +127,7 @@ export default function LandingLayout({ children, onNavigateToDashboard }: Landi
               <div>
                 <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-5">Quick Links</h4>
                 <ul className="space-y-3 text-sm">
-                  {[{l:'Home',p:'home'},{l:'Services',p:'services'},{l:'About Us',p:'about'},{l:'Portfolio',p:'portfolio'},{l:'Blog',p:'blog'},{l:'Pricing',p:'pricing'},{l:'Contact',p:'contact'},{l:'Free SEO Audit',p:'free-audit'}].map(link => (
+                  {[{l:'Home',p:'home'},{l:'Services',p:'services'},{l:'About Us',p:'about'},{l:'Portfolio',p:'portfolio'},{l:'Blog',p:'blog'},{l:'Contact',p:'contact'},{l:'Free SEO Audit',p:'free-audit'}].map(link => (
                     <li key={link.p}><button onClick={() => goTo(link.p)} className="hover:text-indigo-400 transition flex items-center gap-1.5"><span className="h-1 w-1 bg-indigo-500 rounded-full" />{link.l}</button></li>
                   ))}
                 </ul>

@@ -3,6 +3,7 @@ import { Database, Server, ShieldCheck, Cloud, MessageSquareMore, CreditCard, Gl
 import { adminBackend } from '../../db/adminBackend';
 import { enhancedDB } from '../../db/enhancedDB';
 import { mockDB } from '../../db/mockDB';
+import { apiBaseUrl } from '../../utils/api';
 
 export default function BackendStackPanel() {
   const stack = adminBackend.getTechStack();
@@ -21,7 +22,7 @@ export default function BackendStackPanel() {
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const response = await fetch('/api/stats');
+        const response = await fetch(`${apiBaseUrl}/api/stats`);
         const data = await response.json();
         if (data.ok) {
           setCounts(prev => ({
