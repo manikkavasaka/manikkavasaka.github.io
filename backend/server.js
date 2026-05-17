@@ -53,9 +53,8 @@ app.get('/', (_req, res) => {
   });
 });
 
-app.get('/api/health', async (_req, res) => {
-  const smtpReady = await verifyConnection();
-  res.json({ ok: true, smtpReady, service: 'MK ShopZone Express REST API' });
+app.get('/api/health', (_req, res) => {
+  res.json({ ok: true, service: 'MK ShopZone Express REST API' });
 });
 
 app.use('/api/auth', authRoutes);
@@ -99,10 +98,15 @@ app.use((req, res) => {
 });
 
 (async () => {
-  const smtpReady = await verifyConnection();
-  if (!smtpReady) {
-    console.log('⚠️ SMTP verify failed. API still started for debugging.');
-  }
+  // Run verification in the background without blocking the port binding
+  verifyConnection().then(smtpReady => {
+    if (!smtpReady) {
+      console.log('⚠️ SMTP verify failed. API still started for debugging.');
+    }
+  }).catch(err => {
+    console.warn('⚠️ SMTP Connection check failed:', err.message || err);
+  });
+
   app.listen(PORT, () => {
     console.log(`✅ MK ShopZone Express REST API running on http://localhost:${PORT}`);
   });

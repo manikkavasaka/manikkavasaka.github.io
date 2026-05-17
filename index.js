@@ -40,9 +40,8 @@ app.use('/api/newsletter', subscriberRoutes);
 app.use('/api/payments', paymentRoutes);
 
 // Health check
-app.get('/api/health', async (req, res) => {
-  const smtpReady = await verifyConnection();
-  res.json({ ok: true, smtpReady, service: 'MK ShopZone Unified Server' });
+app.get('/api/health', (req, res) => {
+  res.json({ ok: true, service: 'MK ShopZone Unified Server' });
 });
 
 // Serve static files from the Vite build directory
@@ -59,8 +58,12 @@ app.use((req, res) => {
 // Start Server
 (async () => {
   try {
-    const smtpReady = await verifyConnection();
-    if (smtpReady) console.log('✅ SMTP Server Ready');
+    // Run verification in the background without blocking the port binding
+    verifyConnection().then(smtpReady => {
+      if (smtpReady) console.log('✅ SMTP Server Ready');
+    }).catch(err => {
+      console.warn('⚠️ SMTP Connection failed:', err.message || err);
+    });
     
     app.listen(PORT, () => {
       console.log(`🚀 MK ShopZone Unified Server running on port ${PORT}`);

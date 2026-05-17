@@ -9,7 +9,7 @@ const getApiBaseUrl = () => {
   
   // Production Backend URL (Render/Railway)
   // By default, points to your unified Render service URL.
-  return 'https://mkshopzone-unified.onrender.com';
+  return 'https://manikkavasaka-github-io.onrender.com';
 };
 
 export const apiBaseUrl = getApiBaseUrl();
